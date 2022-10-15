@@ -59,7 +59,6 @@ nav div ul li a {
   align-items: center;
 }
 .btn {
-  font-weight: 400;
   line-height: 24px;
   border-radius: 4px;
   padding: 0.2rem 0.7rem;
@@ -147,11 +146,17 @@ nav .header-buttons .create {
   .mobile-nav {
     display: block;
     transition: 0.25s ease-in-out;
+    padding: 0.7rem;
+    border-radius: 4px;
+    border: 0.96px solid rgba(0, 0, 0, 0.1);
+  }
+  .start,
+  .mid {
+    margin-bottom: 6px;
   }
 
   .mobile-nav div {
     border-bottom: 2px solid var(--codeaskblue);
-    margin-bottom: 6px;
     width: 22px;
   }
 
@@ -190,3 +195,206 @@ nav .header-buttons .create {
 
 /*-------------------------------------------- */
 /*-------------------------------------------- */
+
+/*---------------------- FOOTER STYLE---------------------- */
+footer {
+  background-color: var(--codeaskblue);
+  padding: 60px;
+  width: 100%;
+  z-index: 1;
+  margin-top: 583px;
+  /* padding-bottom: ; */
+}
+
+footer .footer-wrapper .item1 {
+  grid-area: item1;
+}
+
+footer .item2 {
+  grid-area: item2;
+}
+
+footer .footer-wrapper .item3 {
+  grid-area: item3;
+}
+
+footer .footer-wrapper .item4 {
+  grid-area: item4;
+}
+
+footer .footer-wrapper .item5 {
+  grid-area: item5;
+}
+
+footer .footer-wrapper {
+  display: grid;
+  grid-template-areas: 'item1 item2 item3 item4 item5';
+}
+
+footer .footer-wrapper .footer-head {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--grey2);
+  padding-bottom: 28px;
+  text-transform: capitalize;
+}
+
+footer .footer-wrapper ul {
+  list-style-type: none;
+  color: var(--grey2);
+}
+
+footer .footer-wrapper ul li {
+  padding-bottom: 20px;
+}
+
+footer .footer-wrapper ul li a {
+  text-decoration: none;
+  color: var(--grey2);
+}
+
+footer .hr {
+  border-bottom: 1px solid var(--grey2);
+}
+
+/* NEWSLETTER SECTION */
+
+.newsletter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter .newsletter-brief {
+  margin: 40px 0px;
+}
+
+.newsletter .newsletter-brief h4 {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--grey2);
+  padding-bottom: 20px;
+}
+
+.newsletter .newsletter-brief p {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--grey2);
+}
+
+.subscribe-email {
+  border-radius: 4px;
+  border: 2px solid var(--white);
+}
+
+.subscribe-email input {
+  padding: 8px 12px;
+  outline: 1px solid var(--white);
+  border: 2px solid var(--white);
+  width: 200px;
+
+  border-radius: 4px 0px 0px 4px;
+}
+
+.subscribe-email label {
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--codeaskblue);
+  color: var(--white);
+  padding: 6px 12px;
+  margin: 1px;
+}
+
+footer .right-reserved {
+  color: var(--grey2);
+  margin-top: 40px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* MEDIA QUERY FROM DESKTOP TO TABLET FOR FOOTER */
+@media only screen and (max-width: 700px) {
+  footer {
+    padding: 40px 40px;
+  }
+
+  footer .footer-wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-areas:
+      'item1 item1'
+      'item2 item3'
+      'item4 item5';
+    margin-bottom: 2rem;
+  }
+  .item5 {
+    padding-top: 35px;
+  }
+  .hr {
+    margin-bottom: 1rem;
+  }
+  footer .footer-wrapper ul {
+    padding-left: 0px;
+  }
+
+  footer .footer-wrapper div {
+    margin-top: 70px;
+  }
+
+  footer .footer-wrapper .item1 {
+    margin-top: 30px;
+    margin-left: -5px;
+  }
+
+  .newsletter {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .newsletter .newsletter-brief h4,
+  .newsletter .newsletter-brief p {
+    text-align: center;
+  }
+
+  .subscribe-email {
+    margin-bottom: 40px;
+  }
+
+  .subscribe-email input {
+    width: 180px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 940px) {
+  footer .footer-wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-areas:
+      'item1 item1 item1 item1'
+      'item2 item3 item4 item5';
+    margin-bottom: 2rem;
+  }
+  .item1 {
+    margin: 2rem 0;
+  }
+  .item5 {
+    padding-top: 35px;
+  }
+  footer .footer-wrapper ul {
+    padding-left: 0px;
+  }
+  .newsletter {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+    padding-left: 3rem;
+  }
+}
