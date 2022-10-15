@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { LandingPage } from './pages/LandingPage/LandingPage';
 
 function App ()
 {
   return (
     <React.Fragment>
-      <Header />
-      <Footer />
+      <LandingPage />
     </React.Fragment>
   );
 }
