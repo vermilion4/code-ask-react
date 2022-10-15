@@ -1,24 +1,22 @@
 import React from 'react';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
+import { Features } from './components/Features';
+import { Hero } from './components/Hero';
+import { Integration } from './components/Integration';
+import { Testimonial } from './components/Testimonial';
+import '../../stylesheets/landingpage.css';
 
 export const LandingPage = () => {
   return (
     <React.Fragment>
       <Header />
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
-      <h1>HELLO PEOPLE OF THE WORLD</h1>
+      <main>
+        <Hero />
+        <Features />
+        <Integration />
+        <Testimonial />
+      </main>
       <Footer />
     </React.Fragment>
   );
