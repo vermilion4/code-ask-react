@@ -6,6 +6,7 @@
 - Create a branch using the following convention [your_name-feature] e.g [Adaeze-landing-page]
 - Make your changes and update
 - Ensure no conflicts, and make a pull request
+- Please always pull before pushing to avoid conflicts
 - Happy Coding
 
 **PS: Images should be in the assets folder**
