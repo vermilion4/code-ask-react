@@ -1,13 +1,14 @@
 # CodeAsk
 
 ## Getting started
-- Fork this project to your personal github account
-- Clone the forked repo
+
+- Clone this project
 - Create a branch using the following convention [your_name-feature] e.g [Adaeze-landing-page]
 - Make your changes and update
-- Push to your Github
 - Ensure no conflicts, and make a pull request
 - Happy Coding
+
+**PS: Images should be in the assets folder**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
