@@ -1,1 +1,512 @@
+/*---------------------- -------------------------------------------- */
 /*---------------------- HERO SECTION STYLE---------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+.hero {
+  width: 100%;
+  background-color: var(--codeaskcream);
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  max-width: 1200px;
+  width: 80%;
+  margin: auto;
+  padding: 8rem 0 7rem 0;
+  /*height of hero section*/
+}
+
+.hero-wrapper h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 24px;
+  text-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.hero-wrapper p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero-wrapper .hero-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* MEDIA QUERY FROM DESKTOP TO TABLET FOR HEADER */
+@media only screen and (max-width: 940px) {
+  .hero {
+    padding-top: 0px;
+  }
+
+  .hero-wrapper {
+    padding: 8rem 0 5rem 0;
+  }
+
+  .hero-wrapper h3 {
+    font-size: 25px;
+    font-weight: bolder;
+  }
+
+  .hero-wrapper p {
+    font-size: 20px;
+    width: 75%;
+    height: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-wrapper {
+    padding: 10rem 0 5rem 0;
+  }
+  .hero-wrapper .hero-button {
+    flex-direction: column;
+  }
+  .hero-btn {
+    font-weight: normal;
+  }
+}
+
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- FEATURES SECTION STYLE---------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+
+.features-rect1 {
+  position: absolute;
+  z-index: -2;
+}
+
+.features-rect2 {
+  position: absolute;
+  right: -5%;
+  top: -40px;
+  z-index: -2;
+}
+
+.features-rect3 {
+  position: absolute;
+  left: -5%;
+  width: 60px;
+  bottom: 30%;
+  z-index: -2;
+}
+
+.features-rect4 {
+  position: absolute;
+  left: 53%;
+  bottom: 0px;
+  z-index: -2;
+}
+
+.features-rect5 {
+  position: absolute;
+  right: 0px;
+  bottom: 37%;
+  z-index: -2;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 80%;
+  max-width: 1200px;
+  margin: 7rem auto;
+  position: relative;
+  gap: 4rem;
+}
+
+.features .find-solutions,
+.features .post-questions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.solution-image,
+.question-image {
+  width: 50%;
+}
+.solution-image img,
+.question-image img {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.question-image img {
+  width: 60%;
+  margin: 0;
+}
+
+.features .find-solutions .brief,
+.features .post-questions .brief {
+  width: 40%;
+}
+
+.features .post-questions .brief h4,
+.features .find-solutions .brief h4 {
+  font-weight: bold;
+  font-size: 32px;
+  color: var(--codeaskblue);
+  margin-bottom: 32px;
+}
+
+.features .post-questions .brief div,
+.features .find-solutions .brief div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+
+  margin-bottom: 32px;
+}
+
+.features .post-questions .brief p,
+.features .find-solutions .brief p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #373f45;
+}
+
+.feature-bd {
+  font-weight: 800;
+  font-size: 20px;
+  color: #373f45;
+}
+
+/* MEDIA QUERY FOR MOBILE FOR FEATURES SECTION */
+@media (max-width: 600px) {
+  .solution-image img {
+    width: 90%;
+  }
+}
+
+/* MEDIA QUERY FROM DESKTOP TO TABLET FOR FEATURES SECTION */
+@media only screen and (max-width: 940px) {
+  .features {
+    width: 80%;
+  }
+
+  .features .post-questions .question-image {
+    display: none;
+  }
+  .solution-image {
+    width: 100%;
+  }
+  .solution-image img {
+    width: 50%;
+  }
+  .features .find-solutions {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .features .post-questions {
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .features .post-questions,
+  .features .find-solutions {
+    flex-direction: column;
+  }
+  .features .find-solutions .brief,
+  .features .post-questions .brief {
+    width: 100%;
+  }
+
+  .features .post-questions .brief h4,
+  .features .find-solutions .brief h4 {
+    font-size: 20px;
+  }
+
+  .features .post-questions .brief p,
+  .features .find-solutions .brief p {
+    font-size: 16px;
+  }
+
+  .feature-bd {
+    font-size: 16px;
+  }
+
+  .features .post-questions .brief h4 {
+    text-align: right;
+  }
+
+  .features .post-questions .brief div {
+    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .features-rect1 {
+    display: none;
+  }
+
+  /* second green */
+  .features-rect2 {
+    position: absolute;
+    right: -1%;
+    top: 98%;
+    width: 40px;
+  }
+
+  /* first green */
+  .features-rect3 {
+    position: absolute;
+    left: 0px;
+    width: 40px;
+    bottom: 30%;
+  }
+
+  .features-rect4 {
+    display: none;
+  }
+  /* First Yellow */
+  .features-rect5 {
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    width: 40px;
+  }
+}
+
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- INTEGRATION SECTION STYLE---------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+
+.integrations {
+  background-color: var(--codeaskblue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  width: 100%;
+  gap: 3rem;
+}
+
+.integrations h3 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 120%;
+  color: #989a9d;
+}
+
+.integration-logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 80%;
+}
+
+.integration-logos img {
+  width: 10%;
+}
+
+.integration-logos img:last-child,
+.integration-logos img:first-child {
+  width: 13%;
+}
+
+/* MEDIA QUERY FOR TABLET?MOBILE INTEGRATE SECTION */
+@media only screen and (max-width: 940px) {
+  .integrations h3 {
+    font-size: 28px;
+  }
+  .integration-logos img {
+    width: 18%;
+  }
+
+  .integration-logos img:last-child,
+  .integration-logos img:first-child {
+    width: 21%;
+  }
+}
+
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- FEEDBACK SECTION STYLE---------------------- */
+/*---------------------- -------------------------------------------- */
+/*---------------------- -------------------------------------------- */
+
+.feedback-rect1 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+}
+
+.feedback-rect2 {
+  position: absolute;
+  left: 80%;
+  width: 40px;
+  top: 120px;
+}
+
+.feedback-rect3 {
+  position: absolute;
+  left: 10%;
+  width: 40px;
+  top: 140px;
+}
+
+.feedback {
+  background-color: var(--codeaskcream);
+  /* padding: 132px 0px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  padding: 5rem 0 8rem 0;
+}
+
+.feedback h4 {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 47px;
+  text-align: center;
+  color: var(--codeaskblue);
+  width: 40%;
+  margin-bottom: 20px;
+  z-index: 0;
+}
+
+.quotes img:first-child {
+  position: absolute;
+  top: 0;
+  left: -15%;
+}
+.quotes img:last-child {
+  position: absolute;
+  top: 0;
+  right: -15%;
+}
+
+/* .quotes img:first-child{
+  margin-right: 200px;
+} */
+
+.mySlides {
+  display: block;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 600px;
+  position: relative;
+  margin: 2rem auto;
+  z-index: 0;
+}
+
+.slideshow-container .mySlides p {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+
+/* The dots/bullets/indicators */
+.dot-container {
+  left: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.dot {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: inline-block;
+  transform: scale(1);
+  transition: all 0.6s ease;
+}
+.dot img {
+  width: 100%;
+}
+
+.dot:hover,
+.active {
+  /* background-color: #717171; */
+  transform: scale(1.2);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+
+/* MEDIA QUERY FOR TABLET?MOBILE FEEDBACK SECTION */
+
+@media only screen and (max-width: 1200px) {
+  .slideshow-container {
+    max-width: 60%;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .feedback h4 {
+    font-size: 28px;
+    width: 80%;
+  }
+
+  .slideshow-container {
+    max-width: 70%;
+  }
+
+  .slideshow-container .mySlides p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-top: 10px;
+  }
+
+  .quotes img {
+    width: 30px;
+  }
+}

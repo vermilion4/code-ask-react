@@ -1,5 +1,6 @@
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
+import { Button } from './Button';
 
 export const Header = () => {
   return (
@@ -21,14 +22,10 @@ export const Header = () => {
           </ul>
         </div>
         <div className='header-buttons'>
-          <a href='./signin.html' className='btn login'>
-            Log in
-          </a>
-          <a href='./signup.html' className='btn create'>
-            Create an account
-          </a>
+          <Button text='login' link='' loginBtn />
+          <Button text='Create an account' link='' createBtn />
         </div>
-        <div className='mobile-nav' onclick='hamburger()'>
+        <div className='mobile-nav' onClick='hamburger()'>
           <div className='start' />
           <div className='mid' />
           <div className='end' />

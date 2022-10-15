@@ -58,23 +58,6 @@ nav div ul li a {
   gap: 1rem;
   align-items: center;
 }
-.btn {
-  line-height: 24px;
-  border-radius: 4px;
-  padding: 0.2rem 0.7rem;
-  text-decoration: none;
-}
-nav .header-buttons .login {
-  border: 1px solid var(--codeaskblue);
-  color: var(--codeaskblue);
-  background-color: var(--white);
-}
-
-nav .header-buttons .create {
-  border: 1px solid var(--codeaskblue);
-  color: var(--white);
-  background-color: var(--codeaskblue);
-}
 
 /* MEDIA QUERY FROM DESKTOP TO TABLET FOR HEADER */
 @media only screen and (max-width: 940px) {
@@ -202,8 +185,6 @@ footer {
   padding: 60px;
   width: 100%;
   z-index: 1;
-  margin-top: 583px;
-  /* padding-bottom: ; */
 }
 
 footer .footer-wrapper .item1 {
@@ -397,4 +378,43 @@ footer .right-reserved {
     margin-bottom: 4rem;
     padding-left: 3rem;
   }
+}
+
+/*-------------------------------------------- */
+/*-------------------------------------------- */
+
+/*---------------------- BUTTON STYLE---------------------- */
+.btn {
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 0.2rem 0.7rem;
+  text-decoration: none;
+  border: 1px solid var(--codeaskblue);
+}
+
+nav .header-buttons .login {
+  color: var(--codeaskblue);
+  background-color: var(--white);
+}
+
+nav .header-buttons .create {
+  color: var(--white);
+  background-color: var(--codeaskblue);
+}
+
+.hero-btn {
+  font-size: 19px;
+  line-height: 24px;
+  padding: 6px 12px;
+  font-weight: 100;
+}
+
+.hero-wrapper .hero-button .get-started {
+  color: var(--white);
+  background-color: var(--codeaskblue);
+}
+
+.hero-wrapper .hero-button .search {
+  color: var(--codeaskblue);
+  background-color: var(--white);
 }
