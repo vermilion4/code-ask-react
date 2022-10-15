@@ -13,6 +13,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Folder Structure
+**assets** (All images) <br/><br/>
+**components** (Shared components like sidebar, header) <br/>
+----Header.jsx <br/>
+----Footer.jsx <br/><br/>
+**pages** (All individual pages - landing page, etc) <br/>
+----**LandingPage** <br/>
+------**components** (components particular to this page) <br/>
+--------Hero.jsx <br/>
+--------Testimonial.jsx <br/>
+------LandingPage.jsx (Where all the components merge to make the page) <br/>
+----**AboutUs** <br/>
+------**components** (components particular to this page) <br/>
+--------Card.jsx <br/>
+------AboutUs.jsx <br/>
+----**FAQ** </br> 
+------**components** (components particular to this page) <br/>
+--------QuestionBlock.jsx <br/>
+------FAQ.jsx <br/><br/>
+**stylesheets** (All stylesheets for each page) <br/>
+----shared.css (For Shared components styling, e.g Header, Footer, etc.) <br/>
+
 ## Available Scripts
 
 In the project directory, you can run:
