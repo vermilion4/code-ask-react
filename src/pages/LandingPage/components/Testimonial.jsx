@@ -54,18 +54,38 @@ export const Testimonial = () => {
         <div style={{ textAlign: 'center' }} className='dot-container'>
           <span className='dot'>
             <Image source={Testifier2} />
+            <span className='designation'>
+              <span>Stella Dame</span>
+              <span>UI/UX Researcher </span>
+            </span>
           </span>
           <span className='dot'>
             <Image source={Testifier3} />
+            <span className='designation'>
+              <span>Tonia Morales</span>
+              <span>Web Associate Director </span>
+            </span>
           </span>
           <span className='dot active'>
             <Image source={Testifier1} />
+            <span className='designation'>
+              <span>Teddy Max</span>
+              <span>Senior Director at Bajigur.us</span>
+            </span>
           </span>
           <span className='dot'>
             <Image source={Testifier4} />
+            <span className='designation'>
+              <span>Patricia Banks</span>
+              <span>Tech Evangelist</span>
+            </span>
           </span>
           <span className='dot'>
             <Image source={Testifier5} />
+            <span className='designation'>
+              <span>Mary James</span>
+              <span>Developer at AirBnB </span>
+            </span>
           </span>
         </div>
       </div>
