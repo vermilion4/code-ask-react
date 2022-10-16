@@ -1,11 +1,15 @@
 import React from 'react';
-import { LandingPage } from './pages/LandingPage/LandingPage';
+
+import './App.css';
+
+import SignUp from './pages/SignUp/SignUp'
 
 function App ()
 {
   return (
     <React.Fragment>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <SignUp/>
     </React.Fragment>
   );
 }
