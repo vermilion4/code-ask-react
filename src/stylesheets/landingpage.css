@@ -426,12 +426,12 @@
 
 .slideshow-container .mySlides p {
   font-weight: 300;
-  font-size: 32px;
+  font-size: calc(16px + 0.5vw);
   line-height: 130%;
   text-align: center;
   letter-spacing: 0.02em;
   padding-top: 50px;
-  margin-bottom: 30px;
+  color: #373f45;
 }
 
 /* The dots/bullets/indicators */
@@ -439,6 +439,7 @@
   left: 0;
   display: flex;
   gap: 2rem;
+  margin-top: 3rem;
   align-items: center;
   justify-content: center;
 }
@@ -447,17 +448,47 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   display: inline-block;
+  position: relative;
   transform: scale(1);
   transition: all 0.6s ease;
 }
 .dot img {
-  width: 100%;
+  width: 90%;
+  padding: 0.3rem 0.1rem 0 0.1rem;
+  margin: auto;
+  opacity: 0.5;
 }
 
 .dot:hover,
 .active {
   /* background-color: #717171; */
   transform: scale(1.2);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.active img,
+.dot img:hover {
+  opacity: 1;
+}
+.dot .designation {
+  display: none;
+}
+.dot.active .designation {
+  display: block;
+  position: absolute;
+  bottom: -100%;
+  left: -80%;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.designation span:first-child {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--codeaskblue);
+}
+.designation span:last-child {
+  font-size: 8px;
+  color: #03014c;
 }
 
 /* Fading animation */
@@ -496,13 +527,17 @@
     width: 80%;
   }
 
+  .feedback-rect1 {
+    width: 80px;
+  }
+
   .slideshow-container {
     max-width: 70%;
   }
 
   .slideshow-container .mySlides p {
     margin-bottom: 20px;
-    font-size: 16px;
+    /* font-size: 16px; */
     padding-top: 10px;
   }
 

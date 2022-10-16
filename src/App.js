@@ -1,7 +1,8 @@
 import React from 'react';
+
 import './App.css';
-// import { LandingPage } from './pages/LandingPage/LandingPage';
-import SignUp from './pages/SignUp/SignUp';
+
+import SignUp from './pages/SignUp/SignUp'
 
 function App ()
 {
