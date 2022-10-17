@@ -16,6 +16,10 @@
   --grey2: #b2b5b7;
 }
 
+.link-default {
+  text-decoration: none;
+}
+
 /* HEADER CSS */
 
 body {

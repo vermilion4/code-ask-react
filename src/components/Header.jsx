@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
 import { Button } from './Button';
@@ -7,14 +8,14 @@ export const Header = () => {
     <header>
       <nav>
         <div>
-          <a href='./index.html'>
+          <Link to={'/'}>
             <img className='footer-image' src={Logo} alt='Header Logo' />
-          </a>
+          </Link>
         </div>
         <div className='nav-text'>
           <ul>
             <li>
-              <a href='./ourteam.html'>About Us</a>
+              <Link to={'/about-us'}>About Us</Link>
             </li>
             <li>
               <a href='./question.html'>Questions</a>
@@ -23,7 +24,9 @@ export const Header = () => {
         </div>
         <div className='header-buttons'>
           <Button text='login' link='' loginBtn />
-          <Button text='Create an account' link='' createBtn />
+          <Link to={'/sign-up'} className='btn create'>
+            Create an account
+          </Link>
         </div>
         <div className='mobile-nav' onClick='hamburger()'>
           <div className='start' />
