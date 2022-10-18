@@ -76,11 +76,3 @@ Editor.formats = [
   'image',
   'video',
 ];
-
-/*
- * Render component on page
- */
-// ReactDOM.render(
-//   <Editor placeholder={'Write something...'}/>,
-//   document.querySelector('.app')
-// )
