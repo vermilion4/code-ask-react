@@ -18,7 +18,7 @@ export const Header = () => {
               <Link to={'/about-us'}>About Us</Link>
             </li>
             <li>
-              <a href='./question.html'>Questions</a>
+              <Link to={'/sidebar'}>Questions</Link>
             </li>
           </ul>
         </div>
