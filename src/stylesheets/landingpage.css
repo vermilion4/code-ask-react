@@ -8,11 +8,11 @@
 }
 .hero-wrapper .hero-button .get-started {
   color: var(--white);
-  background-color: var(--codeaskblue);
+  background-color: var(--codeaskgreen);
 }
 
 .hero-wrapper .hero-button .search-btn {
-  color: var(--codeaskblue);
+  color: var(--codeaskgreen);
   background-color: var(--white);
 }
 .hero-btn {
@@ -177,7 +177,7 @@
 .features .find-solutions .brief h4 {
   font-weight: bold;
   font-size: 32px;
-  color: var(--codeaskblue);
+  color: var(--codeaskgreen);
   margin-bottom: 32px;
 }
 
@@ -310,7 +310,7 @@
 /*---------------------- -------------------------------------------- */
 
 .integrations {
-  background-color: var(--codeaskblue);
+  background-color: var(--codeaskgreen);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,7 +405,7 @@
   font-size: 40px;
   line-height: 47px;
   text-align: center;
-  color: var(--codeaskblue);
+  color: var(--codeaskgreen);
   width: 40%;
   margin-bottom: 20px;
   z-index: 0;
@@ -498,7 +498,7 @@
 .designation span:first-child {
   font-size: 12px;
   font-weight: bold;
-  color: var(--codeaskblue);
+  color: var(--codeaskgreen);
 }
 .designation span:last-child {
   font-size: 8px;
