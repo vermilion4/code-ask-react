@@ -62,6 +62,9 @@ nav div ul li a {
   gap: 1rem;
   align-items: center;
 }
+.header-buttons button {
+  border: none;
+}
 
 /* MEDIA QUERY FROM DESKTOP TO TABLET FOR HEADER */
 @media only screen and (max-width: 940px) {

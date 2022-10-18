@@ -23,12 +23,16 @@ export const Header = () => {
           </ul>
         </div>
         <div className='header-buttons'>
-          <Link to={''} className='btn login'>
-            login
-          </Link>
-          <Link to={'/sign-up'} className='btn create'>
-            Create an account
-          </Link>
+          <button>
+            <Link to={''} className='btn login'>
+              login
+            </Link>
+          </button>
+          <button>
+            <Link to={'/sign-up'} className='btn create'>
+              Create an account
+            </Link>
+          </button>
         </div>
         <div className='mobile-nav' onClick='hamburger()'>
           <div className='start' />
