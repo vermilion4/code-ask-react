@@ -16,7 +16,6 @@ function App ()
         <Route path='/' element={ <LandingPage /> }></Route>
         <Route path='/about-us' element={ <AboutUs /> }></Route>
         <Route path='/sign-up' element={ <SignUp /> }></Route>
-        <Route path='/sidebar' element={ <Sidebar /> }></Route>
         <Route path='/ask-question' element={ <AskQuestions /> }></Route>
       </Routes>
     </Router>
