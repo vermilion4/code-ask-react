@@ -1,5 +1,7 @@
 import Logo from '../assets/footerlogo.png';
 import '../stylesheets/shared.css';
+import { Link } from 'react-router-dom';
+
 
 export const Footer = () => {
   return (
@@ -15,7 +17,8 @@ export const Footer = () => {
               <a href='./question.html'>Questions</a>
             </li>
             <li>
-              <a href='./FAQ.html'>FAQ</a>
+              {/* <a href='./FAQ.html'>FAQ</a> */}
+              <Link to={'/faq'}>FAQ</Link>
             </li>
           </ul>
         </div>

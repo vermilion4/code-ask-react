@@ -4,6 +4,7 @@
 
 - Clone this project
 - Create a branch using the following convention [your_name-feature] e.g [Adaeze-landing-page]
+- Run 'npm install' to install the dependencies on your local machine
 - Make your changes and update
 - Ensure no conflicts, and make a pull request
 - Please always pull before pushing to avoid conflicts

@@ -1,29 +1,38 @@
+import { Link } from 'react-router-dom';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
-import { Button } from './Button';
 
 export const Header = () => {
   return (
     <header>
       <nav>
         <div>
-          <a href='./index.html'>
+          <Link to={'/'}>
             <img className='footer-image' src={Logo} alt='Header Logo' />
-          </a>
+          </Link>
         </div>
         <div className='nav-text'>
           <ul>
             <li>
-              <a href='./ourteam.html'>About Us</a>
+              <Link to={'/about-us'}>About Us</Link>
             </li>
             <li>
-              <a href='./question.html'>Questions</a>
+              {/* For testing sake */}
+              <Link to={'/ask-question'}>Questions</Link>
             </li>
           </ul>
         </div>
         <div className='header-buttons'>
-          <Button text='login' link='' loginBtn />
-          <Button text='Create an account' link='' createBtn />
+          <button>
+            <Link to={''} className='btn login'>
+              login
+            </Link>
+          </button>
+          <button>
+            <Link to={'/sign-up'} className='btn create'>
+              Create an account
+            </Link>
+          </button>
         </div>
         <div className='mobile-nav' onClick='hamburger()'>
           <div className='start' />
