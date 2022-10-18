@@ -2,9 +2,14 @@
   margin: 120px 300px;
   width: 70%;
 }
-.askquestion-main {
+.askquestion-main,
+.askquestion-h1 {
   max-width: 1000px;
   margin: 3rem auto;
+}
+
+.askquestion-h1 {
+  font-weight: 100;
 }
 
 @media only screen and (max-width: 900px) {
@@ -26,6 +31,9 @@
   border: 1px solid #adb5bd;
   border-radius: 8px;
   padding: 48px 38px;
+  width: 90%;
+}
+.askquestion-h1 {
   width: 90%;
 }
 

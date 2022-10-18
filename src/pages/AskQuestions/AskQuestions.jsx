@@ -30,13 +30,13 @@ export const AskQuestions = () => {
   return (
     <React.Fragment>
       <Sidebar />
+      <LoggedInHeader />
       <div
         id='main'
         style={styles.container(matches)}
         className={loaded ? 'show-sidebar' : 'expand-sidebar'}>
         {/* CONTENT GOES IN HERE */}
-        <LoggedInHeader />
-
+        <h1 className='askquestion-h1'>Ask a Question</h1>
         <section className='askquestion-main'>
           <div className='title'>
             <h5>Title</h5>

@@ -420,7 +420,7 @@ nav .header-buttons .create {
   height: 100%;
   width: 85px;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
   background-color: #002828;
@@ -494,6 +494,7 @@ main .sidebar {
 
 #main {
   transition: margin-left 0.5s;
+  margin-top: 6rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -513,17 +514,20 @@ main .sidebar {
 
 /*-------------------------------------------- */
 /*-------------------------------------------- */
-
 /*---------------------- QUESTION HEADER STYLE---------------------- */
 
 .question-header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
   width: 100%;
   margin-bottom: 3rem;
-  gap: 15rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 0.4rem 1.2rem;
+  background-color: #fff;
+  transition: margin-left 0.5s;
 }
 .question-header-mobile {
   display: none;
@@ -581,6 +585,8 @@ main .sidebar {
     width: 100%;
     background-color: #002828;
     margin-bottom: 2rem;
+    position: fixed;
+    top: 0;
   }
   .white {
     color: #fff;
@@ -595,6 +601,7 @@ main .sidebar {
     background: #083333;
     border-radius: 4px;
     padding: 8px;
+    align-items: center;
   }
   .mobile-nav-question {
     position: fixed;
