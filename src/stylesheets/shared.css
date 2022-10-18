@@ -406,23 +406,6 @@ nav .header-buttons .create {
   background-color: var(--codeaskblue);
 }
 
-.hero-btn {
-  font-size: 19px;
-  line-height: 24px;
-  padding: 6px 12px;
-  font-weight: 100;
-}
-
-.hero-wrapper .hero-button .get-started {
-  color: var(--white);
-  background-color: var(--codeaskblue);
-}
-
-.hero-wrapper .hero-button .search {
-  color: var(--codeaskblue);
-  background-color: var(--white);
-}
-
 /*-------------------------------------------- */
 /*-------------------------------------------- */
 

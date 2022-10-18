@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
-import { Button } from './Button';
 
 export const Header = () => {
   return (
@@ -23,7 +22,9 @@ export const Header = () => {
           </ul>
         </div>
         <div className='header-buttons'>
-          <Button text='login' link='' loginBtn />
+          <Link to={''} className='btn login'>
+            login
+          </Link>
           <Link to={'/sign-up'} className='btn create'>
             Create an account
           </Link>

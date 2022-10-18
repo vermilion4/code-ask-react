@@ -31,7 +31,7 @@ export const Sidebar = () => {
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>
         <div className='sidebar-logo'>
-          <Link to={''}>
+          <Link to={'/'}>
             <img src={Logo} className='logo-icon' />
             <span className='icon-text logo-text'>CodeAsk</span>
           </Link>
@@ -43,7 +43,7 @@ export const Sidebar = () => {
               <span className='icon-text'>Dashboard</span>
             </Link>
             <br />
-            <Link to={''} className='active-link'>
+            <Link to={'/ask-question'} className='active-link'>
               <FontAwesomeIcon icon={faPollH} className='material-icons' />
               <span className='icon-text'></span>
               Questions
