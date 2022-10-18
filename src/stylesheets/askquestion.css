@@ -2,6 +2,10 @@
   margin: 120px 300px;
   width: 70%;
 }
+.askquestion-main {
+  max-width: 1000px;
+  margin: 3rem auto;
+}
 
 @media only screen and (max-width: 900px) {
   .askquestion-wrapper {
@@ -22,6 +26,7 @@
   border: 1px solid #adb5bd;
   border-radius: 8px;
   padding: 48px 38px;
+  width: 90%;
 }
 
 .askquestion-main > div {
@@ -194,22 +199,6 @@
   flex-wrap: wrap;
 }
 
-.undoredo,
-.textsize,
-.alignment,
-.textdecorations,
-.lists,
-.textadditions {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-
-  color: #212529;
-  margin-right: 30px;
-}
-
 .textsize svg {
   display: inline-block;
   vertical-align: middle;
@@ -228,13 +217,6 @@
     display: none;
   }
 
-  .textadditions {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 50px) {
-  .lists,
   .textadditions {
     display: none;
   }

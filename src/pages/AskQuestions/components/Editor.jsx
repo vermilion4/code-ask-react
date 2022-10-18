@@ -1,133 +1,86 @@
-import { EditorContent, useEditor } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import React from 'react';
+import React, { Component } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import '../../../stylesheets/editor.css';
 
-const MenuBar = ({ editor }) => {
-  if (!editor) {
-    return null;
+/*
+ * Simple editor component that takes placeholder text as a prop
+ */
+export class Editor extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { editorHtml: '', theme: 'snow' };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  return (
-    <>
-      <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        disabled={!editor.can().chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}>
-        bold
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        disabled={!editor.can().chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}>
-        italic
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        disabled={!editor.can().chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'is-active' : ''}>
-        strike
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        disabled={!editor.can().chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'is-active' : ''}>
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-      </button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive('paragraph') ? 'is-active' : ''}>
-        paragraph
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}>
-        h1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}>
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}>
-        h3
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}>
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}>
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}>
-        h6
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}>
-        bullet list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}>
-        ordered list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive('codeBlock') ? 'is-active' : ''}>
-        code block
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive('blockquote') ? 'is-active' : ''}>
-        blockquote
-      </button>
-      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
-      </button>
-      <button
-        onClick={() => editor.chain().focus().undo().run()}
-        disabled={!editor.can().chain().focus().undo().run()}>
-        undo
-      </button>
-      <button
-        onClick={() => editor.chain().focus().redo().run()}
-        disabled={!editor.can().chain().focus().redo().run()}>
-        redo
-      </button>
-    </>
-  );
-};
+  handleChange(html) {
+    this.setState({ editorHtml: html });
+  }
 
-export default () => {
-  const editor = useEditor({
-    extensions: [StarterKit],
-    content: `
-      <h2>
-        Hi there,
-      </h2>
-    `,
-  });
+  render() {
+    return (
+      <div>
+        <ReactQuill
+          theme={this.state.theme}
+          value={this.state.editorHtml}
+          modules={Editor.modules}
+          formats={Editor.formats}
+          placeholder={this.props.placeholder}
+        />
+      </div>
+    );
+  }
+}
 
-  return (
-    <div>
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
-    </div>
-  );
+/*
+ * Quill modules to attach to editor
+ * See https://quilljs.com/docs/modules/ for complete options
+ */
+Editor.modules = {
+  toolbar: [
+    ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ header: 1 }, { header: 2 }], // custom button values
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    [{ script: 'sub' }, { script: 'super' }], // superscript/subscript
+    [{ indent: '-1' }, { indent: '+1' }], // outdent/indent
+
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+    ['clean'],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
 };
+/*
+ * Quill editor formats
+ * See https://quilljs.com/docs/formats/
+ */
+Editor.formats = [
+  'header',
+  'font',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'code-block',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
+];
+
+/*
+ * Render component on page
+ */
+// ReactDOM.render(
+//   <Editor placeholder={'Write something...'}/>,
+//   document.querySelector('.app')
+// )
