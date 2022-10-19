@@ -394,18 +394,18 @@ footer .right-reserved {
 .btn {
   line-height: 24px;
   border-radius: 4px;
-  padding: 0.2rem 0.7rem;
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
   border: 1px solid var(--codeaskgreen);
 }
 
-nav .header-buttons .login {
+.login {
   color: var(--codeaskgreen);
   background-color: var(--white);
   font-size: 16px;
 }
 
-nav .header-buttons .create {
+.create {
   color: var(--white);
   background-color: var(--codeaskgreen);
   font-size: 16px;
@@ -536,8 +536,8 @@ main .sidebar {
 .search {
   position: relative;
   padding: 9px 16px;
-  width: 80%;
-  max-width: 640px;
+  width: 50%;
+  max-width: 600px;
   height: 55px;
   border: 0.5px solid #ced4da;
   /* Small Shadow */
