@@ -1,4 +1,4 @@
-import { Sidebar } from './Sidebar';
+import { LoggedInSidebar } from './Sidebar';
 import { useState } from 'react';
 import { Main } from './Main';
 

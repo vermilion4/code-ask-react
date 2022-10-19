@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/whiteLogoSym.png';
 import Logout from '../../assets/logout.png';
 
-export const Sidebar = () => {
+export const LoggedInSidebar = () => {
   const [hover, setHover] = useState(false);
 
   const openSidebar = {
