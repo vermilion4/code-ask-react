@@ -39,6 +39,7 @@ export const AskQuestions = () => {
         {/* CONTENT GOES IN HERE */}
         <h1 className='askquestion-h1'>Ask a Question</h1>
         <Form />
+        <button class='askquestion-button'>POST QUESTION</button>
       </div>
       <NavIcon />
     </React.Fragment>
