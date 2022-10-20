@@ -1,9 +1,9 @@
 import React from 'react';
 import '../stylesheets/shared.css';
 
-const NavIcon = () => {
+const NavIcon = ({ onclick }) => {
   return (
-    <div className='mobile-nav-question'>
+    <div className='mobile-nav-question' onClick={onclick}>
       <div className='start-line' />
       <div className='mid-line' />
       <div className='end-line' />
