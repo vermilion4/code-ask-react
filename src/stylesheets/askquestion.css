@@ -68,7 +68,16 @@
   border: 1px solid var(--codeaskgreen);
   border-radius: 4.8px;
   color: var(--white);
-  margin-top: 55px;
+  margin-left: 5%;
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+
+button {
+  transition: transform ease 0.4s;
+}
+button:hover {
+  transform: scale(1.1);
 }
 
 .askquestion-main div input:focus {

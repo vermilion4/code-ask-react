@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
 
 export const Header = () => {
+  const [show, setShow] = useState(false);
+
+  function mobileNav() {
+    setShow(!show);
+  }
   return (
     <header>
       <nav>
@@ -34,26 +40,28 @@ export const Header = () => {
             </Link>
           </button>
         </div>
-        <div className='mobile-nav' onClick='hamburger()'>
+        <div className='mobile-nav' onClick={mobileNav}>
           <div className='start' />
           <div className='mid' />
           <div className='end' />
         </div>
       </nav>
-      <div className='mobile-nav-menu'>
+      <div className={show ? 'mobile-nav-menu' : ''}>
         <ul className='menu'>
           <li>
-            <a href='/question.html'>Questions</a>
+            <Link to={'/about-us'} href='/question.html'>
+              About Us
+            </Link>
           </li>
           <li>
-            <a href='/ourteam.html'>Team</a>
+            <Link to='/ask-question'>Questions</Link>
           </li>
-          <a href='/signin.html' className='login-mobile'>
+          <Link to='' className={show ? 'login-mobile' : ''}>
             Log in
-          </a>
-          <a href='/signup.html' className='create-mobile'>
+          </Link>
+          <Link to={'/sign-up'} className={show ? 'create-mobile' : ''}>
             Create an account
-          </a>
+          </Link>
         </ul>
       </div>
     </header>

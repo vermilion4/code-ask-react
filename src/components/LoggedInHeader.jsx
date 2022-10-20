@@ -5,6 +5,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import UserAvatar from '../assets/Ajiboye.png';
 import WhiteLogo from '../assets/WhiteLogo.png';
 import '../stylesheets/shared.css';
+import { Link } from 'react-router-dom';
 
 export const LoggedInHeader = () => {
   const [loaded, setLoaded] = useState(true);
@@ -37,7 +38,9 @@ export const LoggedInHeader = () => {
       </header>
       <section className='question-header-mobile'>
         <div className='logo'>
-          <img src={WhiteLogo} alt='' />
+          <Link to='/'>
+            <img src={WhiteLogo} alt='' />
+          </Link>
         </div>
         <div className='mobile-notification'>
           <div className='mobile-icons'>
