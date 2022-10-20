@@ -8,25 +8,9 @@ import '../stylesheets/shared.css';
 import { Link } from 'react-router-dom';
 
 export const LoggedInHeader = () => {
-  const [loaded, setLoaded] = useState(true);
-
-  const closeNav = {
-    marginLeft: '85px',
-  };
-  const openNav = {
-    marginLeft: '250px',
-    padding: '0.4rem 2rem',
-  };
-
-  function load() {
-    setLoaded(
-      !document.querySelector('.sidebar').classList.contains('openSidebar')
-    );
-  }
-  document.addEventListener('mousemove', load);
   return (
     <React.Fragment>
-      <header className={'question-header'} style={loaded ? closeNav : openNav}>
+      <header className={'question-header'}>
         <div className='search'>
           <FontAwesomeIcon icon={faSearch} className='search-icon' />
           <input type='search' placeholder='Search...' />

@@ -26,7 +26,7 @@ export const LoggedOutSidebar = () => {
     <React.Fragment>
       <div
         id='mySidebar'
-        className={`sidebar ${hover ? 'openSidebar' : null}`}
+        className={'sidebar'}
         style={hover ? openSidebar : closeSidebar}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>

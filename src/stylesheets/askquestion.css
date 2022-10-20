@@ -2,6 +2,7 @@
 .askquestion-h1 {
   max-width: 1000px;
   margin: 3rem auto;
+  width: 70%;
 }
 
 .askquestion-h1 {
@@ -20,10 +21,6 @@
   border: 1px solid #adb5bd;
   border-radius: 8px;
   padding: 48px 38px;
-  width: 90%;
-}
-.askquestion-h1 {
-  width: 90%;
 }
 
 .askquestion-main > div {
@@ -68,15 +65,13 @@
   border: 1px solid var(--codeaskgreen);
   border-radius: 4.8px;
   color: var(--white);
-  margin-left: 5%;
+  margin-left: 15%;
   margin-bottom: 3rem;
   cursor: pointer;
-}
-
-button {
   transition: transform ease 0.4s;
 }
-button:hover {
+
+.askquestion-button:hover {
   transform: scale(1.1);
 }
 
@@ -177,5 +172,12 @@ button:hover {
 @media (max-width: 768px) {
   .askquestion-h1 {
     font-size: 24px;
+  }
+  .askquestion-main,
+  .askquestion-h1 {
+    width: 90%;
+  }
+  .askquestion-button {
+    margin-left: 5%;
   }
 }

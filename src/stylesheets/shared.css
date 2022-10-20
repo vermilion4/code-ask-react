@@ -418,7 +418,7 @@ footer .right-reserved {
   height: 100%;
   width: 85px;
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   top: 0;
   left: 0;
   background-color: #002828;
@@ -493,6 +493,7 @@ main .sidebar {
 #main {
   transition: margin-left 0.5s;
   margin-top: 6rem;
+  margin-left: 85px;
   min-height: 100vh;
 }
 
@@ -521,6 +522,7 @@ main .sidebar {
   top: 0;
   width: 100%;
   margin-bottom: 3rem;
+  margin-left: 85px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
