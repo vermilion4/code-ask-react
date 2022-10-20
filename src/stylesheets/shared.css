@@ -494,10 +494,73 @@ main .sidebar {
   margin-left: 85px;
   min-height: 100vh;
 }
+.sidebar.mobile {
+  display: none;
+}
 
 @media screen and (max-width: 900px) {
   .sidebar {
     display: none;
+  }
+  .sidebar.mobile {
+    display: block;
+    width: 100%;
+  }
+  .sidebar.mobile .sidebar-logout {
+    width: 90%;
+    margin: 0 0 0 0.5rem;
+    display: grid;
+    place-content: center;
+    left: 3%;
+  }
+
+  .sidebar.mobile .material-icons.logout {
+    margin-left: 0;
+  }
+  .sidebar.mobile .sidebar-logo {
+    padding: 10px 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar.mobile .sidebar-links {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .sidebar.mobile .sidebar-links a {
+    margin-left: 20px;
+  }
+  .sidebar.mobile a {
+    padding: 8px 8px 8px 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: #546f6f;
+    display: block;
+  }
+  .sidebar.mobile a:hover,
+  .sidebar.mobile a.active-link {
+    color: #f1f1f1;
+  }
+  .close-icon {
+    width: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .sidebar-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sidebar-profile {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px 1.5rem;
+  }
+  .sidebar-profile p {
+    font-weight: 100;
   }
 }
 
@@ -606,7 +669,7 @@ main .sidebar {
     position: fixed;
     transition: 0.25s ease-in-out;
     padding: 0.7rem;
-    border-radius: 4px;
+    border-radius: 9px;
     width: 46px;
     background-color: #002828;
     border: 0.96px solid rgba(0, 0, 0, 0.1);
