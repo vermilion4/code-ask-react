@@ -36,41 +36,36 @@ export const LoggedInSidebar = () => {
             <span className='icon-text logo-text'>CodeAsk</span>
           </Link>
         </div>
-        <div className='lower-sidebar'>
-          <div className='sidebar-links'>
-            <Link to={''}>
-              <FontAwesomeIcon icon={faHome} className='material-icons' />
-              <span className='icon-text'>Dashboard</span>
-            </Link>
-            <br />
-            <Link to={'/ask-question'} className='active-link'>
-              <FontAwesomeIcon icon={faPollH} className='material-icons' />
-              <span className='icon-text'></span>
-              Questions
-            </Link>
-            <br />
-            <Link to={''}>
-              <FontAwesomeIcon
-                icon={faCommentDots}
-                className='material-icons'
-              />
-              <span className='icon-text'></span>
-              Discussions
-            </Link>
-            <br />
-            <Link to={''}>
-              <FontAwesomeIcon icon={faGear} className='material-icons' />
-              <span className='icon-text'></span>
-              Settings
-              <span />
-            </Link>
-          </div>
-          <div className='sidebar-logout'>
-            <Link to={''}>
-              <img src={Logout} className='material-icons logout' />
-              <span className='icon-text'>Logout</span>
-            </Link>
-          </div>
+        <div className='sidebar-links'>
+          <Link to={''}>
+            <FontAwesomeIcon icon={faHome} className='material-icons' />
+            <span className='icon-text'>Dashboard</span>
+          </Link>
+          <br />
+          <Link to={'/ask-question'} className='active-link'>
+            <FontAwesomeIcon icon={faPollH} className='material-icons' />
+            <span className='icon-text'></span>
+            Questions
+          </Link>
+          <br />
+          <Link to={''}>
+            <FontAwesomeIcon icon={faCommentDots} className='material-icons' />
+            <span className='icon-text'></span>
+            Discussions
+          </Link>
+          <br />
+          <Link to={''}>
+            <FontAwesomeIcon icon={faGear} className='material-icons' />
+            <span className='icon-text'></span>
+            Settings
+            <span />
+          </Link>
+        </div>
+        <div className='sidebar-logout'>
+          <Link to={''}>
+            <img src={Logout} className='material-icons logout' />
+            <span className='icon-text'>Logout</span>
+          </Link>
         </div>
       </div>
     </React.Fragment>
