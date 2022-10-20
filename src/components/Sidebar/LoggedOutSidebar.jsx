@@ -26,7 +26,7 @@ export const LoggedOutSidebar = () => {
     <React.Fragment>
       <div
         id='mySidebar'
-        className={`sidebar ${hover ? 'openSidebar' : null}`}
+        className={'sidebar'}
         style={hover ? openSidebar : closeSidebar}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>
@@ -36,15 +36,12 @@ export const LoggedOutSidebar = () => {
             <span className='icon-text logo-text'>CodeAsk</span>
           </Link>
         </div>
-        <div className='lower-sidebar'>
-          <div className='sidebar-links'>
-            <Link to={'/ask-question'} className='active-link'>
-              <FontAwesomeIcon icon={faPollH} className='material-icons' />
-              <span className='icon-text'></span>
-              Questions
-            </Link>
-            <br />
-          </div>
+        <div className='sidebar-links'>
+          <Link to={'/ask-question'} className='active-link'>
+            <FontAwesomeIcon icon={faPollH} className='material-icons' />
+            <span className='icon-text'></span>
+            Questions
+          </Link>
         </div>
       </div>
     </React.Fragment>

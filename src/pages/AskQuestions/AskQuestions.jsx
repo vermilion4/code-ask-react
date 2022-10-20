@@ -6,8 +6,6 @@ import '../../stylesheets/askquestion.css';
 import Form from './components/Form';
 
 export const AskQuestions = () => {
-  const [loaded, setLoaded] = useState(true);
-
   const mediaMatch = window.matchMedia('(max-width: 900px)');
   const [matches, setMatches] = useState(mediaMatch.matches);
 
@@ -17,25 +15,16 @@ export const AskQuestions = () => {
     return () => mediaMatch.removeListener(handler);
   });
   const styles = {
-    container: (isRowBased) => ({
-      marginLeft: isRowBased ? '0px' : null,
+    container: (noSidebar) => ({
+      marginLeft: noSidebar ? '0px' : null,
     }),
   };
 
-  function load() {
-    setLoaded(
-      !document.querySelector('.sidebar').classList.contains('openSidebar')
-    );
-  }
-  document.addEventListener('mousemove', load);
   return (
     <React.Fragment>
       <LoggedInSidebar />
       <LoggedInHeader />
-      <div
-        id='main'
-        style={styles.container(matches)}
-        className={loaded ? 'show-sidebar' : 'expand-sidebar'}>
+      <div id='main' style={styles.container(matches)}>
         {/* CONTENT GOES IN HERE */}
         <h1 className='askquestion-h1'>Ask a Question</h1>
         <Form />
