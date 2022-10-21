@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
-import UserAvatar from '../assets/Ajiboye.png';
-import WhiteLogo from '../assets/WhiteLogo.png';
 import { Link } from 'react-router-dom';
-import '../stylesheets/shared.css';
+import '../../stylesheets/shared.css';
+import LoggedOutHeaderMobile from './LoggedOutHeaderMobile';
 
 export const LoggedOutHeader = () => {
   const [loaded, setLoaded] = useState(true);
@@ -44,19 +42,7 @@ export const LoggedOutHeader = () => {
           </button>
         </div>
       </header>
-      <section className='question-header-mobile'>
-        <div className='logo'>
-          <img src={WhiteLogo} alt='' />
-        </div>
-        <div className='mobile-notification'>
-          <div className='mobile-icons'>
-            <FontAwesomeIcon
-              icon={faSearch}
-              className='search-icon-mobile white'
-            />
-          </div>
-        </div>
-      </section>
+      <LoggedOutHeaderMobile />
     </React.Fragment>
   );
 };
