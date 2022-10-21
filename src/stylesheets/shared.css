@@ -51,6 +51,11 @@ nav div ul li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.55);
 }
+nav div ul li a:hover,
+.active {
+  color: #002828;
+  border: none;
+}
 
 .selected {
   color: var(--black);
@@ -436,6 +441,7 @@ footer .right-reserved {
   margin: 0 0.5rem;
   position: absolute;
   bottom: 3%;
+  width: 100%;
 }
 .material-icons.logout {
   margin-left: -0.5rem;

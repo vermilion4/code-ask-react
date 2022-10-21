@@ -446,6 +446,11 @@
   letter-spacing: 0.02em;
   padding-top: 50px;
   color: #373f45;
+  display: none;
+}
+
+.slideshow-container .mySlides p.show {
+  display: block;
 }
 
 /* The dots/bullets/indicators */
@@ -474,7 +479,7 @@
 }
 
 .dot:hover,
-.active {
+.dot.active {
   /* background-color: #717171; */
   transform: scale(1.2);
   border: 1px solid rgba(0, 0, 0, 0.15);
