@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/shared.css';
+import '../../stylesheets/shared.css';
 
 const NavIcon = ({ onclick }) => {
   return (

@@ -1,11 +1,6 @@
 import YellowSquare from '../../../assets/square1.png';
 import GreenSquare from '../../../assets/square2.png';
 import YellowRectangle from '../../../assets/rectangle1.png';
-import Testifier1 from '../../../assets/testifier1.png';
-import Testifier2 from '../../../assets/testifier2.png';
-import Testifier3 from '../../../assets/testifier3.png';
-import Testifier4 from '../../../assets/testifier4.png';
-import Testifier5 from '../../../assets/testifier5.png';
 import { Image } from '../../../components/Image';
 import { useState, useEffect } from 'react';
 import { TestimonialContainer } from './TestimonialContainer';

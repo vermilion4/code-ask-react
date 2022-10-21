@@ -1,38 +1,33 @@
 import React, { useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/whiteLogoSym.png';
-import Logout from '../../assets/logout.png';
 import { loggedInNavData } from '../../Data/loggedInNavData';
+import Logo from '../../assets/WhiteLogo.png';
+import Logout from '../../assets/logout.png';
+import Avatar from '../../assets/Avatar.png';
 
-export const LoggedInSidebar = () => {
-  const [hover, setHover] = useState(false);
+export const LoggedInMobile = ({ onclick }) => {
   const [active, setActive] = useState(1);
-
-  const openSidebar = {
-    width: '250px',
-  };
-  const closeSidebar = {
-    width: '85px',
-  };
-
-  function handleHover() {
-    setHover(!hover);
-  }
-
   return (
     <React.Fragment>
-      <div
-        id='mySidebar'
-        className={'sidebar'}
-        style={hover ? openSidebar : closeSidebar}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}>
+      <div id='mySidebar' className={'sidebar mobile'}>
         <div className='sidebar-logo'>
           <Link to={'/'}>
-            <img src={Logo} className='logo-icon' alt='' />
-            <span className='icon-text logo-text'>CodeAsk</span>
+            <img src={Logo} alt='' />
           </Link>
+          <FontAwesomeIcon
+            icon={faClose}
+            className='close-icon'
+            onClick={onclick}
+          />
+        </div>
+        <div className='sidebar-profile'>
+          <img src={Avatar} alt='icon' />
+          <div className='sidebar-details'>
+            <h3>Muideen Ajiboye</h3>
+            <p>Edit Profile</p>
+          </div>
         </div>
         <div className='sidebar-links'>
           {loggedInNavData.map(({ id, icon, text, link }) => {
@@ -53,7 +48,7 @@ export const LoggedInSidebar = () => {
         </div>
         <div className='sidebar-logout'>
           <Link to={''}>
-            <img src={Logout} className='material-icons logout' alt='' />
+            <img src={Logout} className='material-icons logout' alt='icon' />
             <span className='icon-text'>Logout</span>
           </Link>
         </div>
