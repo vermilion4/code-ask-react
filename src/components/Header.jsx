@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
+import { headerLinks } from '../Data/headerLinks';
 
 export const Header = () => {
   const [show, setShow] = useState(false);
@@ -19,13 +20,15 @@ export const Header = () => {
         </div>
         <div className='nav-text'>
           <ul>
-            <li>
-              <Link to={'/about-us'}>About Us</Link>
-            </li>
-            <li>
-              {/* For testing sake */}
-              <Link to={'/ask-question'}>Questions</Link>
-            </li>
+            {headerLinks.map(({ id, link, text }) => {
+              return (
+                <li>
+                  <NavLink key={id} to={link} activeClassName='active'>
+                    {text}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className='header-buttons'>
