@@ -535,7 +535,7 @@ main .sidebar {
     margin: 2rem auto;
   }
   .sidebar.mobile .sidebar-links a {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   .sidebar.mobile a {
     padding: 8px 8px 8px 0;
@@ -552,6 +552,7 @@ main .sidebar {
     width: 40px;
     font-size: 1.5rem;
     color: #fff;
+    cursor: pointer;
   }
   .sidebar-details {
     display: flex;
@@ -681,6 +682,7 @@ main .sidebar {
     border: 0.96px solid rgba(0, 0, 0, 0.1);
     bottom: 3%;
     right: 3%;
+    cursor: pointer;
   }
   .start-line,
   .mid-line {
