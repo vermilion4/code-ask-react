@@ -1,5 +1,5 @@
 .faq-container {
-  padding: 10px 100px 30px 100px;
+  padding: 10px 100px;
   /* min-height: 100vh; */
 }
 .head-intro {
@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 855px) {
   .faq-container {
-    padding: 10px 30px 1000px 30px;
+    padding: 10px 30px;
   }
 
   .head-intro h1 {

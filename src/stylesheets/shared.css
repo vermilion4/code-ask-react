@@ -51,6 +51,11 @@ nav div ul li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.55);
 }
+nav div ul li a:hover,
+.active {
+  color: #002828;
+  border: none;
+}
 
 .selected {
   color: var(--black);
@@ -88,29 +93,29 @@ nav div ul li a {
 .mobile-nav {
   display: none;
 }
-
+.mobile-nav:hover {
+  cursor: pointer;
+}
 /* ////////////////////////////////////////////////// */
 
 /* MEDIA QUERY FROM DESKTOP TO TABLET FOR MOBILE NAV */
 @media only screen and (max-width: 940px) {
   /* MOBILE NAV  */
   .mobile-nav-menu {
-    display: none;
+    display: block;
   }
 
   /* ///////////////////////////////////////////// */
   .mobile-nav-menu .menu {
-    padding-top: 62px;
+    position: fixed;
     background-color: var(--codeaskcream);
     width: 100%;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-bottom: 20px; /*figma file was 80px*/
+    padding: 5rem 2.5rem 20px 2.5rem;
+    z-index: 4;
   }
 
   .mobile-nav-menu ul {
     list-style-type: none;
-    color: var(--grey2);
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -126,7 +131,7 @@ nav div ul li a {
 
   .mobile-nav-menu ul li a {
     text-decoration: none;
-    color: var(--grey2);
+    color: rgba(0, 0, 0, 0.55);
   }
 
   .mobile-nav-menu ul li .selected {
@@ -158,7 +163,6 @@ nav div ul li a {
     border: 1px solid var(--codeaskgreen);
     color: var(--codeaskgreen);
     background-color: var(--white);
-
     text-decoration: none;
     padding: 6px 12px;
     /* margin: 0px 16px; */
@@ -175,7 +179,6 @@ nav div ul li a {
     border: 1px solid var(--codeaskgreen);
     color: var(--white);
     background-color: var(--codeaskgreen);
-
     text-decoration: none;
     padding: 6px 12px;
     text-align: center;
@@ -394,18 +397,18 @@ footer .right-reserved {
 .btn {
   line-height: 24px;
   border-radius: 4px;
-  padding: 0.2rem 0.7rem;
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
   border: 1px solid var(--codeaskgreen);
 }
 
-nav .header-buttons .login {
+.login {
   color: var(--codeaskgreen);
   background-color: var(--white);
   font-size: 16px;
 }
 
-nav .header-buttons .create {
+.create {
   color: var(--white);
   background-color: var(--codeaskgreen);
   font-size: 16px;
@@ -420,7 +423,7 @@ nav .header-buttons .create {
   height: 100%;
   width: 85px;
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   top: 0;
   left: 0;
   background-color: #002828;
@@ -436,6 +439,9 @@ nav .header-buttons .create {
   background: #072e2e;
   border-radius: 4px;
   margin: 0 0.5rem;
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
 }
 .material-icons.logout {
   margin-left: -0.5rem;
@@ -446,11 +452,7 @@ nav .header-buttons .create {
 .expand-sidebar {
   margin-left: 250px;
 }
-.lower-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 20rem;
-}
+
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -495,12 +497,77 @@ main .sidebar {
 #main {
   transition: margin-left 0.5s;
   margin-top: 6rem;
+  margin-left: 85px;
   min-height: 100vh;
+}
+.sidebar.mobile {
+  display: none;
 }
 
 @media screen and (max-width: 900px) {
   .sidebar {
     display: none;
+  }
+  .sidebar.mobile {
+    display: block;
+    width: 100%;
+  }
+  .sidebar.mobile .sidebar-logout {
+    width: 90%;
+    margin: 0 0 0 0.5rem;
+    display: grid;
+    place-content: center;
+    left: 3%;
+  }
+
+  .sidebar.mobile .material-icons.logout {
+    margin-left: 0;
+  }
+  .sidebar.mobile .sidebar-logo {
+    padding: 10px 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar.mobile .sidebar-links {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .sidebar.mobile .sidebar-links a {
+    margin-left: 10px;
+  }
+  .sidebar.mobile a {
+    padding: 8px 8px 8px 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: #546f6f;
+    display: block;
+  }
+  .sidebar.mobile a:hover,
+  .sidebar.mobile a.active-link {
+    color: #f1f1f1;
+  }
+  .close-icon {
+    width: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  .sidebar-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sidebar-profile {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px 1.5rem;
+  }
+  .sidebar-profile p {
+    font-weight: 100;
   }
 }
 
@@ -523,6 +590,7 @@ main .sidebar {
   top: 0;
   width: 100%;
   margin-bottom: 3rem;
+  margin-left: 85px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -536,8 +604,8 @@ main .sidebar {
 .search {
   position: relative;
   padding: 9px 16px;
-  width: 80%;
-  max-width: 640px;
+  width: 50%;
+  max-width: 600px;
   height: 55px;
   border: 0.5px solid #ced4da;
   /* Small Shadow */
@@ -608,12 +676,13 @@ main .sidebar {
     position: fixed;
     transition: 0.25s ease-in-out;
     padding: 0.7rem;
-    border-radius: 4px;
+    border-radius: 9px;
     width: 46px;
     background-color: #002828;
     border: 0.96px solid rgba(0, 0, 0, 0.1);
     bottom: 3%;
     right: 3%;
+    cursor: pointer;
   }
   .start-line,
   .mid-line {

@@ -3,8 +3,6 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LandingPage } from './pages/LandingPage/LandingPage';
 import { AboutUs } from './pages/AboutUs/AboutUs';
 import SignUp from './pages/SignUp/SignUp';
-import { Sidebar } from './components/Sidebar/Sidebar';
-// import { Test } from './components/Sidebar/Test';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import FAQ from './pages/FAQ/FAQ';
 
