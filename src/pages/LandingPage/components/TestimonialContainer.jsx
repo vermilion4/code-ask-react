@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import OpenQuote from '../../../assets/quotes1.png';
 import CloseQuote from '../../../assets/quotes2.png';
 import { Image } from '../../../components/Image';
@@ -28,13 +28,11 @@ export const TestimonialContainer = () => {
           <Image source={OpenQuote} alt='Quotation mark left' />
           <Image source={CloseQuote} alt='Quotation mark right' />
         </div>
-        {testimonials.map(({ id, text }) => {
-          return (
-            <p key={id} className={id === active ? 'show' : ''}>
-              {text}
-            </p>
-          );
-        })}
+        {testimonials
+          .filter((testimonial) => testimonial.id === active)
+          .map((filtered) => {
+            return <p key={filtered.id}>{filtered.text}</p>;
+          })}
       </div>
     </div>
   );
