@@ -421,6 +421,7 @@ footer .right-reserved {
   padding: 0.5rem 0.7rem;
   text-decoration: none;
   border: 1px solid var(--codeaskgreen);
+  transition: all ease-in-out 0.3s;
 }
 
 .login {
@@ -428,11 +429,19 @@ footer .right-reserved {
   background-color: var(--white);
   font-size: 16px;
 }
+.login:hover {
+  background-color: var(--codeaskgreen);
+  color: var(--white);
+}
 
 .create {
   color: var(--white);
   background-color: var(--codeaskgreen);
   font-size: 16px;
+}
+.create:hover {
+  color: var(--codeaskgreen);
+  background-color: var(--white);
 }
 
 /*-------------------------------------------- */

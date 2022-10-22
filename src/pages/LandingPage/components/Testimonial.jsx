@@ -28,25 +28,16 @@ export const Testimonial = () => {
       {/* RECTANGLE DESIGNS */}
       <Image
         classname={'feedback-rect1'}
-        fadeInOut
-        moveLeft
-        moveTop
         alt={'Square design 1'}
         source={YellowRectangle}
       />
       <Image
         classname={'feedback-rect2'}
-        fadeInOut
-        moveLeft
-        moveBottom
         alt={'Square design 2'}
         source={YellowSquare}
       />
       <Image
         classname={'feedback-rect3'}
-        fadeInOut
-        moveRight
-        moveBottom
         alt={'Square design 3'}
         source={GreenSquare}
       />

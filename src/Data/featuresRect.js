@@ -7,9 +7,6 @@ export const featuresRect = [
     id: 0,
     image: <Image
       classname={ 'features-rect1' }
-      fadeInOut
-      moveRight
-      moveBottom
       alt={ 'Square design 1' }
       source={ YellowSquare }
     />
@@ -18,9 +15,6 @@ export const featuresRect = [
     id: 1,
     image: <Image
       classname={ 'features-rect2' }
-      fadeInOut
-      moveLeft
-      moveBottom
       alt={ 'Square design 2' }
       source={ GreenSquare }
     />
@@ -29,9 +23,6 @@ export const featuresRect = [
     id: 2,
     image: <Image
       classname={ 'features-rect3' }
-      fadeInOut
-      moveRight
-      moveTop
       alt={ 'Square design 3' }
       source={ GreenSquare }
     />
@@ -40,9 +31,6 @@ export const featuresRect = [
     id: 3,
     image: <Image
       classname={ 'features-rect4' }
-      fadeInOut
-      moveLeft
-      moveTop
       alt={ 'Square design 4' }
       source={ YellowSquare }
     />
@@ -51,9 +39,6 @@ export const featuresRect = [
     id: 4,
     image: <Image
       classname={ 'features-rect5' }
-      fadeInOut
-      moveLeft
-      moveBottom
       alt={ 'Square design 5' }
       source={ YellowSquare }
     />
