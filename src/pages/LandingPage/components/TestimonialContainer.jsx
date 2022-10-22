@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 import OpenQuote from '../../../assets/quotes1.png';
 import CloseQuote from '../../../assets/quotes2.png';
 import { Image } from '../../../components/Image';
