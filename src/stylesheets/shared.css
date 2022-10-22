@@ -8,12 +8,16 @@
 }
 
 :root {
-  --codeaskblue: #002828;
+  --codeaskgreen: #002828;
   --codeaskcream: #faf0e6;
 
   --white: #ffffff;
   --black: #212529;
   --grey2: #b2b5b7;
+}
+
+.link-default {
+  text-decoration: none;
 }
 
 /* HEADER CSS */
@@ -47,6 +51,11 @@ nav div ul li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.55);
 }
+nav div ul li a:hover,
+.active {
+  color: #002828;
+  border: none;
+}
 
 .selected {
   color: var(--black);
@@ -57,6 +66,9 @@ nav div ul li a {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+.header-buttons button {
+  border: none;
 }
 
 /* MEDIA QUERY FROM DESKTOP TO TABLET FOR HEADER */
@@ -81,29 +93,29 @@ nav div ul li a {
 .mobile-nav {
   display: none;
 }
-
+.mobile-nav:hover {
+  cursor: pointer;
+}
 /* ////////////////////////////////////////////////// */
 
 /* MEDIA QUERY FROM DESKTOP TO TABLET FOR MOBILE NAV */
 @media only screen and (max-width: 940px) {
   /* MOBILE NAV  */
   .mobile-nav-menu {
-    display: none;
+    display: block;
   }
 
   /* ///////////////////////////////////////////// */
   .mobile-nav-menu .menu {
-    padding-top: 62px;
+    position: fixed;
     background-color: var(--codeaskcream);
     width: 100%;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-bottom: 20px; /*figma file was 80px*/
+    padding: 5rem 2.5rem 20px 2.5rem;
+    z-index: 4;
   }
 
   .mobile-nav-menu ul {
     list-style-type: none;
-    color: var(--grey2);
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -119,7 +131,7 @@ nav div ul li a {
 
   .mobile-nav-menu ul li a {
     text-decoration: none;
-    color: var(--grey2);
+    color: rgba(0, 0, 0, 0.55);
   }
 
   .mobile-nav-menu ul li .selected {
@@ -139,7 +151,7 @@ nav div ul li a {
   }
 
   .mobile-nav div {
-    border-bottom: 2px solid var(--codeaskblue);
+    border-bottom: 2px solid var(--codeaskgreen);
     width: 22px;
   }
 
@@ -148,10 +160,9 @@ nav div ul li a {
     size: 16px;
     line-height: 24px;
     border-radius: 4px;
-    border: 1px solid var(--codeaskblue);
-    color: var(--codeaskblue);
+    border: 1px solid var(--codeaskgreen);
+    color: var(--codeaskgreen);
     background-color: var(--white);
-
     text-decoration: none;
     padding: 6px 12px;
     /* margin: 0px 16px; */
@@ -165,10 +176,9 @@ nav div ul li a {
     size: 16px;
     line-height: 24px;
     border-radius: 4px;
-    border: 1px solid var(--codeaskblue);
+    border: 1px solid var(--codeaskgreen);
     color: var(--white);
-    background-color: var(--codeaskblue);
-
+    background-color: var(--codeaskgreen);
     text-decoration: none;
     padding: 6px 12px;
     text-align: center;
@@ -181,7 +191,7 @@ nav div ul li a {
 
 /*---------------------- FOOTER STYLE---------------------- */
 footer {
-  background-color: var(--codeaskblue);
+  background-color: var(--codeaskgreen);
   padding: 60px;
   width: 100%;
   z-index: 1;
@@ -282,7 +292,7 @@ footer .hr {
 .subscribe-email label {
   font-weight: 400;
   font-size: 16px;
-  background-color: var(--codeaskblue);
+  background-color: var(--codeaskgreen);
   color: var(--white);
   padding: 6px 12px;
   margin: 1px;
@@ -387,34 +397,300 @@ footer .right-reserved {
 .btn {
   line-height: 24px;
   border-radius: 4px;
-  padding: 0.2rem 0.7rem;
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
-  border: 1px solid var(--codeaskblue);
+  border: 1px solid var(--codeaskgreen);
 }
 
-nav .header-buttons .login {
-  color: var(--codeaskblue);
+.login {
+  color: var(--codeaskgreen);
   background-color: var(--white);
+  font-size: 16px;
 }
 
-nav .header-buttons .create {
+.create {
   color: var(--white);
-  background-color: var(--codeaskblue);
+  background-color: var(--codeaskgreen);
+  font-size: 16px;
 }
 
-.hero-btn {
-  font-size: 19px;
-  line-height: 24px;
-  padding: 6px 12px;
-  font-weight: 100;
+/*-------------------------------------------- */
+/*-------------------------------------------- */
+
+/*---------------------- SIDEBAR STYLE---------------------- */
+
+.sidebar {
+  height: 100%;
+  width: 85px;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  background-color: #002828;
+  transition: 0.5s;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+.sidebar-logo {
+  padding-bottom: 40px;
+}
+.sidebar-logout {
+  background: #072e2e;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+}
+.material-icons.logout {
+  margin-left: -0.5rem;
+}
+.show-sidebar {
+  margin-left: 85px;
+}
+.expand-sidebar {
+  margin-left: 250px;
 }
 
-.hero-wrapper .hero-button .get-started {
-  color: var(--white);
-  background-color: var(--codeaskblue);
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #546f6f;
+  display: block;
+}
+.logo-text {
+  color: #fff;
 }
 
-.hero-wrapper .hero-button .search {
-  color: var(--codeaskblue);
-  background-color: var(--white);
+.sidebar a:hover,
+.sidebar a.active-link {
+  color: #f1f1f1;
+}
+
+main .sidebar {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.material-icons,
+.logo-icon,
+.icon-text {
+  vertical-align: middle;
+}
+
+.material-icons {
+  padding-bottom: 3px;
+  width: 20px;
+  margin-right: 40px;
+}
+.logo-icon {
+  width: 40px;
+  margin-left: -10px;
+  margin-right: 30px;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  margin-top: 6rem;
+  margin-left: 85px;
+  min-height: 100vh;
+}
+.sidebar.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar.mobile {
+    display: block;
+    width: 100%;
+  }
+  .sidebar.mobile .sidebar-logout {
+    width: 90%;
+    margin: 0 0 0 0.5rem;
+    display: grid;
+    place-content: center;
+    left: 3%;
+  }
+
+  .sidebar.mobile .material-icons.logout {
+    margin-left: 0;
+  }
+  .sidebar.mobile .sidebar-logo {
+    padding: 10px 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar.mobile .sidebar-links {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .sidebar.mobile .sidebar-links a {
+    margin-left: 10px;
+  }
+  .sidebar.mobile a {
+    padding: 8px 8px 8px 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: #546f6f;
+    display: block;
+  }
+  .sidebar.mobile a:hover,
+  .sidebar.mobile a.active-link {
+    color: #f1f1f1;
+  }
+  .close-icon {
+    width: 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  .sidebar-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sidebar-profile {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px 1.5rem;
+  }
+  .sidebar-profile p {
+    font-weight: 100;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+/*-------------------------------------------- */
+/*-------------------------------------------- */
+/*---------------------- QUESTION HEADER STYLE---------------------- */
+
+.question-header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  margin-bottom: 3rem;
+  margin-left: 85px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.4rem 1.2rem;
+  background-color: #fff;
+  transition: margin-left 0.5s;
+}
+.question-header-mobile {
+  display: none;
+}
+.search {
+  position: relative;
+  padding: 9px 16px;
+  width: 50%;
+  max-width: 600px;
+  height: 55px;
+  border: 0.5px solid #ced4da;
+  /* Small Shadow */
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
+  border-radius: 4.8px 0px 0px 4.8px;
+}
+.search-icon {
+  position: absolute;
+  left: 3%;
+  top: 35%;
+  width: 15px;
+  color: #6c757d;
+}
+.search input {
+  border: none;
+  margin-left: 2rem;
+  padding: 0.5rem 0.2rem;
+  width: 80%;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.search input:focus {
+  border: none;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.userAvatar {
+  border-radius: 50%;
+  width: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+  .question-header {
+    display: none;
+  }
+  .question-header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 1rem;
+    height: 55px;
+    width: 100%;
+    background-color: #002828;
+    margin-bottom: 2rem;
+    position: fixed;
+    top: 0;
+  }
+  .white {
+    color: #fff;
+  }
+  .mobile-notification {
+    display: flex;
+    gap: 1rem;
+  }
+  .mobile-icons {
+    display: flex;
+    gap: 1rem;
+    background: #083333;
+    border-radius: 4px;
+    padding: 8px;
+    align-items: center;
+  }
+  .mobile-nav-question {
+    position: fixed;
+    transition: 0.25s ease-in-out;
+    padding: 0.7rem;
+    border-radius: 9px;
+    width: 46px;
+    background-color: #002828;
+    border: 0.96px solid rgba(0, 0, 0, 0.1);
+    bottom: 3%;
+    right: 3%;
+    cursor: pointer;
+  }
+  .start-line,
+  .mid-line {
+    margin-bottom: 6px;
+  }
+
+  .mobile-nav-question div {
+    border-bottom: 2px solid #fff;
+    width: 22px;
+  }
 }

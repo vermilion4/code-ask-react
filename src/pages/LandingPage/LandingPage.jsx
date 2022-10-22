@@ -1,6 +1,6 @@
 import React from 'react';
 import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
+import { Header } from '../../components/Header/Header';
 import { Features } from './components/Features';
 import { Hero } from './components/Hero';
 import { Integration } from './components/Integration';
