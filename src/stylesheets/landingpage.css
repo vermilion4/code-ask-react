@@ -10,10 +10,18 @@
   color: var(--white);
   background-color: var(--codeaskgreen);
 }
+.hero-wrapper .hero-button .get-started:hover {
+  color: var(--codeaskgreen);
+  background-color: var(--white);
+}
 
 .hero-wrapper .hero-button .search-btn {
   color: var(--codeaskgreen);
   background-color: var(--white);
+}
+.hero-wrapper .hero-button .search-btn:hover {
+  color: var(--white);
+  background-color: var(--codeaskgreen);
 }
 .hero-btn {
   font-size: 19px;
