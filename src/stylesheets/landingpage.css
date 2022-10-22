@@ -378,7 +378,7 @@
   position: absolute;
   left: 80%;
   width: 40px;
-  top: 120px;
+  top: 20px;
 }
 
 .feedback-rect3 {
@@ -446,11 +446,6 @@
   letter-spacing: 0.02em;
   padding-top: 50px;
   color: #373f45;
-  display: none;
-}
-
-.slideshow-container .mySlides p.show {
-  display: block;
 }
 
 /* The dots/bullets/indicators */
