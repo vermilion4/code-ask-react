@@ -1,25 +1,25 @@
 const QuestionBody = () => {
   return (
-    <div className="question-page" id="questionPage">
-      <div className="question-top-navbar">
+    <div className='question-page' id='questionPage'>
+      <div className='question-top-navbar'>
         <ul>
           <li>
-            <a href="#" className="active">
+            <a href='/' className='active'>
               All
             </a>
           </li>
           <li>
-            <a href="#">Newest</a>
+            <a href='/'>Newest</a>
           </li>
           <li>
-            <a href="#">Unanswered</a>
+            <a href='/'>Unanswered</a>
           </li>
           <li>
-            <a href="#">Answered</a>
+            <a href='/'>Answered</a>
           </li>
         </ul>
       </div>
-      <div className="questions-wrapper">
+      <div className='questions-wrapper'>
         {/* <div class="questions">
             <div class="question-box">
               <img src="${`https://ui-avatars.com/api/?name=${arrayAuthor.join("+")}`}" alt="" />
@@ -46,19 +46,19 @@ const QuestionBody = () => {
             </div>
           </div> */}
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -71,19 +71,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -96,19 +96,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -121,19 +121,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -146,19 +146,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -171,19 +171,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -196,19 +196,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -221,19 +221,19 @@ const QuestionBody = () => {
           </div>
         </div>
 
-        <div className="questions">
-          <div className="question-box">
+        <div className='questions'>
+          <div className='question-box'>
             <img
-              src="https://ui-avatars.com/api/?name=anything"
-              alt="avatar profile"
+              src='https://ui-avatars.com/api/?name=anything'
+              alt='avatar profile'
             />
-            <div className="question-content">
-              <div className="question-statement">
-                <p>Fetch data using axios is so ddifferent from using fetch</p>
+            <div className='question-content'>
+              <div className='question-statement'>
+                <p>Fetch data using axios is so different from using fetch</p>
               </div>
               <br />
               <br />
-              <div className="question-box-tags">
+              <div className='question-box-tags'>
                 <ul>
                   <li>html</li>
                   <li>css</li>
@@ -245,7 +245,6 @@ const QuestionBody = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

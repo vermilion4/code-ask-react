@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
 import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
 import NavIcon from '../../components/QuestionHeader/NavIcon';
@@ -7,19 +7,6 @@ import QuestionsWrapper from './components/QuestionsWrapper';
 import '../../stylesheets/questions.css';
 
 export const Questions = () => {
-  const mediaMatch = window.matchMedia('(max-width: 900px)');
-  const [matches, setMatches] = useState(mediaMatch.matches);
-
-  useEffect(() => {
-    const handler = (e) => setMatches(e.matches);
-    mediaMatch.addListener(handler);
-    return () => mediaMatch.removeListener(handler);
-  });
-  const styles = {
-    container: (noSidebar) => ({
-      marginLeft: noSidebar ? '0px' : null,
-    }),
-  };
   const [show, setShow] = useState(false);
 
   function mobileNav() {
@@ -28,18 +15,16 @@ export const Questions = () => {
 
   if (show === false) {
     return (
-      <React.Fragment>
+      <div className='question-main'>
         <LoggedInSidebar />
         <LoggedInHeader />
-        {/* <div id='main' style={styles.container(matches)}> */}
+        <main>
           {/* CONTENT GOES IN HERE */}
-          <main>
-          <QuestionsWrapper/>
-          </main>
+          <QuestionsWrapper />
           {/* CONTENT ENDS HERE */}
-        {/* </div> */}
+        </main>
         <NavIcon onclick={mobileNav} />
-      </React.Fragment>
+      </div>
     );
   } else {
     return <LoggedInMobile onclick={mobileNav} />;
