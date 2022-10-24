@@ -1,6 +1,6 @@
 
 
-const TeamCard = ({imagePath, name, role, hobbies, linkedIn, twitter, globe, github}) => {
+const TeamCard = ({imagePath, name, role, hobbies, linkedIn, twitter, portfolioWebsite, github}) => {
 
     return (
       <div className="team-card">
@@ -23,7 +23,7 @@ const TeamCard = ({imagePath, name, role, hobbies, linkedIn, twitter, globe, git
               <a href={twitter}>
                 <i className="icons fab fa-twitter" />
               </a>
-              <a href={globe}>
+              <a href={portfolioWebsite}>
                 <i className="icons fas fa-globe" />
               </a>
               <a href={github}>
