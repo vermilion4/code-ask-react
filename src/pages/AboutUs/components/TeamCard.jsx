@@ -1,5 +1,5 @@
 
-
+import React from "react"
 const TeamCard = ({imagePath, name, role, hobbies, linkedIn, twitter, globe, github}) => {
 
     return (

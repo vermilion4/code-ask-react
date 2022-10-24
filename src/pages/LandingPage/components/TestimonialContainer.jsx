@@ -1,3 +1,5 @@
+import React from "react"
+
 import OpenQuote from '../../../assets/quotes1.png';
 import CloseQuote from '../../../assets/quotes2.png';
 import { Image } from '../../../components/Image';

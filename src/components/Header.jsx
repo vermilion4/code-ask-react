@@ -1,3 +1,4 @@
+import React from "react"
 import { Link } from 'react-router-dom';
 import Logo from '../assets/headerlogo.png';
 import '../stylesheets/shared.css';
@@ -24,7 +25,7 @@ export const Header = () => {
         </div>
         <div className='header-buttons'>
           <button>
-            <Link to={''} className='btn login'>
+            <Link to={'/sign-in'} className='btn login'>
               login
             </Link>
           </button>

@@ -1,3 +1,4 @@
+import React from "react"
 function SignUpBrief(props){
     const {classname, text1, text2 } = props
     return (

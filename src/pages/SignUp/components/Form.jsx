@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import EmailInput from "./EmailInput"
 import NameInput from "./NameInput"
 import PasswordInput from "./PasswordInput"
@@ -41,11 +42,21 @@ function Form (){
            text={"Sign up with Github"}/>
 
 
-          <SignUpBrief classname={"signup-brief"} text1={"Already have an Account"} text2={"Log In"}/>
+          <div className="signin-wrap">
+          <SignUpBrief classname={"signup-brief"} text1={"Already have an Account? "}/>
+          
+          <Link to = {'/sign-in'}>
+          <SignUpBrief classname={"signup-brief"} text2={"LogIn"}/>
         
+          </Link>
          
+          </div>
+        
+           <Link to = {'/'}>
            <BackButton className={"back-button"} icon={"←"} text = {"Back"}/>
     
+           </Link>
+          
       </section>
     )
 }

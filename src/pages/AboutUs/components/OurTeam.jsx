@@ -1,3 +1,4 @@
+import React from 'react';
 import TeamCard from './TeamCard';
 import HamzatPic from '../../../assets/ourteam/Hamzat.png';
 import AdaezePic from '../../../assets/ourteam/Adaeze.png';

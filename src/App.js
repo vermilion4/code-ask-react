@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LandingPage } from './pages/LandingPage/LandingPage';
 import { AboutUs } from './pages/AboutUs/AboutUs';
 import SignUp from './pages/SignUp/SignUp';
+import { SignIn } from './pages/SignIn/SignIn';
 import { Sidebar } from './components/Sidebar/Sidebar';
 // import { Test } from './components/Sidebar/Test';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
@@ -18,6 +19,7 @@ function App ()
         <Route path='/' element={ <LandingPage /> }></Route>
         <Route path='/about-us' element={ <AboutUs /> }></Route>
         <Route path='/sign-up' element={ <SignUp /> }></Route>
+        <Route path='/sign-in' element={ <SignIn/> }></Route>
         <Route path='/ask-question' element={ <AskQuestions /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
       </Routes>

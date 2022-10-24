@@ -1,3 +1,5 @@
+
+import React from "react"
 import YellowSquare from '../../../assets/square1.png';
 import GreenSquare from '../../../assets/square2.png';
 import { Image } from '../../../components/Image';

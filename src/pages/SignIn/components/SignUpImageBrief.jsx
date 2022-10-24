@@ -1,25 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import CyclicDesign1 from "../pages/SignUp/components/CyclicDesign1"
+import React from "react"
+import CyclicDesign1 from "../../SignUp/components/CyclicDesign1"
 import frame from "../assets/TabandPhoneImage.png"
 import Logo2 from "../assets/Frame 33.png"
 
-
 function SignUpImageBrief(){
     return (
-      <React.Fragment>
-         <div className="signup-image-brief">
+        <div className="signup-image-brief">
           <CyclicDesign1/>
 
-          <div className="signup-image-wrap">
-            <Link to = {'/'}>
+         <div className="signup-image-wrap">
+           <a href="./index.html">
             <img
               className="codeask-logo"
               src={Logo2}
             />
-            </Link>
-            
-          
+          </a>
 
           <h3>A Q&A platform for Software Developers</h3>
           <img
@@ -29,8 +24,6 @@ function SignUpImageBrief(){
           />
          </div>
         </div>
-      </React.Fragment>
-       
     )
 }
 

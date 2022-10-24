@@ -3,7 +3,10 @@
   left: 0;
   bottom: 0;
 }
-
+.signup-image-wrap{
+  margin-top: 150px;
+  text-align: center;
+}
 .signup-image {
   background-color: var(--codeaskgreen);
   width: 50vw;
@@ -41,6 +44,10 @@
 
 /* VERY LARGE SCREEN ABOVE 1200PX */
 @media only screen and (min-width: 1200px) {
+  .signup-image-wrap{
+    margin-top: 100px;
+
+  }
   .signup-image .tabletphone-image {
     object-fit: fill;
     width: 75%;
@@ -69,6 +76,7 @@
     display: none;
   }
   .codeask-form-logo {
+    padding-top: 30px;
     display: block;
   }
 }

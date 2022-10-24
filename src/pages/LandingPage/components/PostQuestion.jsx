@@ -1,3 +1,4 @@
+import React from "react"
 import QuestionMark from '../../../assets/questionmark.png';
 import CodeSign from '../../../assets/codesign.png';
 import Programmer from '../../../assets/postquestion.png';

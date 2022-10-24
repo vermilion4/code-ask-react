@@ -1,3 +1,4 @@
+import React from 'react';
 import '../stylesheets/shared.css';
 export const Image = ({
   classname,
