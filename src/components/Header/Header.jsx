@@ -66,18 +66,6 @@ export const Header = () => {
             <Link to='/questions'>Questions</Link>
           </li>
 
-          {headerLinks.map(({ id, link, text }) => {
-            return (
-              <li key={id}>
-                <NavLink
-                  className={(navData) => (navData.isActive ? 'active' : '')}
-                  to={link}>
-                  {text}
-                </NavLink>
-              </li>
-            );
-          })}
-
           <Link to='' className={show ? 'login-mobile' : ''}>
             Log in
           </Link>
