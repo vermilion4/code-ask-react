@@ -191,7 +191,7 @@
     justify-content: center;
     margin: 0 30px;
     padding-bottom: 30px;
-    z-index: -1;
+    z-index: 0;
   }
   .question-main {
     position: relative;
