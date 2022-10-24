@@ -18,7 +18,7 @@ function App ()
         <Route path='/about-us' element={ <AboutUs /> }></Route>
         <Route path='/sign-up' element={ <SignUp /> }></Route>
         <Route path='/questions' element={ <Questions /> }></Route>
-        <Route path='/AskQuestions' element={ <AskQuestions /> }></Route>
+        <Route path='/ask-question' element={ <AskQuestions /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
       </Routes>
     </Router>

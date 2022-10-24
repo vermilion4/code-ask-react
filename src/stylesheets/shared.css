@@ -619,7 +619,7 @@ main .sidebar {
   z-index: 5;
   top: 0;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   margin-left: 85px;
   display: flex;
   justify-content: space-evenly;
@@ -638,7 +638,6 @@ main .sidebar {
   max-width: 600px;
   height: 55px;
   border: 0.5px solid #ced4da;
- 
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
   border-radius: 4.8px 0px 0px 4.8px;

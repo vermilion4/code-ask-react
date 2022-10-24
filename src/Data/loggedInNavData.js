@@ -14,7 +14,7 @@ export const loggedInNavData = [
     id: 1,
     icon: <FontAwesomeIcon icon={ faPollH } className='material-icons' />,
     text: 'Questions',
-    link: '/ask-question'
+    link: '/questions'
   },
   {
     id: 2,
