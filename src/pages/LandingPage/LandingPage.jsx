@@ -5,6 +5,7 @@ import { Features } from './components/Features';
 import { Hero } from './components/Hero';
 import { Integration } from './components/Integration';
 import { Testimonial } from './components/Testimonial';
+import 'animate.css';
 import '../../stylesheets/landingpage.css';
 
 export const LandingPage = () => {

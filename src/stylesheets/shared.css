@@ -52,6 +52,7 @@ nav div ul li a {
   color: rgba(0, 0, 0, 0.55);
 }
 nav div ul li a:hover,
+.mobile-nav-menu li a:hover,
 .active {
   color: #002828;
   border: none;
@@ -145,6 +146,9 @@ nav div ul li a:hover,
     border-radius: 4px;
     border: 0.96px solid rgba(0, 0, 0, 0.1);
   }
+  .mobile-nav:hover {
+    background-color: #dbcebf;
+  }
   .start,
   .mid {
     margin-bottom: 6px;
@@ -153,6 +157,13 @@ nav div ul li a:hover,
   .mobile-nav div {
     border-bottom: 2px solid var(--codeaskgreen);
     width: 22px;
+  }
+  .mobile-nav .hide {
+    display: none;
+  }
+  .mobile-nav .close {
+    font-size: 1.3rem;
+    width: 20px;
   }
 
   .login-mobile {
@@ -165,10 +176,14 @@ nav div ul li a:hover,
     background-color: var(--white);
     text-decoration: none;
     padding: 6px 12px;
-    /* margin: 0px 16px; */
     text-align: center;
     width: 100%;
     margin-bottom: 8px;
+    transition: all ease-in-out 0.3s;
+  }
+  .login-mobile:hover {
+    background-color: var(--codeaskgreen);
+    color: var(--white);
   }
 
   .create-mobile {
@@ -183,7 +198,13 @@ nav div ul li a:hover,
     padding: 6px 12px;
     text-align: center;
     width: 100%;
+    transition: all ease-in-out 0.3s;
   }
+}
+
+.create-mobile:hover {
+  background-color: var(--white);
+  color: var(--codeaskgreen);
 }
 
 /*-------------------------------------------- */
@@ -400,6 +421,7 @@ footer .right-reserved {
   padding: 0.5rem 0.7rem;
   text-decoration: none;
   border: 1px solid var(--codeaskgreen);
+  transition: all ease-in-out 0.3s;
 }
 
 .login {
@@ -407,11 +429,19 @@ footer .right-reserved {
   background-color: var(--white);
   font-size: 16px;
 }
+.login:hover {
+  background-color: var(--codeaskgreen);
+  color: var(--white);
+}
 
 .create {
   color: var(--white);
   background-color: var(--codeaskgreen);
   font-size: 16px;
+}
+.create:hover {
+  color: var(--codeaskgreen);
+  background-color: var(--white);
 }
 
 /*-------------------------------------------- */

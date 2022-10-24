@@ -3,7 +3,7 @@ import '../../../stylesheets/landingpage.css';
 export const Hero = () => {
   return (
     <section className='hero'>
-      <div className='hero-wrapper'>
+      <div className='hero-wrapper animate__animated animate__bounceInDown'>
         <h3>
           Spend less time finding solutions to your technical Questions, help
           others answer theirs

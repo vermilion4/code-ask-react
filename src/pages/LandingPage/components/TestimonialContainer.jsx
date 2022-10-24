@@ -23,7 +23,7 @@ export const TestimonialContainer = () => {
 
   return (
     <div className='slideshow-container'>
-      <div className='mySlides fade'>
+      <div className='mySlides'>
         <div className='quotes'>
           <Image source={OpenQuote} alt='Quotation mark left' />
           <Image source={CloseQuote} alt='Quotation mark right' />
@@ -31,7 +31,11 @@ export const TestimonialContainer = () => {
         {testimonials
           .filter((testimonial) => testimonial.id === active)
           .map((filtered) => {
-            return <p key={filtered.id}>{filtered.text}</p>;
+            return (
+              <p className='fade' key={filtered.id}>
+                {filtered.text}
+              </p>
+            );
           })}
       </div>
     </div>

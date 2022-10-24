@@ -180,4 +180,7 @@
   .askquestion-button {
     margin-left: 5%;
   }
+  .askquestion-main {
+    padding: 48px 25px;
+  }
 }
