@@ -8,7 +8,7 @@ export const headerLinks = [
   },
   {
     id: 1,
-    link: '/ask-question',
+    link: '/questions',
     text: 'Questions'
   }
 

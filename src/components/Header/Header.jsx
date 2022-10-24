@@ -59,7 +59,7 @@ export const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to='/ask-question'>Questions</Link>
+            <Link to='/questions'>Questions</Link>
           </li>
           <Link to='' className={show ? 'login-mobile' : ''}>
             Log in
