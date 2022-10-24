@@ -56,6 +56,16 @@ export const Header = () => {
       </nav>
       <div className={show ? 'mobile-nav-menu' : ''}>
         <ul className='menu'>
+
+          <li>
+            <Link to={'/about-us'} href='/question.html'>
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link to='/questions'>Questions</Link>
+          </li>
+
           {headerLinks.map(({ id, link, text }) => {
             return (
               <li key={id}>
@@ -67,6 +77,7 @@ export const Header = () => {
               </li>
             );
           })}
+
           <Link to='' className={show ? 'login-mobile' : ''}>
             Log in
           </Link>
