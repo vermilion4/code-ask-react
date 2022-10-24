@@ -160,6 +160,8 @@ body {
   
   gap: 30px;
   
+  position: relative;
+  z-index: -1;
 }
 
 .flex-question .left-side{
@@ -169,24 +171,14 @@ body {
 
  .right-side {
   width:35%;
-    /* background-color: transparent;
-    width: 30%;
-    right: 10px;
-    top: 105px; */
-    /* position: fixed; */
-    bottom: 10px;
+  position: fixed;
+  top: 120px;
+  right:30px;
+  padding-left: 80px;
+
   } 
   
-  /* .right-side .btn {
-    color: #fff;
-    background-color: #002828;
-    border-radius: 4px;
-    padding: 10px 20px;
-  }
-  
-  .right-side a {
-    text-decoration: none;
-  } */
+ 
   
    .top-weekly {
     width: 100%;
@@ -213,6 +205,8 @@ body {
   
       .right-side {
         width: 100%;
+         position: static;
+         padding-left: 0px;
       }
   
     }

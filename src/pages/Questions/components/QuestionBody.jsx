@@ -95,6 +95,157 @@ const QuestionBody = () => {
             </div>
           </div>
         </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="questions">
+          <div className="question-box">
+            <img
+              src="https://ui-avatars.com/api/?name=anything"
+              alt="avatar profile"
+            />
+            <div className="question-content">
+              <div className="question-statement">
+                <p>Fetch data using axios is so ddifferent from using fetch</p>
+              </div>
+              <br />
+              <br />
+              <div className="question-box-tags">
+                <ul>
+                  <li>html</li>
+                  <li>css</li>
+                </ul>
+                <p>
+                  asked 9 hours ago by <span>@Chidi</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
