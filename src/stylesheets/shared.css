@@ -685,6 +685,7 @@ main .sidebar {
     margin-bottom: 2rem;
     position: fixed;
     top: 0;
+    z-index: 1;
   }
   .white {
     color: #fff;
