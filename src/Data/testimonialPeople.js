@@ -1,3 +1,4 @@
+import React from 'react';
 import Testifier1 from '../assets/testifier1.png';
 import Testifier2 from '../assets/testifier2.png';
 import Testifier3 from '../assets/testifier3.png';
