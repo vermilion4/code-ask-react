@@ -1,16 +1,17 @@
+// Would be replaced with API for TrendingTags
+const tags = ['React', 'Python', 'nodeJS', 'tailwind', 'css', 'c++', 'Go', 'Java', 'SCSS', 'SASS', 'Swift', 'Ionic']
+
 const TrendingTags = () => {
     return (
       <div className="trending-tags">
         <h2>Trending tags</h2>
         <ul>
-          <li>web</li>
-          <li>browser</li>
-          <li>javascript</li>
-          <li>java</li>
-          <li>c++</li>
-          <li>Go</li>
-          <li>nodejs</li>
-          <li>reactjs</li>
+          {tags.map( (eachTag, index) => {
+
+            return(
+              <li key={index}>{eachTag}</li>
+            );
+          })}
         </ul>
       </div>
     );
