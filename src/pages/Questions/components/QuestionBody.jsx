@@ -1,3 +1,6 @@
+import React from "react";
+
+
 const questions = [
   {
     id: 0,

@@ -1,3 +1,5 @@
+
+import React from 'react';
 import Robot from '../../../assets/findsolution.png';
 import { Image } from '../../../components/Image';
 import { findSolution } from '../../../Data/findSolution';

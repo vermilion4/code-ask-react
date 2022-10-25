@@ -1,3 +1,5 @@
+import React from "react";
+
 // Would be replaced with API for TrendingTags
 const tags = ['React', 'Python', 'nodeJS', 'tailwind', 'css', 'c++', 'Go', 'Java', 'SCSS', 'SASS', 'Swift', 'Ionic']
 

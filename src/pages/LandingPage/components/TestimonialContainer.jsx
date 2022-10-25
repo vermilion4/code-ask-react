@@ -1,5 +1,3 @@
-import React from "react"
-
 import React, { useState, useEffect } from 'react';
 import OpenQuote from '../../../assets/quotes1.png';
 import CloseQuote from '../../../assets/quotes2.png';
