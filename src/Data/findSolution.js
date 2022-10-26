@@ -1,3 +1,4 @@
+import React from 'react';
 import Pen from '../assets/pen.png';
 import MiniSearchIcon from '../assets/minisearchicon.png';
 import Stack from '../assets/stack.png';

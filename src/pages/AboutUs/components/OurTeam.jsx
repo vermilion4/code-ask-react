@@ -1,3 +1,4 @@
+import React from 'react';
 import TeamCard from './TeamCard';
 
 import {teamData} from '../../../Data/teamData';

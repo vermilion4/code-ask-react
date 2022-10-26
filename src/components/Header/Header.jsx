@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from '../../assets/headerlogo.png';
@@ -37,7 +38,7 @@ export const Header = () => {
         </div>
         <div className='header-buttons'>
           <button>
-            <Link to={''} className='btn login'>
+            <Link to={'/sign-in'} className='btn login'>
               login
             </Link>
           </button>

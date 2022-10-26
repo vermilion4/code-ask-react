@@ -1,3 +1,4 @@
+import React from 'react';
 import YellowSquare from '../../../assets/square1.png';
 import GreenSquare from '../../../assets/square2.png';
 import YellowRectangle from '../../../assets/rectangle1.png';

@@ -1,3 +1,5 @@
+
+import React from "react"
 import Logo from '../assets/footerlogo.png';
 import '../stylesheets/shared.css';
 import { Link } from 'react-router-dom';

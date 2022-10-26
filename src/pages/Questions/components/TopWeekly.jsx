@@ -1,3 +1,5 @@
+
+import React from "react";
 // Would be replaced with API for Top Weekly Questions
 const topWeekly = [
   {

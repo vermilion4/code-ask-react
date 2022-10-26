@@ -1,4 +1,4 @@
-
+import React from "react"
 function LinkedInGithub(props){
     const {classname,svgclassname, width, height, viewbox, fill, path, colorFill, text}= props
 return(

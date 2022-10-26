@@ -1,4 +1,4 @@
-
+import React from "react"
 function SignUpIntro(props){
 const { classname, text, paragraph}= props
 
