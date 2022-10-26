@@ -1,3 +1,5 @@
+import React from "react"
+
 function CyclicDesign1(){
     return (
         <div className="cyclic-design1">

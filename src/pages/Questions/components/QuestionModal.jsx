@@ -1,3 +1,5 @@
+import React from "react";
+
 const QuestionModal = () => {
     return (
       <div className="modal login-modal">

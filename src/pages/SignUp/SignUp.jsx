@@ -1,4 +1,5 @@
 
+import React from "react";
 import CyclicDesign2 from "./components/CyclicDesign2";
 import SignUpFormWrap from "./components/SignUpFormWrap";
 import SignUpImageBrief from "../../components/SignUpImageBrief";

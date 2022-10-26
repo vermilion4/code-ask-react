@@ -1,17 +1,17 @@
-
+import React from "react"
 import Form from "./Form";
+import CyclicDesign2 from "./CyclicDesign2";
 import SignUpIntro from "./SignupIntro";
 import CodeaskLogo from "./CodeaskLogo";
-function signupformWrap(){
+function SignUpFormWrap(){
   return (
     <section class="signup">
-      <CodeaskLogo/>
-          {/* signupIntro comes here */}
-          <SignUpIntro classname ={"signup-intro"} text={"Create An Account"} paragraph={"Start Your Journey!"}/>
-         {/* form comes here */}
 
+      <CyclicDesign2/>
+      <CodeaskLogo/>
+          <SignUpIntro classname ={"signup-intro"} text={"Create An Account"} paragraph={"Start Your Journey!"}/>
         <Form/>
     </section>
  )       
 }
-export default signupformWrap
+export default SignUpFormWrap

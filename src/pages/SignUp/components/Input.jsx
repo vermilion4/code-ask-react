@@ -1,3 +1,5 @@
+
+import React from "react"
 function Input( props){
 
     const {classname,type, id, name,placeholder } = props
