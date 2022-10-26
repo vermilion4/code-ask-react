@@ -165,6 +165,7 @@ body {
   letter-spacing: 0.005em;
   color: var(--codeAskGreen);
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .about-section .about-content p {
@@ -354,6 +355,7 @@ body {
 
   .about-section .about-content h2 {
     font-size: 30px;
+    text-align: left;
   }
 
   .about-section .about-content p {
