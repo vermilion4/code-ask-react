@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Input from "../../SignUp/components/Input";
 import CyclicDesign2 from "../../SignUp/components/CyclicDesign2";
-import EmailInput from "../../SignUp/components/EmailInput"
-import PasswordInput from "../../SignUp/components/PasswordInput"
+// import EmailInput from "../../SignUp/components/EmailInput"
+// import PasswordInput from "../../SignUp/components/PasswordInput"
+import { LogIn } from "./LogIn";
 import BackButton from "../../SignUp/components/BackButton";
 import GoogleButton from "../../SignUp/components/GoogleButton";
 import LinkedInGithub from "../../SignUp/components/LinkedInGithub";
@@ -18,29 +19,13 @@ function LogInForm (){
      <CyclicDesign2/>
         <form action="" >
          
-         <EmailInput/>
+         {/* <EmailInput/> */}
          {/*  passwordInput comex here*/}
 
-         <PasswordInput/>
+         {/* <PasswordInput/> */}
    
-         
-         <div className="login-options">
-              <div className="remember">
-              <Input
-        classname={"checkbox"}
-        type={"checkbox"}
-        id={"rememberMe"}
-      
-      />
-                <label className="remember-me" for="rememberMe">Remember me</label>
-              </div>
-              <span className="fogotPasswordLink"><a href="./forgotpassword.html">Forgot Password?</a></span>
-            </div>
-
-        <button className="signup-btn get" onClick="collectData()">Log In</button>
-
-   
-          <hr class="hr" />
+         <LogIn/>
+     
 
           <GoogleButton classname ={"signup-btn link"} svgclassname={"signup-link-icons"} width={"16"} height={"16"} viewbox={"0 0 16 16"} fill={"none"} colorFill1={"#FFC107"} colorFill2={"#FF3D00"} colorFill3={"#4CAF50"} colorFill4={"#1976D2"}
            text= {"Sign In with Google"}/>
