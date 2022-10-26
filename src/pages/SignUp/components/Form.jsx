@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EmailInput from "./EmailInput"
-import NameInput from "./NameInput"
-import PasswordInput from "./PasswordInput"
-import ConfirmPasswordInput from "./ConfirmPasswordInput"
+// import EmailInput from "./EmailInput"
+// import NameInput from "./NameInput"
+// import PasswordInput from "./PasswordInput"
+// import ConfirmPasswordInput from "./ConfirmPasswordInput"
+import { CreateAccount } from './CreateAccount';
 import BackButton from "./BackButton";
 import GoogleButton from "./GoogleButton";
 import LinkedInGithub from "./LinkedInGithub";
@@ -15,7 +16,7 @@ function Form (){
     return (
         <section class="signup-form">
         
-         <NameInput/>
+         {/* <NameInput/>
        
          <EmailInput/>
       
@@ -24,9 +25,9 @@ function Form (){
          <ConfirmPasswordInput/>
    
          
-        <button className="signup-btn get" onClick="collectData()">Get Started</button>
+        <button className="signup-btn get" onClick="collectData()">Get Started</button> */}
 
-   
+          <CreateAccount/>
           <hr class="hr" />
 
           <GoogleButton classname ={"signup-btn link"} svgclassname={"signup-link-icons"} width={"16"} height={"16"} viewbox={"0 0 16 16"} fill={"none"} colorFill1={"#FFC107"} colorFill2={"#FF3D00"} colorFill3={"#4CAF50"} colorFill4={"#1976D2"}
