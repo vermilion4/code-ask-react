@@ -257,6 +257,7 @@
   left: 0px;
   top: 0px;
   background: rgba(0, 40, 40, 0.25);
+  z-index: 30;
 }
 
 .modal-pop {
@@ -569,7 +570,7 @@ span#closeButton {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 12px;
+  
   gap: 12px;
   width: 100%;
 }
