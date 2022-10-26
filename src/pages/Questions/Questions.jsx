@@ -5,6 +5,8 @@ import NavIcon from '../../components/QuestionHeader/NavIcon';
 import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
 import QuestionsWrapper from './components/QuestionsWrapper';
 import '../../stylesheets/questions.css';
+import QuestionModal from './components/QuestionModal';
+
 
 export const Questions = () => {
   const [show, setShow] = useState(false);
@@ -21,6 +23,7 @@ export const Questions = () => {
         <main>
           {/* CONTENT GOES IN HERE */}
           <QuestionsWrapper />
+          <QuestionModal />
           {/* CONTENT ENDS HERE */}
         </main>
         <NavIcon onclick={mobileNav} />

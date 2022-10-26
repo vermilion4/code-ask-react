@@ -3,7 +3,6 @@ import QuestionHeader from './QuestionHeader';
 import QuestionBody from './QuestionBody';
 import TopWeekly from './TopWeekly';
 import TrendingTags from './TrendingTags';
-import QuestionModal from './QuestionModal';
 
 
 const QuestionsWrapper = () => {
@@ -18,7 +17,6 @@ const QuestionsWrapper = () => {
           <TopWeekly />
           <TrendingTags />
         </div>
-        <QuestionModal />
       </div>
     );
 }
