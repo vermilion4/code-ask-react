@@ -1,3 +1,5 @@
+import React from 'react';
+
 const AllQuestion = (props) => {
   const {datas} = props ;
 
