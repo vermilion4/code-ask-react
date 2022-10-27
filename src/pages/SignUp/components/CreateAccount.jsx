@@ -1,5 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
+import validationSchema from "./validationSignUp";
+
 
 export const CreateAccount = () => {
   return (
@@ -11,11 +13,23 @@ export const CreateAccount = () => {
           password: "",
           confirmPassword: "",
         }}
+        validationSchema={validationSchema}
+
+        onSubmit={(values, { setSubmitting }) => {
+          const {name, email, password, confirmPassword}= values
+          setSubmitting(true);
+
+          setTimeout(() => {
+            alert("Na better Person you be,you sabi better thing, kudos");
+            setSubmitting(false);
+
+          }, 400)
+        }}
       >
 {({
          values,
-        //  errors,
-        //  touched,
+         errors,
+         touched,
          handleChange,
          handleSubmit,
          isSubmitting,
@@ -35,6 +49,7 @@ export const CreateAccount = () => {
               onChange={handleChange}
               value= {values.name}
             />
+            {errors.name && touched.name && <p className="bi"> {errors.name}</p> }
     
           </div>
 
@@ -50,7 +65,7 @@ export const CreateAccount = () => {
               onChange={handleChange}
               value= {values.email}
             />
-          
+           {errors.email && touched.email && <p className="bi"> {errors.email}</p> }
           </div>
 
           {/* password */}
@@ -65,7 +80,7 @@ export const CreateAccount = () => {
               onChange={handleChange}
               value= {values.password}
             />
-           
+            {(errors.password && touched.password) ? <p className="bi"> {errors.password}</p>:null }
           </div>
 
           {/*confirm password  */}
@@ -74,21 +89,23 @@ export const CreateAccount = () => {
             <input
               className="signup-input"
               type="password"
-              id="confirm-password"
-              name="confirm-password"
+              id="confirmPassword"
+              name="confirmPassword"
               placeHolder="confirm-password"
               onChange= {handleChange}
               value= {values.confirmPassword}
             />
-       
+       {errors.confirmPassword && touched.confirmPassword && <p className="bi" > {errors.confirmPassword}</p> }
           </div>
           <hr />
-
-        <button type="submit" 
+          
+<button type="submit" 
         className="signup-btn get"
         disabled={isSubmitting} 
-        onClick={handleSubmit}>{isSubmitting ? "Loading" : "Get Started"}</button> 
+        onClick={handleSubmit}>
+          {isSubmitting ? "Loading" : "Get Started"}</button> 
 
+      
         </form>
     </>}
     
