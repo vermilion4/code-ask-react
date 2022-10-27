@@ -453,7 +453,7 @@ footer .right-reserved {
   height: 100%;
   width: 85px;
   position: fixed;
-  z-index: 20;
+  z-index: 10;
   top: 0;
   left: 0;
   background-color: #002828;

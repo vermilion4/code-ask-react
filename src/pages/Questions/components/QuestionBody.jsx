@@ -1,4 +1,6 @@
+
 import React from "react";
+import AllQuestion from './AllQuestions';
 
 
 const questions = [
@@ -10,9 +12,8 @@ const questions = [
     question: "Fetch data using axios is so different from using fetch",
     tags: ["html", "css"],
     views: 5,
-    answers: 3,
+    answers: 0,
     timeAsked: 8,
-    isNewest: true,
     isAnswered: false,
   },
 
@@ -25,8 +26,7 @@ const questions = [
     tags: ["React", "Javascri[t"],
     views: 50,
     answers: 13,
-    timeAsked: "2 days",
-    isNewest: false,
+    timeAsked: 2,
     isAnswered: true,
   },
 
@@ -38,84 +38,57 @@ const questions = [
     question: "How to validate email using regex in javascript, s this trully possible",
     tags: ["regex", "python"],
     views: 38,
-    answers: 15,
-    timeAsked: "15 hours",
-    isNewest: true,
+    answers: 0,
+    timeAsked: 15,
     isAnswered: false,
   },
 ];
 
+
 const QuestionBody = () => {
+
+// const [filter, setFilter] = useState(questions);
+
+// const filterNewest = () =>{
+// // Will work on this soon
+//   let result = questions;
+//   return result;
+// }
+
+// const filterUnanswered = () =>{
+//   // Will work on this soon
+//     let result = questions.filter(question => (question.isAnswered === false));
+//     return result;
+//   }
+
+//   const filterAnswered = () =>{
+//     // Will work on this soon
+//     let result = questions.filter(question => (question.isAnswered === true));
+//       return result;
+//     }
+    
   return (
     <div className="question-page" id="questionPage">
       <div className="question-top-navbar">
         <ul>
           <li>
+            {/* <button onClick = {setFilter({filterNewest})}> Newest</button> */}
             <a href="/" className="active">
               Newest
             </a>
           </li>
           <li>
+            {/* <button onClick = {setFilter({filterUnanswered})}>Unanswered</button> */}
             <a href="/">Unanswered</a>
           </li>
           <li>
+            {/* <button onClick = {setFilter({filterAnswered})}>Answered</button> */}
             <a href="/">Answered</a>
           </li>
         </ul>
       </div>
-      <div className="questions-wrapper">
-
-        {questions.map(
-          ({
-            id,
-            author,
-            img,
-            userName,
-            question,
-            tags,
-            views,
-            answers,
-            timeAsked,
-            isNewest,
-            isAnswered,
-          }) => {
-            return (
-              <div className="questions" key={id}>
-                <div className="question-box">
-                  <img
-                    src={`https://ui-avatars.com/api/?name=${img}`}
-                    alt="avatar profile"
-                  />
-                  <div className="question-content">
-                    <div className="question-statement">
-                      <p>{question}</p>
-                    </div>
-
-                    <div className="question-box-tags">
-                      <ul>{tags.map((tag, index)=>{
-                        return <li key={index}>{tag}</li> ;
-                      })}
-                       
-                      </ul>
-                      <p>
-                      {`asked  ${timeAsked} ago by `}<span>{`@${userName}`}</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="views-answers">
-                    <p>
-                      <span>{views}</span> Views
-                    </p>
-                    <p>
-                      <span>{answers}</span> Answers
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          }
-        )}
-      </div>
+      
+       <AllQuestion datas = {questions} />
     </div>
   );
 };
