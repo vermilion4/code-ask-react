@@ -37,7 +37,7 @@ function LogInForm (){
          </div>
           
         
-         <Link to = {'/'}>
+         <Link to = {'/reset-password'}>
          <p className="back-button"> ← Back</p>
          </Link>
 
