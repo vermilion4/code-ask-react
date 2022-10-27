@@ -2,14 +2,10 @@
 // import Input from "./Input";
 import { Link } from "react-router-dom";
 import React from "react";
-import Input from "../../SignUp/components/Input";
 import CyclicDesign2 from "../../SignUp/components/CyclicDesign2";
-import EmailInput from "../../SignUp/components/EmailInput"
-import PasswordInput from "../../SignUp/components/PasswordInput"
-import BackButton from "../../SignUp/components/BackButton";
+import { LogIn } from "./LogIn";
 import GoogleButton from "../../SignUp/components/GoogleButton";
 import LinkedInGithub from "../../SignUp/components/LinkedInGithub";
-import SignUpBrief from "../../SignUp/components/SignUpBrief";
 
 
 function LogInForm (){
@@ -18,29 +14,8 @@ function LogInForm (){
      <CyclicDesign2/>
         <form action="" >
          
-         <EmailInput/>
-         {/*  passwordInput comex here*/}
-
-         <PasswordInput/>
-   
-         
-         <div className="login-options">
-              <div className="remember">
-              <Input
-        classname={"checkbox"}
-        type={"checkbox"}
-        id={"rememberMe"}
-      
-      />
-                <label className="remember-me" for="rememberMe">Remember me</label>
-              </div>
-              <span className="fogotPasswordLink"><a href="./forgotpassword.html">Forgot Password?</a></span>
-            </div>
-
-        <button className="signup-btn get" onClick="collectData()">Log In</button>
-
-   
-          <hr class="hr" />
+         <LogIn/>
+     
 
           <GoogleButton classname ={"signup-btn link"} svgclassname={"signup-link-icons"} width={"16"} height={"16"} viewbox={"0 0 16 16"} fill={"none"} colorFill1={"#FFC107"} colorFill2={"#FF3D00"} colorFill3={"#4CAF50"} colorFill4={"#1976D2"}
            text= {"Sign In with Google"}/>
@@ -54,18 +29,16 @@ function LogInForm (){
                 } colorFill={"#212529"}
            text={"Sign In with Github"}/>
 
-         <div className="signin-wrap">
-          
-         <SignUpBrief classname={"signup-brief"} text1={"Don't Have An Account?"}/>
-          
+         <div className="signin-wrap">  
+         <p className="signup-brief">Don't Have An Account?</p> 
           <Link to = {'/sign-up'}>
-          <SignUpBrief Spanclassname ={"signuplink"} text2={"Sign Up"}/>
+          <span>Sign Up</span>
           </Link>
          </div>
           
         
          <Link to = {'/'}>
-         <BackButton className={"back-button"} icon={"←"} text = {"Back"}/>
+         <p className="back-button"> ← Back</p>
          </Link>
 
         </form>

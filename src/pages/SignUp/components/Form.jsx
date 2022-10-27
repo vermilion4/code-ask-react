@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import EmailInput from "./EmailInput"
-// import NameInput from "./NameInput"
-// import PasswordInput from "./PasswordInput"
-// import ConfirmPasswordInput from "./ConfirmPasswordInput"
 import { CreateAccount } from './CreateAccount';
-import BackButton from "./BackButton";
-import GoogleButton from "./GoogleButton";
 import LinkedInGithub from "./LinkedInGithub";
-import SignUpBrief from "./SignUpBrief";
 
 
 
@@ -16,23 +9,18 @@ function Form (){
     return (
         <section class="signup-form">
         
-         {/* <NameInput/>
-       
-         <EmailInput/>
-      
-         <PasswordInput/>
-    
-         <ConfirmPasswordInput/>
-   
-         
-        <button className="signup-btn get" onClick="collectData()">Get Started</button> */}
-
+        
           <CreateAccount/>
           <hr class="hr" />
 
+        <button className='signup-btn link'>
+      
+        Sign up with Google
+        </button>
+          {/* <FontAwesomeIcon icon="fa fa-linkedin-square" className="signup-link-icons"/>
           <GoogleButton classname ={"signup-btn link"} svgclassname={"signup-link-icons"} width={"16"} height={"16"} viewbox={"0 0 16 16"} fill={"none"} colorFill1={"#FFC107"} colorFill2={"#FF3D00"} colorFill3={"#4CAF50"} colorFill4={"#1976D2"}
            text= {"Sign up with Google"}/>
-          
+           */}
 
           <LinkedInGithub classname ={"signup-btn link"} svgclassname={"signup-link-icons"} width={"16"} height={"16"} viewbox={"0 0 16 16"} fill={"none"} path={"M14.1328 13.633H11.7621V9.92029C11.7621 9.03498 11.7463 7.89529 10.5291 7.89529C9.29431 7.89529 9.10538 8.85991 9.10538 9.85585V13.6327H6.73475V5.99798H9.01056V7.04135H9.04244C9.27019 6.65192 9.59931 6.33155 9.99474 6.11436C10.3902 5.89718 10.8371 5.79131 11.2879 5.80804C13.6908 5.80804 14.1338 7.38854 14.1338 9.44466L14.1328 13.633ZM4.05975 4.95441C3.29994 4.95454 2.68387 4.33866 2.68375 3.57885C2.68362 2.81904 3.29944 2.20298 4.05925 2.20285C4.81906 2.20266 5.43512 2.81854 5.43525 3.57835C5.43532 3.94323 5.29044 4.29319 5.03248 4.55125C4.77453 4.80931 4.42463 4.95433 4.05975 4.95441ZM5.24512 13.633H2.87194V5.99798H5.24506V13.633L5.24512 13.633ZM15.3146 0.00116449H1.68069C1.03631 -0.00608551 0.507875 0.510102 0.5 1.15448V14.8453C0.507625 15.49 1.036 16.0067 1.68062 15.9999H15.3146C15.9606 16.0079 16.4911 15.4912 16.5 14.8453V1.15341C16.4908 0.507789 15.9603 -0.00833551 15.3146 0.000101993"
                } colorFill={"#0A66C2"}
@@ -43,19 +31,16 @@ function Form (){
            text={"Sign up with Github"}/>
 
 
-          <div className="signin-wrap">
-          <SignUpBrief classname={"signup-brief"} text1={"Already have an Account? "}/>
+        <div className="signin-wrap">
           
+         <p className="signup-brief">Don't Have An Account?</p> 
           <Link to = {'/sign-in'}>
-          <SignUpBrief classname={"signup-brief"} text2={"LogIn"}/>
-        
+          <span>LogIn</span>
           </Link>
-         
           </div>
         
            <Link to = {'/'}>
-           <BackButton className={"back-button"} icon={"←"} text = {"Back"}/>
-    
+            <p className="back-button " > ← Back </p>
            </Link>
           
       </section>

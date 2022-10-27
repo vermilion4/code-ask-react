@@ -1,15 +1,14 @@
 import React from "react";
 import { Formik } from "formik";
 
-export const CreateAccount = () => {
+
+export const LogIn = () => {
   return (
     <React.Fragment>
       <Formik
         initialValues={{
-          name: "",
           email: "",
           password: "",
-          confirmPassword: "",
         }}
       >
 {({
@@ -23,24 +22,10 @@ export const CreateAccount = () => {
        }) =>
     <>
         <form action="">
-          {/* Name */}
-          <div class="form-wrapper">
-          <label htmlFor="name">Name<span className="bi">*</span></label>
-            <input
-              className="signup-input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              onChange={handleChange}
-              value= {values.name}
-            />
-    
-          </div>
 
           {/* email */}
           <div class="form-wrapper">
-          <label htmlFor="email">Email Address<span className="bi">*</span></label>
+            <label htmlFor="email">Email Address<span className="bi">*</span></label>
             <input
               className="signup-input"
               type="email"
@@ -50,12 +35,15 @@ export const CreateAccount = () => {
               onChange={handleChange}
               value= {values.email}
             />
-          
+        
+           {/* <ErrorMessage classname={"error-message"}/> */}
+    
           </div>
 
           {/* password */}
           <div class="form-wrapper">
-          <label htmlFor="password">Password<span className="bi">*</span></label>
+            
+          <label htmlFor="Password">Password<span className="bi">*</span></label>
             <input
               className="signup-input"
               type="password"
@@ -65,30 +53,28 @@ export const CreateAccount = () => {
               onChange={handleChange}
               value= {values.password}
             />
-           
+
           </div>
 
-          {/*confirm password  */}
-          <div class="form-wrapper">
-          <label htmlFor="password"> Confirm Password<span className="bi">*</span></label>
-            <input
-              className="signup-input"
-              type="password"
-              id="confirm-password"
-              name="confirm-password"
-              placeHolder="confirm-password"
-              onChange= {handleChange}
-              value= {values.confirmPassword}
-            />
-       
-          </div>
-          <hr />
+          <div className="login-options">
+              <div className="remember">
+              <input
+        classname="checkbox"
+        type="checkbox"
+        id="rememberMe"
+      
+      />
+                <label className="remember-me" for="rememberMe">Remember me</label>
+              </div>
+              <span className="fogotPasswordLink"><a href="./forgotpassword.html">Forgot Password?</a></span>
+            </div>
 
         <button type="submit" 
         className="signup-btn get"
         disabled={isSubmitting} 
-        onClick={handleSubmit}>{isSubmitting ? "Loading" : "Get Started"}</button> 
+        onClick={handleSubmit}>{isSubmitting ? "Loading" : "Log In"}</button> 
 
+<hr />
         </form>
     </>}
     
