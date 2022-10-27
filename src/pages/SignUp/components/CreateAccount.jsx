@@ -1,7 +1,5 @@
 import React from "react";
 import { Formik } from "formik";
-import Input from "./Input";
-import Label from "./Label";
 
 export const CreateAccount = () => {
   return (
@@ -27,58 +25,62 @@ export const CreateAccount = () => {
         <form action="">
           {/* Name */}
           <div class="form-wrapper">
-            <Label name={"name"} text={"Name"} />
-            <Input
-              classname={"signup-input"}
-              type={"text"}
-              id={"name"}
-              name={"name"}
-              placeholder={"Enter your name"}
+          <label htmlFor="name">Name<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
               onChange={handleChange}
               value= {values.name}
             />
+    
           </div>
 
           {/* email */}
           <div class="form-wrapper">
-            <Label name={"email"} text={"Email"} />
-            <Input
-              classname={"signup-input"}
-              type={"email"}
-              id={"email"}
-              name={"email"}
-              placeholder={"Enter your Email"}
+          <label htmlFor="email">Email Address<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="email"
+              id="email"
+              name="email"
+              placeHolder="Enter your Email"
               onChange={handleChange}
               value= {values.email}
             />
+          
           </div>
 
           {/* password */}
           <div class="form-wrapper">
-            <Label name={"password"} text={"Password"} />
-            <Input
-              classname={"signup-input"}
-              type={"password"}
-              id={"password"}
-              name={"password"}
-              placeholder={"Enter your Password"}
+          <label htmlFor="password">Password<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="password"
+              id="password"
+              name="password"
+              placeHolder="Enter your Password"
               onChange={handleChange}
               value= {values.password}
             />
+           
           </div>
 
           {/*confirm password  */}
           <div class="form-wrapper">
-            <Label name={"password"} text={"Confirm Password"} />
-            <Input
-              classname={"signup-input"}
-              type={"password"}
-              id={"confirm-password"}
-              name={"confirm-password"}
-              placeholder={"confirm-password"}
+          <label htmlFor="password"> Confirm Password<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeHolder="confirm-password"
               onChange= {handleChange}
               value= {values.confirmPassword}
             />
+       
           </div>
           <hr />
 

@@ -2,15 +2,10 @@
 // import Input from "./Input";
 import { Link } from "react-router-dom";
 import React from "react";
-import Input from "../../SignUp/components/Input";
 import CyclicDesign2 from "../../SignUp/components/CyclicDesign2";
-// import EmailInput from "../../SignUp/components/EmailInput"
-// import PasswordInput from "../../SignUp/components/PasswordInput"
 import { LogIn } from "./LogIn";
-import BackButton from "../../SignUp/components/BackButton";
 import GoogleButton from "../../SignUp/components/GoogleButton";
 import LinkedInGithub from "../../SignUp/components/LinkedInGithub";
-import SignUpBrief from "../../SignUp/components/SignUpBrief";
 
 
 function LogInForm (){
@@ -19,11 +14,6 @@ function LogInForm (){
      <CyclicDesign2/>
         <form action="" >
          
-         {/* <EmailInput/> */}
-         {/*  passwordInput comex here*/}
-
-         {/* <PasswordInput/> */}
-   
          <LogIn/>
      
 
@@ -39,18 +29,16 @@ function LogInForm (){
                 } colorFill={"#212529"}
            text={"Sign In with Github"}/>
 
-         <div className="signin-wrap">
-          
-         <SignUpBrief classname={"signup-brief"} text1={"Don't Have An Account?"}/>
-          
+         <div className="signin-wrap">  
+         <p className="signup-brief">Don't Have An Account?</p> 
           <Link to = {'/sign-up'}>
-          <SignUpBrief Spanclassname ={"signuplink"} text2={"Sign Up"}/>
+          <span>Sign Up</span>
           </Link>
          </div>
           
         
          <Link to = {'/'}>
-         <BackButton className={"back-button"} icon={"←"} text = {"Back"}/>
+         <p className="back-button"> ← Back</p>
          </Link>
 
         </form>

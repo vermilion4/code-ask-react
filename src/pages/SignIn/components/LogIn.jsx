@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import Input from "../../SignUp/components/Input";
-import Label from "../../SignUp/components/Input";
+
 
 export const LogIn = () => {
   return (
@@ -26,39 +25,43 @@ export const LogIn = () => {
 
           {/* email */}
           <div class="form-wrapper">
-            <label htmlFor="email" text = "Email Address"></label>
-            <Input
-              classname={"signup-input"}
-              type={"email"}
-              id={"email"}
-              name={"email"}
-              placeholder={"Enter your Email"}
+            <label htmlFor="email">Email Address<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="email"
+              id="email"
+              name="email"
+              placeHolder="Enter your Email"
               onChange={handleChange}
               value= {values.email}
             />
+        
+           {/* <ErrorMessage classname={"error-message"}/> */}
+    
           </div>
 
           {/* password */}
           <div class="form-wrapper">
             
-          <label htmlFor="Password" text = "Password"></label>
-            <Input
-              classname={"signup-input"}
-              type={"password"}
-              id={"password"}
-              name={"password"}
-              placeholder={"Enter your Password"}
+          <label htmlFor="Password">Password<span className="bi">*</span></label>
+            <input
+              className="signup-input"
+              type="password"
+              id="password"
+              name="password"
+              placeHolder="Enter your Password"
               onChange={handleChange}
               value= {values.password}
             />
+
           </div>
 
           <div className="login-options">
               <div className="remember">
-              <Input
-        classname={"checkbox"}
-        type={"checkbox"}
-        id={"rememberMe"}
+              <input
+        classname="checkbox"
+        type="checkbox"
+        id="rememberMe"
       
       />
                 <label className="remember-me" for="rememberMe">Remember me</label>
