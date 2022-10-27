@@ -7,6 +7,7 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import FAQ from './pages/FAQ/FAQ';
+import {ResetPassword} from "./pages/ResetPassword/ResetPassword"
 
 
 
@@ -23,6 +24,7 @@ function App ()
         <Route path='/questions' element={ <Questions /> }></Route>
         <Route path='/ask-question' element={ <AskQuestions /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
+        <Route path='/reset-password' element={<ResetPassword />}></Route>
       </Routes>
     </Router>
   );
