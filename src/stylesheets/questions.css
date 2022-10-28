@@ -191,6 +191,10 @@
   color: #000;
 }
 
+.top-weekly a {
+text-decoration: none;
+}
+
 .top-weekly img {
   margin-right: 15px;
   height: 22px;
@@ -211,6 +215,7 @@
   font-weight: 400;
   line-height: 150%;
   color: #6c757d;
+ 
 }
 
 .trending-tags {
@@ -257,7 +262,7 @@
   top: 0px;
   background: rgba(0, 40, 40, 0.25);
   z-index: 11;
- 
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -267,10 +272,10 @@
 .modal-pop {
   display: flex;
   flex-direction: column;
-  
+
   padding: 80px;
   gap: 40px;
-  
+
   position: relative;
   background: #002828;
   box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.175);
@@ -305,12 +310,13 @@
 .modal-pop .modal-content .sign-in {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: center;
   padding: 4px 54px 4px 20px;
   gap: 10px;
 
-  width: 332px;
+  /* width: 332px; */
   height: 77px;
 
   background: #003636;
@@ -319,17 +325,20 @@
   flex: none;
   order: 1;
   flex-grow: 0;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .modal-pop .modal-content .sign-up {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: center;
   padding: 4px 54px 4px 20px;
   gap: 10px;
 
-  width: 332px;
+  /* width: 332px; */
   height: 77px;
 
   background: #003636;
@@ -338,25 +347,72 @@
   flex: none;
   order: 1;
   flex-grow: 0;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 
 @media only screen and (max-width: 900px) {
-  .modal-pop .modal-content{
+
+  .modal-pop .modal-content {
     flex-direction: column;
+    width: 100%;
   }
 
   .modal-pop {
     padding: 60px;
     gap: 30px;
-}}
+  }
+
+  .modal-pop .modal-content .sign-in {
+    width: 100%;
+    height: 77px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .modal-pop .modal-content .sign-up {
+    width: 100%;
+    height: 77px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
+}
 
 @media only screen and (max-width: 650px) {
 
   .modal-pop {
-    padding: 40px;
+    padding: 60px 40px 40px 40px;
     gap: 20px;
-}}
+  }
+
+  .modal-pop h1 {
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .modal-text-1 a {
+
+    font-size: 20px;
+  }
+
+  .modal-text-1 p {
+
+    font-size: 18px;
+  }
+
+  .modal-text-2 a {
+
+    font-size: 20px;
+  }
+
+  .modal-text-2 p {
+
+    font-size: 18px;
+  }
+}
 
 .sign-in div img {
   position: absolute;
@@ -431,6 +487,7 @@ span#closeButton {
   height: 29px; */
   right: 20px;
   top: 20px;
+  cursor: pointer;
 
   font-family: 'Open Sans';
   font-style: normal;
@@ -448,6 +505,68 @@ span#closeButton {
   order: 2;
   flex-grow: 0;
   z-index: 2;
+}
+
+@media only screen and (max-width: 650px) {
+
+  .modal-pop {
+    padding: 60px 40px 40px 40px;
+    gap: 20px;
+  }
+
+  .modal-pop h1 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+
+  .modal-text-1,
+   .modal-text-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+   
+  .modal-text-1 a {
+
+    font-size: 20px;
+  }
+
+  .modal-text-1 p {
+
+    display: none;
+  }
+
+  .modal-text-2 a {
+
+    font-size: 20px;
+  }
+
+  .modal-text-2 p {
+
+    display: none;
+  }
+
+  .sign-up div,
+  .sign-in div{
+   display: flex;
+   align-items: center;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+
+  .modal-pop .modal-content .sign-up,
+  .modal-pop .modal-content .sign-in {
+
+    padding: 4px 0px 4px 20px;
+  }
+
+  .modal-pop{
+    width: 90%;
+  }
+
 }
 
 @keyframes smooth {
@@ -583,7 +702,7 @@ span#closeButton {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+
   gap: 12px;
   width: 100%;
 }
@@ -652,7 +771,7 @@ span#closeButton {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
- padding: 0;
+  padding: 0;
   gap: 8px;
   width: 163px;
   height: 23px;

@@ -23,7 +23,7 @@ const questions = [
     img: "Bolanle Duke",
     userName: "Brandy",
     question: "How To Align Text Vertically Center Beside An Image In React Native With Code or can it be done any other way i really want you to help me out",
-    tags: ["React", "Javascri[t"],
+    tags: ["React", "Javascript"],
     views: 50,
     answers: 13,
     timeAsked: 2,
