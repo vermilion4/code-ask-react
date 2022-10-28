@@ -104,6 +104,9 @@
     .bi{ 
       color: red;
     }
+    .link{
+      padding-left:  200px;
+    }
   .signin-wrap{
     display: flex;
     align-items: center;
