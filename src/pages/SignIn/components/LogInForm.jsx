@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CreateAccount } from "./CreateAccount";
+import { LogIn } from "./LogIn";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { FaGoogle } from "react-icons/fa";
 function Form() {
   return (
     <section class="signup-form">
-      <CreateAccount />
+      <LogIn/>
       <hr class="hr" />
 
       <button className="signup-btn link">
@@ -27,9 +27,9 @@ function Form() {
       </button>
 
       <div className="signin-wrap">
-        <p className="signup-brief">Already Have an Account?</p>
-        <Link to={"/sign-in"}>
-          <span>LogIn</span>
+        <p className="signup-brief">Don't have an Account?</p>
+        <Link to={"/sign-up"}>
+          <span>SignUp</span>
         </Link>
       </div>
 
