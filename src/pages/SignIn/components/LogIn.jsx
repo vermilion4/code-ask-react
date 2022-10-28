@@ -48,9 +48,9 @@ export const LogIn = () => {
                   onChange={handleChange}
                   value={values.email}
                 />
-                {errors.email && touched.email && (
+                {errors.email && touched.email && 
                   <p className="bi">{errors.email}</p>
-                )}
+                }
               </div>
 
               {/* password */}
