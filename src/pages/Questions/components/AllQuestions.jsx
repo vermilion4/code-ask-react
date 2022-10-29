@@ -1,7 +1,8 @@
 import React from 'react';
 
+
 const AllQuestion = (props) => {
-  const {datas} = props ;
+const {datas} = props ;
 
   return (
       <div className="questions-wrapper">

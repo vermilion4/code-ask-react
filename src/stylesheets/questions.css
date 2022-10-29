@@ -1,6 +1,6 @@
 .question-main {
   background-color: #e5e5e5;
-  height: 100vh;
+  height: 100%;
 }
 
 
@@ -697,6 +697,30 @@ span#closeButton {
   padding: 8px 16px;
   gap: 4px;
 }
+
+/* Button are used instead of links */
+.question-top-navbar ul li button {
+ 
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  color: #002828;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+}
+
+.question-top-navbar ul li button.active {
+  background: #e6eaea;
+  /* width: 86px;
+  height: 40px; */
+  border-radius: 4px;
+  padding: 8px 16px;
+  gap: 4px;
+}
+
+
+
 
 .questions {
   display: flex;
