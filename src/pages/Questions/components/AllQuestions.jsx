@@ -5,6 +5,7 @@ const AllQuestion = (props) => {
 const {datas} = props ;
 
   return (
+   
       <div className="questions-wrapper">
         {datas.map(
           ({
@@ -20,6 +21,7 @@ const {datas} = props ;
             isAnswered,
           }) => {
             return (
+          
               <div className="questions" key={id}>
                 <div className="question-box">
                   <img
@@ -52,10 +54,12 @@ const {datas} = props ;
                   </div>
                 </div>
               </div>
+            
             );
           }
         )}
       </div>
+     
   )}
 
 export default AllQuestion;

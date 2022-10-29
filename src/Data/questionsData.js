@@ -196,7 +196,7 @@ export const questionsUnanswered = [
     userName: "Mickkystonz",
     question:
       "How do I Code in 32-Bit x86 Machine Code To Calculate the Nth Fibonacci Number.",
-    tags: ["Fibinacci", "Code"],
+    tags: ["Fibonacci", "Code"],
     views: 38,
     answers: 0,
     timeAsked: 23,

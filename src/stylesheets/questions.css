@@ -1,3 +1,12 @@
+div.desktopbackground{
+  background-color: #e5e5e5;
+  position: fixed;
+  z-index: -5;
+  height: 100%;
+  width: 100%;
+}
+
+
 .question-main {
   background-color: #e5e5e5;
   height: 100%;
@@ -136,6 +145,7 @@
 
   position: relative;
   z-index: 0;
+  height: 100%;
 }
 
 .flex-question .left-side {
@@ -166,6 +176,7 @@
     margin: 0 30px;
     padding-bottom: 30px;
     z-index: 0;
+    height: 100%;
   }
 
   .question-main {
