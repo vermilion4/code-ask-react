@@ -7,7 +7,6 @@ import QuestionsWrapper from './components/QuestionsWrapper';
 import '../../stylesheets/questions.css';
 import QuestionModal from './components/QuestionModal';
 
-
 export const Questions = () => {
   const [show, setShow] = useState(false);
 
@@ -17,6 +16,8 @@ export const Questions = () => {
 
   if (show === false) {
     return (
+      <>
+      <div className='desktopbackground'></div>
       <div className='question-main'>
         <LoggedInSidebar />
         <LoggedInHeader />
@@ -28,6 +29,7 @@ export const Questions = () => {
         </main>
         <NavIcon onclick={mobileNav} />
       </div>
+      </>
     );
   } else {
     return <LoggedInMobile onclick={mobileNav} />;
