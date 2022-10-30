@@ -169,7 +169,7 @@ export const questionsUnanswered = [
     img: "Sunday Chukwu",
     userName: "Sunny",
     question: "How Do You Use WHILE….WEND Loop?",
-    tags: ["loop", "Angular"],
+    tags: ["loop", "Angular", "Go", "python"],
     views: 128,
     answers: 0,
     timeAsked: 18,

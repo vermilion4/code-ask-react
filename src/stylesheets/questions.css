@@ -1,4 +1,4 @@
-div.desktopbackground{
+div.desktopbackground {
   background-color: #e5e5e5;
   position: fixed;
   z-index: -5;
@@ -203,7 +203,7 @@ div.desktopbackground{
 }
 
 .top-weekly a {
-text-decoration: none;
+  text-decoration: none;
 }
 
 .top-weekly img {
@@ -226,7 +226,7 @@ text-decoration: none;
   font-weight: 400;
   line-height: 150%;
   color: #6c757d;
- 
+
 }
 
 .trending-tags {
@@ -531,13 +531,13 @@ span#closeButton {
   }
 
   .modal-text-1,
-   .modal-text-2{
+  .modal-text-2 {
     display: flex;
     align-items: center;
     justify-content: center;
-   }
+  }
 
-   
+
   .modal-text-1 a {
 
     font-size: 20px;
@@ -559,9 +559,9 @@ span#closeButton {
   }
 
   .sign-up div,
-  .sign-in div{
-   display: flex;
-   align-items: center;
+  .sign-in div {
+    display: flex;
+    align-items: center;
   }
 
 }
@@ -574,7 +574,7 @@ span#closeButton {
     padding: 4px 0px 4px 20px;
   }
 
-  .modal-pop{
+  .modal-pop {
     width: 90%;
   }
 
@@ -606,6 +606,10 @@ span#closeButton {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.questions-wrapper a {
+  text-decoration: none;
 }
 
 
@@ -711,7 +715,7 @@ span#closeButton {
 
 /* Button are used instead of links */
 .question-top-navbar ul li button {
- 
+
   font-style: normal;
   font-size: 16px;
   line-height: 150%;
@@ -750,6 +754,7 @@ span#closeButton {
   gap: 12px;
   width: 100%;
   border-bottom: 1px solid #f2eee8;
+
 }
 
 .question-box img {
@@ -765,12 +770,10 @@ span#closeButton {
 
 .question-content {
   width: 90%;
-}
-
-.question-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-decoration: none;
 }
 
 .question-statement {
@@ -808,7 +811,6 @@ span#closeButton {
   align-items: flex-start;
   padding: 0;
   gap: 8px;
-  width: 163px;
   height: 23px;
 }
 
@@ -821,6 +823,7 @@ span#closeButton {
   background: #c7d9d9;
   border: 1px soild rgba(219, 144, 0, 0.15);
   border-radius: 4px;
+  color: #002828;
 }
 
 .question-box-tags p {
