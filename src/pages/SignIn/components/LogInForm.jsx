@@ -9,21 +9,26 @@ function Form() {
   return (
     <section class="signup-form">
       <LogIn/>
-      <hr class="hr" />
+      {/* <hr class="hr" /> */}
 
       <button className="signup-btn link">
-        <FaGoogle />
-        Sign up with Google
+        <FaGoogle /> 
+        <span>  </span> 
+       <span>Sign up with Google</span> 
       </button>
 
       <button className="signup-btn link">
         <FaGithub />
-        Sign up with Github
+        <span>  </span>
+        <span>Sign up with Github</span>
+      
       </button>
 
       <button className="signup-btn link">
         <FaLinkedin />
-        Sign up with LinkedIn
+
+        <span> </span>
+        <span>Sign up with LinkedIn</span>
       </button>
 
       <div className="signin-wrap">
