@@ -1,6 +1,7 @@
 import React from "react";
 import SignInFormWrap from "../SignIn/components/SignInFormWrap"
 import SignUpImageBrief from "../../components/SignUpImageBrief";
+import CyclicDesign2 from "../SignUp/components/CyclicDesign2";
 import "../../stylesheets/LoginAside.css"
 import "../../stylesheets/Signup.css"
 
@@ -14,6 +15,8 @@ import "../../stylesheets/Signup.css"
    </section>
 
     <section className="signupform-wrapper">
+    <CyclicDesign2/>
+
     <SignInFormWrap/>
 
  </section>

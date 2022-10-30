@@ -14,7 +14,7 @@ export const CreateAccount = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          const { name, email, password, confirmPassword } = values;
+          const { username, email, password, confirmPassword } = values;
           setSubmitting(true);
 
           setTimeout(() => {
@@ -43,13 +43,13 @@ export const CreateAccount = () => {
                   className="signup-input"
                   type="text"
                   id="name"
-                  name="name"
-                  placeholder="Enter your name"
+                  name="username"
+                  placeholder="Enter your username"
                   onChange={handleChange}
                   value={values.name}
                 />
-                {errors.name && touched.name && (
-                  <p className="bi"> {errors.name}</p>
+                {errors.username && touched.username && (
+                  <p className="bi"> {errors.username}</p>
                 )}
               </div>
 
@@ -110,8 +110,7 @@ export const CreateAccount = () => {
                   <p className="bi"> {errors.confirmPassword}</p>
                 )}
               </div>
-              <hr />
-
+          
               <button
                 type="submit"
                 className="signup-btn get"
