@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const AllQuestion = (props) => {
 const {datas} = props ;
@@ -22,7 +22,7 @@ const {datas} = props ;
           }) => {
             return (
           
-              <div className="questions" key={id}>
+          <Link to = {`${id}`}>    <div className="questions" key={id}>
                 <div className="question-box">
                   <img
                     src={`https://ui-avatars.com/api/?name=${img}`}
@@ -54,7 +54,7 @@ const {datas} = props ;
                   </div>
                 </div>
               </div>
-            
+          </Link>
             );
           }
         )}
