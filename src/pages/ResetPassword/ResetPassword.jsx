@@ -7,6 +7,7 @@ import "../../stylesheets/Signup.css"
 import "../../stylesheets/resetpassword.css"
 import "../../stylesheets/shared.css"
 
+
 export const ResetPassword = () => {
   return (
     <div className="main">
