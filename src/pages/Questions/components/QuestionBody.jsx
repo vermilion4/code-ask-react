@@ -1,96 +1,61 @@
 
-import React from "react";
+import React, { useState}  from "react";
 import AllQuestion from './AllQuestions';
+import { questionsNewest, questionsUnanswered, questionsAnswered } from '../../../Data/questionsData.js';
 
-
-const questions = [
-  {
-    id: 0,
-    author: "Nweke Chidi",
-    img: "Nweke Chidi",
-    userName: "Chigoddy",
-    question: "Fetch data using axios is so different from using fetch",
-    tags: ["html", "css"],
-    views: 5,
-    answers: 0,
-    timeAsked: 8,
-    isAnswered: false,
-  },
-
-  {
-    id: 1,
-    author: "Bolanle Duke",
-    img: "Bolanle Duke",
-    userName: "Brandy",
-    question: "How To Align Text Vertically Center Beside An Image In React Native With Code or can it be done any other way i really want you to help me out",
-    tags: ["React", "Javascript"],
-    views: 50,
-    answers: 13,
-    timeAsked: 2,
-    isAnswered: true,
-  },
-
-  {
-    id: 2,
-    author: "Michael Binuyo",
-    img: "Michael Binuyo",
-    userName: "Mickkystonz",
-    question: "How to validate email using regex in javascript, s this trully possible",
-    tags: ["regex", "python"],
-    views: 38,
-    answers: 0,
-    timeAsked: 15,
-    isAnswered: false,
-  },
+const filters = [
+  { id: 0, filter: "Newest"},
+  { id: 1, filter: "Unanswered"},
+  { id: 2, filter: "Answered"},
 ];
 
 
+
 const QuestionBody = () => {
+                           
+                             const [filterData, setFilterData] = useState(questionsNewest);
+                             const [isActive, setIsActive] = useState(0);
 
-// const [filter, setFilter] = useState(questions);
+                             const filterFunction = (id) => {
+                               if (id === 0) {
+                                
+                                 setFilterData(questionsNewest);
+                               } else if (id === 1) {
+                               
+                                 setFilterData(questionsUnanswered);
+                               } else if (id === 2) {
+                               
+                                  setFilterData(questionsAnswered);
+                               }
 
-// const filterNewest = () =>{
-// // Will work on this soon
-//   let result = questions;
-//   return result;
-// }
+                               setIsActive(id);
+                             };
 
-// const filterUnanswered = () =>{
-//   // Will work on this soon
-//     let result = questions.filter(question => (question.isAnswered === false));
-//     return result;
-//   }
+                             return (
+                               <div className="question-page" id="questionPage">
+                                 <div className="question-top-navbar">
+                                   <ul>
+                                     {filters.map(({ id, filter }) => {
+                                       return (
+                                         <li key={id}>
+                                           <button
+                                             className={
+                                               isActive === id ? "active" : ""
+                                             }
+                                             onClick={() => filterFunction(id)}
+                                           >
+                                             {filter}
+                                           </button>
+                                         </li>
+                                       );
+                                     })}
 
-//   const filterAnswered = () =>{
-//     // Will work on this soon
-//     let result = questions.filter(question => (question.isAnswered === true));
-//       return result;
-//     }
-    
-  return (
-    <div className="question-page" id="questionPage">
-      <div className="question-top-navbar">
-        <ul>
-          <li>
-            {/* <button onClick = {setFilter({filterNewest})}> Newest</button> */}
-            <a href="/" className="active">
-              Newest
-            </a>
-          </li>
-          <li>
-            {/* <button onClick = {setFilter({filterUnanswered})}>Unanswered</button> */}
-            <a href="/">Unanswered</a>
-          </li>
-          <li>
-            {/* <button onClick = {setFilter({filterAnswered})}>Answered</button> */}
-            <a href="/">Answered</a>
-          </li>
-        </ul>
-      </div>
-      
-       <AllQuestion datas = {questions} />
-    </div>
-  );
-};
+                                   </ul>
+                                 </div>
+                                 {/* Rendering will occur based on filter which will call different APIs using axios therefore different data will be rendered */}
+                                 <AllQuestion datas={filterData} />
+                               </div>
+                             );
+                           };
 
 export default QuestionBody;

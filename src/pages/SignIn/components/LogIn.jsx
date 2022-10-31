@@ -1,6 +1,5 @@
 import React from "react";
 import { Formik } from "formik";
-import validationSchema from "../../SignUp/components/validationSignUp";
 
 export const LogIn = () => {
   return (
@@ -10,7 +9,7 @@ export const LogIn = () => {
           email: "",
           password: "",
         }}
-        validationSchema={validationSchema}
+        
         onSubmit={(values, { setSubmitting }) => {
           const { email, password } = values;
           setSubmitting(true);
@@ -68,8 +67,8 @@ export const LogIn = () => {
                   value={values.password}
                 />
 
-                {errors.email && touched.email && (
-                  <p className="bi">{errors.email}</p>
+                {errors.password && touched.password && (
+                  <p className="bi">{errors.password}</p>
                 )}
               </div>
 
@@ -94,7 +93,7 @@ export const LogIn = () => {
                 {isSubmitting ? "Loading" : "Log In"}
               </button>
 
-              <hr />
+              <hr class="hr" />
             </form>
           </>
         )}
