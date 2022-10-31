@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CyclicDesign2 from '../../SignUp/components/CyclicDesign2'
 import { Formik } from 'formik'
+import validationSchema from "../../SignUp/components/validationSignUp"
 
 
 export const ResetPasswordForm = () => {
@@ -12,8 +13,9 @@ export const ResetPasswordForm = () => {
         <Formik
         initialValues={{
           password: "",
+          confirmPassword: ""
         }}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           const {password } = values;
           setSubmitting(true);
@@ -41,7 +43,7 @@ export const ResetPasswordForm = () => {
               {/* password */}
               <div class="form-wrapper">
                 <label htmlFor="Password">
-                 New Password<span className="bi">*</span>
+                 New Password<span className="bi"></span>
                 </label>
                 <input
                   className="signup-input"
@@ -54,26 +56,26 @@ export const ResetPasswordForm = () => {
                 />
 
                 {errors.password && touched.password && (
-                  <p className="bi">{errors.password}</p>
+                  <p className="password-error">{errors.password}</p>
                 )}
               </div>
 
               <div class="form-wrapper">
                 <label htmlFor="Password">
-                 Repeat Password<span className="bi">*</span>
+                 Repeat Password<span className="bin">*</span>
                 </label>
                 <input
                   className="signup-input"
                   type="password"
-                  id="password"
-                  name="password"
+                  id="cpassword"
+                  name="confirmPassword"
                   placeHolder="Repeat Password"
                   onChange={handleChange}
-                  value={values.password}
+                  value={values.confirmPassword}
                 />
 
                 {errors.confirmPassword && touched.confirmPassword && (
-                  <p className="bi">{errors.confirmPassword}</p>
+                  <p className="confirm-password-error">{errors.confirmPassword}</p>
                 )}
               </div>
 
