@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllQuestion = (props) => {
-  const {datas} = props ;
+const {datas} = props ;
 
   return (
+   
       <div className="questions-wrapper">
         {datas.map(
           ({
@@ -19,7 +21,8 @@ const AllQuestion = (props) => {
             isAnswered,
           }) => {
             return (
-              <div className="questions" key={id}>
+          
+          <Link to = {`${id}`}>    <div className="questions" key={id}>
                 <div className="question-box">
                   <img
                     src={`https://ui-avatars.com/api/?name=${img}`}
@@ -51,10 +54,12 @@ const AllQuestion = (props) => {
                   </div>
                 </div>
               </div>
+          </Link>
             );
           }
         )}
       </div>
+     
   )}
 
 export default AllQuestion;
