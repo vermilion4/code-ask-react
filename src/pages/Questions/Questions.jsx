@@ -9,7 +9,9 @@ import QuestionModal from './components/QuestionModal';
 
 export const Questions = ({
   hover,
+  setHover,
   hoverState,
+  setHoverState,
   handleHover,
   windowSize,
   getWindowSize,
@@ -26,6 +28,8 @@ export const Questions = ({
 
     return () => {
       window.removeEventListener('resize', handleWindowResize);
+      setHover(false);
+      setHoverState(false);
     };
   }, []);
 

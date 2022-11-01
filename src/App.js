@@ -35,8 +35,8 @@ function App ()
         <Route path='/about-us' element={ <AboutUs /> }></Route>
         <Route path='/sign-up' element={ <SignUp /> }></Route>
         <Route path='/sign-in' element={ <SignIn /> }></Route>
-        <Route path='/questions' element={ <Questions hover={ hover } handleHover={ handleHover } hoverState={ hoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
-        <Route path='/ask-question' element={ <AskQuestions hover={ hover } handleHover={ handleHover } hoverState={ hoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
+        <Route path='/questions' element={ <Questions hover={ hover } setHover={ setHover } handleHover={ handleHover } hoverState={ hoverState } setHoverState={ setHoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
+        <Route path='/ask-question' element={ <AskQuestions hover={ hover } setHover={ setHover } handleHover={ handleHover } hoverState={ hoverState } setHoverState={ setHoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
         <Route path='/reset-password' element={ <ResetPassword /> }></Route>
       </Routes>
