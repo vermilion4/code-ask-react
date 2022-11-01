@@ -8,7 +8,9 @@ import Form from './components/Form';
 
 export const AskQuestions = ({
   hover,
+  setHover,
   hoverState,
+  setHoverState,
   handleHover,
   windowSize,
   getWindowSize,
@@ -25,6 +27,8 @@ export const AskQuestions = ({
 
     return () => {
       window.removeEventListener('resize', handleWindowResize);
+      setHover(false);
+      setHoverState(false);
     };
   }, []);
 
