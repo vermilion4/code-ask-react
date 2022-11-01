@@ -65,7 +65,7 @@
   border: 1px solid var(--codeaskgreen);
   border-radius: 4.8px;
   color: var(--white);
-  margin-left: 15%;
+  margin-left: 10%;
   margin-bottom: 3rem;
   cursor: pointer;
   transition: transform ease 0.4s;

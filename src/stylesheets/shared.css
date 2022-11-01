@@ -527,7 +527,7 @@ main .sidebar {
 #main {
   transition: margin-left 0.5s;
   margin-top: 6rem;
-  margin-left: 85px;
+  margin-left: 0;
   min-height: 100vh;
 }
 .sidebar.mobile {

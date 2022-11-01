@@ -7,23 +7,38 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import FAQ from './pages/FAQ/FAQ';
-import {ResetPassword} from "./pages/ResetPassword/ResetPassword"
+import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
+import { useState } from 'react';
 
 
 
 function App ()
 {
+  const [hoverState, setHoverState] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  function getWindowSize ()
+  {
+    const { innerWidth } = window;
+    return { innerWidth };
+  }
+  function handleHover ()
+  {
+    setHover(!hover);
+    hover ? setHoverState(false) : setHoverState(true);
+  }
   return (
     <Router>
       <Routes>
         <Route path='/' element={ <LandingPage /> }></Route>
         <Route path='/about-us' element={ <AboutUs /> }></Route>
         <Route path='/sign-up' element={ <SignUp /> }></Route>
-        <Route path='/sign-in' element= {<SignIn/> }></Route>
-        <Route path='/questions' element={ <Questions /> }></Route>
-        <Route path='/ask-question' element={ <AskQuestions /> }></Route>
+        <Route path='/sign-in' element={ <SignIn /> }></Route>
+        <Route path='/questions' element={ <Questions hover={ hover } handleHover={ handleHover } hoverState={ hoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
+        <Route path='/ask-question' element={ <AskQuestions hover={ hover } handleHover={ handleHover } hoverState={ hoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
-        <Route path='/reset-password' element={<ResetPassword />}></Route>
+        <Route path='/reset-password' element={ <ResetPassword /> }></Route>
       </Routes>
     </Router>
   );
