@@ -5,8 +5,7 @@ import Logo from '../../assets/whiteLogoSym.png';
 import Logout from '../../assets/logout.png';
 import { loggedInNavData } from '../../Data/loggedInNavData';
 
-export const LoggedInSidebar = () => {
-  const [hover, setHover] = useState(false);
+export const LoggedInSidebar = ({ hover, handleHover }) => {
   const [active, setActive] = useState(1);
 
   const openSidebar = {
@@ -16,10 +15,6 @@ export const LoggedInSidebar = () => {
     width: '85px',
   };
 
-  function handleHover() {
-    setHover(!hover);
-  }
-
   return (
     <React.Fragment>
       <div
@@ -27,7 +22,8 @@ export const LoggedInSidebar = () => {
         className={'sidebar'}
         style={hover ? openSidebar : closeSidebar}
         onMouseEnter={handleHover}
-        onMouseLeave={handleHover}>
+        onMouseLeave={handleHover}
+      >
         <div className='sidebar-logo'>
           <Link to={'/'}>
             <img src={Logo} className='logo-icon' alt='' />
@@ -42,7 +38,8 @@ export const LoggedInSidebar = () => {
                   key={id}
                   to={link}
                   className={id === active ? 'active-link' : ''}
-                  onClick={() => setActive(id)}>
+                  onClick={() => setActive(id)}
+                >
                   {icon}
                   <span className='icon-text'>{text}</span>
                 </Link>

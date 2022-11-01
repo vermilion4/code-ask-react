@@ -6,21 +6,46 @@ import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
 import '../../stylesheets/askquestion.css';
 import Form from './components/Form';
 
-export const AskQuestions = () => {
-  const mediaMatch = window.matchMedia('(max-width: 900px)');
-  const [matches, setMatches] = useState(mediaMatch.matches);
+export const AskQuestions = ({
+  hover,
+  hoverState,
+  handleHover,
+  windowSize,
+  getWindowSize,
+  setWindowSize,
+}) => {
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const handler = (e) => setMatches(e.matches);
-    mediaMatch.addListener(handler);
-    return () => mediaMatch.removeListener(handler);
-  });
-  const styles = {
-    container: (noSidebar) => ({
-      marginLeft: noSidebar ? '0px' : null,
-    }),
-  };
-  const [show, setShow] = useState(false);
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  let closeContent = {};
+  let openContent = {};
+
+  if (windowSize.innerWidth > 900) {
+    closeContent = {
+      marginLeft: '250px',
+    };
+    openContent = {
+      marginLeft: '85px',
+    };
+  } else {
+    closeContent = {
+      marginLeft: '0px',
+    };
+    openContent = {
+      marginLeft: '0px',
+    };
+  }
 
   function mobileNav() {
     setShow(!show);
@@ -29,9 +54,9 @@ export const AskQuestions = () => {
   if (show === false) {
     return (
       <React.Fragment>
-        <LoggedInSidebar />
+        <LoggedInSidebar hover={hover} handleHover={handleHover} />
         <LoggedInHeader />
-        <div id='main' style={styles.container(matches)}>
+        <div id='main' style={hoverState ? closeContent : openContent}>
           {/* CONTENT GOES IN HERE */}
           <h1 className='askquestion-h1'>Ask a Question</h1>
           <Form />
