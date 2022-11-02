@@ -7,13 +7,15 @@ import '../../stylesheets/dashboard.css';
 import UserImage from '../../assets/Ajiboye-big.png';
 import { Link, NavLink } from 'react-router-dom';
 import { questionList } from '../../Data/questionList';
+import { dashboardTags } from '../../Data/dashboardTags';
 
 const Dashboard = ({
   hover,
   setHover,
   hoverState,
   setHoverState,
-  handleHover,
+  handleHoverClose,
+  handleHoverOpen,
   windowSize,
   getWindowSize,
   setWindowSize,
@@ -61,7 +63,11 @@ const Dashboard = ({
   if (show === false) {
     return (
       <>
-        <LoggedInSidebar hover={hover} handleHover={handleHover} />
+        <LoggedInSidebar
+          hover={hover}
+          handleHoverClose={handleHoverClose}
+          handleHoverOpen={handleHoverOpen}
+        />
         <LoggedInHeader />
 
         <div id='dashboard-mainpage'>
@@ -151,6 +157,23 @@ const Dashboard = ({
                           <Link to={''} href>
                             {date}
                           </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className='top-post'>
+                  <div className='pre-list'>
+                    <h1>Top tags</h1>
+                  </div>
+                  <div className='question-lists'>
+                    {dashboardTags.map(({ tagName, postNumber }) => {
+                      return (
+                        <div className='question-list'>
+                          <a className='tags' href>
+                            {tagName}
+                          </a>
+                          <a href>{postNumber}</a>
                         </div>
                       );
                     })}

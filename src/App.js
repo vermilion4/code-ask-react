@@ -24,9 +24,14 @@ function App ()
     const { innerWidth } = window;
     return { innerWidth };
   }
-  function handleHover ()
+  function handleHoverClose ()
   {
-    setHover(!hover);
+    setHover(false);
+    hover ? setHoverState(false) : setHoverState(true);
+  }
+  function handleHoverOpen ()
+  {
+    setHover(true);
     hover ? setHoverState(false) : setHoverState(true);
   }
   return (
@@ -43,7 +48,8 @@ function App ()
         <Route path='/questions' element={ <Questions
           hover={ hover }
           setHover={ setHover }
-          handleHover={ handleHover }
+          handleHoverClose={ handleHoverClose }
+          handleHoverOpen={ handleHoverOpen }
           hoverState={ hoverState }
           setHoverState={ setHoverState }
           windowSize={ windowSize }
@@ -53,7 +59,8 @@ function App ()
         <Route path='/ask-question' element={ <AskQuestions
           hover={ hover }
           setHover={ setHover }
-          handleHover={ handleHover }
+          handleHoverClose={ handleHoverClose }
+          handleHoverOpen={ handleHoverOpen }
           hoverState={ hoverState }
           setHoverState={ setHoverState }
           windowSize={ windowSize }
@@ -67,7 +74,8 @@ function App ()
         <Route path='/dashboard' element={ <Dashboard
           hover={ hover }
           setHover={ setHover }
-          handleHover={ handleHover }
+          handleHoverClose={ handleHoverClose }
+          handleHoverOpen={ handleHoverOpen }
           hoverState={ hoverState }
           setHoverState={ setHoverState }
           windowSize={ windowSize }
