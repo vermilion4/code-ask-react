@@ -9,7 +9,7 @@ export const loggedInNavData = [
     id: 0,
     icon: <FontAwesomeIcon icon={ faHome } className='material-icons' />,
     text: 'Dashboard',
-    link: ''
+    link: '/dashboard'
   },
   {
     id: 1,

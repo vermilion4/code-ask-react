@@ -60,7 +60,11 @@ export const AskQuestions = ({
       <React.Fragment>
         <LoggedInSidebar hover={hover} handleHover={handleHover} />
         <LoggedInHeader />
-        <div id='main' style={hoverState ? closeContent : openContent}>
+        <div
+          id='main'
+          className='ask-question-main'
+          style={hoverState ? closeContent : openContent}
+        >
           {/* CONTENT GOES IN HERE */}
           <h1 className='askquestion-h1'>Ask a Question</h1>
           <Form />
