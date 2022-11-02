@@ -1,55 +1,54 @@
-
 :root {
     --codeaskblue: #002828;
     --white: #ffffff;
-    --black:#000000;
-    --grey:#6C757D;
-  } 
+    --black: #000000;
+    --grey: #6C757D;
+}
 
-.discussion_main{
-    margin: 86px 0px 0px 114px;
+.discussion_main {
+    margin: 85px 0px 0px 85px;
     padding: 24px 12px 24px 24px;
 
     display: flex;
     flex-direction: row;
     gap: 24px;
-   
+
 
 }
 
-.forum-wrapper{
+.forum-wrapper {
     width: 40%;
-   
+
     display: flex;
     flex-direction: column;
-   
+
 }
 
-.forum-wrapper button{
-    background:   var(--codeaskblue);
-    border: 1px solid   var(--codeaskblue);
+.forum-wrapper button {
+    background: var(--codeaskblue);
+    border: 1px solid var(--codeaskblue);
     border-radius: 4.8px;
     color: var(--white);
     padding: 8px 16px;
     font-size: 20px;
     font-weight: 300;
 
-    
-   
+
+
     margin-left: auto;
 }
 
-.forum{
+.forum {
     margin-top: 22px;
     background-color: var(--white);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
-   
+
     margin-left: auto;
     transition: 1s;
 }
 
 
-.forum h4{
+.forum h4 {
     font-weight: 300;
     font-size: 24px;
     line-height: 120%;
@@ -59,34 +58,34 @@
     border-bottom: 1px solid #F8F9FA
 }
 
-.each-forum{
+.each-forum {
     margin: 0px 16px;
     padding: 16px 0px;
     border-bottom: 1px solid #F8F9FA;
 
 }
 
-.each-forum .title{
+.each-forum .title {
     font-weight: 400;
     font-size: 16px;
     color: #050F17;
     margin-bottom: 8px;
 }
 
-.each-forum .info{
+.each-forum .info {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 8px;
 }
 
-.each-forum .time{
+.each-forum .time {
     font-weight: 300;
     font-size: 14px;
     color: var(--black);
 }
 
-.each-forum .user{
+.each-forum .user {
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
@@ -96,7 +95,7 @@
     padding: 0px 8px;
 }
 
-.thread{
+.thread {
     width: 60%;
     height: fit-content;
     background-color: var(--white);
@@ -104,26 +103,26 @@
     padding: 25px 19px;
 }
 
-.thread h4{
+.thread h4 {
     font-weight: 900;
     font-size: 24px;
     color: var(--black);
     margin-bottom: 16px;
 }
 
-.thread .each-thread{
+.thread .each-thread {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-bottom: 22px;
-   
+
 
     border-bottom: 1px solid #F8F9FA;
-   
-  
+
+
 }
 
-.each-thread .img img{
+.each-thread .img img {
     border-radius: 50%;
     width: 98px;
     height: 98px;
@@ -131,29 +130,29 @@
 }
 
 
-.each-thread .user{
+.each-thread .user {
     font-weight: 700;
     font-size: 16px;
     color: #050F17;
     margin-bottom: 3px;
 }
 
-.each-thread .date{
+.each-thread .date {
     font-weight: 300;
     font-size: 14px;
     color: #000000;
     margin-bottom: 3px;
-    
+
 }
 
-.each-thread .topic{
+.each-thread .topic {
     font-weight: 500;
     font-size: 24px;
     color: #050F17;
-        
+
 }
 
-.each-thread-reply{
+.each-thread-reply {
     font-weight: 400;
     font-size: 18px;
     color: var(--black);
@@ -165,20 +164,20 @@
     margin-bottom: 28px;
 }
 
-.solution-wrapper{
+.solution-wrapper {
     display: flex;
     flex-direction: row;
     margin-bottom: 24px;
 }
 
-.solution-wrapper .img img{
+.solution-wrapper .img img {
     border-radius: 50%;
     width: 64px;
     height: 64px;
     margin-right: 31px;
 }
 
-.solution-info{
+.solution-info {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -186,44 +185,44 @@
     margin-bottom: 14px;
 }
 
-.solution-info h5{
+.solution-info h5 {
     font-weight: 700;
     font-size: 16px;
     color: #050F17;
 }
 
-.solution-info p{
+.solution-info p {
     font-weight: 300;
     font-size: 14px;
     color: var(--black);
-    
-}
-
-.solution-brief{
 
 }
 
-.solution-brief p{
+/* .solution-brief{
+
+} */
+
+.solution-brief p {
     font-weight: 400;
     font-size: 16px;
     color: var(--black);
 }
 
-.solution-brief p:not(:last-child){
+.solution-brief p:not(:last-child) {
     padding-bottom: 20px;
 }
 
 
-.solution-input-box{
+.solution-input-box {
     padding: 13px;
 }
 
-.solution-input-icons{
-   
+.solution-input-icons {
+
     border: 1px solid #CED4DA;
     background-color: #F8F9FA;
     border-bottom: none;
-    border-radius: 4.8px 4.8px 0 0 ;
+    border-radius: 4.8px 4.8px 0 0;
     margin: 0;
     padding: 10px 15px;
 
@@ -231,10 +230,10 @@
     flex-direction: row;
     align-items: center;
     gap: 25px;
- 
+
 }
 
-.solution-input-box textarea{
+.solution-input-box textarea {
     border: 1px solid #CED4DA;
     border-radius: 0 0 4.8px 4.8px;
     color: #000000;
@@ -248,17 +247,18 @@
     box-sizing: border-box;
 }
 
-.solution-input-box textarea:focus{
-    border: 1px solid #ADB5BD;;
-    outline:none;
+.solution-input-box textarea:focus {
+    border: 1px solid #ADB5BD;
+    ;
+    outline: none;
 }
 
-.undoredo, 
+.undoredo,
 .textsize,
 .alignment,
 .textdecorations,
 .lists,
-.textadditions{
+.textadditions {
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -266,19 +266,19 @@
     align-items: center;
 
 
-    color: #212529;  
+    color: #212529;
 }
 
-.textsize svg{
+.textsize svg {
     display: inline-block;
     vertical-align: middle;
 }
 
-.textarea-wrapper{
-    position: relative; 
+.textarea-wrapper {
+    position: relative;
 }
 
-.solution-input-box button{
+.solution-input-box button {
     font-weight: 300;
     font-size: 17px;
     color: var(--white);
@@ -290,7 +290,30 @@
 
 
 
-    position: absolute; 
-    bottom: 15px; 
-    right: 10px; 
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+
+@media (max-width: 900px) {
+    .discussion_main {
+         margin: 85px 30px 30px 30px;
+         padding: 0;
+        flex-direction: column;
+    }
+
+    .forum {
+        margin-left: 0px;
+    }
+
+    .forum-wrapper {
+        width: 100%;
+    }
+
+.thread{
+    width: 100%;
+}
+
+
 }
