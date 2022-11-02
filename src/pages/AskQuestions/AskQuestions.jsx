@@ -5,13 +5,15 @@ import NavIcon from '../../components/QuestionHeader/NavIcon';
 import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
 import '../../stylesheets/askquestion.css';
 import Form from './components/Form';
+import AskQuestionModal from './components/AskQuestionModal';
 
 export const AskQuestions = ({
   hover,
   setHover,
   hoverState,
   setHoverState,
-  handleHover,
+  handleHoverClose,
+  handleHoverOpen,
   windowSize,
   getWindowSize,
   setWindowSize,
@@ -58,7 +60,11 @@ export const AskQuestions = ({
   if (show === false) {
     return (
       <React.Fragment>
-        <LoggedInSidebar hover={hover} handleHover={handleHover} />
+        <LoggedInSidebar
+          hover={hover}
+          handleHoverClose={handleHoverClose}
+          handleHoverOpen={handleHoverOpen}
+        />
         <LoggedInHeader />
         <div
           id='main'
@@ -68,6 +74,7 @@ export const AskQuestions = ({
           {/* CONTENT GOES IN HERE */}
           <h1 className='askquestion-h1'>Ask a Question</h1>
           <Form />
+          <AskQuestionModal />
           <button class='askquestion-button'>POST QUESTION</button>
           {/* CONTENT ENDS HERE */}
         </div>

@@ -65,7 +65,7 @@
   border: 1px solid var(--codeaskgreen);
   border-radius: 4.8px;
   color: var(--white);
-  margin-left: 10%;
+  margin-left: 12.5%;
   margin-bottom: 3rem;
   cursor: pointer;
   transition: transform ease 0.4s;
@@ -83,6 +83,10 @@
 /* ASK QUESTION MODAL */
 
 .askquestion-modal {
+  display: none;
+}
+.askquestion-modal.show {
+  display: block;
   position: fixed;
   z-index: 10;
   background-color: rgba(0, 40, 40, 0.25);
@@ -90,7 +94,6 @@
   height: 100%;
   top: 0;
   left: 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +101,7 @@
 }
 
 .askquestion-modal-main {
-  width: 600px;
+  width: 500px;
   background-color: var(--codeaskgreen);
   padding: 32px 44px;
   color: var(--white);
@@ -114,36 +117,38 @@
 
 .askquestion-modal .title h4 {
   font-weight: 500;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 150%;
 }
 
-.askquestion-modal .title i {
-  font-size: 40px;
+.askquestion-modal .title .close-icon {
+  font-size: 30px;
+  cursor: pointer;
 }
 
-.askquestion-modal .main {
-  padding-bottom: 20px;
-}
-
-.askquestion-modal .main p {
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 150%;
+.askquestion-modal p {
+  font-weight: lighter;
+  font-size: 18px;
+  line-height: 140%;
   padding-bottom: 10px;
 }
+.rules {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
 
-.askquestion-modal .main .first {
+.askquestion-modal .askquestion-modal-content .first {
   padding-bottom: 30px;
 }
 
-.askquestion-modal .main .second {
+.askquestion-modal .askquestion-modal-content .second {
   padding-bottom: 20px;
 }
 
 .askquestion-modal .bottom {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -151,18 +156,25 @@
   font-weight: 300px;
   font-size: 20px;
   padding: 8px 16px;
-
   background-color: #003636;
   border: 1px solid var(--codeaskgreen);
   border-radius: 4.8px;
   color: var(--white);
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+.askquestion-modal .bottom button:hover {
+  background-color: #fff;
+  color: #003636;
 }
 
 .askquestion-modal .bottom p {
   font-weight: 300;
+  padding-top: 1rem;
   font-size: 20px;
-  line-height: 150%;
   color: #3d8bfd;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .askquestion-modal .bottom p:hover {
@@ -172,6 +184,9 @@
 @media (max-width: 768px) {
   .askquestion-h1 {
     font-size: 24px;
+  }
+  .askquestion-modal {
+    top: 5%;
   }
   .askquestion-main,
   .askquestion-h1 {
