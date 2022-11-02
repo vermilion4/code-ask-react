@@ -11,7 +11,7 @@ let validationSchema = yup.object().shape({
     .matches(/[^\w]/, 'Password requires a symbol')
     .required(),
     confirmPassword: yup.string()
-    .oneOf([yup.ref('password'), null], 'Must match "password" field value').required()
+    .oneOf([yup.ref('password'), null], 'Must match "password" field value').required("Confirm Password is a required field")
 })
 
 export default validationSchema

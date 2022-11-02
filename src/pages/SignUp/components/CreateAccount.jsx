@@ -2,7 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import validationSchema from "./validationSignUp";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const CreateAccount = () => {
   return (
@@ -27,6 +27,28 @@ export const CreateAccount = () => {
               password,
             });
             console.log(response.data);
+            const {access, refresh}= response.data.token
+
+            const tokens=[]
+            tokens.push( {access:access.token})
+            tokens.push( {refresh:refresh.token})
+
+            localStorage.setItem("token", JSON.stringify(tokens) )
+
+         
+            const navigate = useNavigate()
+           let token = JSON.parse(localStorage.getItem("token")) 
+           if (token.length > 0) {
+            navigate ("/questions")
+           }
+           
+
+
+           
+
+
+
+            window.location()
           } catch (error) {}
         }}
       >

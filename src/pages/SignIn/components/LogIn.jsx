@@ -1,6 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
 import axios from "axios";
+import { useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+
 
 export const LogIn = () => {
   return (
@@ -10,7 +13,6 @@ export const LogIn = () => {
           email: "",
           password: "",
         }}
-        
         onSubmit={async (values, { setSubmitting }) => {
           const { email, password } = values;
           setSubmitting(true);
@@ -21,6 +23,27 @@ export const LogIn = () => {
               password,
             });
             console.log(response.data);
+
+            const { access, refresh } = response.data.token;
+
+            const tokens = [];
+            tokens.push({ access: access.token });
+            tokens.push({ refresh: refresh.token });
+
+            localStorage.setItem("token", JSON.stringify(tokens));
+
+           
+            let token = JSON.parse(localStorage.getItem("token"));
+            console.log(token.length);
+            
+            const navigate = useNavigate()
+            const tokenExist = token > 0;
+
+            useEffect(() => {
+              if (tokenExist) {
+                navigate("/questions");
+              }
+            }, [tokenExist]);
           } catch (error) {}
         }}
       >
@@ -49,9 +72,9 @@ export const LogIn = () => {
                   onChange={handleChange}
                   value={values.email}
                 />
-                {errors.email && touched.email && 
+                {errors.email && touched.email && (
                   <p className="bi">{errors.email}</p>
-                }
+                )}
               </div>
 
               {/* password */}

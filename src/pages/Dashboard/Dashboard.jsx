@@ -3,10 +3,9 @@ import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
 import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
 import NavIcon from '../../components/QuestionHeader/NavIcon';
 import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
-import '../../stylesheets/askquestion.css';
-import Form from './components/Form';
+import '../../stylesheets/dashboard.css';
 
-export const AskQuestions = ({
+const Dashboard = ({
   hover,
   setHover,
   hoverState,
@@ -37,10 +36,11 @@ export const AskQuestions = ({
 
   if (windowSize.innerWidth > 900) {
     closeContent = {
-      marginLeft: '250px',
+      marginLeft: '150px',
+      width: '85%',
     };
     openContent = {
-      marginLeft: '85px',
+      marginLeft: '0px',
     };
   } else {
     closeContent = {
@@ -57,20 +57,51 @@ export const AskQuestions = ({
 
   if (show === false) {
     return (
-      <React.Fragment>
+      <>
         <LoggedInSidebar hover={hover} handleHover={handleHover} />
         <LoggedInHeader />
-        <div id='main' style={hoverState ? closeContent : openContent}>
-          {/* CONTENT GOES IN HERE */}
-          <h1 className='askquestion-h1'>Ask a Question</h1>
-          <Form />
-          <button class='askquestion-button'>POST QUESTION</button>
-          {/* CONTENT ENDS HERE */}
+
+        <div
+          className='dash-body'
+          style={hoverState ? closeContent : openContent}
+          id='dashboard-mainpage'
+        >
+          <div className='user-details'>
+            <div className='user'>
+              <img alt="Muideen's photo" className='profileImage' />
+              <div className='details'>
+                <h1 id='signed_name' />
+                <h3>Backend Developer</h3>
+                <div className='icons'>
+                  <a href='#'>
+                    <i className='fab fa-twitter' />
+                  </a>
+                  <a href='#'>
+                    <i className='fab fa-github' />
+                  </a>
+                  <a href='#'>
+                    <i className='fa fa-clock-o' />
+                  </a>
+                  <p>last seen this week</p>
+                  <a href='#'>
+                    <i className='fa fa-map-marker' />
+                  </a>
+                  <p>Abuja</p>
+                </div>
+              </div>
+            </div>
+            <button className='edit-btn'>
+              <i className='fa fa-pencil' />
+              Edit Details
+            </button>
+          </div>
         </div>
         <NavIcon onclick={mobileNav} />
-      </React.Fragment>
+      </>
     );
   } else {
     return <LoggedInMobile onclick={mobileNav} />;
   }
 };
+
+export default Dashboard;

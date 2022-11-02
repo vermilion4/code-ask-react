@@ -1,21 +1,78 @@
 import { LoggedInSidebar } from "../../components/Sidebar/LoggedInSidebar";
 import { LoggedInHeader } from "../../components/QuestionHeader/LoggedInHeader";
-import '../../stylesheets/questions.css';
+import React, { useState, useEffect} from "react";
+import NavIcon from "../../components/QuestionHeader/NavIcon";
 import '../../stylesheets/answers.css';
+import { LoggedInMobile } from "../../components/Sidebar/LoggedInMobile";
 
-import React from "react";
 
-
-export function Answers(){
-{/* <React.Fragment> */}
-        <div>
-        <LoggedInHeader></LoggedInHeader>
-        <LoggedInSidebar></LoggedInSidebar>
-        </div>
-       
-
-        // <main>
+export function Answers(
+  hover, 
+  setHover,
+  hoverState,
+  setHoverState,
+  handleHover, 
+  windowSize, 
+  getWindowSize, 
+  setWindowSize
+){
         
-        // </main>
-    // </React.Fragment>
+const [show, setShow] = useState(false)
+
+useEffect(()=>{
+    function handleWindowResize(){
+        setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () =>{
+        window.removeEventListener('resize', handleWindowResize)
+        setHover(false);
+        setHoverState(false)
+    
+    };
+}, []);
+
+let closeContent = {};
+let openContent = {};
+
+if(windowSize.innerWidth> 900){
+    closeContent ={
+        marginLeft: '250px',
+    };
+    openContent={
+        marginLeft:'85px',
+    };
+} else {
+    closeContent ={
+        marginLeft: '0px',
+    };
+    openContent = {
+        marginLeft:'0px'
+    }
+}
+
+function mobileNav(){
+    setShow(!show);
+}
+
+if(show ===false){
+    return (
+<React.Fragment> 
+
+<LoggedInSidebar hover= {hover} handleHover = {handleHover}/>
+<LoggedInHeader/>
+
+<main style={hoverState ? closeContent : openContent}>
+
+</main>
+ 
+ <NavIcon onclick={mobileNav}/>
+</React.Fragment>
+    )
+} else{
+    return <LoggedInMobile onclick={mobileNav}/>
+}
+
 }
