@@ -1,12 +1,13 @@
-import React from 'react';
+// import React from 'react';
+import React from "react";
 import { Link } from 'react-router-dom';
 
 const AllQuestion = (props) => {
 const {datas} = props ;
+   
 
   return (
-   
-      <div className="questions-wrapper">
+      <div  className="questions-wrapper">
         {datas.map(
           ({
             id,
@@ -22,7 +23,7 @@ const {datas} = props ;
           }) => {
             return (
           
-          <Link to = {`${id}`}>    <div className="questions" key={id}>
+          <Link key={id} to = {`${id}`}>    <div className="questions" >
                 <div className="question-box">
                   <img
                     src={`https://ui-avatars.com/api/?name=${img}`}
@@ -58,8 +59,8 @@ const {datas} = props ;
             );
           }
         )}
-      </div>
-     
+</div>
+    
   )}
 
 export default AllQuestion;
