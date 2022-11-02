@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
+import axios from "axios";
 
 export const LogIn = () => {
   return (
@@ -10,16 +11,17 @@ export const LogIn = () => {
           password: "",
         }}
         
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           const { email, password } = values;
           setSubmitting(true);
 
-          setTimeout(() => {
-            alert(
-              "wellcome back, I think se you no wan ask question again, olodo"
-            );
-            setSubmitting(false);
-          }, 400);
+          try {
+            let response = await axios.post("auth/signin", {
+              email,
+              password,
+            });
+            console.log(response.data);
+          } catch (error) {}
         }}
       >
         {({

@@ -1,34 +1,41 @@
 import React from "react";
 import { Formik } from "formik";
 import validationSchema from "./validationSignUp";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const CreateAccount = () => {
   return (
     <React.Fragment>
       <Formik
         initialValues={{
-          name: "",
+          username: "",
           email: "",
           password: "",
           confirmPassword: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        
+        onSubmit={async (values, { setSubmitting }) => {
           const { username, email, password, confirmPassword } = values;
           setSubmitting(true);
 
-          setTimeout(() => {
-            alert("Na better Person you be,you sabi better thing, kudos");
-            setSubmitting(false);
-          }, 400);
+          try {
+            let response = await axios.post("auth/signup", {
+              username,
+              email,
+              password,
+            });
+            console.log(response.data);
+          } catch (error) {}
         }}
       >
         {({
           values,
           errors,
           touched,
-          handleChange,
           handleSubmit,
+          handleChange,
           isSubmitting,
           /* and other goodies */
         }) => (
@@ -39,6 +46,7 @@ export const CreateAccount = () => {
                 <label htmlFor="name">
                   Name<span className="bi">*</span>
                 </label>
+
                 <input
                   className="signup-input"
                   type="text"
@@ -48,6 +56,7 @@ export const CreateAccount = () => {
                   onChange={handleChange}
                   value={values.name}
                 />
+
                 {errors.username && touched.username && (
                   <p className="bi"> {errors.username}</p>
                 )}
@@ -58,6 +67,7 @@ export const CreateAccount = () => {
                 <label htmlFor="email">
                   Email Address<span className="bi">*</span>
                 </label>
+
                 <input
                   className="signup-input"
                   type="email"
@@ -110,7 +120,8 @@ export const CreateAccount = () => {
                   <p className="bi"> {errors.confirmPassword}</p>
                 )}
               </div>
-          
+
+
               <button
                 type="submit"
                 className="signup-btn get"
@@ -118,6 +129,7 @@ export const CreateAccount = () => {
                 onClick={handleSubmit}
               >
                 {isSubmitting ? "Loading" : "Get Started"}
+                
               </button>
             </form>
           </>
