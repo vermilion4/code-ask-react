@@ -36,12 +36,20 @@ export const LogIn = () => {
             let token = JSON.parse(localStorage.getItem("token"));
             console.log(token.length);
             
-            const navigate = useNavigate()
-            const tokenExist = token > 0;
+            
+            const tokenExist = token.length > 0;
+          
+            console.log(tokenExist)
+          
+            console.log("navigte")
+
+              function navigator (){
+          const navigate = useNavigate()
+              }
 
             useEffect(() => {
               if (tokenExist) {
-                navigate("/questions");
+                // navigate("/questions");
               }
             }, [tokenExist]);
           } catch (error) {}
