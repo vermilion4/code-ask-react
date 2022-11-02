@@ -12,7 +12,8 @@ export const Questions = ({
   setHover,
   hoverState,
   setHoverState,
-  handleHover,
+  handleHoverClose,
+  handleHoverOpen,
   windowSize,
   getWindowSize,
   setWindowSize,
@@ -62,7 +63,11 @@ export const Questions = ({
       <>
         <div className='desktopbackground'></div>
         <div className='question-main'>
-          <LoggedInSidebar hover={hover} handleHover={handleHover} />
+          <LoggedInSidebar
+            hover={hover}
+            handleHoverClose={handleHoverClose}
+            handleHoverOpen={handleHoverOpen}
+          />
           <LoggedInHeader />
           <main id='main' style={hoverState ? closeContent : openContent}>
             {/* CONTENT GOES IN HERE */}

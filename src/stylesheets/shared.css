@@ -495,7 +495,7 @@ footer .right-reserved {
 }
 
 .sidebar a:hover,
-.sidebar a.active-link {
+.sidebar a.active {
   color: #f1f1f1;
 }
 
@@ -577,7 +577,7 @@ main .sidebar {
     display: block;
   }
   .sidebar.mobile a:hover,
-  .sidebar.mobile a.active-link {
+  .sidebar.mobile a.active {
     color: #f1f1f1;
   }
   .close-icon {

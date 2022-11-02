@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { loggedInNavData } from '../../Data/loggedInNavData';
 import Logo from '../../assets/WhiteLogo.png';
 import Logout from '../../assets/logout.png';
 import Avatar from '../../assets/Avatar.png';
 
 export const LoggedInMobile = ({ onclick }) => {
-  const [active, setActive] = useState(1);
   return (
     <React.Fragment>
       <div id='mySidebar' className={'sidebar mobile'}>
@@ -33,14 +32,10 @@ export const LoggedInMobile = ({ onclick }) => {
           {loggedInNavData.map(({ id, icon, text, link }) => {
             return (
               <React.Fragment>
-                <Link
-                  key={id}
-                  to={link}
-                  className={id === active ? 'active-link' : ''}
-                  onClick={() => setActive(id)}>
+                <NavLink key={id} to={link}>
                   {icon}
                   <span className='icon-text'>{text}</span>
-                </Link>
+                </NavLink>
                 <br />
               </React.Fragment>
             );
