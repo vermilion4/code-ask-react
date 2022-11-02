@@ -526,9 +526,11 @@ main .sidebar {
 
 #main {
   transition: margin-left 0.5s;
-  margin-top: 6rem;
   margin-left: 0;
   min-height: 100vh;
+}
+.ask-question-main {
+  margin-top: 6rem;
 }
 .sidebar.mobile {
   display: none;
