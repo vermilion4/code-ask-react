@@ -35,9 +35,16 @@ const LoggedInHeaderMobile = () => {
       </section>
       {showMobileSearch ? (
         <div className='mobile-search-bar'>
-          <input type='text' placeholder='Search...' />
+          <div className='search'>
+            <FontAwesomeIcon icon={faSearch} className='search-icon' />
+            <input type='text' placeholder='Search...' />
+          </div>
         </div>
       ) : null}
+      {/* <div className='search'>
+          <FontAwesomeIcon icon={faSearch} className='search-icon' />
+          <input type='search' placeholder='Search...' />
+        </div> */}
     </>
   );
 };
