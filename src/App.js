@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp/SignUp';
 import { SignIn } from './pages/SignIn/SignIn';
 import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
+import { Discussion } from './pages/Discussion/Discussion';
 import FAQ from './pages/FAQ/FAQ';
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useState } from 'react';
@@ -72,6 +73,18 @@ function App ()
         <Route path='/reset-password' element={ <ResetPassword /> }></Route>
 
         <Route path='/dashboard' element={ <Dashboard
+          hover={ hover }
+          setHover={ setHover }
+          handleHoverClose={ handleHoverClose }
+          handleHoverOpen={ handleHoverOpen }
+          hoverState={ hoverState }
+          setHoverState={ setHoverState }
+          windowSize={ windowSize }
+          setWindowSize={ setWindowSize }
+          getWindowSize={ getWindowSize } /> }></Route>
+      
+
+      <Route path='/discuss' element={ <Discussion
           hover={ hover }
           setHover={ setHover }
           handleHoverClose={ handleHoverClose }
