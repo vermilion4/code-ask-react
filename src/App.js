@@ -9,6 +9,7 @@ import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import FAQ from './pages/FAQ/FAQ';
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useState } from 'react';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 
 
@@ -32,13 +33,46 @@ function App ()
     <Router>
       <Routes>
         <Route path='/' element={ <LandingPage /> }></Route>
+
         <Route path='/about-us' element={ <AboutUs /> }></Route>
+
         <Route path='/sign-up' element={ <SignUp /> }></Route>
+
         <Route path='/sign-in' element={ <SignIn /> }></Route>
-        <Route path='/questions' element={ <Questions hover={ hover } setHover={ setHover } handleHover={ handleHover } hoverState={ hoverState } setHoverState={ setHoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
-        <Route path='/ask-question' element={ <AskQuestions hover={ hover } setHover={ setHover } handleHover={ handleHover } hoverState={ hoverState } setHoverState={ setHoverState } windowSize={ windowSize } setWindowSize={ setWindowSize } getWindowSize={ getWindowSize } /> }></Route>
+
+        <Route path='/questions' element={ <Questions
+          hover={ hover }
+          setHover={ setHover }
+          handleHover={ handleHover }
+          hoverState={ hoverState }
+          setHoverState={ setHoverState }
+          windowSize={ windowSize }
+          setWindowSize={ setWindowSize }
+          getWindowSize={ getWindowSize } /> }></Route>
+
+        <Route path='/ask-question' element={ <AskQuestions
+          hover={ hover }
+          setHover={ setHover }
+          handleHover={ handleHover }
+          hoverState={ hoverState }
+          setHoverState={ setHoverState }
+          windowSize={ windowSize }
+          setWindowSize={ setWindowSize }
+          getWindowSize={ getWindowSize } /> }></Route>
+
         <Route path='/faq' element={ <FAQ /> }></Route>
+
         <Route path='/reset-password' element={ <ResetPassword /> }></Route>
+
+        <Route path='/dashboard' element={ <Dashboard
+          hover={ hover }
+          setHover={ setHover }
+          handleHover={ handleHover }
+          hoverState={ hoverState }
+          setHoverState={ setHoverState }
+          windowSize={ windowSize }
+          setWindowSize={ setWindowSize }
+          getWindowSize={ getWindowSize } /> }></Route>
       </Routes>
     </Router>
   );
