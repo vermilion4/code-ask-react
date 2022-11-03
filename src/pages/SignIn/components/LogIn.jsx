@@ -101,7 +101,7 @@ export const LogIn = () => {
                 />
 
                 {errors.password && touched.password && (
-                  <p className="bi">{errors.password}</p>
+                  <p className="bii">{errors.password}</p>
                 )}
               </div>
 
