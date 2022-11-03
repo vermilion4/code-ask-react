@@ -48,7 +48,7 @@ export const LogIn = () => {
                   value={values.email}
                 />
                 {errors.email && touched.email && 
-                  <p className="bi">{errors.email}</p>
+                  <p className="bii">{errors.email}</p>
                 }
               </div>
 
@@ -68,7 +68,7 @@ export const LogIn = () => {
                 />
 
                 {errors.password && touched.password && (
-                  <p className="bi">{errors.password}</p>
+                  <p className="bii">{errors.password}</p>
                 )}
               </div>
 
