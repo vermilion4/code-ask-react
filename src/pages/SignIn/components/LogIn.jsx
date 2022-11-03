@@ -1,5 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
+import axios from "axios";
+import { useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+
 
 export const LogIn = () => {
   return (
@@ -9,17 +13,46 @@ export const LogIn = () => {
           email: "",
           password: "",
         }}
-        
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           const { email, password } = values;
           setSubmitting(true);
 
-          setTimeout(() => {
-            alert(
-              "wellcome back, I think se you no wan ask question again, olodo"
-            );
-            setSubmitting(false);
-          }, 400);
+          try {
+            let response = await axios.post("auth/signin", {
+              email,
+              password,
+            });
+            console.log(response.data);
+
+            const { access, refresh } = response.data.token;
+
+            const tokens = [];
+            tokens.push({ access: access.token });
+            tokens.push({ refresh: refresh.token });
+
+            localStorage.setItem("token", JSON.stringify(tokens));
+
+           
+            let token = JSON.parse(localStorage.getItem("token"));
+            console.log(token.length);
+            
+            
+            const tokenExist = token.length > 0;
+          
+            console.log(tokenExist)
+          
+            console.log("navigte")
+
+          //     function navigator (){
+          // const navigate = useNavigate()
+          //     }
+
+            useEffect(() => {
+              if (tokenExist) {
+                // navigate("/questions");
+              }
+            }, [tokenExist]);
+          } catch (error) {}
         }}
       >
         {({
@@ -47,9 +80,9 @@ export const LogIn = () => {
                   onChange={handleChange}
                   value={values.email}
                 />
-                {errors.email && touched.email && 
-                  <p className="bii">{errors.email}</p>
-                }
+                {errors.email && touched.email && (
+                  <p className="bi">{errors.email}</p>
+                )}
               </div>
 
               {/* password */}
