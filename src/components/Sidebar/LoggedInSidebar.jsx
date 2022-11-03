@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../assets/whiteLogoSym.png';
 import Logout from '../../assets/logout.png';
 import { loggedInNavData } from '../../Data/loggedInNavData';
 
-export const LoggedInSidebar = ({ hover, handleHover }) => {
-  const [active, setActive] = useState(1);
-
+export const LoggedInSidebar = ({
+  hover,
+  handleHoverClose,
+  handleHoverOpen,
+}) => {
   const openSidebar = {
     width: '250px',
   };
@@ -21,8 +23,8 @@ export const LoggedInSidebar = ({ hover, handleHover }) => {
         id='mySidebar'
         className={'sidebar'}
         style={hover ? openSidebar : closeSidebar}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
+        onMouseEnter={handleHoverOpen}
+        onMouseLeave={handleHoverClose}
       >
         <div className='sidebar-logo'>
           <Link to={'/'}>
@@ -34,15 +36,10 @@ export const LoggedInSidebar = ({ hover, handleHover }) => {
           {loggedInNavData.map(({ id, icon, text, link }) => {
             return (
               <React.Fragment>
-                <Link
-                  key={id}
-                  to={link}
-                  className={id === active ? 'active-link' : ''}
-                  onClick={() => setActive(id)}
-                >
+                <NavLink key={id} to={link}>
                   {icon}
                   <span className='icon-text'>{text}</span>
-                </Link>
+                </NavLink>
                 <br />
               </React.Fragment>
             );

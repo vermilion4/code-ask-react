@@ -43,9 +43,9 @@ export const LogIn = () => {
           
             console.log("navigte")
 
-              function navigator (){
-          const navigate = useNavigate()
-              }
+          //     function navigator (){
+          // const navigate = useNavigate()
+          //     }
 
             useEffect(() => {
               if (tokenExist) {
