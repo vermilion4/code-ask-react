@@ -7,7 +7,7 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import { Discussion } from './pages/Discussion/Discussion';
-import FAQ from './pages/FAQ/FAQ';
+import FAQ from './pages/Faq/FAQ';
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useState } from 'react';
 import { Answers } from './pages/Answers/Answers';
@@ -107,6 +107,7 @@ function App ()
             />}></Route>
       </Routes>
     </Router>
+    
   );
 }
 
