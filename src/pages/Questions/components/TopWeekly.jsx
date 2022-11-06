@@ -1,5 +1,6 @@
-
 import React from "react";
+import { Link } from 'react-router-dom';
+
 // Would be replaced with API for Top Weekly Questions
 const topWeekly = [
   {
@@ -42,7 +43,8 @@ const TopWeekly = () => {
       <h2>Top Weekly</h2>
       {topWeekly.map(({ id, img, question }) => {
         return (
-          <a href key={id}>
+          // Link here should go to discusion page for each question
+            <Link to= {`${id}`} key={id}>     
             <div className="hot-topics">
               <img
                 src={`https://ui-avatars.com/api/?name=${img}`}
@@ -50,7 +52,7 @@ const TopWeekly = () => {
               />
               <p>{question}</p>
             </div>
-          </a>
+          </Link>
         );
       })}
     </div>

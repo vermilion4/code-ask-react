@@ -1,34 +1,63 @@
 import React from "react";
 import { Formik } from "formik";
 import validationSchema from "./validationSignUp";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const CreateAccount = () => {
   return (
     <React.Fragment>
       <Formik
         initialValues={{
-          name: "",
+          username: "",
           email: "",
           password: "",
           confirmPassword: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          const { name, email, password, confirmPassword } = values;
+        
+        onSubmit={async (values, { setSubmitting }) => {
+          const { username, email, password, confirmPassword } = values;
           setSubmitting(true);
 
-          setTimeout(() => {
-            alert("Na better Person you be,you sabi better thing, kudos");
-            setSubmitting(false);
-          }, 400);
+          try {
+            let response = await axios.post("auth/signup", {
+              username,
+              email,
+              password,
+            });
+            console.log(response.data);
+            const {access, refresh}= response.data.token
+
+            const tokens=[]
+            tokens.push( {access:access.token})
+            tokens.push( {refresh:refresh.token})
+
+            localStorage.setItem("token", JSON.stringify(tokens) )
+
+         
+            const navigate = useNavigate()
+           let token = JSON.parse(localStorage.getItem("token")) 
+           if (token.length > 0) {
+            navigate ("/questions")
+           }
+           
+
+
+           
+
+
+
+            window.location()
+          } catch (error) {}
         }}
       >
         {({
           values,
           errors,
           touched,
-          handleChange,
           handleSubmit,
+          handleChange,
           isSubmitting,
           /* and other goodies */
         }) => (
@@ -39,17 +68,19 @@ export const CreateAccount = () => {
                 <label htmlFor="name">
                   Name<span className="bi">*</span>
                 </label>
+
                 <input
                   className="signup-input"
                   type="text"
                   id="name"
-                  name="name"
-                  placeholder="Enter your name"
+                  name="username"
+                  placeholder="Enter your username"
                   onChange={handleChange}
                   value={values.name}
                 />
-                {errors.name && touched.name && (
-                  <p className="bi"> {errors.name}</p>
+
+                {errors.username && touched.username && (
+                  <p className="bi"> {errors.username}</p>
                 )}
               </div>
 
@@ -58,6 +89,7 @@ export const CreateAccount = () => {
                 <label htmlFor="email">
                   Email Address<span className="bi">*</span>
                 </label>
+
                 <input
                   className="signup-input"
                   type="email"
@@ -110,7 +142,7 @@ export const CreateAccount = () => {
                   <p className="bi"> {errors.confirmPassword}</p>
                 )}
               </div>
-              <hr />
+
 
               <button
                 type="submit"
@@ -119,6 +151,7 @@ export const CreateAccount = () => {
                 onClick={handleSubmit}
               >
                 {isSubmitting ? "Loading" : "Get Started"}
+                
               </button>
             </form>
           </>

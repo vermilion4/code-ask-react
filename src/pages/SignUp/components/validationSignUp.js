@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 let validationSchema = yup.object().shape({
-    name: yup.string().required().min(4).max(20),
+    username: yup.string().required().min(4).max(20),
     email: yup.string().email().required(),
     password: yup.string()
     .min(8, 'Password must be 8 characters long')
@@ -11,7 +11,7 @@ let validationSchema = yup.object().shape({
     .matches(/[^\w]/, 'Password requires a symbol')
     .required(),
     confirmPassword: yup.string()
-    .oneOf([yup.ref('password'), null], 'Must match "password" field value').required()
+    .oneOf([yup.ref('password'), null], 'Must match "password" field value').required("Confirm Password is a required field")
 })
 
 export default validationSchema

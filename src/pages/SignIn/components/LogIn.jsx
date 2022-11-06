@@ -1,6 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
-import validationSchema from "../../SignUp/components/validationSignUp";
+import axios from "axios";
+import { useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+
 
 export const LogIn = () => {
   return (
@@ -10,17 +13,46 @@ export const LogIn = () => {
           email: "",
           password: "",
         }}
-        validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
           const { email, password } = values;
           setSubmitting(true);
 
-          setTimeout(() => {
-            alert(
-              "wellcome back, I think se you no wan ask question again, olodo"
-            );
-            setSubmitting(false);
-          }, 400);
+          try {
+            let response = await axios.post("auth/signin", {
+              email,
+              password,
+            });
+            console.log(response.data);
+
+            const { access, refresh } = response.data.token;
+
+            const tokens = [];
+            tokens.push({ access: access.token });
+            tokens.push({ refresh: refresh.token });
+
+            localStorage.setItem("token", JSON.stringify(tokens));
+
+           
+            let token = JSON.parse(localStorage.getItem("token"));
+            console.log(token.length);
+            
+            
+            const tokenExist = token.length > 0;
+          
+            console.log(tokenExist)
+          
+            console.log("navigte")
+
+          //     function navigator (){
+          // const navigate = useNavigate()
+          //     }
+
+            useEffect(() => {
+              if (tokenExist) {
+                // navigate("/questions");
+              }
+            }, [tokenExist]);
+          } catch (error) {}
         }}
       >
         {({
@@ -68,8 +100,8 @@ export const LogIn = () => {
                   value={values.password}
                 />
 
-                {errors.email && touched.email && (
-                  <p className="bi">{errors.email}</p>
+                {errors.password && touched.password && (
+                  <p className="bii">{errors.password}</p>
                 )}
               </div>
 
@@ -94,7 +126,7 @@ export const LogIn = () => {
                 {isSubmitting ? "Loading" : "Log In"}
               </button>
 
-              <hr />
+              <hr class="hr" />
             </form>
           </>
         )}
