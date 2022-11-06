@@ -42,31 +42,29 @@
   font-weight: 700;
 }
 
-.hidden-content {
+
+
+.hidden-content .active{
   background-color: #feffff;
   height: 176px;
   display: flex;
   padding: 30px 50px 70px 50px;
 }
-#hidden-content-1,
-#hidden-content-2,
-#hidden-content-3,
-#hidden-content-4,
-#hidden-content-5,
-#hidden-content-6,
-#hidden-content-7,
-#hidden-content-8 {
+.hidden-content .inactive{
   display: none;
 }
-.hidden-content .fa-times {
+ .verticle {
   cursor: pointer;
   color: #636d79;
 }
+
 .hidden-content p {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #a2a9b0;
+  max-width: 1200px;
+  margin-left: 3%;
 }
 
 @media screen and (max-width: 855px) {
