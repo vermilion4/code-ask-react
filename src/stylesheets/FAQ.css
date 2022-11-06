@@ -46,7 +46,7 @@
 
 .hidden-content .active{
   background-color: #feffff;
-  height: 176px;
+  height: max-content;
   display: flex;
   padding: 30px 50px 70px 50px;
 }
@@ -59,12 +59,16 @@
 }
 
 .hidden-content p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  background-color: #f8f9fa;
   color: #a2a9b0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 104px;
+  border-radius: 4px;
   max-width: 1200px;
-  margin-left: 3%;
+  margin: 0 auto 20px auto;
 }
 
 @media screen and (max-width: 855px) {
@@ -74,11 +78,14 @@
 
   .head-intro h1 {
     font-size: 40px;
+    
   }
 
   .hidden-content {
     margin-bottom: 30px;
   }
+
+
 
   .frequent-questions {
     padding: 10px 30px;
