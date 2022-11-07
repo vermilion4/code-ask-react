@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
-import { useEffect } from "react";
+// import { config } from "@fortawesome/fon/tawesome-svg-core";
 
 
 export const LogIn = () => {
-  return (
+
+  const navigate = useNavigate()
+  const [token, setToken]=useState(false)
+
+ const localToken= JSON.parse(localStorage.getItem("token"))
+
+ console.log(localToken)
+//  const tokenExist = localToken?.length>0
+
+// useEffect(()=>{
+//  if(tokenExist){
+//   setToken(true)
+//  }
+// },[tokenExist])
+
+return (
     <React.Fragment>
       <Formik
         initialValues={{
@@ -18,10 +33,10 @@ export const LogIn = () => {
           setSubmitting(true);
 
           try {
-            let response = await axios.post("auth/signin", {
+            let response = await axios.post("https://codeask-staging.herokuapp.com/v1/api/auth/signin", {
               email,
               password,
-            });
+            }, );
             console.log(response.data);
 
             const { access, refresh } = response.data.token;
@@ -32,26 +47,12 @@ export const LogIn = () => {
 
             localStorage.setItem("token", JSON.stringify(tokens));
 
-           
-            let token = JSON.parse(localStorage.getItem("token"));
-            console.log(token.length);
+            // console.log(token.length);
             
+            if(token){
+              navigate('/questions')
+            }
             
-            const tokenExist = token.length > 0;
-          
-            console.log(tokenExist)
-          
-            console.log("navigte")
-
-          //     function navigator (){
-          // const navigate = useNavigate()
-          //     }
-
-            useEffect(() => {
-              if (tokenExist) {
-                // navigate("/questions");
-              }
-            }, [tokenExist]);
           } catch (error) {}
         }}
       >

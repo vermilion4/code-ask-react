@@ -96,9 +96,11 @@ function App ()
           setWindowSize={ setWindowSize }
           getWindowSize={ getWindowSize } /> }></Route>
 
-        <Route path='/Answers' element = {<Answers
+        <Route path='/answers' element = {<Answers
           hover = {hover}
           setHover = {setHover}
+          handleHoverClose={ handleHoverClose }
+          handleHoverOpen={ handleHoverOpen }
           hoverState={ hoverState }
           setHoverState={ setHoverState }
           windowSize={ windowSize }
