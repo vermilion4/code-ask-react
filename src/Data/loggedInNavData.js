@@ -9,7 +9,7 @@ export const loggedInNavData = [
     id: 0,
     icon: <FontAwesomeIcon icon={ faHome } className='material-icons' />,
     text: 'Dashboard',
-    link: ''
+    link: '/dashboard'
   },
   {
     id: 1,
@@ -21,12 +21,12 @@ export const loggedInNavData = [
     id: 2,
     icon: <FontAwesomeIcon icon={ faCommentDots } className='material-icons' />,
     text: 'Discussions',
-    link: ''
+    link: '/discuss'
   },
   {
     id: 3,
     icon: <FontAwesomeIcon icon={ faGear } className='material-icons' />,
     text: 'Settings',
-    link: ''
+    link: '/setting'
   }
 ];

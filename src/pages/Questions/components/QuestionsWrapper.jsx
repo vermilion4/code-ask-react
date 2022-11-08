@@ -8,7 +8,7 @@ import TrendingTags from './TrendingTags';
 const QuestionsWrapper = () => {
     return (
       <div className="flex-question">
-        <div className= "left-side">
+        <div className= "left-side-question">
           <QuestionHeader />
           <QuestionBody />
         </div>
