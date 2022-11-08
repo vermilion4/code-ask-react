@@ -96,7 +96,7 @@ export const ResetPasswordForm = () => {
       <div className="signin-wrap">
           
          <p className="signup-brief">Return to</p> 
-          <Link to = {'/sign-in'}>
+          <Link to = {'/forgot-password'}>
           <span>LogIn</span>
           </Link>
           </div>
