@@ -8,6 +8,9 @@ import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import FAQ from './pages/FAQ/FAQ';
 import {ResetPassword} from "./pages/ResetPassword/ResetPassword"
+import {ForgotPassword} from "./pages/ForgotPassword/ForgotPassword"
+
+
 
 
 
@@ -24,6 +27,7 @@ function App ()
         <Route path='/ask-question' element={ <AskQuestions /> }></Route>
         <Route path='/faq' element={ <FAQ /> }></Route>
         <Route path='/reset-password' element={<ResetPassword />}></Route>
+        <Route path='/forgot-password' element={<ForgotPassword />}></Route>
       </Routes>
     </Router>
   );
