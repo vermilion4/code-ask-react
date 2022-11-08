@@ -1,3 +1,6 @@
+
+
+
 div.desktopbackground {
   background-color: #e5e5e5;
   position: fixed;
@@ -148,7 +151,7 @@ div.desktopbackground {
   height: 100%;
 }
 
-.flex-question .left-side {
+.flex-question .left-side-question {
   width: 70%;
 }
 
@@ -184,7 +187,7 @@ div.desktopbackground {
     z-index: 0;
   }
 
-  .flex-question .left-side {
+  .flex-question .left-side-question {
     width: 100%;
   }
 
@@ -658,8 +661,6 @@ span#closeButton {
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  width: 160px;
-  height: 48px;
   background: #002828;
   border: 1px solid #002828;
   border-radius: 4.8px;
@@ -934,5 +935,16 @@ span#closeButton {
 @media only screen and (max-width: 700px) {
   .question-box img {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .question-button a {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+
+  .questions-header a {
+    font-size: 16px;
   }
 }

@@ -3,11 +3,11 @@ import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
 import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
 import NavIcon from '../../components/QuestionHeader/NavIcon';
 import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
-import '../../stylesheets/askquestion.css';
-import Form from './components/Form';
-import AskQuestionModal from './components/AskQuestionModal';
+import DiscussionWrapper from './components/DiscussionWrapper';
+import '../../stylesheets/discussion.css';
 
-export const AskQuestions = ({
+
+export const Discussion = ({
   hover,
   setHover,
   hoverState,
@@ -39,10 +39,11 @@ export const AskQuestions = ({
 
   if (windowSize.innerWidth > 900) {
     closeContent = {
-      marginLeft: '250px',
+      marginLeft: '150px',
+      width: '85%',
     };
     openContent = {
-      marginLeft: '85px',
+      marginLeft: '0px',
     };
   } else {
     closeContent = {
@@ -59,29 +60,27 @@ export const AskQuestions = ({
 
   if (show === false) {
     return (
-      <React.Fragment>
-        <LoggedInSidebar
-          hover={hover}
-          handleHoverClose={handleHoverClose}
-          handleHoverOpen={handleHoverOpen}
-        />
-        <LoggedInHeader />
-        <div
-          id='main'
-          className='ask-question-main'
-          style={hoverState ? closeContent : openContent}
-        >
-          {/* CONTENT GOES IN HERE */}
-          <h1 className='askquestion-h1'>Ask a Question</h1>
-          <Form />
-          <AskQuestionModal />
-          <button class='askquestion-button'>POST QUESTION</button>
-          {/* CONTENT ENDS HERE */}
+      <>
+        <div className='desktopbackground'></div>
+        <div className='question-main'>
+          <LoggedInSidebar
+            hover={hover}
+            handleHoverClose={handleHoverClose}
+            handleHoverOpen={handleHoverOpen}
+          />
+          <LoggedInHeader />
+          <main id='main' style={hoverState ? closeContent : openContent}>
+            {/* CONTENT GOES IN HERE */}
+            <DiscussionWrapper />
+            
+            {/* CONTENT ENDS HERE */}
+          </main>
+          <NavIcon onclick={mobileNav} />
         </div>
-        <NavIcon onclick={mobileNav} />
-      </React.Fragment>
+      </>
     );
   } else {
     return <LoggedInMobile onclick={mobileNav} />;
   }
 };
+

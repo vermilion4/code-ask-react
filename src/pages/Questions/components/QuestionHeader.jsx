@@ -5,7 +5,7 @@ const QuestionHeader = () => {
   return (
     <div className='questions-header' id='questionHeader'>
       <div className='question-link'>
-        <a href='./question.html'>Find questions</a>
+        <Link to='#'>Find questions</Link>
       </div>
       <div className='question-button'>
         <Link to='/ask-question'>Ask Question</Link>
