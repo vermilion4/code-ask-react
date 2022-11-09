@@ -8,7 +8,8 @@ import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import { Discussion } from './pages/Discussion/Discussion';
 import FAQ from './pages/FAQ/FAQ';
-import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
+import {ResetPassword} from "./pages/ResetPassword/ResetPassword"
+import {ForgotPassword} from "./pages/ForgotPassword/ForgotPassword"
 import { useState } from 'react';
 import { Answers } from './pages/Answers/Answers';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -70,8 +71,8 @@ function App ()
           getWindowSize={ getWindowSize } /> }></Route>
 
         <Route path='/faq' element={ <FAQ /> }></Route>
-
-        <Route path='/reset-password' element={ <ResetPassword /> }></Route>
+        <Route path='/reset-password' element={<ResetPassword />}></Route>
+        <Route path='/forgot-password' element={<ForgotPassword />}></Route>
 
         <Route path='/dashboard' element={ <Dashboard
           hover={ hover }

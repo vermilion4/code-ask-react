@@ -230,90 +230,7 @@
     border-radius: 4.8px;
     text-decoration: none;
   }
-  /* THE RIGHT SIDE OF THE ANSWER PAGE */
-  
-  .right-side {
-    background-color: transparent;
-    width: 30%;
-    right: 10px;
-    top: 105px;
-    position: fixed;
-    bottom: 10px;
-  }
-  .right-side .btn {
-    color: #fff;
-    background-color: #002828;
-    border-radius: 4px;
-    padding: 10px 20px;
-  }
-  
-  .right-side a {
-    text-decoration: none;
-  }
-  .right-side .top-weekly {
-    width: 100%;
-    padding: 24px 16px;
-    background-color: #fff;
-    margin-bottom: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
-  }
-  
-  .top-weekly h2 {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    color: #000;
-  }
-  .top-weekly img {
-    margin-right: 15px;
-    height: 22px;
-    width: 22px;
-    margin-top: 4px;
-    margin-left: 4px;
-  }
-  .top-weekly .hot-topics {
-    display: flex;
-    margin-bottom: 15px;
-  }
-  .top-weekly .hot-topics p {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 150%;
-    color: #6c757d;
-  }
-  .trending-tags {
-    background-color: #fff;
-    width: 100%;
-    padding: 24px 16px;
-    margin-bottom: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
-  }
-  
-  .trending-tags h2 {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    color: #000;
-  }
-  
-  .trending-tags ul {
-    color: #002828;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    margin-left: -30px;
-    margin-top: 20px;
-  }
-  .trending-tags ul li {
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 4px;
-    background-color: #c7d9d9;
-    padding: 1px 5px;
-    margin: 10px 4px 7px 0;
-  }
-  
+ 
   @media screen and (max-width: 855px) {
    .left-col {
     display: none;
@@ -360,50 +277,14 @@
      visibility: visible;
     }
   
-   .right-side .btn {
-    display: none;
-   }
-   .tags {
-    margin-bottom: 50px;
-   }
-  
-   .right-side .top-weekly {
-    display: none;
-   }
-   .trending-tags {
-    display: none;
-   }
-   .post-comment {
-    width: 100%;
-   }
-   .comment {
-    margin-left: 0;
-   }
-  
-    .top-weekly {
-     width: 100%;
-     padding: 24px 16px;
-     background-color: #fff;
-     margin-bottom: 10px;
-     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
-    }
-    .top-weekly a {
-     text-decoration: none;
-    }
+   
   
       .left-side textarea {
        margin-bottom: 70px;
       }
   }
-  @media screen and (min-width: 1250px) {
-   #desktop-top-weekly {
-    display: block;
-   }
+ 
   
-   .top-weekly {
-    display: none;
-   }
-  }
   
   
   
