@@ -78,6 +78,7 @@ export const AskQuestions = ({
           <button class='askquestion-button'>POST QUESTION</button>
           {/* CONTENT ENDS HERE */}
         </div>
+        
         <NavIcon onclick={mobileNav} />
       </React.Fragment>
     );

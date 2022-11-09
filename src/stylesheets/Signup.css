@@ -92,7 +92,7 @@
 
 }
 
-.signupform-wrapper .signup-form {
+.signupform-wrapper {
   width: 60%;
 }
 
@@ -151,7 +151,7 @@
 }
 
 /* PASSWORD VISIBILITY EYE */
-.signup-form form i {
+form i {
   margin-left: -30px;
   cursor: pointer;
 }
@@ -206,7 +206,7 @@
   vertical-align: middle;
 }
 
-.signup-form .signup-brief {
+.signup-brief {
 
   color: var(--grey);
   margin-top: 5px;
@@ -215,8 +215,7 @@
   line-height: 24px;
   text-align: center;
 }
-
-.signup-form .signup-brief span a {
+.signup-brief span a {
   color: var(--codeaskblue);
   text-decoration: underline;
   font-size: 16px;

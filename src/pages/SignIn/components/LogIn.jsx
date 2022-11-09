@@ -2,10 +2,26 @@ import React from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export const LogIn = () => {
+
+  const navigate = useNavigate();
+
+  const [token, setToken] = useState(false);
+
+  let localToken = JSON.parse(localStorage.getItem("token")) ;
+
+
+  let tokenExists = localToken.length > 0;
+
+useEffect(()=>{
+  if ( tokenExists) {
+    setToken(true)
+  }
+},[ tokenExists]);
+
   return (
     <React.Fragment>
       <Formik
@@ -33,25 +49,10 @@ export const LogIn = () => {
             localStorage.setItem("token", JSON.stringify(tokens));
 
            
-            let token = JSON.parse(localStorage.getItem("token"));
-            console.log(token.length);
-            
-            
-            const tokenExist = token.length > 0;
-          
-            console.log(tokenExist)
-          
-            console.log("navigte")
-
-          //     function navigator (){
-          // const navigate = useNavigate()
-          //     }
-
-            useEffect(() => {
-              if (tokenExist) {
-                // navigate("/questions");
-              }
-            }, [tokenExist]);
+            if(token){
+              navigate('/questions')
+            }
+         
           } catch (error) {}
         }}
       >

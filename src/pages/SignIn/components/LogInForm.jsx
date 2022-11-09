@@ -4,10 +4,11 @@ import { LogIn } from "./LogIn";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+// import * as containerStyles from "./container.module.css"
 
 function Form() {
   return (
-    <section class="signup-form">
+    <section>
       <LogIn/>
       {/* <hr class="hr" /> */}
 

@@ -7,7 +7,7 @@ import { SignIn } from './pages/SignIn/SignIn';
 import { Questions } from './pages/Questions/Questions';
 import { AskQuestions } from './pages/AskQuestions/AskQuestions';
 import { Discussion } from './pages/Discussion/Discussion';
-import FAQ from './pages/Faq/FAQ';
+import FAQ from './pages/FAQ/FAQ';
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useState } from 'react';
 import { Answers } from './pages/Answers/Answers';
@@ -97,13 +97,15 @@ function App ()
           getWindowSize={ getWindowSize } /> }></Route>
 
         <Route path='/Answers' element = {<Answers
-          hover = {hover}
-          setHover = {setHover}
-          hoverState={ hoverState }
-          setHoverState={ setHoverState }
-          windowSize={ windowSize }
-          setWindowSize={ setWindowSize }
-          getWindowSize={ getWindowSize } 
+       hover={ hover }
+       setHover={ setHover }
+       handleHoverClose={ handleHoverClose }
+       handleHoverOpen={ handleHoverOpen }
+       hoverState={ hoverState }
+       setHoverState={ setHoverState }
+       windowSize={ windowSize }
+       setWindowSize={ setWindowSize }
+       getWindowSize={ getWindowSize }
             />}></Route>
       </Routes>
     </Router>

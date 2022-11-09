@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik } from "formik";
 import validationSchema from "./validationSignUp";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const CreateAccount = () => {
+
+  const navigate = useNavigate();
+
+  const [token, setToken] = useState(false);
+
+  let localToken = JSON.parse(localStorage.getItem("token")) ;
+
+
+  let tokenExists = localToken.length > 0;
+
+useEffect(()=>{
+  if ( tokenExists) {
+    setToken(true)
+  }
+},[ tokenExists]);
+  
   return (
     <React.Fragment>
       <Formik
@@ -17,11 +34,11 @@ export const CreateAccount = () => {
         validationSchema={validationSchema}
         
         onSubmit={async (values, { setSubmitting }) => {
-          const { username, email, password, confirmPassword } = values;
+          const { username, email, password} = values;
           setSubmitting(true);
 
           try {
-            let response = await axios.post("auth/signup", {
+            let response = await axios.post("https://codeask-staging.herokuapp.com/v1/api/auth/signup", {
               username,
               email,
               password,
@@ -30,25 +47,16 @@ export const CreateAccount = () => {
             const {access, refresh}= response.data.token
 
             const tokens=[]
-            tokens.push( {access:access.token})
-            tokens.push( {refresh:refresh.token})
+            tokens.push( {access: access.token})
+            tokens.push( {refresh: refresh.token})
 
-            localStorage.setItem("token", JSON.stringify(tokens) )
+            localStorage.setItem("token", JSON.stringify(tokens))
+            console.log(token)
 
-         
-            const navigate = useNavigate()
-           let token = JSON.parse(localStorage.getItem("token")) 
-           if (token.length > 0) {
-            navigate ("/questions")
-           }
-           
+            if(token){
+              navigate('/questions')
+            }
 
-
-           
-
-
-
-            window.location()
           } catch (error) {}
         }}
       >
