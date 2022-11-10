@@ -10,16 +10,15 @@
   --black: #212529;
   --grey: #6C757D;
 }
-.bii{
+.asterik{
   color: red;
 }
 
 
-.main {
+.mainwrap {
   display: flex;
   flex-direction: row;
-  /* flex-direction: column; */
-  width: 100vw;
+  width: 100%;
   height: max-content;
 }
 
@@ -41,7 +40,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
+
 }
 
 .signin {
@@ -50,7 +50,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
 }
 
 .signupform-wrapper {
@@ -66,9 +66,9 @@
   display: none;
 }
 
-.signup-intro {
+/* .signup-intro {
   width: 45%;
-}
+} */
 
 .signupform-wrapper .signup-intro h3 {
   font-weight: 500;
@@ -93,8 +93,10 @@
 }
 
 .signupform-wrapper {
-  width: 60%;
+  width: 50%;
 }
+
+
 
 .remember-me {
   display: block;
@@ -109,9 +111,6 @@
   color: #131518;
 }
 
-.bi {
-  color: red;
-}
 
 .link {
   padding-left: 200px;
@@ -140,7 +139,15 @@
   border: 1px solid #CED4DA;
   border-radius: 4px;
 }
+.input-eye{
+  display: flex;
+}
 
+.toggle-password{
+  margin-left: -30px;
+  padding-top: 10px;
+  cursor: pointer;
+}
 .form-wrapper {
   margin-bottom: 10px;
   padding: 10px;
@@ -261,6 +268,9 @@ form i {
 
 /* FROM TABLET TO MOBILE */
 @media only screen and (max-width: 940px) {
+  .signup{
+    width: 80%;
+  }
 
   .signupform-wrapper .signup-intro {
     margin-top: 40px;
@@ -280,6 +290,9 @@ form i {
 
 
 @media only screen and (max-width: 940px) {
+  .signup{
+    width: 80%;
+  }
   .signup-image {
     display: none;
   }
@@ -295,6 +308,9 @@ form i {
 }
 
 @media only screen and (max-width: 820px) {
+  .signup{
+    width: 80%;
+  }
   .signupform-wrapper .codeaskform-logo-wrapper {
     margin-top: 20%;
   }

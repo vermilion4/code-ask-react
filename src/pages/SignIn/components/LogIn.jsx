@@ -3,6 +3,9 @@ import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FaEye} from "react-icons/fa";
+import {FaEyeSlash} from "react-icons/fa";
 
 
 export const LogIn = () => {
@@ -21,6 +24,13 @@ useEffect(()=>{
     setToken(true)
   }
 },[ tokenExists]);
+
+
+const [showPassword, setShowPassword] =useState(true)
+
+const togglePassword = ()=>{
+  setShowPassword(!showPassword)
+}
 
   return (
     <React.Fragment>
@@ -70,7 +80,7 @@ useEffect(()=>{
               {/* email */}
               <div class="form-wrapper">
                 <label htmlFor="email">
-                  Email Address<span className="bi">*</span>
+                  Email Address<span className="asterik">*</span>
                 </label>
                 <input
                   className="signup-input"
@@ -82,27 +92,30 @@ useEffect(()=>{
                   value={values.email}
                 />
                 {errors.email && touched.email && (
-                  <p className="bi">{errors.email}</p>
+                  <p className="asterik">{errors.email}</p>
                 )}
               </div>
 
               {/* password */}
               <div class="form-wrapper">
                 <label htmlFor="Password">
-                  Password<span className="bi">*</span>
+                  Password<span className="asterik">*</span>
                 </label>
                 <input
                   className="signup-input"
-                  type="password"
+                  type={showPassword? "password":"text" }
                   id="password"
                   name="password"
                   placeHolder="Enter your Password"
                   onChange={handleChange}
                   value={values.password}
                 />
-
+                <span className="toggle-password"
+                    onClick = {togglePassword}
+                >{ showPassword ? <FaEyeSlash/> : <FaEye/>}
+                </span>
                 {errors.password && touched.password && (
-                  <p className="bii">{errors.password}</p>
+                  <p className="asterik">{errors.password}</p>
                 )}
               </div>
 
@@ -114,10 +127,11 @@ useEffect(()=>{
                   </label>
                 </div>
                 <span className="fogotPasswordLink">
-                  <a href="./forgotpassword.html">Forgot Password?</a>
+                  <Link to = "/forgot-password">
+                  Forgot Password?
+                  </Link>
                 </span>
               </div>
-
               <button
                 type="submit"
                 className="signup-btn get"

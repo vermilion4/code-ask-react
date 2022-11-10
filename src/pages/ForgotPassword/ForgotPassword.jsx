@@ -9,7 +9,7 @@ import "../../stylesheets/shared.css"
 
 export const ForgotPassword = () => {
   return (
-    <div className="main">
+    <div className="mainwrap">
      <section className="signup-image">
         <SignUpImageBrief/>
       </section>
