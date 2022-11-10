@@ -1,14 +1,13 @@
 import React from 'react'
 import SignUpImageBrief from '../../components/SignUpImageBrief'
-import { ResetPasswordWrapper } from './Components/ResetPasswordWrapper'
+import {ForgotPasswordWrapper} from "../../pages/ForgotPassword/Components/ForgotPasswordWrapper"
 import CyclicDesign2 from '../SignUp/components/CyclicDesign2'
 import "../../stylesheets/LoginAside.css"
 import "../../stylesheets/Signup.css"
 import "../../stylesheets/resetpassword.css"
 import "../../stylesheets/shared.css"
 
-
-export const ResetPassword = () => {
+export const ForgotPassword = () => {
   return (
     <div className="mainwrap">
      <section className="signup-image">
@@ -16,7 +15,7 @@ export const ResetPassword = () => {
       </section>
        <section className="signupform-wrapper">
         <CyclicDesign2/>
-        <ResetPasswordWrapper/>
+        <ForgotPasswordWrapper />
 
     </section>
     </div>

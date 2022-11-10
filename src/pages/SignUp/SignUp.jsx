@@ -9,7 +9,7 @@ import "../../stylesheets/Signup.css"
 function SignUp() {
  return(  
 
-    <div className="main">
+    <div className="mainwrap">
      <section className="signup-image">
         <SignUpImageBrief/>
       </section>

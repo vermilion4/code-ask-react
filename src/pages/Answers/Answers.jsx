@@ -41,6 +41,7 @@ export const Answers = ({
     if (windowSize.innerWidth > 900) {
       closeContent = {
         marginLeft: '250px',
+
         width: '80%',
       };
       openContent = {
@@ -61,13 +62,16 @@ export const Answers = ({
   
     if (show === false) {
       return (
+
         <>
+        <React.Fragment>
           <LoggedInSidebar
             hover={hover}
             handleHoverClose={handleHoverClose}
             handleHoverOpen={handleHoverOpen}
           />
           <LoggedInHeader />
+
             <main >
               <div className="answer-page" id="mainPage" style={ hoverState? closeContent: openContent}>
                    <AnswersHeader/>
@@ -83,9 +87,23 @@ export const Answers = ({
             </main>
           
           <NavIcon onclick={mobileNav} />
+       
+
+          <div
+            id='main'
+            className="answersWrap"
+            style={hoverState ? closeContent : openContent}
+          >
+           <AnswersWrap/>
+          </div>
+          
+          <NavIcon onclick={mobileNav} />
+        </React.Fragment>
         </>
       );
     } else {
       return <LoggedInMobile onclick={mobileNav} />;
     }
-  }
+
+  };
+  

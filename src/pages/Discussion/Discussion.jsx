@@ -39,8 +39,8 @@ export const Discussion = ({
 
   if (windowSize.innerWidth > 900) {
     closeContent = {
-      marginLeft: '150px',
-      width: '85%',
+      marginLeft: '155px',
+      width: '87%',
     };
     openContent = {
       marginLeft: '0px',
