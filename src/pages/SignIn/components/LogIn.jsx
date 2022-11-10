@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye} from "react-icons/fa";
 import {FaEyeSlash} from "react-icons/fa";
 
 
 export const LogIn = () => {
+
 
   const navigate = useNavigate();
 
@@ -33,6 +33,7 @@ const togglePassword = ()=>{
 }
 
   return (
+    
     <React.Fragment>
       <Formik
         initialValues={{
@@ -44,10 +45,10 @@ const togglePassword = ()=>{
           setSubmitting(true);
 
           try {
-            let response = await axios.post("auth/signin", {
+            let response = await axios.post("https://codeask-staging.herokuapp.com/v1/api/auth/signin", {
               email,
               password,
-            });
+            }, );
             console.log(response.data);
 
             const { access, refresh } = response.data.token;
@@ -58,11 +59,11 @@ const togglePassword = ()=>{
 
             localStorage.setItem("token", JSON.stringify(tokens));
 
-           
+            // console.log(token.length);
+            
             if(token){
               navigate('/questions')
-            }
-         
+                        }
           } catch (error) {}
         }}
       >

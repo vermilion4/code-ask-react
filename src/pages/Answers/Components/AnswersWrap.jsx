@@ -1,8 +1,9 @@
-// import { AnswersBody } from "./AnswersBody";
+
 import TopWeekly from "../../Questions/components/TopWeekly";
 import TrendingTags from "../../Questions/components/TrendingTags";
 import React from "react";
 import { AnswersBody } from "./AnswersBody";
+
 
 export function AnswersWrap (){
     return(

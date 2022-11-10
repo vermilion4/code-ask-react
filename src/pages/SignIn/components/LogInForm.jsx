@@ -33,8 +33,8 @@ function Form() {
 
       <div className="signin-wrap">
         <p className="signup-brief">Don't have an Account?</p>
-        {/* <Link to={"/answers"}> */}
-        <Link to={"/sign-up"}>
+        <Link to={"/answers"}>
+        {/* <Link to={"/sign-up"}> */}
           <span>SignUp</span>
         </Link>
       </div>

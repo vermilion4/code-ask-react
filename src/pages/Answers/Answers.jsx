@@ -4,13 +4,16 @@ import React, { useState, useEffect} from "react";
 import NavIcon from "../../components/QuestionHeader/NavIcon";
 import '../../stylesheets/answers.css';
 import { LoggedInMobile } from "../../components/Sidebar/LoggedInMobile";
-// import { AnswersBody } from "./Components/AnswersBody";
+import TrendingTags from "../Questions/components/TrendingTags";
+import TopWeekly from "../Questions/components/TopWeekly";
 import { AnswersWrap } from "./Components/AnswersWrap";
-export const Answers= ({
+import { AnswersHeader } from "./Components/AnswersHeader";
+
+export const Answers = ({
     hover,
     setHover,
-    hoverState,
     setHoverState,
+    hoverState,
     handleHoverClose,
     handleHoverOpen,
     windowSize,
@@ -39,6 +42,8 @@ export const Answers= ({
     if (windowSize.innerWidth > 900) {
       closeContent = {
         marginLeft: '250px',
+
+        width: '80%',
       };
       openContent = {
         marginLeft: '85px',
@@ -58,6 +63,8 @@ export const Answers= ({
   
     if (show === false) {
       return (
+
+        <>
         <React.Fragment>
           <LoggedInSidebar
             hover={hover}
@@ -65,6 +72,24 @@ export const Answers= ({
             handleHoverOpen={handleHoverOpen}
           />
           <LoggedInHeader />
+
+            <main >
+              <div className="answer-page" id="mainPage" style={ hoverState? closeContent: openContent}>
+                   <AnswersHeader/>
+                   <div className="left-side">
+
+                    </div>
+
+              </div>
+                <div className="right-side">
+                <TopWeekly />
+               <TrendingTags />
+                </div>
+            </main>
+          
+          <NavIcon onclick={mobileNav} />
+       
+
           <div
             id='main'
             className="answersWrap"
@@ -75,9 +100,11 @@ export const Answers= ({
           
           <NavIcon onclick={mobileNav} />
         </React.Fragment>
+        </>
       );
     } else {
       return <LoggedInMobile onclick={mobileNav} />;
     }
+
   };
   

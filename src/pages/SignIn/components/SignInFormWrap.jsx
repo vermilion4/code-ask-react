@@ -7,6 +7,7 @@ import CodeaskLogo from "../../SignUp/components/CodeaskLogo";
 function signInformWrap(){
   return (
     <section className="signin" >
+
           <CodeaskLogo/>
           {/* signupIntro comes here */}
         <SignUpIntro classname ={"signup-intro"} text={"Log Into Your Account"} paragraph={"Welcome Back! Please Enter Your Details"}/>
