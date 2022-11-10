@@ -6,6 +6,7 @@ import '../../stylesheets/answers.css';
 import { LoggedInMobile } from "../../components/Sidebar/LoggedInMobile";
 import TrendingTags from "../Questions/components/TrendingTags";
 import TopWeekly from "../Questions/components/TopWeekly";
+import { AnswersWrap } from "./Components/AnswersWrap";
 import { AnswersHeader } from "./Components/AnswersHeader";
 
 export const Answers = ({

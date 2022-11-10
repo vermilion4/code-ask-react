@@ -5,6 +5,7 @@ import React from "react";
 
 
  export function AnswersBody (){
+  return(
     <>
          <h1>
             Is there a way to get version from package.json in nodejs code?
@@ -260,6 +261,7 @@ import React from "react";
     
 
     </>
+    )
 }
 
     
