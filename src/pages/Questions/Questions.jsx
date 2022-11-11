@@ -17,6 +17,8 @@ export const Questions = ({
   windowSize,
   getWindowSize,
   setWindowSize,
+  isModalActive,
+  setIsModalActive,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -72,7 +74,9 @@ export const Questions = ({
           <main id='main' style={hoverState ? closeContent : openContent}>
             {/* CONTENT GOES IN HERE */}
             <QuestionsWrapper />
-            <QuestionModal />
+            <QuestionModal 
+        isModalActive= {isModalActive}
+        setIsModalActive ={setIsModalActive}/>
             {/* CONTENT ENDS HERE */}
           </main>
           <NavIcon onclick={mobileNav} />
