@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DiscussionModal from './DiscussionModal';
 
 
 
 const Forum = () => {
+
+  const [showModal, useShowModal] = useState(false);
+
+ 
+
     return ( 
         <div className="forum-wrapper">
-    <button>Add Topic</button>
+
+
+    <button onClick={()=>{
+      useShowModal(!showModal)
+    }}>Add Topic</button>
+    {showModal ? <DiscussionModal updateModal={useShowModal} ></DiscussionModal> : null}
+
+
     <div className="forum">
       <h4>Forums</h4>
       <div className="each-forum">
