@@ -1,8 +1,9 @@
-body {
+
+  /* THE MAIN ANSWER PAGE */
+
+  .answersWrap{
     background-color: #e5e5e5;
   }
- 
-  /* THE MAIN ANSWER PAGE */
   .answer-page {
     position: relative;
     background-color: #fff;
@@ -18,7 +19,7 @@ body {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   visibility: hidden;
+   /* visibility: hidden; */
    margin-bottom: 30px;
   }
   

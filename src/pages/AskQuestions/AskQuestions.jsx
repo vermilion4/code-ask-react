@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
 import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
 import NavIcon from '../../components/QuestionHeader/NavIcon';
@@ -78,6 +78,7 @@ export const AskQuestions = ({
           <button class='askquestion-button'>POST QUESTION</button>
           {/* CONTENT ENDS HERE */}
         </div>
+        
         <NavIcon onclick={mobileNav} />
       </React.Fragment>
     );

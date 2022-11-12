@@ -10,7 +10,7 @@ import "../../stylesheets/shared.css"
 
 export const ResetPassword = () => {
   return (
-    <div className="main">
+    <div className="mainwrap">
      <section className="signup-image">
         <SignUpImageBrief/>
       </section>

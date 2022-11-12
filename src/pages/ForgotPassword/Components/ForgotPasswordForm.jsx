@@ -65,7 +65,9 @@ export const ForgotPasswordForm = () => {
            disabled={isSubmitting}
            onClick={handleSubmit}
          >
-           {isSubmitting ? "Loading" : "Reset Password"}
+          <Link to ="/reset-password">
+          {isSubmitting ? "Loading" : "Reset Password"}
+          </Link>
          </button>
 
          <hr />
@@ -75,10 +77,12 @@ export const ForgotPasswordForm = () => {
  </Formik>
  <div className="signin-wrap">
      
-    <p className="signup-brief">Return to</p> 
-     <Link to = {'/forgot-password'}>
-     <span>LogIn</span>
+    <p className="signup-brief">Return to</p>
+    <span> 
+     <Link to = {'/sign-in'}>
+     LogIn
      </Link>
+     </span>
      </div>
 </section>
 </section>

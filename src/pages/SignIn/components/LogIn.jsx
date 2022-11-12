@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { useNavigate} from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaEye} from "react-icons/fa";
+import {FaEyeSlash} from "react-icons/fa";
 
 
 export const LogIn = () => {
+
+
+  const navigate = useNavigate();
+
+  const [token, setToken] = useState(false);
+
+  let localToken = JSON.parse(localStorage.getItem("token")) ;
+
+
+  let tokenExists = localToken.length > 0;
+
+useEffect(()=>{
+  if ( tokenExists) {
+    setToken(true)
+  }
+},[ tokenExists]);
+
+
+const [showPassword, setShowPassword] =useState(true)
+
+const togglePassword = ()=>{
+  setShowPassword(!showPassword)
+}
+
   return (
+    
     <React.Fragment>
       <Formik
         initialValues={{
@@ -18,10 +45,10 @@ export const LogIn = () => {
           setSubmitting(true);
 
           try {
-            let response = await axios.post("auth/signin", {
+            let response = await axios.post("https://codeask-staging.herokuapp.com/v1/api/auth/signin", {
               email,
               password,
-            });
+            }, );
             console.log(response.data);
 
             const { access, refresh } = response.data.token;
@@ -32,26 +59,11 @@ export const LogIn = () => {
 
             localStorage.setItem("token", JSON.stringify(tokens));
 
-           
-            let token = JSON.parse(localStorage.getItem("token"));
-            console.log(token.length);
+            // console.log(token.length);
             
-            
-            const tokenExist = token.length > 0;
-          
-            console.log(tokenExist)
-          
-            console.log("navigte")
-
-          //     function navigator (){
-          // const navigate = useNavigate()
-          //     }
-
-            useEffect(() => {
-              if (tokenExist) {
-                // navigate("/questions");
-              }
-            }, [tokenExist]);
+            if(token){
+              navigate('/questions')
+                        }
           } catch (error) {}
         }}
       >
@@ -69,7 +81,7 @@ export const LogIn = () => {
               {/* email */}
               <div class="form-wrapper">
                 <label htmlFor="email">
-                  Email Address<span className="bi">*</span>
+                  Email Address<span className="asterik">*</span>
                 </label>
                 <input
                   className="signup-input"
@@ -81,27 +93,30 @@ export const LogIn = () => {
                   value={values.email}
                 />
                 {errors.email && touched.email && (
-                  <p className="bi">{errors.email}</p>
+                  <p className="asterik">{errors.email}</p>
                 )}
               </div>
 
               {/* password */}
               <div class="form-wrapper">
                 <label htmlFor="Password">
-                  Password<span className="bi">*</span>
+                  Password<span className="asterik">*</span>
                 </label>
                 <input
                   className="signup-input"
-                  type="password"
+                  type={showPassword? "password":"text" }
                   id="password"
                   name="password"
                   placeHolder="Enter your Password"
                   onChange={handleChange}
                   value={values.password}
                 />
-
+                <span className="toggle-password"
+                    onClick = {togglePassword}
+                >{ showPassword ? <FaEyeSlash/> : <FaEye/>}
+                </span>
                 {errors.password && touched.password && (
-                  <p className="bii">{errors.password}</p>
+                  <p className="asterik">{errors.password}</p>
                 )}
               </div>
 
@@ -113,10 +128,11 @@ export const LogIn = () => {
                   </label>
                 </div>
                 <span className="fogotPasswordLink">
-                  <a href="./forgotpassword.html">Forgot Password?</a>
+                  <Link to = "/forgot-password">
+                  Forgot Password?
+                  </Link>
                 </span>
               </div>
-
               <button
                 type="submit"
                 className="signup-btn get"
