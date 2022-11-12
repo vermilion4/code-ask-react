@@ -748,3 +748,10 @@ main .sidebar {
     width: 22px;
   }
 }
+
+.no-data{
+  color: #002828;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
