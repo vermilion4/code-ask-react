@@ -6,6 +6,7 @@ import AllQuestion from './AllQuestions';
 import { questionsNewest, questionsUnanswered, questionsAnswered } from '../../../Data/questionsData.js';
 // import Spinner from '../../../components/Spinner';
 // import NoData from '../../../components/NoData';
+import baseURL from '../../../components/baseURL.js';
 import axios from "axios";
 
 const filters = [
@@ -21,8 +22,8 @@ const QuestionBody = () => {
 
 
     // useEffect(() => {
-    //   axios
-    //     .get("https://codeask-staging.herokuapp.com/v1/api/questions")
+    //   baseURL
+    //     .get("questions")
     //     .then((response) => {
     //       alert(response.data);
     //       setLoading(false) //stop loading when data is fetched
