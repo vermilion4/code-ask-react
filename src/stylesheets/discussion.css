@@ -220,18 +220,22 @@
         margin: 85px 30px 30px 30px;
         padding: 0;
         flex-direction: column;
+        
     }
 
     .forum {
         margin-left: 0px;
+        box-shadow: none;
     }
 
     .forum-wrapper {
         width: 100%;
+        box-shadow: none;
     }
 
     .thread {
         width: 100%;
+        box-shadow: none;
     }
 
 
