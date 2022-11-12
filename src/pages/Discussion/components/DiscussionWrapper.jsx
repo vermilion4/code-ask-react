@@ -6,6 +6,7 @@ const DiscussionWrapper = () => {
   return (
     <main className="discussion_main">
       {/*ANSWER CODE STARTS HERE */}
+      
       <Forum />
       <Thread />
     </main>
