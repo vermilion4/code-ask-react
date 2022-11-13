@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../stylesheets/FAQ.css';
+import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer';
 
@@ -75,7 +76,8 @@ export const Faq = () => {
                 <h1>Frequently Asked Questions</h1>
                 <p>
                     Got a question? If you don't see your question here, reach us on the{' '}
-                    <a href='./ourteam.html'>contact page</a>
+                    <Link to = "/about-us">Contact Page
+                    </Link>
                </p>
                </div>
                {dataFrequentlyAsked.map((item, index) =>

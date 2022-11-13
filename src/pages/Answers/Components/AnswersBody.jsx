@@ -1,6 +1,11 @@
 import React from "react";
-// import { AnswersWrap } from "./AnswersWrap";
-
+import Ajiboye from '../../../assets/ANSWER PAGE ICONS/Ajiboye.png';
+import Adaeze from '../../../assets/ANSWER PAGE ICONS/adaeze.png';
+import { Editor } from "../../AskQuestions/components/Editor";
+import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
+import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
+import star from "../../../assets/ANSWER PAGE ICONS/star.png";
+import CodeEditorWindow from "./codeEditorWindow";
 
 
 
@@ -25,13 +30,7 @@ import React from "react";
           </p>
           <br />
           <br />
-          <pre>
-          {/* <code>
-            var port = process.env.PORT || 3000
-            app.listen port
-            console.log(`Express server listening on ${port}`, app.address().port, app.settings.env, app.VERSION)
-          </code> */}
-          </pre>
+         <CodeEditorWindow/>
           <hr />
           <div className="answer">
             <div className="ans">
@@ -47,30 +46,25 @@ import React from "react";
           <hr className="horizontal-line" />
           <h1 className="suggestion">Answers</h1>
           <p>
-            I found that the following code fragment worked best for me. Since
+            Found that the following code fragment worked best for me. Since
             it uses require to load the package.json, it works regardless of the
             current working directory.
           </p>
           <br />
-          <pre>
-          <code>
-            var pjson = require('./package.json');
-            console.log(pjson.version)
-          </code>
-          </pre>
+          <CodeEditorWindow/>
           <div className="comment-section">
             <h3>Comment</h3>
             <div className="comment-details">
               <div className="rating">
-                <img src="../IMAGES/ANSWER PAGE ICONS/arrow-up.png" alt="" />
-                <img src="../IMAGES/ANSWER PAGE ICONS/arrow-down.png" alt="" />
+                <img src={arrowUp} alt="" /> <span></span>
+                <img src={arrowDown} alt="" />
               </div>
-              <img src="../IMAGES/ANSWER PAGE ICONS/star.png" alt="" />
+              <img src={star} alt="" />
               <div className="commentator">
                 <p>answered 1 hour ago</p>
                 <div className="flex-row">
                   <img
-                    src="../IMAGES/ANSWER PAGE ICONS/Ajiboye.png"
+                    src={Ajiboye}
                     alt="image of commentator"
                   />
                   <span>@ajiboy</span>
@@ -81,7 +75,7 @@ import React from "react";
           <hr className="post-comment" />
           <br />
           <p className="comment">
-            I found that the following code fragment worked best for me. Since
+            Found that the following code fragment worked best for me. Since
             it uses require to load the package.json, it works regardless of the
             current working directory. - Clement Agunbiade
             <span>Aug 25, 2022 at 19:15</span>
@@ -91,24 +85,20 @@ import React from "react";
           <p className="more-comments">
             Using ES6 modules you can do the following:
           </p>
-          <pre>
-          {/* <code>
-            import {version} = require('./package.json');
-          </code> */}
-          </pre>
+        <CodeEditorWindow />
           <br />
           <div className="comment-section">
             <h3>Comment</h3>
             <div className="comment-details">
               <div className="rating">
-                <img src="../IMAGES/ANSWER PAGE ICONS/arrow-up.png" alt="" />
-                <img src="../IMAGES/ANSWER PAGE ICONS/arrow-down.png" alt="" />
-              </div>
+              
+              <img src={arrowUp} alt=""/> <span></span>
+              <img src={arrowDown} alt="" /></div>
               <div className="commentator">
                 <p>answered 2 hours ago</p>
                 <div className="flex-row">
                   <img
-                    src="../IMAGES/ANSWER PAGE ICONS/adaeze.png"
+                    src={Adaeze}
                     alt="image of commentator"
                   />
                   <span>@vermilion</span>
@@ -119,143 +109,26 @@ import React from "react";
           <hr className="post-comment" />
           <br />
           <p className="comment">
-            I found that the following code fragment worked best for me. Since
+              Found that the following code fragment worked best for me. Since
             it uses require to load the package.json, it works regardless of the
-            current working directory. - Clement Agunbiade
+           working directory. - Clement Agunbiade
             <span>Aug 25, 2022 at 19:15</span>
           </p>
           <hr />
-          <div className="top-weekly hide">
-            <h2>Top Weekly</h2>
-            <a href=""
-              ><div className="hot-topics">
-                <img src="../IMAGES/TOP-WEEKLY/Ellipse 1.png" alt="avatar" />
-                <p>
-                  How to install software or upgrade from an old unsupported
-                  release
-                </p>
-              </div></a
-            >
-            <a href=""
-              ><div className="hot-topics">
-                <img src="../IMAGES/TOP-WEEKLY/Ellipse 2.png" alt="avatar" />
-                <p>How to resize partitions</p>
-              </div></a
-            >
-            <a href=""
-              ><div className="hot-topics">
-                <img src="../IMAGES/TOP-WEEKLY/Ellipse 3.png" alt="avatar" />
-                <p>
-                  Does any international law support the claim that "Taiwan's
-                  independence or not should be decided by Taiwanese people, not
-                  by any other country"?
-                </p>
-              </div></a
-            >
-            <a href=""
-              ><div className="hot-topics">
-                <img src="../IMAGES/TOP-WEEKLY/Ellipse 4.png" alt="avatar" />
-                <p>
-                  Solution gets worse as I increase Precision and Accuracy goals
-                </p>
-              </div></a
-            >
-            <a href=""
-              ><div className="hot-topics">
-                <img src="../IMAGES/TOP-WEEKLY/Ellipse 5.png" alt="avatar" />
-                <p>
-                  Aiming to get electricity for my cabin via underground burial.
-                  Few questions
-                </p>
-              </div></a
-            >
-          </div>
+          
           <p className="other-suggestions">
-            Know someone who can answer? Share a link to this question via
-            <a href="">email</a>, <a href="">Twitter</a>, or
+            Know someone who can answer? Share a link to this question via: <br />
+            <a href="">email</a>, <a href="">Twitter</a>, or <span></span>
             <a href="">Facebook.</a>
           </p>
           <br />
           <br />
           <p className="your-answer">Your answer</p>
-          <div className="enter-answer-header">
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/undo-left.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/undo-right.png" alt=""
-              /></a>
-            </div>
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/text.png" alt=""
-              /></a>
-              <a href=""
-                ><img
-                  src="../IMAGES/ANSWER PAGE ICONS/arrow-down (2).png"
-                  alt=""
-              /></a>
-            </div>
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/justify.png" alt=""
-              /></a>
-              <a href=""
-                ><img
-                  src="../IMAGES/ANSWER PAGE ICONS/arrow-down (2).png"
-                  alt=""
-              /></a>
-            </div>
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/bold.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/italics.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/underline.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/linethrough.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/tag.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/erase.png" alt=""
-              /></a>
-            </div>
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/bullet.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/numbering.png" alt=""
-              /></a>
-            </div>
-            <div>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/link.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/thumbnail.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/close-tag.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/quote.png" alt=""
-              /></a>
-              <a href=""
-                ><img src="../IMAGES/ANSWER PAGE ICONS/dash.png" alt=""
-              /></a>
-            </div>
-          </div>
-          <div className="text">
-            <textarea name="" id="" cols="100" rows="10"></textarea>
-            <a href="" className="btn">POST</a>
+          <br />
+
+          <div className="editor">
+          <Editor placeholder={'Write something...'} />
+            <a href="" className="btn postButton">POST</a>
           </div>
        
     

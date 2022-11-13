@@ -6,13 +6,16 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@monaco-editor/react": "^4.4.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "axios": "^1.1.3",
     "classnames": "^2.3.2",
+    "editor": "^1.0.0",
     "formik": "^2.2.9",
+    "monaco": "^1.201704190613.0",
     "react": "^18.2.0",
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "^18.2.0",
@@ -33,7 +36,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-     
     ]
   },
   "browserslist": {

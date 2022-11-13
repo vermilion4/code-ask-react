@@ -1,29 +1,29 @@
 
   /* THE MAIN ANSWER PAGE */
-
-  .answersWrap{
-    background-color: #e5e5e5;
-  }
+#main{
+  background-color: #e5e5e5;
+}
   .answer-page {
     position: relative;
     background-color: #fff;
     padding: 30px 20px;
-    margin-top: 95px;
+    margin-top: 113px;
+    background-color: red;
+    /* margin-top: 110px; */
     width: 59%;
     margin-left: 120px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
     /* animation: shift 0.5s ease-out; */
     transition: 1s;
   }
-  .answer-page .find-ask-question {
+.find-ask-question {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   /* visibility: hidden; */
+   visibility: hidden;
    margin-bottom: 30px;
   }
-  
-  .answer-page .find-ask-question a {
+  .find-ask-question a {
     color: #fff;
     background-color: #002828;
     border-radius: 4px;
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   .answer-page h1 {
     margin: 50px 0;
@@ -107,6 +108,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
   }
   
   .tags span {
@@ -218,7 +220,7 @@
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     outline: none;
   }
-  .left-side .text .btn {
+  .left-side .text .btn{
     position: absolute;
     right: 25px;
     bottom: 15px;
@@ -230,10 +232,34 @@
     border-radius: 4.8px;
     text-decoration: none;
   }
+
+  .button, .postButton {
+    background-color: #002828;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 4.8px;
+    text-decoration: none;
+  }
+  .editor{
+    position:relative;
+  }
+  .postButton {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+  }
  
   @media screen and (max-width: 855px) {
+    .button{
+      display: none;
+    }
    .left-col {
     display: none;
+   }
+   .find-ask-question{
+    visibility: visible;
    }
   
     header {
@@ -276,8 +302,7 @@
    .answer-page .find-ask-question {
      visibility: visible;
     }
-  
-   
+
   
       .left-side textarea {
        margin-bottom: 70px;
