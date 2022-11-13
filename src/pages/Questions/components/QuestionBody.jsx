@@ -6,8 +6,8 @@ import AllQuestion from './AllQuestions';
 import { questionsNewest, questionsUnanswered, questionsAnswered } from '../../../Data/questionsData.js';
 // import Spinner from '../../../components/Spinner';
 // import NoData from '../../../components/NoData';
-import baseURL from '../../../components/baseURL.js';
-import axios from "axios";
+// import baseURL from '../../../components/baseURL.js';
+// import axios from "axios";
 
 const filters = [
   { id: 0, filter: "Newest"},
