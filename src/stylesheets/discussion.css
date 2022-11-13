@@ -217,22 +217,109 @@
 
 @media (max-width: 900px) {
     .discussion_main {
-         margin: 85px 30px 30px 30px;
-         padding: 0;
+        margin: 85px 30px 30px 30px;
+        padding: 0;
         flex-direction: column;
+        
     }
 
     .forum {
         margin-left: 0px;
+        box-shadow: none;
     }
 
     .forum-wrapper {
         width: 100%;
+        box-shadow: none;
     }
 
-.thread{
+    .thread {
+        width: 100%;
+        box-shadow: none;
+    }
+
+
+}
+
+
+/* Modal Styling */
+.discussion-background {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    background-color: rgba(0, 40, 40, 0.25);
     width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
+.discussion-modal {
+    background: #002828;
+    border: 1px solid #ADB5BD;
+    border-radius: 8px;
+    min-width: 650px;
+    padding: 50px 35px;
+    display: flex;
+    flex-direction: column;
 }
+
+.discussion-modal div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.discussion-modal .title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+
+
+color: #FFFFFF;
+}
+
+.discussion-modal input {
+    display: block;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 4.8px;
+    font-weight: 300;
+    font-size: 14px;
+    outline: none;
+}
+
+.discussion-modal p{
+    font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+margin-bottom: 20px;
+color: #F8F9FA;
+}
+
+.discussion-modal button {
+    background: #003636;
+    border: 0.854701px solid #003636;
+
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
+    border-radius: 4.10256px;
+    padding: 6.83761px 13.6752px;
+    gap: 6.84px;
+    align-self: flex-end;
+}
+
+    @media (max-width: 650px) {
+        .discussion-modal {
+           
+            min-width: 100%;}
+    }

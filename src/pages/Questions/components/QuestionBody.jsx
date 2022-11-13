@@ -1,8 +1,13 @@
 
 import React, { useState, useMemo }  from "react";
+// import { useEffect }  from "react";
 import Pagination from '../../../components/Pagination/Pagination';
 import AllQuestion from './AllQuestions';
 import { questionsNewest, questionsUnanswered, questionsAnswered } from '../../../Data/questionsData.js';
+// import Spinner from '../../../components/Spinner';
+// import NoData from '../../../components/NoData';
+import baseURL from '../../../components/baseURL.js';
+import axios from "axios";
 
 const filters = [
   { id: 0, filter: "Newest"},
@@ -12,9 +17,35 @@ const filters = [
 
 let PageSize = 3;
 
+
 const QuestionBody = () => {
 
+
+    // useEffect(() => {
+    //   baseURL
+    //     .get("questions")
+    //     .then((response) => {
+    //       alert(response.data);
+    //       setLoading(false) //stop loading when data is fetched
+
+    //       if(response.data.length === 0){
+    //         setEmpty(true);
+    //       }
+            
+    //     })
+    //     .catch((error) => {
+    //       alert(error);
+    //     })
+    //     .then(() => {
+    //       // Always execute
+    //     });
+    // }, []);
+
+
+
   const [currentPage, setCurrentPage] = useState(1);
+  // const [isLoading, setLoading] = useState(true);
+  // const [isEmpty, setEmpty] = useState(false);
 
 
 
@@ -75,6 +106,10 @@ const QuestionBody = () => {
                                  </div>
                                  {/* Rendering will occur based on filter which will call different APIs using axios therefore different data will be rendered */}
                                 
+                                {/* Will add loader and no data her now */}
+                                 {/* {isLoading ? <Spinner></Spinner> : null}
+                                 {isEmpty ? <NoData></NoData> : null}
+                                 {!isEmpty ? <AllQuestion datas={paginatedData} /> : null}  */}
                                  <AllQuestion datas={paginatedData} />
                                </div>
 
