@@ -2,12 +2,36 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CyclicDesign2 from '../../SignUp/components/CyclicDesign2'
 import { Formik } from 'formik'
-import validationSchema from "../../SignUp/components/validationSignUp"
+import validationSchema from '../../ResetPassword/Components/validationReset'
 import { useState } from 'react'
 import { FaEye} from "react-icons/fa";
 import {FaEyeSlash} from "react-icons/fa";
+import { useSearchParams } from 'react-router-dom'
+import axios from 'axios'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export const ResetPasswordForm = () => {
+  const notifySuccess = () => {
+
+    toast.success("Your password has been changed, kindly login !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+  const notifyError = () => {
+
+    toast.error("Token Expire!", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+  const[searchParams] = useSearchParams()
+  let token = searchParams.get("token")
+  console.log(token)
+  console.log(`https://codeask-staging.herokuapp.com/v1/api/auth/reset-password?token=${token}`)
+
 
 
   const [showPassword, setShowPassword]= useState(true)
@@ -32,17 +56,26 @@ function toggleConfirmPassword(){
           confirmPassword: ""
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async(values, { setSubmitting }) => {
           const {password } = values;
           setSubmitting(true);
+          console.log(password)
 
-          setTimeout(() => {
-            alert(
-              "You have succesfully changed your password"
+          try {
+            let response = await axios.post(
+              `https://codeask-staging.herokuapp.com/v1/api/auth/reset-password?token=${token}`,
+              {
+                password
+              }
             );
-            setSubmitting(false);
-          }, 400);
+            notifySuccess();
+            console.log(response.data)
+          } catch (error) {
+            notifyError();
+            console.log(error)
+          }
         }}
+        
       >
         {({
           values,
@@ -120,10 +153,11 @@ function toggleConfirmPassword(){
       <div className="signin-wrap">
           
          <p className="signup-brief">Return to</p> 
-          <Link to = {'/forgot-password'}>
+          <Link to = {'/sign-in'}>
           <span>LogIn</span>
           </Link>
           </div>
+          <ToastContainer />
     </section>
   </section>
 
