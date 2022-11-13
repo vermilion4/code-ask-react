@@ -64,6 +64,7 @@ const togglePassword = ()=>{
             if(token){
               navigate('/questions')
                         }
+                        
           } catch (error) {}
         }}
       >

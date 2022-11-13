@@ -17,6 +17,8 @@ export const Questions = ({
   windowSize,
   getWindowSize,
   setWindowSize,
+  isModalActive,
+  setIsModalActive,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -72,6 +74,11 @@ export const Questions = ({
           <main id='main' style={hoverState ? closeContent : openContent}>
             {/* CONTENT GOES IN HERE */}
             <QuestionsWrapper />
+
+            <QuestionModal 
+        isModalActive= {isModalActive}
+        setIsModalActive ={setIsModalActive}/>
+
 
             {/* Modal only shows for unregistered users */}
             <QuestionModal />
