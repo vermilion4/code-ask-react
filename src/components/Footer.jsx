@@ -16,7 +16,7 @@ export const Footer = () => {
           <ul>
             <p className='footer-head'>Quick links</p>
             <li>
-              <a href='./question.html'>Questions</a>
+              <Link to={'/questions'}>Questions</Link>
             </li>
             <li>
               {/* <a href='./FAQ.html'>FAQ</a> */}
@@ -28,10 +28,10 @@ export const Footer = () => {
           <ul>
             <p className='footer-head'>Company</p>
             <li>
-              <a href='./ourteam.html'>About</a>
+            <Link to={'/about-us'}>About Us</Link>
             </li>
             <li>
-              <a href='http://'>Contact Us</a>
+            <Link to={'/'}>Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -39,10 +39,10 @@ export const Footer = () => {
           <ul>
             <p className='footer-head'>Legal</p>
             <li>
-              <a href='http://'>Privacy Policy</a>
+            <Link to={'/'}>Privacy Policy</Link>
             </li>
             <li>
-              <a href='http://'>Terms</a>
+            <Link to={'/'}>Terms</Link>
             </li>
           </ul>
         </div>
