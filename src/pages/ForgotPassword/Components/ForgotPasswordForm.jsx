@@ -41,7 +41,7 @@ export const ForgotPasswordForm = () => {
          {/* password */}
          <div class="form-wrapper">
            <label htmlFor="Email">
-            New Password<span className="forgot-password-error"></span>
+            Email<span className="forgot-password-error"></span>
            </label>
            <input
              className="signup-input"
