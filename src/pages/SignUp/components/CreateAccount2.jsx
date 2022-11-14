@@ -68,7 +68,7 @@ export const CreateAccount2 = () => {
 
             } else if (err.response.status === 401) {
               alert(err.response.data.message);
-              
+
             } else {
               alert("Login Failed");
             }
