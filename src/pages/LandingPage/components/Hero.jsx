@@ -15,7 +15,7 @@ export const Hero = () => {
           <Link to={'/sign-up'} className='hero-btn btn get-started'>
             Get started now
           </Link>
-          <Link to={''} className='hero-btn btn search-btn'>
+          <Link to={'/questions'} className='hero-btn btn search-btn'>
             Search content
           </Link>
         </div>

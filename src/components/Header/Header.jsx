@@ -67,7 +67,7 @@ export const Header = () => {
             <Link to='/questions'>Questions</Link>
           </li>
 
-          <Link to='' className={show ? 'login-mobile' : ''}>
+          <Link to='/sign-in' className={show ? 'login-mobile' : ''}>
             Log in
           </Link>
           <Link to={'/sign-up'} className={show ? 'create-mobile' : ''}>

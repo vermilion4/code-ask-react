@@ -71,7 +71,7 @@ export const Questions = ({
             handleHoverOpen={handleHoverOpen}
           />
           <LoggedInHeader />
-          <main id='main' style={hoverState ? closeContent : openContent}>
+          <main id='main' className='question-main ' style={hoverState ? closeContent : openContent}>
             {/* CONTENT GOES IN HERE */}
             <QuestionsWrapper />
 
