@@ -1,14 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { AuthContext } from "../AuthContext";
+// import { AuthContext } from "../AuthContext";
+import { useAuth } from "../../../components/hooks/useAuth";
 
 export const Loggedin = () => {
   const navigate = useNavigate()
-    const {setAuth} = useContext(AuthContext)
+    const {setAuth} = useAuth()
  
     const [showPassword, setShowPassword] =useState(true)
 
@@ -41,10 +42,13 @@ const togglePassword = ()=>{
               );
               console.log(response.data)
              const accessToken = response.data.token.access.token;
-             console.log(accessToken)  //optional chaining
-              // const roles = response?.data?.roles;
+             console.log(accessToken) //optional chaining
 
              setAuth({email, password, accessToken})
+
+             if(setAuth){
+              navigate ('/questions')
+             }
               
 
           } catch (err) {
