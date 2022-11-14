@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { AboutUs } from "./pages/AboutUs/AboutUs";
 import SignUp from "./pages/SignUp/SignUp";
@@ -13,6 +13,8 @@ import { ForgotPassword } from "./pages/ForgotPassword/ForgotPassword";
 import { useState } from "react";
 import { Answers } from "./pages/Answers/Answers";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import { Layout } from "./components/layout";
+import { RequiredAuth } from "./components/RequiredAuth";
 
 function App() {
   const [hoverState, setHoverState] = useState(false);
@@ -31,9 +33,16 @@ function App() {
     setHover(true);
     hover ? setHoverState(false) : setHoverState(true);
   }
+
   return (
-    <Router>
-      <Routes>
+    // <Router>
+    <Routes>
+      {/* <userContext.Provider  value={{
+           
+      }}> */}
+
+      {/* Public Routes */}
+      <Route path="/" element={<Layout />}>
         <Route path="/" element={<LandingPage />}></Route>
 
         <Route path="/about-us" element={<AboutUs />}></Route>
@@ -42,96 +51,105 @@ function App() {
 
         <Route path="/sign-in" element={<SignIn />}></Route>
 
-        <Route
-          path="/questions"
-          element={
-            <Questions
-              hover={hover}
-              setHover={setHover}
-              handleHoverClose={handleHoverClose}
-              handleHoverOpen={handleHoverOpen}
-              hoverState={hoverState}
-              setHoverState={setHoverState}
-              windowSize={windowSize}
-              setWindowSize={setWindowSize}
-              getWindowSize={getWindowSize}
-            />
-          }
-        ></Route>
-
-        <Route
-          path="/ask-question"
-          element={
-            <AskQuestions
-              hover={hover}
-              setHover={setHover}
-              handleHoverClose={handleHoverClose}
-              handleHoverOpen={handleHoverOpen}
-              hoverState={hoverState}
-              setHoverState={setHoverState}
-              windowSize={windowSize}
-              setWindowSize={setWindowSize}
-              getWindowSize={getWindowSize}
-            />
-          }
-        ></Route>
-
-        <Route path="/faq" element={<FAQ />}></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-
+        <Route path="/faq" element={<FAQ />}></Route>
         <Route
-          path="/dashboard"
-          element={
-            <Dashboard
-              hover={hover}
-              setHover={setHover}
-              handleHoverClose={handleHoverClose}
-              handleHoverOpen={handleHoverOpen}
-              hoverState={hoverState}
-              setHoverState={setHoverState}
-              windowSize={windowSize}
-              setWindowSize={setWindowSize}
-              getWindowSize={getWindowSize}
-            />
-          }
-        ></Route>
+            path="/questions"
+            element={
+              <Questions
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
+       
+        {/* private routes */}
 
-        <Route
-          path="/discuss"
-          element={
-            <Discussion
-              hover={hover}
-              setHover={setHover}
-              handleHoverClose={handleHoverClose}
-              handleHoverOpen={handleHoverOpen}
-              hoverState={hoverState}
-              setHoverState={setHoverState}
-              windowSize={windowSize}
-              setWindowSize={setWindowSize}
-              getWindowSize={getWindowSize}
-            />
-          }
-        ></Route>
+        <Route element={<RequiredAuth />}>
+        
 
-        <Route
-          path="/answers"
-          element={
-            <Answers
-              hover={hover}
-              setHover={setHover}
-              handleHoverClose={handleHoverClose}
-              handleHoverOpen={handleHoverOpen}
-              hoverState={hoverState}
-              setHoverState={setHoverState}
-              windowSize={windowSize}
-              setWindowSize={setWindowSize}
-              getWindowSize={getWindowSize}
-            />
-          }
-        ></Route>
-      </Routes>
-    </Router>
+          <Route
+            path="/ask-question"
+            element={
+              <AskQuestions
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
+
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
+
+          <Route
+            path="/discuss"
+            element={
+              <Discussion
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
+
+          <Route
+            path="/answers"
+            element={
+              <Answers
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
+
+        </Route>
+
+      </Route>
+    </Routes>
+
+    // </Router>
   );
 }
 

@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CreateAccount } from "./CreateAccount";
+// import { CreateAccount } from "./CreateAccount";
 import {BsGithub} from "react-icons/bs";
 import { ImLinkedin } from "react-icons/im";
 import {FcGoogle} from "react-icons/fc";
-
+import { CreateAccount2 } from "./CreateAccount2";
 
 function Form() {
   return (
     <section class="signup-form">
-      <CreateAccount />
+      {/* <CreateAccount /> */}
+      <CreateAccount2/>
       <hr class="hr" />
 
       <button className="signup-btn link">

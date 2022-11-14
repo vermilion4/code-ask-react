@@ -17,7 +17,8 @@ import "../../stylesheets/Signup.css"
     <section className="signupform-wrapper">
     <CyclicDesign2/>
 
-    <SignInFormWrap/>
+    <SignInFormWrap 
+    />
 
  </section>
  </div>
