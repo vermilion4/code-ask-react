@@ -31,9 +31,15 @@ function App() {
     setHover(true);
     hover ? setHoverState(false) : setHoverState(true);
   }
+
+
   return (
+    
     <Router>
-      <Routes>
+    <Routes>
+    {/* <userContext.Provider  value={{
+        
+      }}> */}
         <Route path="/" element={<LandingPage />}></Route>
 
         <Route path="/about-us" element={<AboutUs />}></Route>
@@ -130,6 +136,8 @@ function App() {
             />
           }
         ></Route>
+        
+    {/* </userContext.Provider> */}
       </Routes>
     </Router>
   );

@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../AuthContext";
 
-export const LogIn = () => {
-  const navigate = useNavigate();
-
-  const [token, setToken] = useState(false);
-
-  let localToken = JSON.parse(localStorage.getItem("token")) ;
-
-
-  let tokenExists = localToken.length > 0;
-
-useEffect(()=>{
-  if ( tokenExists) {
-    setToken(true)
-  }
-},[ tokenExists]);
-
-
-const [showPassword, setShowPassword] =useState(true)
+export const Loggedin = () => {
+  const navigate = useNavigate()
+    const {setAuth} = useContext(AuthContext)
+ 
+    const [showPassword, setShowPassword] =useState(true)
 
 const togglePassword = ()=>{
   setShowPassword(!showPassword)
@@ -43,26 +30,38 @@ const togglePassword = ()=>{
 
           try {
             let response = await axios.post("https://codeask-staging.herokuapp.com/v1/api/auth/signin", {
-              email,
-              password,
-            }, );
-            console.log(response.data);
+                email,
+                password,
+              } ,
+             
+            //    {
+            //     headers: {"Content-Type":"application/json"},
+            //     withCredentials:true
+            //   }
+              );
+              console.log(response.data)
+             const accessToken = response.data.token.access.token;
+             console.log(accessToken)  //optional chaining
+              // const roles = response?.data?.roles;
 
-            const { access, refresh } = response.data.token;
+             setAuth({email, password, accessToken})
+              
 
-            const tokens = [];
-            tokens.push({ access: access.token });
-            tokens.push({ refresh: refresh.token });
-
-            localStorage.setItem("token", JSON.stringify(tokens));
-
-            // console.log(token.length);
-            
-            if(token){
-              navigate('/questions')
-                        }
-                        
-          } catch (error) {}
+          } catch (err) {
+            if(!err.response){
+                alert('no server response')
+            }
+           else if(err.response.status === 400 ){
+            alert('missing username or password')
+            }
+            else if(err.response.status === 401 ){
+                alert('Unauthorized User')
+            }
+            else{
+                alert('Login Failed') 
+            }
+          }
+//error 409 means the info() already exists
         }}
       >
         {({
@@ -92,6 +91,7 @@ const togglePassword = ()=>{
                 />
                 {errors.email && touched.email && (
                   <p className="asterik">{errors.email}</p>
+                 
                 )}
               </div>
 

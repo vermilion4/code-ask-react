@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LogIn } from "./LogIn";
+// import { LogIn } from "./LogIn";
 import {BsGithub} from "react-icons/bs";
 import { ImLinkedin } from "react-icons/im";
 import {FcGoogle} from "react-icons/fc";
+import {Loggedin} from "./Loggedin";
 
 function Form() {
   return (
     <section>
-      <LogIn/>
+      {/* <LogIn/> */}
+      <Loggedin/>
       {/* <hr class="hr" /> */}
 
       <button className="signup-btn link">
