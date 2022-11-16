@@ -14,36 +14,32 @@ const AllQuestion = (props) => {
           User,
 
           body,
-          createdAT,
+          createdAt,
           id,
           title,
         }) => {
-
-          console.log(User);
-
           return (
             <Link key={id} to={`${id}`}>
               {" "}
               <div className="questions">
                 <div className="question-box">
-                  
-                  <img
-                    // src={User.profile_image}
-                    alt="avatar profile"
-                  />
+                  <img src={User.profile_image} alt="avatar profile" />
                   <div className="question-content">
                     <div className="question-statement">
                       <p>{title}</p>
                     </div>
 
                     <div className="question-box-tags">
-                      {/* <ul>{Tags.map((tag, index)=>{
-                        return <li key={index}>{tag.name}</li> ;
-                      })}
-                       
-                      </ul> */}
+                      {
+                        <ul>
+                          {Tags.map((tag, index) => {
+                            return <li key={index}>{tag.name}</li>;
+                          })}
+                        </ul>
+                      }
                       <p>
-                        {/* {`asked ${createdAT} ago by `}<span>{`@${User.username}`}</span> */}
+                        {`asked ${createdAt} ago by `}
+                        <span>{`@${User.username}`}</span>
                       </p>
                     </div>
                   </div>
