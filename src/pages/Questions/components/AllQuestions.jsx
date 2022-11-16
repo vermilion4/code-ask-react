@@ -1,42 +1,34 @@
 // import React from 'react';
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const AllQuestion = (props) => {
-const {datas} = props ;
-   
+  const { datas } = props;
 
   return (
-      <div  className="questions-wrapper">
-        {datas.map(
-          ({
-            // id,
-            // author,
-            // img,
-            // userName,
-            // question,
-            // tags,
-            // views,
-            // answers,
-            // timeAsked,
-            // isAnswered,
-
-           Comments,
-           Tags,
+    <div className="questions-wrapper">
+      {datas.map(
+        ({
+          Comments,
+          Tags,
           User,
+
           body,
           createdAT,
-           id,
-           title
+          id,
+          title,
+        }) => {
 
-            
-          }) => {
-            return (
-          
-          <Link key={id} to = {`${id}`}>    <div className="questions" >
+          console.log(User);
+
+          return (
+            <Link key={id} to={`${id}`}>
+              {" "}
+              <div className="questions">
                 <div className="question-box">
+                  
                   <img
-                    // src=`${User.profile_image}`
+                    // src={User.profile_image}
                     alt="avatar profile"
                   />
                   <div className="question-content">
@@ -51,7 +43,7 @@ const {datas} = props ;
                        
                       </ul> */}
                       <p>
-                      {/* {`asked ${createdAT} ago by `}<span>{`@${User.username}`}</span> */}
+                        {/* {`asked ${createdAT} ago by `}<span>{`@${User.username}`}</span> */}
                       </p>
                     </div>
                   </div>
@@ -67,12 +59,12 @@ const {datas} = props ;
                   </div>
                 </div>
               </div>
-          </Link>
-            );
-          }
-        )}
-</div>
-    
-  )}
+            </Link>
+          );
+        }
+      )}
+    </div>
+  );
+};
 
 export default AllQuestion;

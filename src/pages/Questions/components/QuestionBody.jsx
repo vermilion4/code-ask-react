@@ -18,27 +18,35 @@ let PageSize = 3;
 
 
 const QuestionBody = () => {
-
+  
+  const [isLoading, setLoading] = useState(true);
   const [filterResult, setFilterResult] = useState("");
-  const [data, useData] = useState({});
+  const [data, setData] = useState({});
 
   useEffect(() => {
+
+    try{
     async function fetchQuestions() {
       const res = await baseURL.get(`questions/${filterResult}`);
 
       console.log(res.data);
-      // console.log(res.data[0].User.profile_image);
-      useData(res.data)
+     setData(res.data) 
+     
+      setLoading(false);
     }
-
-    fetchQuestions();
-
     
+    fetchQuestions();
+    
+    
+  }catch(err){
+    console.log(err);
+  }
 
   }, [filterResult]);
 
+
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setLoading] = useState(true);
   const [isEmpty, setEmpty] = useState(false);
 
   const [filterData, setFilterData] = useState(questionsNewest);
@@ -52,18 +60,20 @@ const QuestionBody = () => {
   }, [currentPage, filterData]);
 
   const filterFunction = (id) => {
+
+
     if (id === 0) {
       setFilterResult("")
       // setFilterData(data);
-      setFilterData(questionsNewest);
+      
     } else if (id === 1) {
       setFilterResult("unanswered")
       // setFilterData(data);
-      setFilterData(questionsUnanswered);
+     
     } else if (id === 2) {
       setFilterResult("answered")
-      // setFilterData(data);
-      setFilterData(questionsAnswered);
+      setFilterData(data);
+     
     }
     setFilterData(data);
     setIsActive(id);
@@ -92,10 +102,15 @@ const QuestionBody = () => {
         {/* Rendering will occur based on filter which will call different APIs using axios therefore different data will be rendered */}
 
         {/* Will add loader and no data her now */}
-        {/* {isLoading ? <Spinner></Spinner> : null}
-                                 {isEmpty ? <NoData></NoData> : null}
+
+        {isLoading ? <Spinner></Spinner> : <AllQuestion datas={paginatedData} />}
+
+
+
+
+                                 {/* {isEmpty ? <NoData></NoData> : null}
                                  {!isEmpty ? <AllQuestion datas={paginatedData} /> : null}  */}
-        <AllQuestion datas={paginatedData} />
+        {/* <AllQuestion datas={paginatedData} /> */}
       </div>
 
       <Pagination
