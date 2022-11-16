@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { useAuth } from "../../../components/hooks/useAuth";
 // import baseURL from "../../../components/baseURL"
 
 // const register = '/signup';
 
 export const CreateAccount2 = () => {
   const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -49,13 +51,16 @@ export const CreateAccount2 = () => {
               //     withCredentials= true
               // }
             );
-
             console.log(response.data);
-            console.log(response.data.token.access.token);
+            const accessToken = response.data.token.access.token;
+            console.log(accessToken); //optional chaining
 
-            if (response) {
-                navigate("/sign-in");
+            setAuth({ email, password, username, accessToken });
+
+            if (auth) {
+              navigate("/questions");
             }
+
           } catch (err) {
             if (!err.response) {
               alert("no server response");
