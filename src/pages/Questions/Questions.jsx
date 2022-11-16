@@ -82,7 +82,6 @@ export const Questions = ({
             <QuestionsWrapper />
 
             {/* Modal only shows for unregistered users */}
-
             {auth.email ? null : <QuestionModal />}
 
             {/* <QuestionModal /> */}

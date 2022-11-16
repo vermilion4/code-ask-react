@@ -1,13 +1,12 @@
-
 import React, { useState, useMemo }  from "react";
-// import { useEffect }  from "react";
+import { useEffect }  from "react";
 import Pagination from '../../../components/Pagination/Pagination';
 import AllQuestion from './AllQuestions';
 import { questionsNewest, questionsUnanswered, questionsAnswered } from '../../../Data/questionsData.js';
-// import Spinner from '../../../components/Spinner';
-// import NoData from '../../../components/NoData';
-// import baseURL from '../../../components/baseURL.js';
-// import axios from "axios";
+import Spinner from '../../../components/Spinner';
+import NoData from '../../../components/NoData';
+import baseURL from '../../../components/baseURL.js';
+import axios from "axios";
 
 const filters = [
   { id: 0, filter: "Newest"},
@@ -20,108 +19,113 @@ let PageSize = 3;
 
 const QuestionBody = () => {
 
+  const [filterResult, setFilterResult] = useState("");
+  const [data, useData] = useState({});
 
-    // useEffect(() => {
-    //   baseURL
-    //     .get("questions")
-    //     .then((response) => {
-    //       alert(response.data);
-    //       setLoading(false) //stop loading when data is fetched
+  useEffect(() => {
+    async function fetchQuestions() {
+      const res = await baseURL.get(`questions/${filterResult}`);
 
-    //       if(response.data.length === 0){
-    //         setEmpty(true);
-    //       }
-            
-    //     })
-    //     .catch((error) => {
-    //       alert(error);
-    //     })
-    //     .then(() => {
-    //       // Always execute
-    //     });
-    // }, []);
+      console.log(res.data);
+      // console.log(res.data[0].User.profile_image);
+      useData(res.data)
+    }
 
+    fetchQuestions();
 
+    
+
+  }, [filterResult]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  // const [isLoading, setLoading] = useState(true);
-  // const [isEmpty, setEmpty] = useState(false);
+  const [isLoading, setLoading] = useState(true);
+  const [isEmpty, setEmpty] = useState(false);
 
+  const [filterData, setFilterData] = useState(questionsNewest);
+  const [isActive, setIsActive] = useState(0);
 
+  let paginatedData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
 
-                           
-                             const [filterData, setFilterData] = useState(questionsNewest);
-                             const [isActive, setIsActive] = useState(0);
+    return filterData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, filterData]);
 
-                             let paginatedData = useMemo(() => {
-                              const firstPageIndex = (currentPage - 1) * PageSize;
-                              const lastPageIndex = firstPageIndex + PageSize;
-                            
-                              return filterData.slice(firstPageIndex, lastPageIndex);
-                            }, [currentPage, filterData]);  
+  const filterFunction = (id) => {
+    if (id === 0) {
+      setFilterResult("")
+      // setFilterData(data);
+      setFilterData(questionsNewest);
+    } else if (id === 1) {
+      setFilterResult("unanswered")
+      // setFilterData(data);
+      setFilterData(questionsUnanswered);
+    } else if (id === 2) {
+      setFilterResult("answered")
+      // setFilterData(data);
+      setFilterData(questionsAnswered);
+    }
+    setFilterData(data);
+    setIsActive(id);
+    setCurrentPage(1);
+  };
 
-                           
+  return (
+    <div>
+      <div className="question-page" id="questionPage">
+        <div className="question-top-navbar">
+          <ul>
+            {filters.map(({ id, filter }) => {
+              return (
+                <li key={id}>
+                  <button
+                    className={isActive === id ? "active" : ""}
+                    onClick={() => filterFunction(id)}
+                  >
+                    {filter}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {/* Rendering will occur based on filter which will call different APIs using axios therefore different data will be rendered */}
 
-                             const filterFunction = (id) => {
-                               if (id === 0) {
-                                
-                                 setFilterData(questionsNewest);
-                                 
-                               } else if (id === 1) {
-                               
-                                 setFilterData(questionsUnanswered);
-                               } else if (id === 2) {
-                               
-                                  setFilterData(questionsAnswered);
-                               }
-
-                               setIsActive(id);
-                               setCurrentPage(1);
-                               
-                             };
-
-                     
-
-                             return (
-                              <div>
-                               <div className="question-page" id="questionPage">
-                                 <div className="question-top-navbar">
-                                   <ul>
-                                     {filters.map(({ id, filter }) => {
-                                       return (
-                                         <li key={id}>
-                                           <button
-                                             className={
-                                               isActive === id ? "active" : ""
-                                             }
-                                             onClick={() => filterFunction(id)}
-                                           >
-                                             {filter}
-                                           </button>
-                                         </li>
-                                       );
-                                     })}
-
-                                   </ul>
-                                 </div>
-                                 {/* Rendering will occur based on filter which will call different APIs using axios therefore different data will be rendered */}
-                                
-                                {/* Will add loader and no data her now */}
-                                 {/* {isLoading ? <Spinner></Spinner> : null}
+        {/* Will add loader and no data her now */}
+        {/* {isLoading ? <Spinner></Spinner> : null}
                                  {isEmpty ? <NoData></NoData> : null}
                                  {!isEmpty ? <AllQuestion datas={paginatedData} /> : null}  */}
-                                 <AllQuestion datas={paginatedData} />
-                               </div>
+        <AllQuestion datas={paginatedData} />
+      </div>
 
-                               <Pagination
+      <Pagination
         className="pagination-bar"
         currentPage={currentPage}
         totalCount={filterData.length}
         pageSize={PageSize}
-        onPageChange={page => setCurrentPage(page)}
+        onPageChange={(page) => setCurrentPage(page)}
       />
-                               </div>
-                             );
-                           };
+    </div>
+  );
+};
 
 export default QuestionBody;
+
+
+// baseURL
+    //   .get("questions")
+    //   .then((response) => {
+    //     alert(response.data);
+    //     setLoading(false) //stop loading when data is fetched
+
+    //     if(response.data.length === 0){
+    //       setEmpty(true);
+    //     }
+
+    //   })
+    //   .catch((error) => {
+    //     alert(error);
+    //   })
+    //   .then(() => {
+    //     // Always execute
+    //   });

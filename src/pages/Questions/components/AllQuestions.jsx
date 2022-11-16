@@ -10,47 +10,59 @@ const {datas} = props ;
       <div  className="questions-wrapper">
         {datas.map(
           ({
-            id,
-            author,
-            img,
-            userName,
-            question,
-            tags,
-            views,
-            answers,
-            timeAsked,
-            isAnswered,
+            // id,
+            // author,
+            // img,
+            // userName,
+            // question,
+            // tags,
+            // views,
+            // answers,
+            // timeAsked,
+            // isAnswered,
+
+           Comments,
+           Tags,
+          User,
+          body,
+          createdAT,
+           id,
+           title
+
+            
           }) => {
             return (
           
           <Link key={id} to = {`${id}`}>    <div className="questions" >
                 <div className="question-box">
                   <img
-                    src={`https://ui-avatars.com/api/?name=${img}`}
+                    // src=`${User.profile_image}`
                     alt="avatar profile"
                   />
                   <div className="question-content">
                     <div className="question-statement">
-                      <p>{question}</p>
+                      <p>{title}</p>
                     </div>
 
                     <div className="question-box-tags">
-                      <ul>{tags.map((tag, index)=>{
-                        return <li key={index}>{tag}</li> ;
+                      {/* <ul>{Tags.map((tag, index)=>{
+                        return <li key={index}>{tag.name}</li> ;
                       })}
                        
-                      </ul>
+                      </ul> */}
                       <p>
-                      {`asked  ${timeAsked} ago by `}<span>{`@${userName}`}</span>
+                      {/* {`asked ${createdAT} ago by `}<span>{`@${User.username}`}</span> */}
                       </p>
                     </div>
                   </div>
                   <div className="views-answers">
                     <p>
-                      <span>{views}</span> Views
+                      <span>0</span> Views
+                      {/* <span>{views}</span> Views */}
                     </p>
                     <p>
-                      <span>{answers}</span> Answers
+                      <span>0</span> Answers
+                      {/* <span>{answers}</span> Answers */}
                     </p>
                   </div>
                 </div>
