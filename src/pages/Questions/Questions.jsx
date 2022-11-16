@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { LoggedInHeader } from "../../components/QuestionHeader/LoggedInHeader";
 import { LoggedInMobile } from "../../components/Sidebar/LoggedInMobile";
-import NavIcon from "../../components/QuestionHeader/NavIcon";
 import { LoggedInSidebar } from "../../components/Sidebar/LoggedInSidebar";
+import { LoggedOutSidebar } from "../../components/Sidebar/LoggedOutSidebar";
+import { LoggedOutHeader } from "../../components/QuestionHeader/LoggedOutHeader";
+import NavIcon from "../../components/QuestionHeader/NavIcon";
 import QuestionsWrapper from "./components/QuestionsWrapper";
 import "../../stylesheets/questions.css";
 import QuestionModal from "./components/QuestionModal";
@@ -15,11 +17,10 @@ export const Questions = ({
   setHoverState,
   handleHoverClose,
   handleHoverOpen,
+  handleHover,
   windowSize,
   getWindowSize,
   setWindowSize,
-  // isModalActive,
-  // setIsModalActive,
 }) => {
   const [show, setShow] = useState(false);
   const { auth } = useAuth();
@@ -68,25 +69,29 @@ export const Questions = ({
       <>
         <div className="desktopbackground"></div>
         <div className="question-main">
-          <LoggedInSidebar
-            hover={hover}
-            handleHoverClose={handleHoverClose}
-            handleHoverOpen={handleHoverOpen}
-          />
-          <LoggedInHeader />
+          {auth.accessToken ? (
+            <LoggedInSidebar
+              hover={hover}
+              handleHoverClose={handleHoverClose}
+              handleHoverOpen={handleHoverOpen}
+            />
+          ) : (
+            <LoggedOutSidebar
+              hover={hover}
+              handleHoverClose={handleHoverClose}
+              handleHoverOpen={handleHoverOpen}
+            />
+          )}
+
+          {auth.accessToken ? <LoggedInHeader /> : <LoggedOutHeader />}
           <main
             id="main"
             className="question-main "
             style={hoverState ? closeContent : openContent}
           >
-            {/* CONTENT GOES IN HERE */}
             <QuestionsWrapper />
 
-            {/* Modal only shows for unregistered users */}
             {auth.accessToken ? null : <QuestionModal />}
-
-            {/* <QuestionModal /> */}
-            {/* CONTENT ENDS HERE */}
           </main>
           <NavIcon onclick={mobileNav} />
         </div>

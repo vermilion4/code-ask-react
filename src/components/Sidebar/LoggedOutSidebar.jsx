@@ -7,7 +7,8 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from '../../assets/whiteLogoSym.png';
 
-export const LoggedOutSidebar = ({ hover, handleHover }) => {
+export const LoggedOutSidebar = ({ hover, handleHover, handleHoverClose,
+  handleHoverOpen }) => {
   const openSidebar = {
     width: '250px',
   };
@@ -21,8 +22,8 @@ export const LoggedOutSidebar = ({ hover, handleHover }) => {
         id='mySidebar'
         className={'sidebar'}
         style={hover ? openSidebar : closeSidebar}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
+        onMouseEnter={handleHoverOpen}
+        onMouseLeave={handleHoverClose}
       >
         <div className='sidebar-logo'>
           <Link to={'/'}>
