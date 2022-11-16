@@ -16,7 +16,7 @@ export const Footer = () => {
           <ul>
             <p className='footer-head'>Quick links</p>
             <li>
-              <Link to={'/answers'}>Questions</Link>
+              <Link to={'/questions'}>Questions</Link>
             </li>
             <li>
               {/* <a href='./FAQ.html'>FAQ</a> */}

@@ -10,25 +10,19 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Loggedin = () => {
-
   const notifySuccess = () => {
-
     toast.success("Login Successful", {
       position: toast.POSITION.TOP_CENTER,
     });
-
   };
   const notifyError = (error) => {
-
     toast.error(error, {
       position: toast.POSITION.TOP_CENTER,
     });
-
   };
 
-
   const navigate = useNavigate();
-  const { auth, setAuth} = useAuth();
+  const { auth, setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(true);
 
@@ -51,32 +45,30 @@ export const Loggedin = () => {
             let response = await axios.post(
               "https://codeask-staging.herokuapp.com/v1/api/auth/signin",
               {
-                email, password,
+                email,
+                password,
               }
-
             );
-            console.log(response.data);
             const accessToken = response.data.tokens.access.token;
-            console.log(accessToken); //optional chaining
+            const userObj = response.data.user;
 
-            setAuth({ email, password, accessToken });
-              notifySuccess()
+            setAuth({ accessToken });
+            setUser(userObj);
+            notifySuccess();
 
             if (auth) {
               navigate("/questions");
             }
-
-
           } catch (err) {
             if (!err.response) {
-              notifyError("no server response")
+              notifyError("no server response");
             } else if (err.response.status === 400) {
               alert(err.response.message);
-              notifyError(err.response.message)
+              notifyError(err.response.message);
             } else if (err.response.status === 401) {
-              notifyError(err.response.message)
+              notifyError(err.response.message);
             } else {
-              notifyError("Login Failed")
+              notifyError("Login Failed");
             }
           }
           //error 409 means the info() already exists
@@ -156,7 +148,7 @@ export const Loggedin = () => {
 
               <hr class="hr" />
             </form>
-            <ToastContainer/>
+            <ToastContainer />
           </>
         )}
       </Formik>
