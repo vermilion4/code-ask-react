@@ -1,4 +1,5 @@
 import { Editor } from "./Editor";
+import React from "react";
 
 
 function ThreadContent({topic}) {
