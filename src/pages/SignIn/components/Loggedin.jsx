@@ -6,8 +6,26 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 // import { AuthContext } from "../AuthContext";
 import { useAuth } from "../../../components/hooks/useAuth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Loggedin = () => {
+
+  const notifySuccess = () => {
+
+    toast.success("Login Successful", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+  const notifyError = (error) => {
+
+    toast.error(error, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+
 
   const navigate = useNavigate();
   const {setAuth } = useAuth();
@@ -42,8 +60,7 @@ export const Loggedin = () => {
             console.log(accessToken); //optional chaining
 
             setAuth({ email, password, accessToken });
-
-              alert(accessToken)
+              notifySuccess()
 
             if (setAuth) {
               navigate("/questions");
@@ -51,14 +68,15 @@ export const Loggedin = () => {
 
 
           } catch (err) {
-            if (err.response) {
-              alert("no server response");
+            if (!err.response) {
+              notifyError("no server response")
             } else if (err.response.status === 400) {
               alert(err.response.message);
+              notifyError(err.response.message)
             } else if (err.response.status === 401) {
-              alert("Unauthorized User");
+              notifyError(err.response.message)
             } else {
-              alert("Login Failed");
+              notifyError("Login Failed")
             }
           }
           //error 409 means the info() already exists
@@ -138,6 +156,7 @@ export const Loggedin = () => {
 
               <hr class="hr" />
             </form>
+            <ToastContainer/>
           </>
         )}
       </Formik>
