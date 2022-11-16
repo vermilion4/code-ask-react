@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DiscussionModal from "./DiscussionModal";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
+import moment from 'moment';
 
 const Forum = ({ setTopicId }) => {
   const [isLoading, setLoading] = useState(true);
@@ -49,7 +50,7 @@ const Forum = ({ setTopicId }) => {
                 >
                   <p className="title">{topic}</p>
                   <div className="info">
-                    <p className="time">posted {createdAt} ago by</p>
+                    <p className="time">posted {moment(createdAt).fromNow()} ago by</p>
                     <p className="user">@{username}</p>
                   </div>
                 </div>

@@ -83,7 +83,7 @@ export const Questions = ({
             <QuestionsWrapper />
 
             {/* Modal only shows for unregistered users */}
-            {auth.AccessToken ? null : <QuestionModal />}
+            {auth.accessToken ? null : <QuestionModal />}
 
             {/* <QuestionModal /> */}
             {/* CONTENT ENDS HERE */}
