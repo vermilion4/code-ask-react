@@ -6,9 +6,11 @@ import { useAuth } from "./hooks/useAuth";
     const {auth} =useAuth();
     const location = useLocation();
 
+// alert(auth.email)
+
     return (
-    auth.user
-    ?<Outlet/> : 
+    auth.email? 
+    <Outlet/> : 
     <Navigate to="/sign-up" state={{from: location}}  replace/>
 
     )
