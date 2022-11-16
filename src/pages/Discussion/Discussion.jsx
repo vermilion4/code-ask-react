@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
-import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
-import NavIcon from '../../components/QuestionHeader/NavIcon';
-import { LoggedInSidebar } from '../../components/Sidebar/LoggedInSidebar';
-import DiscussionWrapper from './components/DiscussionWrapper';
-import '../../stylesheets/discussion.css';
-
+import React, { useState, useEffect } from "react";
+import { LoggedInHeader } from "../../components/QuestionHeader/LoggedInHeader";
+import { LoggedInMobile } from "../../components/Sidebar/LoggedInMobile";
+import NavIcon from "../../components/QuestionHeader/NavIcon";
+import { LoggedInSidebar } from "../../components/Sidebar/LoggedInSidebar";
+import DiscussionWrapper from "./components/DiscussionWrapper";
+import "../../stylesheets/discussion.css";
 
 export const Discussion = ({
   hover,
@@ -25,13 +24,14 @@ export const Discussion = ({
       setWindowSize(getWindowSize());
     }
 
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
+      window.removeEventListener("resize", handleWindowResize);
       setHover(false);
       setHoverState(false);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let closeContent = {};
@@ -39,18 +39,18 @@ export const Discussion = ({
 
   if (windowSize.innerWidth > 900) {
     closeContent = {
-      marginLeft: '155px',
-      width: '87%',
+      marginLeft: "155px",
+      width: "87%",
     };
     openContent = {
-      marginLeft: '0px',
+      marginLeft: "0px",
     };
   } else {
     closeContent = {
-      marginLeft: '0px',
+      marginLeft: "0px",
     };
     openContent = {
-      marginLeft: '0px',
+      marginLeft: "0px",
     };
   }
 
@@ -61,18 +61,18 @@ export const Discussion = ({
   if (show === false) {
     return (
       <>
-        <div className='desktopbackground'></div>
-        <div className='question-main'>
+        <div className="desktopbackground"></div>
+        <div className="question-main">
           <LoggedInSidebar
             hover={hover}
             handleHoverClose={handleHoverClose}
             handleHoverOpen={handleHoverOpen}
           />
           <LoggedInHeader />
-          <main id='main' style={hoverState ? closeContent : openContent}>
+          <main id="main" style={hoverState ? closeContent : openContent}>
             {/* CONTENT GOES IN HERE */}
             <DiscussionWrapper />
-            
+
             {/* CONTENT ENDS HERE */}
           </main>
           <NavIcon onclick={mobileNav} />
@@ -83,4 +83,3 @@ export const Discussion = ({
     return <LoggedInMobile onclick={mobileNav} />;
   }
 };
-

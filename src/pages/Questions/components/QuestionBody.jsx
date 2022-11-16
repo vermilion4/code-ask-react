@@ -21,7 +21,7 @@ const filters = [
 let PageSize = 3;
 
 const QuestionBody = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [filterResult, setFilterResult] = useState("");
   const [data, setData] = useState({});
 
@@ -30,12 +30,9 @@ const QuestionBody = () => {
       async function fetchQuestions() {
         const res = await baseURL.get(`questions/${filterResult}`);
 
-        console.log(res.data);
         setData(res.data);
 
-        setIsLoading(false);
-
-        
+        setLoading(false);
       }
 
       fetchQuestions();
@@ -83,10 +80,8 @@ const QuestionBody = () => {
             })}
           </ul>
         </div>
-      
 
-        {isLoading ? <Spinner></Spinner> : data.length === 0 ? <NoData></NoData> : <AllQuestion datas={data} />}
-      
+        {isLoading ? <Spinner></Spinner> : <AllQuestion datas={data} />}
       </div>
 
       <Pagination
