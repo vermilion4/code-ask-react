@@ -7,31 +7,22 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../../components/hooks/useAuth";
-import { ToastContainer , toast} from "react-toastify";
-// import baseURL from "../../../components/baseURL"
-
-// const register = '/signup';
+import { ToastContainer, toast } from "react-toastify";
 
 export const CreateAccount2 = () => {
-
   const notifySuccess = () => {
-
     toast.success("Login Successful", {
       position: toast.POSITION.TOP_CENTER,
     });
-
   };
   const notifyError = (error) => {
-
     toast.error(error, {
       position: toast.POSITION.TOP_CENTER,
     });
-
   };
 
-
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const { setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -65,33 +56,27 @@ export const CreateAccount2 = () => {
                 password,
                 username,
               }
-              // {
-              //     withCredentials= true
-              // }
             );
-            console.log(response.data);
+
             const accessToken = response.data.token.access.token;
-            console.log(accessToken); //optional chaining
 
             setAuth({ email, password, username, accessToken });
-                notifySuccess()
+
+            setUser(response.data.user);
+
+            notifySuccess();
             if (setAuth) {
               navigate("/questions");
             }
-
           } catch (err) {
             if (!err.response) {
-              notifyError("no server response")
-
+              notifyError("no server response");
             } else if (err.response.status === 400) {
-              notifyError(err.response.data.message)
-
+              notifyError(err.response.data.message);
             } else if (err.response.status === 409) {
               notifyError(err.response.data.message);
-
             } else if (err.response.status === 401) {
               notifyError(err.response.data.message);
-
             } else {
               notifyError("Login Failed");
             }
@@ -212,7 +197,7 @@ export const CreateAccount2 = () => {
                 {isSubmitting ? "Loading" : "Get Started"}
               </button>
             </form>
-            <ToastContainer/>
+            <ToastContainer />
           </>
         )}
       </Formik>

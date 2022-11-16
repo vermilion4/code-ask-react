@@ -36,6 +36,7 @@ export const Questions = ({
       setHover(false);
       setHoverState(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let closeContent = {};
@@ -82,8 +83,7 @@ export const Questions = ({
             <QuestionsWrapper />
 
             {/* Modal only shows for unregistered users */}
-
-            {auth.email ? null : <QuestionModal />}
+            {auth ? null : <QuestionModal />}
 
             {/* <QuestionModal /> */}
             {/* CONTENT ENDS HERE */}

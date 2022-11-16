@@ -8,9 +8,9 @@ const Forum = () => {
   return (
     <div className="forum-wrapper">
       <button
-        onClick={() => {
-          useShowModal(!showModal);
-        }}
+        // onClick={() => {
+        //   useShowModal(!showModal);
+        // }}
       >
         Add Topic
       </button>

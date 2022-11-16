@@ -2,11 +2,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
-import UserAvatar from '../../assets/Ajiboye.png';
 import '../../stylesheets/shared.css';
 import LoggedInHeaderMobile from './LoggedInHeaderMobile';
+import { useAuth } from "../../components/hooks/useAuth.js";
+
 
 export const LoggedInHeader = () => {
+
+  const { user } = useAuth();
+
   return (
     <React.Fragment>
       <header className={'question-header'}>
@@ -16,7 +20,7 @@ export const LoggedInHeader = () => {
         </div>
         <div className='notification'>
           <FontAwesomeIcon icon={faBell} />
-          <img src={UserAvatar} alt='' className='userAvatar' />
+          <img src={user.profile_image} alt='' className='userAvatar' />
         </div>
       </header>
       <LoggedInHeaderMobile />
