@@ -31,7 +31,7 @@ export const CreateAccount2 = () => {
 
 
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const {auth, setAuth } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -73,9 +73,9 @@ export const CreateAccount2 = () => {
             const accessToken = response.data.token.access.token;
             console.log(accessToken); //optional chaining
 
-            setAuth({ email, password, username, accessToken });
+            setAuth({accessToken });
                 notifySuccess()
-            if (setAuth) {
+            if (auth) {
               navigate("/questions");
             }
 

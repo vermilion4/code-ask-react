@@ -87,14 +87,16 @@ export const ForgotPasswordForm = () => {
 
                 <button
                   type="submit"
-                  className="signup-btn get"
+                  id="forgot-btn"
+                  // className="signup-btn get"
                   disabled={isSubmitting}
                   onClick={handleSubmit}
                   // onClick=
                 >
-                  <Link to=" ">
-                    {isSubmitting ? "Loading" : "Reset Password"}
-                  </Link>
+                
+                    {isSubmitting ? "Loading" :
+                      <Link to="/reset-password"> "Reset Password" </Link>}
+                  
                 </button>
 
                 <hr />

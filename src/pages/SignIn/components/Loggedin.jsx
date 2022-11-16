@@ -28,7 +28,7 @@ export const Loggedin = () => {
 
 
   const navigate = useNavigate();
-  const {setAuth } = useAuth();
+  const { auth, setAuth} = useAuth();
 
   const [showPassword, setShowPassword] = useState(true);
 
@@ -56,13 +56,13 @@ export const Loggedin = () => {
 
             );
             console.log(response.data);
-            const accessToken = response.data.token.access.token;
+            const accessToken = response.data.tokens.access.token;
             console.log(accessToken); //optional chaining
 
             setAuth({ email, password, accessToken });
               notifySuccess()
 
-            if (setAuth) {
+            if (auth) {
               navigate("/questions");
             }
 
