@@ -22,7 +22,7 @@ export const CreateAccount2 = () => {
   };
 
   const navigate = useNavigate();
-  const { setAuth, setUser } = useAuth();
+  const { auth, setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -58,14 +58,14 @@ export const CreateAccount2 = () => {
               }
             );
 
-            const accessToken = response.data.token.access.token;
+            const accessToken = response.data.tokens.access.token;
 
-            setAuth({ email, password, username, accessToken });
+            setAuth({accessToken });
 
             setUser(response.data.user);
 
             notifySuccess();
-            if (setAuth) {
+            if (auth) {
               navigate("/questions");
             }
           } catch (err) {

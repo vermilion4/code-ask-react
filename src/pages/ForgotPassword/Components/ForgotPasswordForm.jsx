@@ -93,10 +93,10 @@ export const ForgotPasswordForm = () => {
                   onClick={handleSubmit}
                   // onClick=
                 >
-                
+                <Link to="/reset-password"> 
                     {isSubmitting ? "Loading" :
-                      <Link to="/reset-password"> "Reset Password" </Link>}
-                  
+                      "Reset Password" }
+                  </Link>
                 </button>
 
                 <hr />
