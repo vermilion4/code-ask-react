@@ -9,8 +9,10 @@ import { useAuth } from "./hooks/useAuth";
 // alert(auth.email)
 
     return (
+
     auth.email? 
     <Outlet/> : 
+
     <Navigate to="/sign-up" state={{from: location}}  replace/>
 
     )

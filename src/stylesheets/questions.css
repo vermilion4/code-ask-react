@@ -11,7 +11,7 @@ div.desktopbackground {
 
 
 .question-main {
-  background-color: white !important;
+  background-color: white ;
  
 }
 
@@ -367,6 +367,10 @@ div.desktopbackground {
 
 
 @media only screen and (max-width: 900px) {
+  .question-main {
+    background-color: white !important ;
+   
+  }
 
   .modal-pop .modal-content {
     flex-direction: column;
