@@ -21,7 +21,7 @@ const filters = [
 let PageSize = 3;
 
 const QuestionBody = () => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [filterResult, setFilterResult] = useState("");
   const [data, setData] = useState({});
 
@@ -33,7 +33,9 @@ const QuestionBody = () => {
         console.log(res.data);
         setData(res.data);
 
-        setLoading(false);
+        setIsLoading(false);
+
+        
       }
 
       fetchQuestions();
@@ -83,7 +85,8 @@ const QuestionBody = () => {
         </div>
       
 
-        {isLoading ? <Spinner></Spinner> : <AllQuestion datas={data} />}
+        {isLoading ? <Spinner></Spinner> : data.length === 0 ? <NoData></NoData> : <AllQuestion datas={data} />}
+      
       </div>
 
       <Pagination
