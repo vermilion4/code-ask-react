@@ -22,7 +22,7 @@ export const CreateAccount2 = () => {
   };
 
   const navigate = useNavigate();
-  const { auth, setAuth, setUser } = useAuth();
+  const { setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -65,7 +65,7 @@ export const CreateAccount2 = () => {
             setUser(response.data.user);
 
             notifySuccess();
-            if (auth) {
+            if (setAuth) {
               navigate("/questions");
             }
           } catch (err) {
