@@ -81,7 +81,7 @@ const QuestionBody = () => {
           </ul>
         </div>
 
-        {isLoading ? <Spinner></Spinner> : <AllQuestion datas={data} />}
+        {isLoading ? <Spinner></Spinner> : data.length == 0 ? <NoData/> : <AllQuestion datas={data} />}
       </div>
 
       <Pagination
