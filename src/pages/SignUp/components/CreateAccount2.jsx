@@ -7,13 +7,31 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../../components/hooks/useAuth";
+import { ToastContainer , toast} from "react-toastify";
 // import baseURL from "../../../components/baseURL"
 
 // const register = '/signup';
 
 export const CreateAccount2 = () => {
+
+  const notifySuccess = () => {
+
+    toast.success("Login Successful", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+  const notifyError = (error) => {
+
+    toast.error(error, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
+  };
+
+
   const navigate = useNavigate();
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -56,26 +74,26 @@ export const CreateAccount2 = () => {
             console.log(accessToken); //optional chaining
 
             setAuth({ email, password, username, accessToken });
-
-            if (auth) {
+                notifySuccess()
+            if (setAuth) {
               navigate("/questions");
             }
 
           } catch (err) {
             if (!err.response) {
-              alert("no server response");
+              notifyError("no server response")
 
             } else if (err.response.status === 400) {
-              alert(err.response.data.message);
+              notifyError(err.response.data.message)
 
             } else if (err.response.status === 409) {
-              alert(err.response.data.message);
+              notifyError(err.response.data.message);
 
             } else if (err.response.status === 401) {
-              alert(err.response.data.message);
+              notifyError(err.response.data.message);
 
             } else {
-              alert("Login Failed");
+              notifyError("Login Failed");
             }
           }
           //error 409 means the info() already exists
@@ -194,6 +212,7 @@ export const CreateAccount2 = () => {
                 {isSubmitting ? "Loading" : "Get Started"}
               </button>
             </form>
+            <ToastContainer/>
           </>
         )}
       </Formik>
