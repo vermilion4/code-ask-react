@@ -5,7 +5,7 @@ import { Editor } from "../../AskQuestions/components/Editor";
 import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
 import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
 import star from "../../../assets/ANSWER PAGE ICONS/star.png";
-import CodeEditorWindow from "./codeEditorWindow";
+// import CodeEditorWindow from "./codeEditorWindow";
 
 
 
@@ -30,7 +30,7 @@ import CodeEditorWindow from "./codeEditorWindow";
           </p>
           <br />
           <br />
-         <CodeEditorWindow/>
+         {/* <CodeEditorWindow/> */}
           <hr />
           <div className="answer">
             <div className="ans">
@@ -51,7 +51,7 @@ import CodeEditorWindow from "./codeEditorWindow";
             current working directory.
           </p>
           <br />
-          <CodeEditorWindow/>
+          {/* <CodeEditorWindow/> */}
           <div className="comment-section">
             <h3>Comment</h3>
             <div className="comment-details">
@@ -85,7 +85,7 @@ import CodeEditorWindow from "./codeEditorWindow";
           <p className="more-comments">
             Using ES6 modules you can do the following:
           </p>
-        <CodeEditorWindow />
+        {/* <CodeEditorWindow /> */}
           <br />
           <div className="comment-section">
             <h3>Comment</h3>

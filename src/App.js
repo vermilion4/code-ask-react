@@ -70,6 +70,23 @@ function App() {
               />
             }
           ></Route>
+
+<Route
+            path="/answers"
+            element={
+              <Answers
+                hover={hover}
+                setHover={setHover}
+                handleHoverClose={handleHoverClose}
+                handleHoverOpen={handleHoverOpen}
+                hoverState={hoverState}
+                setHoverState={setHoverState}
+                windowSize={windowSize}
+                setWindowSize={setWindowSize}
+                getWindowSize={getWindowSize}
+              />
+            }
+          ></Route>
        
         {/* private routes */}
 
@@ -126,22 +143,7 @@ function App() {
             }
           ></Route>
 
-          <Route
-            path="/answers"
-            element={
-              <Answers
-                hover={hover}
-                setHover={setHover}
-                handleHoverClose={handleHoverClose}
-                handleHoverOpen={handleHoverOpen}
-                hoverState={hoverState}
-                setHoverState={setHoverState}
-                windowSize={windowSize}
-                setWindowSize={setWindowSize}
-                getWindowSize={getWindowSize}
-              />
-            }
-          ></Route>
+       
 
         </Route>
 

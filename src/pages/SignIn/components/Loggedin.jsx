@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-// import { AuthContext } from "../AuthContext";
 import { useAuth } from "../../../components/hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,7 +21,7 @@ export const Loggedin = () => {
   };
 
   const navigate = useNavigate();
-  const { auth, setAuth, setUser } = useAuth();
+  const {setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(true);
 
@@ -52,11 +51,13 @@ export const Loggedin = () => {
             const accessToken = response.data.tokens.access.token;
             const userObj = response.data.user;
 
+            
             setAuth({ accessToken });
             setUser(userObj);
-            notifySuccess();
+          
 
-            if (auth) {
+            if (setAuth) {
+              notifySuccess();
               navigate("/questions");
             }
           } catch (err) {
