@@ -3,15 +3,16 @@
     list-style-type: none;
     justify-content: center;
     margin: 15px 0;
-    border: 1px solid #DEE2E6;
+    border-collapse: collapse;
     align-items: center;
+
 }
+
 
 .pagination-container .pagination-item {
     padding: 0 12px;
     height: 32px;
     text-align: center;
-    margin: auto 1px;
     color:  #002828;
     display: flex;
     box-sizing: border-box;
@@ -21,7 +22,12 @@
     font-size: 13px;
     min-width: 32px;
     background-color: white;
+    border: 0.5px solid #DEE2E6;
+
+    box-shadow: 0px 2.88763px 2.88763px rgba(0, 0, 0, 0.25);
+    border-collapse: collapse;
 }
+
 
 .pagination-container .pagination-item.dots:hover {
     background-color: transparent;
@@ -80,7 +86,16 @@
     }
     
     .pagination-container .pagination-item {
-        background-color: #DEE2E6;;
+        background-color: #FFFFFF;
+        border: 1px solid #DEE2E6;
     }
 
+}
+
+.pagination-container:first-child {
+    border-radius: 14px 0px 0px 14px;
+}
+
+.pagination-container:last-child {
+    border-radius: 0px 4px 4px 0px;
 }
