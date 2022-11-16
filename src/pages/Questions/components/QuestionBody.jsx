@@ -30,7 +30,6 @@ const QuestionBody = () => {
       async function fetchQuestions() {
         const res = await baseURL.get(`questions/${filterResult}`);
 
-        console.log(res.data);
         setData(res.data);
 
         setLoading(false);
@@ -81,7 +80,6 @@ const QuestionBody = () => {
             })}
           </ul>
         </div>
-      
 
         {isLoading ? <Spinner></Spinner> : <AllQuestion datas={data} />}
       </div>

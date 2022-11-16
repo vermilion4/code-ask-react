@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Formik } from "formik";
 import validationSchema from "./validationSignUp";
 import axios from "axios";
@@ -60,7 +60,7 @@ export const CreateAccount2 = () => {
 
             const accessToken = response.data.tokens.access.token;
 
-            setAuth({accessToken });
+            setAuth({ accessToken });
 
             setUser(response.data.user);
 

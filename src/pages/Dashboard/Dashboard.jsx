@@ -9,7 +9,7 @@ import UserImage from "../../assets/Ajiboye-big.png";
 import { Link, NavLink } from "react-router-dom";
 import { questionList } from "../../Data/questionList";
 import { dashboardTags } from "../../Data/dashboardTags";
-import useAxiosPrivate  from "../../components/hooks/useAxiosPrivate";
+import useAxiosPrivate from "../../components/hooks/useAxiosPrivate";
 import { useAuth } from "../../components/hooks/useAuth";
 
 const Dashboard = ({
@@ -29,7 +29,7 @@ const Dashboard = ({
 
   const { auth, user } = useAuth();
 
-  console.log(auth, user.id)
+  console.log(auth, user.id);
 
   useEffect(() => {
     function handleWindowResize() {
@@ -48,12 +48,10 @@ const Dashboard = ({
   useEffect(() => {
     async function fetchProfile() {
       const res = await axiosPrivate.get(`users/${user.id}`);
-      setCurrentUser(res.data)
+      setCurrentUser(res.data);
     }
 
     fetchProfile();
-
-    
   }, []);
 
   let closeContent = {};
@@ -98,11 +96,14 @@ const Dashboard = ({
             <div className="user-details">
               <div className="user">
                 <div className="profileImage">
-                  <img alt={`${currentUser.username}`} src={currentUser.profile_image} />
+                  <img
+                    alt={`${currentUser.username}`}
+                    src={currentUser.profile_image}
+                  />
                 </div>
                 <div className="details">
                   <h1 id="signed_name">{currentUser.username}</h1>
-                  <h3>{currentUser.stack? currentUser.stack: 'Developer'}</h3>
+                  <h3>{currentUser.stack ? currentUser.stack : "Developer"}</h3>
                   <div className="icons">
                     <div className="user-social-links">
                       <a href="#">
@@ -151,8 +152,7 @@ const Dashboard = ({
               <div className="about-col">
                 <h1>About</h1>
                 <p>
-                  Backend Developer with special interest in building cloud
-                  infrastructure
+                {currentUser.about ? currentUser.about : "Just another awesome developer"}
                 </p>
                 <div className="top-post">
                   <div className="pre-list">
