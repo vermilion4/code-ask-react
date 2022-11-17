@@ -1,6 +1,6 @@
 import { Editor } from "./Editor";
 import React from "react";
-
+import moment from 'moment';
 
 function ThreadContent({topic}) {
 
@@ -15,7 +15,7 @@ function ThreadContent({topic}) {
         </div>
         <div className="info">
           <p className="user">{topic.User.username}</p>
-          <p className="date">{topic.createdAt}</p>
+          <p className="date">{moment(topic.createdAt).fromNow()}</p>
           <p className="topic">{topic.topic}</p>
         </div>
       </div>

@@ -17,9 +17,9 @@ export const LoggedOutHeader = () => {
   };
 
   function load() {
-    setLoaded(
-      !document.querySelector(".sidebar").classList.contains("openSidebar")
-    );
+    // let watch = document.querySelector(".sidebar").classList.contains("openSidebar")
+    // setLoaded(!watch);
+    setLoaded(true);
   }
   document.addEventListener("mousemove", load);
   return (
@@ -31,7 +31,7 @@ export const LoggedOutHeader = () => {
         </div>
         <div className="header-buttons">
           <button>
-            <Link to={""} className="btn login">
+            <Link to={"/sign-in"} className="btn login">
               login
             </Link>
           </button>
