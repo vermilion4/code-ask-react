@@ -5,11 +5,9 @@ import {BsGithub} from "react-icons/bs";
 import { ImLinkedin } from "react-icons/im";
 import {FcGoogle} from "react-icons/fc";
 import { CreateAccount2 } from "./CreateAccount2";
-import { useRefresh } from "../../../components/hooks/useRefresh";
 
 function Form() {
 
-  const refresh = useRefresh()
   return (
     <section class="signup-form">
       {/* <CreateAccount /> */}
