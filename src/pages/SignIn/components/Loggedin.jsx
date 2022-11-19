@@ -7,10 +7,9 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../../components/hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRefresh } from "../../../components/hooks/useRefresh";
+
 
 export const Loggedin = () => {
-const refresh = useRefresh()
 
   const notifySuccess = () => {
     toast.success("Login Successful", {
