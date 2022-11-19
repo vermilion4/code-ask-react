@@ -10,8 +10,8 @@ import { AnswersLeftWrap } from "./Components/AnswersLeftWrap";
 export const Answers = ({
   hover,
   setHover,
-  setHoverState,
   hoverState,
+  setHoverState,
   handleHoverClose,
   handleHoverOpen,
   windowSize,
@@ -25,10 +25,10 @@ export const Answers = ({
       setWindowSize(getWindowSize());
     }
 
-    window.addEventListener("resize", handleWindowResize);
+    window.addEventListener('resize', handleWindowResize);
 
     return () => {
-      window.removeEventListener("resize", handleWindowResize);
+      window.removeEventListener('resize', handleWindowResize);
       setHover(false);
       setHoverState(false);
     };
@@ -39,18 +39,17 @@ export const Answers = ({
 
   if (windowSize.innerWidth > 900) {
     closeContent = {
-      marginLeft: "150px",
-      width: "85%",
+      marginLeft: '250px',
     };
     openContent = {
-      marginLeft: "0px",
+      marginLeft: '85px',
     };
   } else {
     closeContent = {
-      marginLeft: "0px",
+      marginLeft: '0px',
     };
     openContent = {
-      marginLeft: "0px",
+      marginLeft: '0px',
     };
   }
 
@@ -60,16 +59,15 @@ export const Answers = ({
 
   if (show === false) {
     return (
-      <>
-        <React.Fragment>
-          <LoggedInSidebar
-            hover={hover}
-            handleHoverClose={handleHoverClose}
-            handleHoverOpen={handleHoverOpen}
-          />
-          <LoggedInHeader />
+      <React.Fragment>
+        <LoggedInSidebar
+          hover={hover}
+          handleHoverClose={handleHoverClose}
+          handleHoverOpen={handleHoverOpen}
+        />
+        <LoggedInHeader />
 
-          <main id="main" style={hoverState ? closeContent : openContent}>
+          <main id="main"  style={hoverState ? closeContent : openContent} >
             <div className="answer-page" id="answersmainPage">
               <AnswersLeftWrap />
             </div>
@@ -78,8 +76,8 @@ export const Answers = ({
 
           <NavIcon onclick={mobileNav} />
         </React.Fragment>
-      </>
-    );
+    )
+    
   } else {
     return <LoggedInMobile onclick={mobileNav} />;
   }

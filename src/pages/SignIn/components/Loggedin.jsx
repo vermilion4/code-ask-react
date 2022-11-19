@@ -7,8 +7,11 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../../components/hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRefresh } from "../../../components/hooks/useRefresh";
 
 export const Loggedin = () => {
+const refresh = useRefresh()
+
   const notifySuccess = () => {
     toast.success("Login Successful", {
       position: toast.POSITION.TOP_CENTER,
@@ -21,7 +24,7 @@ export const Loggedin = () => {
   };
 
   const navigate = useNavigate();
-  const {setAuth, setUser } = useAuth();
+  const { auth, setAuth, setUser } = useAuth();
 
   const [showPassword, setShowPassword] = useState(true);
 
@@ -49,14 +52,15 @@ export const Loggedin = () => {
               }
             );
             const accessToken = response.data.tokens.access.token;
+            const refreshToken = response.data.tokens.refresh.token
             const userObj = response.data.user;
 
             
-            setAuth({ accessToken });
+            setAuth({ accessToken, refreshToken });
             setUser(userObj);
           
 
-            if (setAuth) {
+            if (auth) {
               notifySuccess();
               navigate("/questions");
             }
