@@ -72,7 +72,7 @@ function App() {
           ></Route>
 
 <Route
-            path="/answers"
+            path="/answers/:id"
             element={
               <Answers
                 hover={hover}

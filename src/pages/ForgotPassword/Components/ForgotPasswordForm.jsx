@@ -88,12 +88,13 @@ export const ForgotPasswordForm = () => {
                 <button
                   type="submit"
                   id="forgot-btn"
-                  // className="signup-btn get"
+                  className="signup-btn get"
                   disabled={isSubmitting}
                   onClick={handleSubmit}
+                  style={{color:"#fff"}}
                   // onClick=
                 >
-                <Link to="/reset-password"> 
+                <Link to="/reset-password" style={{color:"#fff", textDecoration:"none"}}> 
                     {isSubmitting ? "Loading" :
                       "Reset Password" }
                   </Link>
@@ -104,10 +105,10 @@ export const ForgotPasswordForm = () => {
             </>
           )}
         </Formik>
-        <div className="signin-wrap">
+        <div className="signin-wrap" style={{gap:"5px"}}>
           <p className="signup-brief">Return to</p>
           <span>
-            <Link to={"/sign-in"}>LogIn</Link>
+            <Link to={"/sign-in"} style={{color:"#002828"}}>LogIn</Link>
           </span>
         </div>
         <ToastContainer />

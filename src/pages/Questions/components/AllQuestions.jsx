@@ -1,7 +1,7 @@
 // import React from 'react';
 import React from "react";
 import { Link } from "react-router-dom";
-import moment from 'moment';
+import moment from "moment";
 
 const AllQuestion = (props) => {
   const { datas } = props;
@@ -20,7 +20,7 @@ const AllQuestion = (props) => {
           title,
         }) => {
           return (
-            <Link key={id} to={`${id}`}>
+            <Link key={id} to={`/answers/${id}`}>
               {" "}
               <div className="questions">
                 <div className="question-box">
@@ -40,7 +40,7 @@ const AllQuestion = (props) => {
                       }
                       <p>
                         {/* {`asked ${createdAt} ago by `} */}
-                        {`asked ${ moment(createdAt).fromNow()} ago by `}
+                        {`asked ${moment(createdAt).fromNow()} ago by `}
                         <span>{`@${User.username}`}</span>
                       </p>
                     </div>

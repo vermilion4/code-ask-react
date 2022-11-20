@@ -59,6 +59,7 @@ export const CreateAccount2 = () => {
             );
 
             const accessToken = response.data.tokens.access.token;
+            
 
             setAuth({ accessToken });
 

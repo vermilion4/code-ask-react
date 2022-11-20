@@ -8,6 +8,10 @@ export function AnswersLeftWrap (){
 <>
         <AnswersHeader/>
                    
+            <br />
+            <br />
+
+
          <div className="left-side">
             <AnswersBody/>
         </div>
