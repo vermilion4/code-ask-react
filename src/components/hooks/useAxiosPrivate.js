@@ -31,7 +31,7 @@ const useAxiosPrivate = () => {
     // );
 
     return () => {
-      // axiosPrivate.interceptors.request.eject(requestIntercept);
+      axiosPrivate.interceptors.request.eject(requestIntercept);
       // axiosPrivate.interceptors.response.eject(responseIntercept);
     };
   }, [auth]);

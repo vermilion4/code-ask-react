@@ -1,16 +1,8 @@
-import React, { useState, useMemo } from "react";
-import { useEffect } from "react";
-import Pagination from "../../../components/Pagination/Pagination";
+import React, { useState, useEffect } from "react";
 import AllQuestion from "./AllQuestions";
-import {
-  questionsNewest,
-  questionsUnanswered,
-  questionsAnswered,
-} from "../../../Data/questionsData.js";
 import Spinner from "../../../components/Spinner";
 import NoData from "../../../components/NoData";
 import baseURL from "../../../components/baseURL.js";
-import axios from "axios";
 
 const filters = [
   { id: 0, filter: "Newest" },
@@ -18,20 +10,20 @@ const filters = [
   { id: 2, filter: "Answered" },
 ];
 
-let PageSize = 3;
-
 const QuestionBody = () => {
   const [isLoading, setLoading] = useState(true);
-  const [filterResult, setFilterResult] = useState("");
+  const [filterType, setFilterType] = useState("");
   const [data, setData] = useState({});
 
   useEffect(() => {
     try {
+      setLoading(true);
+      setData([]);
+    
       async function fetchQuestions() {
-        const res = await baseURL.get(`questions/${filterResult}`);
+        const res = await baseURL.get(`questions/${filterType}`);
 
         setData(res.data);
-
         setLoading(false);
       }
 
@@ -39,26 +31,19 @@ const QuestionBody = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [filterResult]);
+  }, [filterType]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [filterData, setFilterData] = useState(questionsNewest);
   const [isActive, setIsActive] = useState(0);
 
   const filterFunction = (id) => {
     if (id === 0) {
-      setFilterResult("");
-      // setFilterData(data);
+      setFilterType("");
     } else if (id === 1) {
-      setFilterResult("unanswered");
-      // setFilterData(data);
+      setFilterType("unanswered");
     } else if (id === 2) {
-      setFilterResult("answered");
-      setFilterData(data);
+      setFilterType("answered");
     }
-    setFilterData(data);
     setIsActive(id);
-    setCurrentPage(1);
   };
 
   return (
@@ -81,16 +66,14 @@ const QuestionBody = () => {
           </ul>
         </div>
 
-        {isLoading ? <Spinner></Spinner> : data.length == 0 ? <NoData/> : <AllQuestion datas={data} />}
+        {isLoading ? (
+          <Spinner></Spinner>
+        ) : data.length === 0 ? (
+          <NoData />
+        ) : (
+          <AllQuestion filterType={filterType} datas={data} />
+        )}
       </div>
-
-      <Pagination
-        className="pagination-bar"
-        currentPage={currentPage}
-        totalCount={filterData.length}
-        pageSize={PageSize}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+// import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
+// import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faPollH } from '@fortawesome/free-solid-svg-icons';
-import { faGear } from '@fortawesome/free-solid-svg-icons';
+// import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from '../../assets/whiteLogoSym.png';
 
