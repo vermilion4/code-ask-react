@@ -8,9 +8,7 @@ import { useAuth } from "../../../components/hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 export const Loggedin = () => {
-
   const notifySuccess = () => {
     toast.success("Login Successful", {
       position: toast.POSITION.TOP_CENTER,
@@ -51,16 +49,14 @@ export const Loggedin = () => {
               }
             );
             const accessToken = response.data.tokens.access.token;
-            const refreshToken = response.data.tokens.refresh.token
+            const refreshToken = response.data.tokens.refresh.token;
             const userObj = response.data.user;
 
-            
             setAuth({ accessToken, refreshToken });
             setUser(userObj);
-          
+            notifySuccess();
 
             if (auth) {
-              notifySuccess();
               navigate("/questions");
             }
           } catch (err) {
@@ -152,6 +148,7 @@ export const Loggedin = () => {
 
               <hr class="hr" />
             </form>
+
             <ToastContainer />
           </>
         )}
