@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Editor } from "./Editor";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
 import ThreadContent from "./ThreadContent";

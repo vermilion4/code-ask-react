@@ -1,26 +1,44 @@
-// import React from 'react';
-import React from "react";
 import { Link } from "react-router-dom";
 import moment from 'moment';
+import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 const AllQuestion = (props) => {
-  const { datas } = props;
+  const { datas, filterType } = props;
 
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 2;
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    
+    setCurrentItems(datas.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(datas.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, datas, filterType]);
+
+  const handlePageClick = (event) => {
+    alert(event.selected)
+    const newOffset = (event.selected * itemsPerPage) % datas.length;
+    setItemOffset(newOffset);
+  };
+  
   return (
+    <>
     <div className="questions-wrapper">
-      {datas.map(
+      {currentItems.map(
         ({
           Comments,
           Tags,
           User,
-
           body,
           createdAt,
           id,
           title,
         }) => {
           return (
-            <Link key={id} to={`${id}`}>
+            <Link key={id} to={`/answer/${id}`}>
               {" "}
               <div className="questions">
                 <div className="question-box">
@@ -39,8 +57,7 @@ const AllQuestion = (props) => {
                         </ul>
                       }
                       <p>
-                        {/* {`asked ${createdAt} ago by `} */}
-                        {`asked ${ moment(createdAt).fromNow()} ago by `}
+                        {`asked ${ moment(createdAt).fromNow()} by `}
                         <span>{`@${User.username}`}</span>
                       </p>
                     </div>
@@ -62,7 +79,25 @@ const AllQuestion = (props) => {
         }
       )}
     </div>
-  );
+    
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={1}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        className="pagination"
+        pageClassName="page-num"
+        previousLinkClassName="page-num"
+        nextLinkCLassName="page-num"
+        nextClassName="page-num"
+        activeLinkClassName="active"
+        disabledClassName="disable-pagination"
+      />
+      </>
+  );   
 };
 
 export default AllQuestion;
