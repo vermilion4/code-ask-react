@@ -19,7 +19,6 @@ const AllQuestion = (props) => {
   }, [itemOffset, itemsPerPage, datas, filterType]);
 
   const handlePageClick = (event) => {
-    alert(event.selected)
     const newOffset = (event.selected * itemsPerPage) % datas.length;
     setItemOffset(newOffset);
   };

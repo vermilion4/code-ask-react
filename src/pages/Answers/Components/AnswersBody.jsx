@@ -35,9 +35,8 @@ const [questions, setQuestions] = useState([])
              </ul>
              <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
            </div>`
-        )
-       
-        } )}
+        ) 
+        })}
             
 {/* ANSWERS */}
 
