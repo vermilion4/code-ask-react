@@ -75,7 +75,7 @@ export const AskQuestions = ({
           <h1 className='askquestion-h1'>Ask a Question</h1>
           <Form />
           <AskQuestionModal />
-          <button class='askquestion-button'>POST QUESTION</button>
+          
           {/* CONTENT ENDS HERE */}
         </div>
         

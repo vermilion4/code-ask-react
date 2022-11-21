@@ -41,10 +41,10 @@ useEffect(() => {
 return(
 
     <div>
-        {/* {isLoading ?
+        {isLoading ?
       (<Spinner></Spinner>) :(
       
-       */}
+      
         <>
         {question.map(({ title, createdAt, tag, User: { username }}) =>{
         return(
@@ -53,8 +53,6 @@ return(
           </h1>
            <div className="tags">
              <ul>
-             <li>${tag}</li>
-             <li>${tag}</li>
              <li>${tag}</li>
              </ul>
              <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
@@ -178,7 +176,7 @@ return(
         
     
         </>
-       {/* ) } */}
+       ) } 
     </div>
   
    
