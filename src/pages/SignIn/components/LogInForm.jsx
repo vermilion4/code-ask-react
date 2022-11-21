@@ -14,35 +14,37 @@ function Form() {
       {/* <hr class="hr" /> */}
 
       <button className="signup-btn link">
-        <FcGoogle /> 
+        <FcGoogle className="google"/> 
         <span>  </span> 
        <span>Sign up with Google</span> 
       </button>
 
       <button className="signup-btn link">
-        <BsGithub/>
-        <span>  </span>
-        <span>Sign up with Github</span>
-      
-      </button>
-
-      <button className="signup-btn link">
-        <ImLinkedin/>
+        <ImLinkedin className="linkedIn"/>
 
         <span> </span>
         <span>Sign up with LinkedIn</span>
       </button>
 
-      <div className="signin-wrap">
+
+      <button className="signup-btn link">
+        <BsGithub className="github"/>
+        <span>  </span>
+        <span>Sign up with Github</span>
+      
+      </button>
+
+      
+      <div className="signin-wrap" style={{gap:"5px"}}>
         <p className="signup-brief">Don't have an Account?</p>
       
-        <Link to={"/sign-up"}>
+        <Link to={"/sign-up"} style={{color:"#002828"}}>
           <span>SignUp</span>
         </Link>
       </div>
-
-      <Link to={"/"}>
-        <p className="back-button "> ← Back </p>
+      <span  style={{textDecoration: "none"}}>←</span>
+      <Link to={"/"} >
+        <span className="back-button ">  Back </span>
       </Link>
     </section>
   );

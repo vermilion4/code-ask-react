@@ -4,7 +4,7 @@ import {ForgotPasswordWrapper} from "../../pages/ForgotPassword/Components/Forgo
 import CyclicDesign2 from '../SignUp/components/CyclicDesign2'
 import "../../stylesheets/LoginAside.css"
 import "../../stylesheets/Signup.css"
-import "../../stylesheets/resetpassword.css"
+// import "../../stylesheets/forgotpassword.css"
 import "../../stylesheets/shared.css"
 
 export const ForgotPassword = () => {

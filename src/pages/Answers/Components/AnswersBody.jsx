@@ -1,28 +1,52 @@
 import React, { useState } from "react";
 // import Ajiboye from '../../../assets/ANSWER PAGE ICONS/Ajiboye.png';
 // import Adaeze from '../../../assets/ANSWER PAGE ICONS/adaeze.png';
-// import { Editor } from "../../AskQuestions/components/Editor";
+import { Editor } from "../../AskQuestions/components/Editor";
 // import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
 // import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
 // import star from "../../../assets/ANSWER PAGE ICONS/star.png";
 // import CodeEditorWindow from "./codeEditorWindow";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+// import axios from "axios";
+
+import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
-import moment from "moment/moment";
+import moment from 'moment';
 
 
 
  export function AnswersBody (){
 const [isLoading, setIsLoading] = useState(true)
-const [questions, setQuestions] = useState([])
+const [question, setQuestion] = useState([])
+const axiosPrivate = useAxiosPrivate()
+// const [data, setData] = useState({})
 
-  return(
+
+const {id} = useParams();
+
+useEffect(() => {
+  
+    async function fetchQuestion() {
+      const response = await axiosPrivate.get(`questions/${id}`);
+
+   setQuestion(response.data);
+   
+    }
+
+    fetchQuestion();
+    setIsLoading(false);
+ 
+}, []);  
+return(
 
     <div>
         {isLoading ?
       (<Spinner></Spinner>) :(
+      
+      
         <>
-        {questions.map(({id, title, userId, createdAt, tag,User: { username }}) =>{
+        {question.map(({ title, createdAt, tag, User: { username }}) =>{
         return(
           `<h1> 
             ${title}
@@ -30,13 +54,21 @@ const [questions, setQuestions] = useState([])
            <div className="tags">
              <ul>
              <li>${tag}</li>
-             <li>${tag}</li>
-             <li>${tag}</li>
              </ul>
              <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
            </div>`
-        ) 
-        })}
+
+        )
+       
+        } )} 
+
+
+            <div className="editor">
+              <Editor placeholder={'Write something...'} />
+                <a href="" className="btn postButton">POST</a>
+            </div>
+           
+
             
 {/* ANSWERS */}
 
@@ -45,7 +77,7 @@ const [questions, setQuestions] = useState([])
                 app? I would want something like this
               </p>
               <br />
-              <br /> */}
+              <br />  */}
              {/* <CodeEditorWindow/> */}
               {/* <hr />
               <div className="answer">
@@ -140,17 +172,13 @@ const [questions, setQuestions] = useState([])
               <br />
               <br />
               <p className="your-answer">Your answer</p>
-              <br />
+              <br /> */}
     
-              <div className="editor">
-              <Editor placeholder={'Write something...'} />
-                <a href="" className="btn postButton">POST</a>
-              </div>
-           
-         */}
+             
+        
     
         </>
-      ) }
+       ) } 
     </div>
   
    
