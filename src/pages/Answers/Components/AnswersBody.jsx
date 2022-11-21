@@ -40,19 +40,24 @@ export function AnswersBody() {
         <Spinner></Spinner>
       ) : (
         <>
-          {question.map(({ title, createdAt, tag, User: { username } }) => {
-            return `<h1> 
+          {question.map(({ title, createdAt, tag, User: { username } }) => 
+          {
+            return ( `<h1> 
             ${title}
           </h1>
            <div className="tags">
              <ul>
              <li>${tag}</li>
              </ul>
-             <p>asked ${moment(
-               createdAt
-             ).fromNow()} ago by <span> @ ${username}</span></p>
-           </div>`;
-          })}
+             <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
+           </div>`)
+         }
+         )
+         }
+
+        
+       
+        
 
           <div className="editor">
             <Editor placeholder={"Write something..."} />
@@ -61,7 +66,14 @@ export function AnswersBody() {
             </a>
           </div>
 
-          {/* ANSWERS */}
+            <div className="editor">
+              <Editor placeholder={'Write something...'} />
+                <a href="" className="btn postButton">POST</a>
+            </div>
+           
+
+            
+{/* ANSWERS */}
 
           {/* <p>
                 Is there a way to get the version set in package.json in a nodejs
