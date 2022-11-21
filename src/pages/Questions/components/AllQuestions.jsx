@@ -38,7 +38,7 @@ const AllQuestion = (props) => {
           title,
         }) => {
           return (
-            <Link key={id} to={`/answer/${id}`}>
+            <Link key={id} to={`/answers/${id}`}>
               {" "}
               <div className="questions">
                 <div className="question-box">
