@@ -16,9 +16,8 @@ import moment from "moment";
 
 export function AnswersBody() {
   const [isLoading, setIsLoading] = useState(true);
-  const [question, setQuestion] = useState([]);
+  const [questions, setQuestions] = useState({});
   const axiosPrivate = useAxiosPrivate();
-  // const [data, setData] = useState({})
 
   const { id } = useParams();
 
@@ -26,7 +25,7 @@ export function AnswersBody() {
     async function fetchQuestion() {
       const response = await axiosPrivate.get(`questions/${id}`);
 
-      setQuestion(response.data);
+      setQuestions(response.data);
 
       setIsLoading(false);
     }
@@ -40,24 +39,24 @@ export function AnswersBody() {
         <Spinner></Spinner>
       ) : (
         <>
-          {question.map(({ title, createdAt, tag, User: { username } }) => 
-          {
-            return ( `<h1> 
-            ${title}
-          </h1>
-           <div className="tags">
-             <ul>
-             <li>${tag}</li>
-             </ul>
-             <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
-           </div>`)
-         }
-         )
-         }
+          {questions.map(({ tag, title, createdAt, username }) => {
+            return (
+              <div>
+                <h1>{title}</h1>
+                <ul>
+                  {tag.map((tag, index) => {
+                    return <li key={index}>{tag.name}</li>;
+                  })}
+                </ul>
+                <p>
+                  asked {moment(createdAt).fromNow()} by{" "}
+                  <span>@ {username.username}</span>
+                </p>
+              </div>
+            );
+          })}
 
-        
-       
-        
+          <br />
 
           <div className="editor">
             <Editor placeholder={"Write something..."} />
@@ -66,14 +65,7 @@ export function AnswersBody() {
             </a>
           </div>
 
-            <div className="editor">
-              <Editor placeholder={'Write something...'} />
-                <a href="" className="btn postButton">POST</a>
-            </div>
-           
-
-            
-{/* ANSWERS */}
+          {/* ANSWERS */}
 
           {/* <p>
                 Is there a way to get the version set in package.json in a nodejs
