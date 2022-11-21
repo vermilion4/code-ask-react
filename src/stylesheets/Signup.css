@@ -15,6 +15,7 @@
 }
 
 
+
 .mainwrap {
   display: flex;
   flex-direction: row;
@@ -137,6 +138,7 @@
   width: 100%;
   border: 1px solid #CED4DA;
   border-radius: 4px;
+  margin-top: 10px;
 }
 .input-eye{
   display: flex;
@@ -149,7 +151,8 @@
 }
 .form-wrapper {
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 10px 0;
+  width: 100%;
 }
 
 .cpwrapper {
@@ -157,10 +160,13 @@
 }
 
 /* PASSWORD VISIBILITY EYE */
+
 form i {
   margin-left: -30px;
   cursor: pointer;
 }
+
+
 
 
 /* FOCUS ON INPUT BOX */
@@ -179,6 +185,7 @@ form i {
 .signup-btn {
   display: block;
   width: 100%;
+  background-color: red;
   padding: 6px 12px;
   margin-bottom: 16px;
   text-align: center;
@@ -194,13 +201,32 @@ form i {
   background-color: var(--codeaskblue);
   border: 1px solid var(--codeaskblue);
 }
+.linkedIn{
+  color: rgb(26, 26, 149);
+  font-size: 20px;
+}
+.github{
+  font-size: 20px;
+  color: black;
+}
+.google{
+  padding-top: 2px;
+  font-size: 20px;
+}
 
+/* .buton{
+  background-color: red;
+  display: block;
+  justify-content: baseline;
+   color:  pink;
+} */
 /* SIGNUP UP WITH GOOGLE LINKEDIN AND GITHUB BUTTON */
 .signup-btn.link {
   color: var(--codeaskblue);
   background-color: var(--white);
   border: 1px solid var(--codeaskblue);
   display: inline-block;
+  align-items: left;
 }
 
 .signup-btn.link .signup-link-icons {
@@ -298,7 +324,7 @@ form i {
 
   .signin-wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     margin-bottom: 20px;
     padding-left: 0px;
   }

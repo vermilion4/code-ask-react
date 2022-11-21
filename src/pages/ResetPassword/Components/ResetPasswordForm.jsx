@@ -150,10 +150,10 @@ function toggleConfirmPassword(){
           </>
         )}
       </Formik>
-      <div className="signin-wrap">
+      <div className="signin-wrap" style={{gap:"5px"}}>
           
          <p className="signup-brief">Return to</p> 
-          <Link to = {'/sign-in'}>
+          <Link to = {'/sign-in'} style={{color:"#002828"}}>
           <span>LogIn</span>
           </Link>
           </div>
