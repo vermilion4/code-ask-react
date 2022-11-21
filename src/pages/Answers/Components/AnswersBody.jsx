@@ -16,7 +16,7 @@ import moment from "moment";
 
 export function AnswersBody() {
   const [isLoading, setIsLoading] = useState(true);
-  const [questions, setQuestions] = useState({});
+  const [question, setQuestion] = useState([]);
   const axiosPrivate = useAxiosPrivate();
 
   const { id } = useParams();
@@ -25,7 +25,7 @@ export function AnswersBody() {
     async function fetchQuestion() {
       const response = await axiosPrivate.get(`questions/${id}`);
 
-      setQuestions(response.data);
+      setQuestion(response.data);
 
       setIsLoading(false);
     }
@@ -39,7 +39,8 @@ export function AnswersBody() {
         <Spinner></Spinner>
       ) : (
         <>
-          {questions.map(({ tag, title, createdAt, username }) => {
+          {question.map(
+            ({tag, title, createdAt, username}) => {
             return (
               <div>
                 <h1>{title}</h1>
@@ -49,7 +50,7 @@ export function AnswersBody() {
                   })}
                 </ul>
                 <p>
-                  asked {moment(createdAt).fromNow()} by{" "}
+                  asked {moment(createdAt).fromNow()} by
                   <span>@ {username.username}</span>
                 </p>
               </div>
