@@ -5,6 +5,15 @@ import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 const Form = () => {
   const axiosPrivate = useAxiosPrivate();
 
+  const [reactQuill, setReactQuill] = useState({})
+
+  const handleChanges = (event) => {
+    setReactQuill({
+      [event.target.name]: "boy"
+    })
+  }
+
+
   const [formValue, setformValue] = useState({
     title: "",
     body: "",
@@ -20,8 +29,9 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(reactQuill)
 
-    console.log(formValue)
+    // console.log(formValue)
     // const res = axiosPrivate
     //   .post(`questions`, questionData)
     //   .then((response) => {
@@ -51,9 +61,11 @@ const Form = () => {
           </p>
           <Editor
             placeholder={"Write something..."}
-            value={formValue.body}
+            // value={formValue.body}
             // value={this.state.content}
-            onChange={handleChange}
+            // onChange={handleChange}
+            value={reactQuill}
+            onChange={handleChanges}
             name="body"
           />
         </div>
