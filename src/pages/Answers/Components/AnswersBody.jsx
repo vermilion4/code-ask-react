@@ -38,7 +38,7 @@ export function AnswersBody() {
                     return <li key={index}>{tag.name}</li>;
                   })}
         </ul>
-                <p>
+                <p style={{textAlign:"left"}}>
                   asked {moment(question.createdAt).fromNow()} by
                   {/* <span>@ {question.User.username}</span> */}
                 </p>
