@@ -38,12 +38,10 @@ export function AnswersBody() {
                     return <li key={index}>{tag.name}</li>;
                   })}
         </ul>
-                <p style={{textAlign:"left"}}>
+                <p style={{textAlign:"right"}}>
                   asked {moment(question.createdAt).fromNow()} by
                   {/* <span>@ {question.User.username}</span> */}
                 </p>
-
-
           <br />
 
           <div className="editor">
