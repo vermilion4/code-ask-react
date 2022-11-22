@@ -1,7 +1,7 @@
 import axios from "axios";
 const BASE_URL = "https://codeask-staging.herokuapp.com/v1/api/"
 
-const axiosPublic =  axios.create({
+const baseURL =  axios.create({
   baseURL: "https://codeask-staging.herokuapp.com/v1/api/",
   headers: {
     Accept: "application/json",
@@ -16,4 +16,4 @@ export const axiosPrivate = axios.create({
 });
 
 
-export default axiosPublic;
+export default baseURL;

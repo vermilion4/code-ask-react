@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-// import Ajiboye from '../../../assets/ANSWER PAGE ICONS/Ajiboye.png';
-// import Adaeze from '../../../assets/ANSWER PAGE ICONS/adaeze.png';
 import { Editor } from "../../AskQuestions/components/Editor";
-// import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
-// import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
-// import star from "../../../assets/ANSWER PAGE ICONS/star.png";
-// import CodeEditorWindow from "./codeEditorWindow";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-// import axios from "axios";
 
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
@@ -16,7 +9,7 @@ import moment from "moment";
 
 export function AnswersBody() {
   const [isLoading, setIsLoading] = useState(true);
-  const [question, setQuestion] = useState([]);
+  const [question, setQuestion] = useState({});
   const axiosPrivate = useAxiosPrivate();
 
   const { id } = useParams();
@@ -26,7 +19,7 @@ export function AnswersBody() {
       const response = await axiosPrivate.get(`questions/${id}`);
 
       setQuestion(response.data);
-
+      console.log(response.data)
       setIsLoading(false);
     }
 
@@ -39,23 +32,17 @@ export function AnswersBody() {
         <Spinner></Spinner>
       ) : (
         <>
-          {question.map(
-            ({tag, title, createdAt, username}) => {
-            return (
-              <div>
-                <h1>{title}</h1>
-                <ul>
-                  {tag.map((tag, index) => {
+        <h1>{question.title}</h1>
+        <ul>
+                  {question.Tags.map((tag, index) => {
                     return <li key={index}>{tag.name}</li>;
                   })}
-                </ul>
+        </ul>
                 <p>
-                  asked {moment(createdAt).fromNow()} by
-                  <span>@ {username.username}</span>
+                  asked {moment(question.createdAt).fromNow()} by
+                  {/* <span>@ {question.User.username}</span> */}
                 </p>
-              </div>
-            );
-          })}
+
 
           <br />
 
