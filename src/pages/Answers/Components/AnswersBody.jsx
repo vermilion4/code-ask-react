@@ -26,6 +26,7 @@ export function AnswersBody() {
     fetchQuestion();
   }, []);
 
+  
   return (
     <div>
       {isLoading ? (
@@ -40,17 +41,30 @@ export function AnswersBody() {
         </ul>
                 <p style={{textAlign:"right"}}>
                   asked {moment(question.createdAt).fromNow()} by @
-                  <span style={{backgroundColor:"#e5e5e5", padding:"4px", marginLeft:"10px"}} > {question.User.username}</span>
+                 
+                  <span style={{backgroundColor:"#e5e5e5", 
+                  padding:"4px", 
+                  marginLeft:"10px",
+                  borderRadius:"5px"}} > {question.User.username}</span>
                 </p>
           <br />
 
+
+                    {/* <div>
+                      Developers Answers come here
+                    </div>
+
+                  <br /> */}
+
           <div className="editor">
-            <Editor placeholder={"Write something..."} />
-            <a href="" className="btn postButton" 
-            >
+            <Editor placeholder={"Write something..."}/>
+           <a href="" className="btn postButton">
               POST
             </a>
           </div>
+
+
+              
 
           {/* ANSWERS */}
 
