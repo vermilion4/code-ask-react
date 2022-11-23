@@ -26,11 +26,7 @@ export function AnswersBody() {
     fetchQuestion();
   }, []);
 
-
-
-
-
-
+  
   return (
     <div>
       {isLoading ? (
@@ -44,16 +40,24 @@ export function AnswersBody() {
                   })}
         </ul>
                 <p style={{textAlign:"right"}}>
+<<<<<<< HEAD
                   asked {moment(question.createdAt).fromNow()} by @ 
                   <span style={{backgroundColor:"#e5e5e5",
                    padding:"6px", 
                    borderRadius:"6px",
                    margin:"5px"}} >{question.User.username}</span>
+=======
+                  asked {moment(question.createdAt).fromNow()} by @
+                 
+                  <span style={{backgroundColor:"#e5e5e5", 
+                  padding:"4px", 
+                  marginLeft:"10px",
+                  borderRadius:"5px"}} > {question.User.username}</span>
+>>>>>>> 20da85baf31d8516c627e176ac9a26a77579f8de
                 </p>
-
-
           <br />
 
+<<<<<<< HEAD
           <div  className="answerwrap">
 
           </div>
@@ -63,15 +67,32 @@ export function AnswersBody() {
           
             placeholder={"Write something..."} />
             <a href="" className="btn postButton" >
+=======
+
+                    {/* <div>
+                      Developers Answers come here
+                    </div>
+
+                  <br /> */}
+
+          <div className="editor">
+            <Editor placeholder={"Write something..."}/>
+           <a href="" className="btn postButton">
+>>>>>>> 20da85baf31d8516c627e176ac9a26a77579f8de
               POST
             </a>
           </div>
 
+<<<<<<< HEAD
           </>
       )}
     </div>
   );
 }
+=======
+
+              
+>>>>>>> 20da85baf31d8516c627e176ac9a26a77579f8de
 
           {/* ANSWERS */}
 

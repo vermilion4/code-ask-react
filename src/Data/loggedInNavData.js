@@ -23,10 +23,10 @@ export const loggedInNavData = [
     text: 'Discussions',
     link: '/discuss'
   },
-  {
-    id: 3,
-    icon: <FontAwesomeIcon icon={ faGear } className='material-icons' />,
-    text: 'Settings',
-    link: '/setting'
-  }
+  // {
+  //   id: 3,
+  //   icon: <FontAwesomeIcon icon={ faGear } className='material-icons' />,
+  //   text: 'Settings',
+  //   link: '/setting'
+  // }
 ];

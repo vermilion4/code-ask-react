@@ -79,6 +79,16 @@
   transform: scale(1.1);
 }
 
+.askquestion-button:hover:disabled {
+  transform: scale(1.0);
+}
+
+.askquestion-button:disabled{
+  background:  #002828c0;
+  
+  cursor: no-drop;
+}
+
 .askquestion-main div input:focus {
   border: 1px solid #adb5bd;
   outline: none;
@@ -203,3 +213,18 @@
     padding: 48px 25px;
   }
 }
+
+
+/* AskQuestion Body TextArea */
+.askquestion-main .body .askquestion-body{
+  border: 1px solid #ced4da;
+  border-radius: 4.8px;
+  color: #000000;
+  padding: 8px 16px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 150%;
+  width: 100%;
+  outline: none;
+}
+

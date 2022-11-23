@@ -4,9 +4,9 @@
   background-color: #e5e5e5;
 }
   .answer-page {
-    position: fixed;
+    position: relative;
     background-color: #fff;
-    padding: 0px 20px;
+    padding: 30px 20px;
     margin-top: 110px;
     width: 65%;
     margin-left: 20px;
