@@ -5,7 +5,7 @@ import useRefreshToken from "./useRefresh";
 
 const useAxiosPrivate = () => {
   const { auth } = useAuth();
-  const refresh = useRefreshToken()
+  const refresh = useRefreshToken();
 
   useEffect(() => {
      axiosPrivate.interceptors.request.use(
@@ -33,8 +33,10 @@ const useAxiosPrivate = () => {
     );
 
     return () => {
+
       // axiosPrivate.interceptors.request.eject(requestIntercept);
       // axiosPrivate.interceptors.response.eject(responseIntercept);
+
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
