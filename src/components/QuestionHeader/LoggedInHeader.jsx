@@ -14,10 +14,10 @@ export const LoggedInHeader = () => {
   return (
     <React.Fragment>
       <header className={'question-header'}>
-        <div className='search'>
+         <div className='search'>
           <FontAwesomeIcon icon={faSearch} className='search-icon' />
           <input type='search' placeholder='Search...' />
-        </div>
+        </div> 
         <div className='notification'>
           <FontAwesomeIcon icon={faBell} />
           <img src={user.profile_image} alt='' className='userAvatar' />
