@@ -39,8 +39,8 @@ export function AnswersBody() {
                   })}
         </ul>
                 <p style={{textAlign:"right"}}>
-                  asked {moment(question.createdAt).fromNow()} by
-                  <span>@ {question.username}</span>
+                  asked {moment(question.createdAt).fromNow()} by @
+                  <span style={{backgroundColor:"#e5e5e5", padding:"4px", marginLeft:"10px"}} > {question.User.username}</span>
                 </p>
           <br />
 
