@@ -26,6 +26,11 @@ export function AnswersBody() {
     fetchQuestion();
   }, []);
 
+
+
+
+
+
   return (
     <div>
       {isLoading ? (
@@ -38,22 +43,42 @@ export function AnswersBody() {
                     return <li key={index}>{tag.name}</li>;
                   })}
         </ul>
-                <p style={{textAlign:"left"}}>
-                  asked {moment(question.createdAt).fromNow()} by
-                  {/* <span>@ {question.User.username}</span> */}
+                <p style={{textAlign:"right"}}>
+                  asked {moment(question.createdAt).fromNow()} by @ 
+                  <span style={{backgroundColor:"#e5e5e5",
+                   padding:"6px", 
+                   borderRadius:"6px",
+                   margin:"5px"}} >{question.User.username}</span>
                 </p>
 
 
           <br />
 
+          <div  className="answerwrap">
+
+          </div>
+
           <div className="editor">
-            <Editor placeholder={"Write something..."} />
-            <a href="" className="btn postButton">
+            <Editor
+          
+            placeholder={"Write something..."} />
+            <a href="" className="btn postButton" >
               POST
             </a>
           </div>
 
+          </>
+      )}
+    </div>
+  );
+}
+
           {/* ANSWERS */}
+
+
+
+  
+
 
           {/* <p>
                 Is there a way to get the version set in package.json in a nodejs
@@ -156,8 +181,4 @@ export function AnswersBody() {
               <br />
               <p className="your-answer">Your answer</p>
               <br /> */}
-        </>
-      )}
-    </div>
-  );
-}
+
