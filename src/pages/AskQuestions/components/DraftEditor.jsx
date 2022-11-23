@@ -22,7 +22,7 @@ const {setFormBody} = props;
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
     setConvertedContent(currentContentAsHTML);
     setFormBody(currentContentAsHTML);
-    console.log(editorState.getCurrentContent())
+    console.log(currentContentAsHTML)
   }
 
   const createMarkup = (html) => {
