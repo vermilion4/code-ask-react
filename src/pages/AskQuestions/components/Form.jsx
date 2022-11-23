@@ -14,34 +14,55 @@ const Form = () => {
     tags: "",
   });
 
+  function convert(str){
+    var eachStr = str.split(',');
+    var total = []
+  
+    for(let i = 0; i < eachStr.length; i++){
+        total.push({
+            "name": eachStr[i]
+        })
+    }
+    
+    return total;
+}
   const handleChange = (event) => {
-    setformValue({
-      ...formValue,
-      [event.target.name]: event.target.value,
-    });
+      setformValue({
+        ...formValue,
+        [event.target.name]: event.target.value,
+      });
+    
   };
 
-  useEffect(() => {
-    console.log('hi')
-    setformValue({
-      ...formValue,
-      body: `${formBody}`,
-    });
+  // useEffect(() => {
+  //   console.log('hi')
+  //   setformValue({
+  //     ...formValue,
+  //     body: `${formBody}`,
+  //   });
 
-  }, [formBody, formValue])
-  
-    
+  // }, [formBody, formValue]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-    console.log(formValue);
 
-    // const res = axiosPrivate
-    //   .post(`questions`, questionData)
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
+    const databaseFormValue = {
+      title: formValue.title,
+      body: formValue.body,
+      tags: convert(formValue.tags),
+    }
+    console.log(formValue);
+    console.log(databaseFormValue);
+
+    try{
+    const res = axiosPrivate
+      .post(`questions`,databaseFormValue)
+      .then((response) => {
+        console.log(response);
+      });}
+      catch(error){
+        console.log(error);
+      }
   };
 
   return (
@@ -64,9 +85,18 @@ const Form = () => {
             Include more details about your question to provide more context
             (can include code snippets)
           </p>
-         
-            <MyEditor setFormBody={setFormBody}></MyEditor>
-         
+          <textarea
+            type="textarea"
+            rows="4"
+            className="askquestion-body"
+            placeholder="Enter more informaion about question..."
+            name="body"
+            value={formValue.body}
+            onChange={handleChange}
+          />
+
+          {/* <MyEditor setFormBody={setFormBody}></MyEditor> */}
+
           {/* <Editor
             placeholder={"Write something..."}
             value={formBody}
