@@ -40,13 +40,14 @@ export function AnswersBody() {
         </ul>
                 <p style={{textAlign:"right"}}>
                   asked {moment(question.createdAt).fromNow()} by
-                  {/* <span>@ {question.User.username}</span> */}
+                  <span>@ {question.username}</span>
                 </p>
           <br />
 
           <div className="editor">
             <Editor placeholder={"Write something..."} />
-            <a href="" className="btn postButton">
+            <a href="" className="btn postButton" 
+            >
               POST
             </a>
           </div>
