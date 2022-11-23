@@ -40,6 +40,7 @@ export const Answers = ({
   if (windowSize.innerWidth > 900) {
     closeContent = {
       marginLeft: '250px',
+      position:"relative"
     };
     openContent = {
       marginLeft: '85px',
