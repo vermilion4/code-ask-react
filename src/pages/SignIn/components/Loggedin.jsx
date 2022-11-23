@@ -86,7 +86,7 @@ export const Loggedin = () => {
           <>
             <form action="">
               {/* email */}
-             <div class="form-wrapper">
+              <div class="form-wrapper">
                 <label htmlFor="email">
                   Email Address<span className="asterik">*</span>
                 </label>

@@ -1,85 +1,68 @@
 import React, { useState } from "react";
-// import Ajiboye from '../../../assets/ANSWER PAGE ICONS/Ajiboye.png';
-// import Adaeze from '../../../assets/ANSWER PAGE ICONS/adaeze.png';
 import { Editor } from "../../AskQuestions/components/Editor";
-// import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
-// import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
-// import star from "../../../assets/ANSWER PAGE ICONS/star.png";
-// import CodeEditorWindow from "./codeEditorWindow";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-// import axios from "axios";
 
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
-import moment from 'moment';
+import moment from "moment";
 
+export function AnswersBody() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [question, setQuestion] = useState({});
+  const axiosPrivate = useAxiosPrivate();
 
+  const { id } = useParams();
 
- export function AnswersBody (){
-const [isLoading, setIsLoading] = useState(true)
-const [question, setQuestion] = useState([])
-const axiosPrivate = useAxiosPrivate()
-// const [data, setData] = useState({})
-
-
-const {id} = useParams();
-
-useEffect(() => {
-  
+  useEffect(() => {
     async function fetchQuestion() {
       const response = await axiosPrivate.get(`questions/${id}`);
 
-   setQuestion(response.data);
-   
+      setQuestion(response.data);
+      console.log(response.data)
+      setIsLoading(false);
     }
 
     fetchQuestion();
-    setIsLoading(false);
- 
-}, []);  
-return(
+  }, []);
 
+  return (
     <div>
-        {isLoading ?
-      (<Spinner></Spinner>) :(
-      
-      
+      {isLoading ? (
+        <Spinner></Spinner>
+      ) : (
         <>
-        {question.map(({ title, createdAt, tag, User: { username }}) =>{
-        return(
-          `<h1> 
-            ${title}
-          </h1>
-           <div className="tags">
-             <ul>
-             <li>${tag}</li>
-             </ul>
-             <p>asked ${moment(createdAt).fromNow()} ago by <span> @ ${username}</span></p>
-           </div>`
-
-        )
-       
-        } )} 
+        <h1>{question.title}</h1>
+        <ul>
+                  {question.Tags.map((tag, index) => {
+                    return <li key={index}>{tag.name}</li>;
+                  })}
+        </ul>
+                <p style={{textAlign:"left"}}>
+                  asked {moment(question.createdAt).fromNow()} by
+                  {/* <span>@ {question.User.username}</span> */}
+                </p>
 
 
-            <div className="editor">
-              <Editor placeholder={'Write something...'} />
-                <a href="" className="btn postButton">POST</a>
-            </div>
-           
+          <br />
 
-            
-{/* ANSWERS */}
+          <div className="editor">
+            <Editor placeholder={"Write something..."} />
+            <a href="" className="btn postButton">
+              POST
+            </a>
+          </div>
 
-              {/* <p>
+          {/* ANSWERS */}
+
+          {/* <p>
                 Is there a way to get the version set in package.json in a nodejs
                 app? I would want something like this
               </p>
               <br />
               <br />  */}
-             {/* <CodeEditorWindow/> */}
-              {/* <hr />
+          {/* <CodeEditorWindow/> */}
+          {/* <hr />
               <div className="answer">
                 <div className="ans">
                   <img src="../IMAGES/ANSWER PAGE ICONS/ANSWER-ICON.png" alt="" />
@@ -99,8 +82,8 @@ return(
                 current working directory.
               </p>
               <br /> */}
-              {/* <CodeEditorWindow/> */}
-              {/* <div className="comment-section">
+          {/* <CodeEditorWindow/> */}
+          {/* <div className="comment-section">
                 <h3>Comment</h3>
                 <div className="comment-details">
                   <div className="rating">
@@ -133,8 +116,8 @@ return(
               <p className="more-comments">
                 Using ES6 modules you can do the following:
               </p> */}
-            {/* <CodeEditorWindow /> */}
-              {/* <br />
+          {/* <CodeEditorWindow /> */}
+          {/* <br />
               <div className="comment-section">
                 <h3>Comment</h3>
                 <div className="comment-details">
@@ -173,16 +156,8 @@ return(
               <br />
               <p className="your-answer">Your answer</p>
               <br /> */}
-    
-             
-        
-    
         </>
-       ) } 
+      )}
     </div>
-  
-   
-    )
+  );
 }
-
-    
