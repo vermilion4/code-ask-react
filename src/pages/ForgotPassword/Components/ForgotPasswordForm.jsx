@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import CyclicDesign2 from "../../SignUp/components/CyclicDesign2";
 import { Formik } from "formik";
 import validationSchema from "./validationForgot";
@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const ForgotPasswordForm = () => {
+  const navigate = useNavigate();
   const notifySuccess = () => {
 
     toast.success("Reset Link has been sent to your email!", {
@@ -48,6 +49,7 @@ export const ForgotPasswordForm = () => {
               );
               console.log(response.data);
               notifySuccess();
+              navigate('/check-mail');
             } catch (error) {
               console.log(error);
               notifyError()
@@ -94,7 +96,7 @@ export const ForgotPasswordForm = () => {
                   style={{color:"#fff"}}
                   // onClick=
                 >
-                <Link to="/reset-password" style={{color:"#fff", textDecoration:"none"}}> 
+                <Link  style={{color:"#fff", textDecoration:"none"}}> 
                     {isSubmitting ? "Loading" :
                       "Reset Password" }
                   </Link>
