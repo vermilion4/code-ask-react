@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import editor from 'editor';
+import React, { Component, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../../../stylesheets/editor.css';
@@ -7,17 +8,25 @@ import '../../../stylesheets/editor.css';
  * Simple editor component that takes placeholder text as a prop
  */
 export class Editor extends Component {
+
   constructor(props) {
     super(props);
     this.state = { editorHtml: '', theme: 'snow' };
     this.handleChange = this.handleChange.bind(this);
+    this.rteChange = this.rteChange.bind(this);
   }
 
   handleChange(html) {
     this.setState({ editorHtml: html });
   }
+
   
-  
+  rteChange = (content, delta, source, editor) => {
+		// console.log(editor.getHTML()); // rich text
+		// console.log(editor.getText()); // plain text
+	
+	}
+
   render() {
     return (
       <div>
@@ -27,6 +36,9 @@ export class Editor extends Component {
           modules={Editor.modules}
           formats={Editor.formats}
           placeholder={this.props.placeholder}
+          
+          
+          
         />
       </div>
     );

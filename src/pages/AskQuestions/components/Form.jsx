@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import { Editor } from "./Editor";
+import React, { useState, useEffect } from "react";
+// import { MyEditor } from "./Editor";
+import { MyEditor } from "./DraftEditor";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
+import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 
 const Form = () => {
   const axiosPrivate = useAxiosPrivate();
-
-  const [reactQuill, setReactQuill] = useState({})
-
-  const handleChanges = (event) => {
-    setReactQuill({
-      [event.target.name]: "boy"
-    })
-  }
-
+  const [formBody, setFormBody] = useState("");
 
   const [formValue, setformValue] = useState({
     title: "",
@@ -25,13 +19,24 @@ const Form = () => {
       ...formValue,
       [event.target.name]: event.target.value,
     });
-  }
+  };
+
+  useEffect(() => {
+    console.log('hi')
+    setformValue({
+      ...formValue,
+      body: `${formBody}`,
+    });
+
+  }, [formBody, formValue])
+  
+    
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(reactQuill)
+  
+    console.log(formValue);
 
-    // console.log(formValue)
     // const res = axiosPrivate
     //   .post(`questions`, questionData)
     //   .then((response) => {
@@ -59,16 +64,18 @@ const Form = () => {
             Include more details about your question to provide more context
             (can include code snippets)
           </p>
-          <Editor
+         
+            <MyEditor setFormBody={setFormBody}></MyEditor>
+         
+          {/* <Editor
             placeholder={"Write something..."}
+            value={formBody}
             // value={formValue.body}
-            // value={this.state.content}
-            // onChange={handleChange}
-            value={reactQuill}
-            onChange={handleChanges}
+            onChange={handleFormBody}
             name="body"
-          />
+          /> */}
         </div>
+
         <div className="tags">
           <h5>Tags</h5>
           <p>Add up to 5 tags to describe what your question is about</p>
