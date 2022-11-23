@@ -38,17 +38,16 @@ export function AnswersBody() {
                     return <li key={index}>{tag.name}</li>;
                   })}
         </ul>
-                <p style={{textAlign:"left"}}>
-                  asked {moment(question.createdAt).fromNow()} by
-                  {/* <span>@ {question.User.username}</span> */}
+                <p style={{textAlign:"right"}}>
+                  asked {moment(question.createdAt).fromNow()} by @
+                  <span style={{backgroundColor:"#e5e5e5", padding:"4px", marginLeft:"10px"}} > {question.User.username}</span>
                 </p>
-
-
           <br />
 
           <div className="editor">
             <Editor placeholder={"Write something..."} />
-            <a href="" className="btn postButton">
+            <a href="" className="btn postButton" 
+            >
               POST
             </a>
           </div>

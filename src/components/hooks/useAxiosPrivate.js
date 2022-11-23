@@ -1,13 +1,14 @@
 import { axiosPrivate } from "../baseURL";
 import { useEffect } from "react";
 import { useAuth } from "./useAuth";
+import useRefreshToken from "./useRefresh";
 
 const useAxiosPrivate = () => {
   const { auth } = useAuth();
   const refresh = useRefreshToken();
 
   useEffect(() => {
-    const requestIntercept = axiosPrivate.interceptors.request.use(
+     axiosPrivate.interceptors.request.use(
       (config) => {
         if (!config.headers["Authorization"]) {
           config.headers["Authorization"] = `Bearer ${auth.accessToken}`;
@@ -16,7 +17,6 @@ const useAxiosPrivate = () => {
       },
       (error) => Promise.reject(error)
     );
-
 
      axiosPrivate.interceptors.response.use(
         response => response,
@@ -32,11 +32,13 @@ const useAxiosPrivate = () => {
         }
     );
 
-
     return () => {
-      axiosPrivate.interceptors.request.eject(requestIntercept);
-      axiosPrivate.interceptors.response.eject(responseIntercept);
+
+      // axiosPrivate.interceptors.request.eject(requestIntercept);
+      // axiosPrivate.interceptors.response.eject(responseIntercept);
+
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   return axiosPrivate;
