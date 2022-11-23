@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import { MyEditor } from "./Editor";
-import { MyEditor } from "./DraftEditor";
+// import { MyEditor } from "./DraftEditor";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
-import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { convert } from "./convert"
 
 const Form = () => {
+  const navigate = useNavigate();
   const axiosPrivate = useAxiosPrivate();
   const [formBody, setFormBody] = useState("");
+  const [postButton, setPostButton] = useState(true);
+
+  const notifyError = (error) => {
+    toast.error(error, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
 
   const [formValue, setformValue] = useState({
     title: "",
@@ -14,24 +25,11 @@ const Form = () => {
     tags: "",
   });
 
-  function convert(str){
-    var eachStr = str.split(',');
-    var total = []
-  
-    for(let i = 0; i < eachStr.length; i++){
-        total.push({
-            "name": eachStr[i]
-        })
-    }
-    
-    return total;
-}
   const handleChange = (event) => {
-      setformValue({
-        ...formValue,
-        [event.target.name]: event.target.value,
-      });
-    
+    setformValue({
+      ...formValue,
+      [event.target.name]: event.target.value,
+    });
   };
 
   // useEffect(() => {
@@ -44,25 +42,39 @@ const Form = () => {
   // }, [formBody, formValue]);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    if (
+      formValue.title === "" ||
+      formValue.body === "" ||
+      formValue.tags === ""
+    ) {
+      notifyError("Fill all fields");
+    } else {
+      event.preventDefault();
+      setPostButton(false);
 
-    const databaseFormValue = {
-      title: formValue.title,
-      body: formValue.body,
-      tags: convert(formValue.tags),
+      const databaseFormValue = {
+        title: formValue.title,
+        body: formValue.body,
+        tags: convert(formValue.tags),
+      };
+      
+        try {
+          const res = axiosPrivate
+            .post(`questions`, databaseFormValue)
+            .then((response) => {
+              console.log(response);
+              navigate("/questions");
+            })
+            .catch((err) => {
+              notifyError("Question not submitted");
+            });
+        } catch (error) {
+          notifyError("Question not submitted");
+        } finally {
+          setPostButton(true);
+        }
+     
     }
-    console.log(formValue);
-    console.log(databaseFormValue);
-
-    try{
-    const res = axiosPrivate
-      .post(`questions`,databaseFormValue)
-      .then((response) => {
-        console.log(response);
-      });}
-      catch(error){
-        console.log(error);
-      }
   };
 
   return (
@@ -77,6 +89,7 @@ const Form = () => {
             name="title"
             value={formValue.title}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="body">
@@ -93,6 +106,7 @@ const Form = () => {
             name="body"
             value={formValue.body}
             onChange={handleChange}
+            required
           />
 
           {/* <MyEditor setFormBody={setFormBody}></MyEditor> */}
@@ -115,12 +129,18 @@ const Form = () => {
             placeholder="e.g javascript web html "
             value={formValue.tags}
             onChange={handleChange}
+            required
           />
         </div>
       </section>
-      <button class="askquestion-button" onClick={handleSubmit}>
+      <button
+        class="askquestion-button"
+        onClick={handleSubmit}
+        disabled={postButton ? false : true}
+      >
         POST QUESTION
       </button>
+      <ToastContainer />
     </>
   );
 };
