@@ -11,12 +11,14 @@ import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
 import moment from "moment";
 
-export function AnswersBody() {
+export function AnswersBody({Id}) {
   const [isLoading, setIsLoading] = useState(true);
   const [question, setQuestion] = useState({});
-  const [answer, setAnswer] = useState({})
+  const [answer, setAnswer] = useState({});
+  const [allAnswers, setAllAnswers] = useState([]);
   const axiosPrivate = useAxiosPrivate();
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
+  const [currentAnswer, setCurrent] = useState('')
 
   // const navigate = useNavigate()
 
@@ -48,34 +50,60 @@ const answerSentValues= {
   content:value
 }
 
-const handleSubmit=()=>{
+// const pageLoad =>(e){
+
+// }
+ async function handleSubmit(){
   try {
-    const res = axiosPrivate
+    const res = await axiosPrivate
   .post(`answers`, answerSentValues)
-  .then((response)=>{
-    console.log(response)
-  })
-    
-  } catch (error) {
+  let id = res.data.id
+  const response = await axiosPrivate.get(`answers/${id}`)
+  setAnswer(response.data);
+  console.log(response.data)
+
+}
+   catch (error) {
     console.log(error)
   }
+
+
 }
 
+
+//fetch all answers
 useEffect(() => {
   async function fetchAnswers() {
-    const response = await axiosPrivate.get(`answers/${id}`);
+    const response = await axiosPrivate.get(`answers`, {
+      QuestionId: id
+    })
 
-    setAnswer(response.data);
-   
-    
+    setAllAnswers(
+      ...answer,
+      response.data);
+
   console.log(response.data)
+  
   }
+  fetchAnswers()
 
-  fetchAnswers();
 }, []);
 
 
+// Fetch the Answer by id
+// useEffect(() => {
+//   async function fetchAnswers() {
+//     const response = await axiosPrivate.get(`answers/${currentAnswer.id}`)
 
+//     setAnswer(
+//       response.data);
+
+//       console.log(response.data)
+
+//   }
+//   fetchAnswers()
+
+// }, []);
   
   return (
     <div>
@@ -116,16 +144,18 @@ useEffect(() => {
               <p>{answer.content}</p>
               <br />  
 
-              <div className="comment-section">
+              <div className="comment-section" >
                 <h3>Comment</h3>
+
                 <div className="comment-details">
-                  <div className="rating">
-                    <img src={arrowUp} alt="" /> <span></span>
-                    <img src={arrowDown} alt="" />
+                  <div className="rating" style={{display:"flex"}}>
+                  <span> <img src={arrowUp} alt="" />{answer.upvotes}</span> 
+                 <span><img src={arrowDown} alt="" />{answer.downvotes}</span>    
                   </div>
+
                   <img src={star} alt="" />
                   <div className="commentator">
-                    <p>answered 1 hour ago</p>
+                    <p>answered {moment(answer.createdAt).fromNow()}</p>
                     <div className="flex-row">
                       <img
                         src=""
@@ -136,6 +166,18 @@ useEffect(() => {
                   </div>
                 </div>
               </div>
+                <hr className="post-comment" />
+                <br />
+              
+             
+
+              <p className="comment">
+                <h2>Comments heere</h2>
+               {answer.content}
+              </p>
+              {/* <span style={{textAlign:"right"}}> {moment(answer.createdAt).fromNow()}</span>
+              */}
+              <hr />
 
           <div>
           <textarea
