@@ -621,8 +621,16 @@ main .sidebar {
     gap: 2rem;
     padding: 10px 1.5rem;
   }
+
+  .sidebar-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 64px;
+  }
+
   .sidebar-profile p {
     font-weight: 100;
+    font-size: 18px;
   }
 }
 
@@ -755,4 +763,36 @@ main .sidebar {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+
+.loggedout-mobile{
+  /* background: #072e2e; */
+  border-radius: 4px;
+  /* margin: 0 0.5rem; */
+  /* margin: auto; */
+  position: absolute;
+  bottom: 3%;
+  width: 93%;
+  margin: 10px 20px;
+}
+
+.loggedout-mobile .sign-in,
+.loggedout-mobile .sign-up{
+
+  background: #072e2e;
+  margin-bottom: 10px;
+  padding: 20px 20px;
+}
+
+@media screen and (max-width: 450px) {
+  .loggedout-mobile{
+    width: 89%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .loggedout-mobile{
+    width: 85%;
+  }
 }
