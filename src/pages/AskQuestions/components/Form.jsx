@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { MyEditor } from "./Editor";
+import { Editor } from "./Editor";
 // import { MyEditor } from "./DraftEditor";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { convert } from "./convert"
+import ReactQuill from "react-quill";
+
 
 const Form = () => {
   const navigate = useNavigate();
@@ -21,7 +23,6 @@ const Form = () => {
 
   const [formValue, setformValue] = useState({
     title: "",
-    body: "",
     tags: "",
   });
 
@@ -32,19 +33,14 @@ const Form = () => {
     });
   };
 
-  // useEffect(() => {
-  //   console.log('hi')
-  //   setformValue({
-  //     ...formValue,
-  //     body: `${formBody}`,
-  //   });
-
-  // }, [formBody, formValue]);
+  const handleFormBody = (html) => {
+    setFormBody(html)
+  };
 
   const handleSubmit = (event) => {
     if (
       formValue.title === "" ||
-      formValue.body === "" ||
+      formBody === "" ||
       formValue.tags === ""
     ) {
       notifyError("Fill all fields");
@@ -54,10 +50,11 @@ const Form = () => {
 
       const databaseFormValue = {
         title: formValue.title,
-        body: formValue.body,
+        body: formBody,
         tags: convert(formValue.tags),
       };
       
+      console.log(databaseFormValue)
         try {
           const res = axiosPrivate
             .post(`questions`, databaseFormValue)
@@ -98,7 +95,7 @@ const Form = () => {
             Include more details about your question to provide more context
             (can include code snippets)
           </p>
-          <textarea
+          {/* <textarea
             type="textarea"
             rows="4"
             className="askquestion-body"
@@ -107,17 +104,22 @@ const Form = () => {
             value={formValue.body}
             onChange={handleChange}
             required
-          />
+          /> */}
 
           {/* <MyEditor setFormBody={setFormBody}></MyEditor> */}
 
-          {/* <Editor
+          <Editor
             placeholder={"Write something..."}
+            // value={formBody}
             value={formBody}
-            // value={formValue.body}
-            onChange={handleFormBody}
+            handleFormBody={handleFormBody}
             name="body"
-          /> */}
+          />
+
+          {/* <ReactQuill
+          onChange={setFormBody} /> */}
+
+         
         </div>
 
         <div className="tags">
