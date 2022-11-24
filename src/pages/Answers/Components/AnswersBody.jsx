@@ -9,18 +9,19 @@ import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
 import star from "../../../assets/ANSWER PAGE ICONS/star.png"
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
+// import TurndownService from 'turndown';
 import moment from "moment";
 
-export function AnswersBody({Id}) {
+export function AnswersBody() {
   const [isLoading, setIsLoading] = useState(true);
   const [question, setQuestion] = useState({});
   const [answer, setAnswer] = useState({});
   const [allAnswers, setAllAnswers] = useState([]);
   const axiosPrivate = useAxiosPrivate();
   const [value, setValue] = useState("");
-  const [currentAnswer, setCurrent] = useState('')
 
   // const navigate = useNavigate()
+
 
   const { id } = useParams();
 
@@ -31,12 +32,27 @@ export function AnswersBody({Id}) {
       setQuestion(response.data);
       console.log(response.data)
       setIsLoading(false);
-
-
     }
 
+    async function fetchAnswers(){
+      const res= await axiosPrivate.get(`answers`)
+ 
+console.log(res.data.QuestionId[0])
+  // let answerId = res.data.QuestionId
+// setAllAnswers(res.data);
+// console.log(allAnswers)
+}
+
+
     fetchQuestion();
+    fetchAnswers();
   }, []);
+
+  // const TurndownService = require('turndown');
+
+// const turndownService = new TurndownService();
+
+// const markdown = turndownService.turndown(question.body);
 
 
 
@@ -102,21 +118,6 @@ const answerSentValues= {
 
 
 
-
-// Fetch the Answer by id
-// useEffect(() => {
-//   async function fetchAnswers() {
-//     const response = await axiosPrivate.get(`answers/${currentAnswer.id}`)
-
-//     setAnswer(
-//       response.data);
-
-//       console.log(response.data)
-
-//   }
-//   fetchAnswers()
-
-// }, []);
   
   return (
     <div>
@@ -139,7 +140,7 @@ const answerSentValues= {
                   borderRadius:"5px"}} > {question.User.username}</span>
                 </p>
           <br />
-          <p>{question.body}</p>
+          <p>`${question.body}`</p>
 
           <hr className="horizontal-line"/>
           <div className="answer">
@@ -156,9 +157,25 @@ const answerSentValues= {
          
            <hr className="horizontal-line" />
 
+
            
-              <h1 className="suggestion">Answers</h1>
-              <p>{answer.content}</p>
+           <h1 className="suggestion">Answers</h1>
+
+           
+            <div>
+              {/* allAnswers.fil */}
+               {allAnswers.map((answer)=>{
+            return(
+              <div>
+                    <p>{answer.content}</p>
+                  <button className="btn postButton edit-btn">Edit</button> 
+                  <button className= "btn postButton del-btn">Delete</button>
+              </div>
+                  )
+              })}
+            </div>
+          
+              
 
               <br />  
 
