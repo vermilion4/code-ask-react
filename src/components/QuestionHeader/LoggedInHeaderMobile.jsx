@@ -9,8 +9,12 @@ import { useState } from 'react';
 import { useAuth } from "../../components/hooks/useAuth.js";
 
 const LoggedInHeaderMobile = () => {
-  const { user } = useAuth();
+  const { user, setSearchField } = useAuth();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+
+  const handleChange = e => {
+    setSearchField(e.target.value);
+  };
 
   const handleShowMobileSearch = () => {
     setShowMobileSearch(!showMobileSearch);
@@ -39,7 +43,7 @@ const LoggedInHeaderMobile = () => {
         <div className='mobile-search-bar'>
           <div className='search'>
             <FontAwesomeIcon icon={faSearch} className='search-icon' />
-            <input type='text' placeholder='Search...' />
+            <input type="search" placeholder="Search..."  onChange = {handleChange}/>
           </div>
         </div>
       ) : null}

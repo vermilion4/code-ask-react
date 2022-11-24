@@ -201,15 +201,18 @@ nav div ul li a:hover,
     width: 100%;
     transition: all ease-in-out 0.3s;
   }
+
   .search-icon-mobile {
     cursor: pointer;
   }
+
   .mobile-search-bar {
     padding-top: 85px;
     width: 100%;
     display: flex;
     justify-content: center;
   }
+
   .mobile-search-bar .search {
     position: fixed;
     z-index: 20;
@@ -689,10 +692,17 @@ main .sidebar {
   width: 80%;
   font-size: 16px;
   font-weight: lighter;
+
+    outline: none;
+    border: none;
+
 }
+
 .search input:focus {
   border: none;
+
 }
+
 .notification {
   display: flex;
   align-items: center;

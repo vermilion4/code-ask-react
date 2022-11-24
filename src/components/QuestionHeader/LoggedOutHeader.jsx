@@ -4,9 +4,11 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../../stylesheets/shared.css";
 import LoggedOutHeaderMobile from "./LoggedOutHeaderMobile";
+import { useAuth } from "../../components/hooks/useAuth";
 
 export const LoggedOutHeader = () => {
   const [loaded, setLoaded] = useState(true);
+  const { setSearchField } = useAuth();
 
   const closeNav = {
     marginLeft: "85px",
@@ -14,6 +16,10 @@ export const LoggedOutHeader = () => {
   const openNav = {
     marginLeft: "250px",
     padding: "0.4rem 2rem",
+  };
+
+  const handleChange = e => {
+    setSearchField(e.target.value);
   };
 
   function load() {
@@ -27,7 +33,7 @@ export const LoggedOutHeader = () => {
       <header className={"question-header"} style={loaded ? closeNav : openNav}>
         <div className="search">
           <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          <input type="search" placeholder="Search..." />
+          <input type="search" placeholder="Search..."  onChange = {handleChange}/>
         </div>
         <div className="header-buttons">
           <button>

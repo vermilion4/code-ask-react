@@ -2,24 +2,47 @@ import { Link } from "react-router-dom";
 import moment from 'moment';
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useAuth } from "../../../components/hooks/useAuth";
 
 const AllQuestion = (props) => {
   const { datas, filterType } = props;
+  const { searchField } = useAuth();
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 2;
+  const [searchData, setSearchData] = useState(datas);
+  const itemsPerPage = 5;
+
+
+  
+  useEffect(() => {
+
+  if(searchField !== ""){
+    setSearchData(datas.filter(
+      data => {
+        return (
+          data
+          .title
+          .toLowerCase()
+          .includes(searchField.toLowerCase()) 
+        );
+      }))
+    }else{
+      setSearchData(datas)
+    }
+    console.log(searchData)
+  }, [datas, searchField]);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     
-    setCurrentItems(datas.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(datas.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, datas, filterType]);
+    setCurrentItems(searchData.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(searchData.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, datas, filterType, searchField]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % datas.length;
+    const newOffset = (event.selected * itemsPerPage) % searchData.length;
     setItemOffset(newOffset);
   };
   
