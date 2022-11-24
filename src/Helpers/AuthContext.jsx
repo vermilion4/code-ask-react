@@ -12,6 +12,7 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
   const [user, setUser] = useState({});
+  const [searchField, setSearchField] = useState("")
 
   return (
     <AuthContext.Provider
@@ -20,6 +21,8 @@ export const AuthProvider = ({ children }) => {
         setAuth,
         user,
         setUser,
+        searchField, 
+        setSearchField,
       }}
     >
       {children}
