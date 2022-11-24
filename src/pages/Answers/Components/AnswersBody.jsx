@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { Editor } from "../../AskQuestions/components/Editor";
+// import { Editor } from "../../AskQuestions/components/Editor";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-
+import { useEffect} from "react";
+import answerIcon from "../../../assets/ANSWER PAGE ICONS/ANSWER-ICON.png"
+import shareIcon from "../../../assets/ANSWER PAGE ICONS/SHARE-ICON.png"
+import arrowUp from "../../../assets/ANSWER PAGE ICONS/arrow-up.png"
+import arrowDown from "../../../assets/ANSWER PAGE ICONS/arrow-down.png"
+import star from "../../../assets/ANSWER PAGE ICONS/star.png"
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import Spinner from "../../../components/Spinner";
 import moment from "moment";
@@ -10,7 +14,11 @@ import moment from "moment";
 export function AnswersBody() {
   const [isLoading, setIsLoading] = useState(true);
   const [question, setQuestion] = useState({});
+  const [answer, setAnswer] = useState({})
   const axiosPrivate = useAxiosPrivate();
+  const [value, setValue] = useState("")
+
+  // const navigate = useNavigate()
 
   const { id } = useParams();
 
@@ -19,12 +27,54 @@ export function AnswersBody() {
       const response = await axiosPrivate.get(`questions/${id}`);
 
       setQuestion(response.data);
-      console.log(response.data)
+      // console.log(response.data)
       setIsLoading(false);
     }
 
     fetchQuestion();
   }, []);
+
+const handleChange=(e)=>{
+  setValue(e.target.value)
+}
+
+// const [answerValue, setAnswerValue] = useState({
+//   QuestionId : "",
+//   content: ""
+// })
+
+const answerSentValues= {
+  QuestionId: id,
+  content:value
+}
+
+const handleSubmit=()=>{
+  try {
+    const res = axiosPrivate
+  .post(`answers`, answerSentValues)
+  .then((response)=>{
+    console.log(response)
+  })
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+useEffect(() => {
+  async function fetchAnswers() {
+    const response = await axiosPrivate.get(`answers/${id}`);
+
+    setAnswer(response.data);
+   
+    
+  console.log(response.data)
+  }
+
+  fetchAnswers();
+}, []);
+
+
 
   
   return (
@@ -49,54 +99,24 @@ export function AnswersBody() {
                 </p>
           <br />
 
-
-                    {/* <div>
-                      Developers Answers come here
-                    </div>
-
-                  <br /> */}
-
-          <div className="editor">
-            <Editor placeholder={"Write something..."}/>
-           <a href="" className="btn postButton">
-              POST
-            </a>
-          </div>
-
-
-              
-
-          {/* ANSWERS */}
-
-          {/* <p>
-                Is there a way to get the version set in package.json in a nodejs
-                app? I would want something like this
-              </p>
-              <br />
-              <br />  */}
-          {/* <CodeEditorWindow/> */}
-          {/* <hr />
-              <div className="answer">
+          <div className="answer">
                 <div className="ans">
-                  <img src="../IMAGES/ANSWER PAGE ICONS/ANSWER-ICON.png" alt="" />
+                  <img src={answerIcon} alt="" />
                   <h3>Answer</h3>
                 </div>
                 <h1>|</h1>
                 <div classNames="share">
-                  <img src="../IMAGES/ANSWER PAGE ICONS/SHARE-ICON.png" alt="" />
-                  <h3>Share</h3>
+                  <img src={shareIcon}alt="" />
+                  <span>Share</span>
                 </div>
-              </div>
-              <hr className="horizontal-line" />
+           </div>
+         
+           <hr className="horizontal-line" />
               <h1 className="suggestion">Answers</h1>
-              <p>
-                Found that the following code fragment worked best for me. Since
-                it uses require to load the package.json, it works regardless of the
-                current working directory.
-              </p>
-              <br /> */}
-          {/* <CodeEditorWindow/> */}
-          {/* <div className="comment-section">
+              <p>{answer.content}</p>
+              <br />  
+
+              <div className="comment-section">
                 <h3>Comment</h3>
                 <div className="comment-details">
                   <div className="rating">
@@ -108,7 +128,7 @@ export function AnswersBody() {
                     <p>answered 1 hour ago</p>
                     <div className="flex-row">
                       <img
-                        src={Ajiboye}
+                        src=""
                         alt="image of commentator"
                       />
                       <span>@ajiboy</span>
@@ -116,6 +136,44 @@ export function AnswersBody() {
                   </div>
                 </div>
               </div>
+
+          <div>
+          <textarea
+            type="textarea"
+            rows="4"
+            placeholder="Answers"
+            name="body"
+            value= {value}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit" className="btn postButton" onClick={handleSubmit}> POST</button>
+          
+          </div>
+
+
+              
+
+          {/* ANSWERS */}
+
+
+          {/*
+          <div className="comment-section">
+              <hr className="horizontal-line" />
+              <h1 className="suggestion">Answers</h1>
+              <p>
+                Found that the following code fragment worked best for me. Since
+                it uses require to load the package.json, it works regardless of the
+                current working directory.
+              </p>
+              <br />  */}
+  
+
+
+            
+          {/* <CodeEditorWindow/> 
+
               <hr className="post-comment" />
               <br />
               <p className="comment">
@@ -169,8 +227,5 @@ export function AnswersBody() {
               <br />
               <p className="your-answer">Your answer</p>
               <br /> */}
-        </>
-      )}
-    </div>
-  );
-}
+</>)}
+</div>)}
