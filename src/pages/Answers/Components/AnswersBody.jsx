@@ -29,12 +29,34 @@ export function AnswersBody({Id}) {
       const response = await axiosPrivate.get(`questions/${id}`);
 
       setQuestion(response.data);
-      // console.log(response.data)
+      console.log(response.data)
       setIsLoading(false);
+
+
     }
 
     fetchQuestion();
   }, []);
+
+
+
+// fetch all answers
+// useEffect(() => {
+//   async function fetchAnswers() {
+//     const response = await axiosPrivate.get(`answers`, {
+//       QuestionId: id
+//     })
+
+//     setAllAnswers(
+//       response.data);
+
+//   console.log(response.data)
+  
+//   }
+//   fetchAnswers()
+
+// }, []);
+
 
 const handleChange=(e)=>{
   setValue(e.target.value)
@@ -58,6 +80,7 @@ const answerSentValues= {
     const res = await axiosPrivate
   .post(`answers`, answerSentValues)
   let id = res.data.id
+
   const response = await axiosPrivate.get(`answers/${id}`)
   setAnswer(response.data);
   console.log(response.data)
@@ -70,24 +93,14 @@ const answerSentValues= {
 
 }
 
+//  async function deleteAnswer (){
 
-//fetch all answers
-useEffect(() => {
-  async function fetchAnswers() {
-    const response = await axiosPrivate.get(`answers`, {
-      QuestionId: id
-    })
+//   const del = await axiosPrivate.delete(`answers/${id}`)
 
-    setAllAnswers(
-      ...answer,
-      response.data);
+//   console.log(del)
+// }
 
-  console.log(response.data)
-  
-  }
-  fetchAnswers()
 
-}, []);
 
 
 // Fetch the Answer by id
@@ -126,7 +139,9 @@ useEffect(() => {
                   borderRadius:"5px"}} > {question.User.username}</span>
                 </p>
           <br />
+          <p>{question.body}</p>
 
+          <hr className="horizontal-line"/>
           <div className="answer">
                 <div className="ans">
                   <img src={answerIcon} alt="" />
@@ -140,8 +155,11 @@ useEffect(() => {
            </div>
          
            <hr className="horizontal-line" />
+
+           
               <h1 className="suggestion">Answers</h1>
               <p>{answer.content}</p>
+
               <br />  
 
               <div className="comment-section" >
