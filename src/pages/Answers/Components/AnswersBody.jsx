@@ -57,7 +57,12 @@ export function AnswersBody() {
                   <br /> */}
 
           <div className="editor">
-            <Editor placeholder={"Write something..."}/>
+            {/* <Editor placeholder={"Write something..."}/> */}
+
+<div>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+</div>
+
            <a href="" className="btn postButton">
               POST
             </a>
