@@ -31,7 +31,6 @@ const AllQuestion = (props) => {
     }else{
       setSearchData(datas)
     }
-    console.log(searchData)
   }, [datas, searchField]);
 
   useEffect(() => {
@@ -58,6 +57,7 @@ const AllQuestion = (props) => {
           createdAt,
           id,
           title,
+          Answers
         }) => {
           return (
             <Link key={id} to={`/answers/${id}`}>
@@ -87,11 +87,9 @@ const AllQuestion = (props) => {
                   <div className="views-answers">
                     <p>
                       <span>0</span> Views
-                      {/* <span>{views}</span> Views */}
                     </p>
                     <p>
-                      <span>0</span> Answers
-                      {/* <span>{answers}</span> Answers */}
+                      <span>{Answers ? Answers.length : 0}</span> Answers
                     </p>
                   </div>
                 </div>
