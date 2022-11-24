@@ -47,22 +47,23 @@ const Form = () => {
         tags: convert(formValue.tags),
       };
 
+      console.log(formBody)
       console.log(databaseFormValue);
-      try {
-        const res = axiosPrivate
-          .post(`questions`, databaseFormValue)
-          .then((response) => {
-            console.log(response);
-            navigate("/questions");
-          })
-          .catch((err) => {
-            notifyError("Question not submitted");
-          });
-      } catch (error) {
-        notifyError("Question not submitted");
-      } finally {
-        setPostButton(true);
-      }
+      // try {
+      //   axiosPrivate
+      //     .post(`questions`, databaseFormValue)
+      //     .then((response) => {
+      //       console.log(response);
+      //       navigate("/questions");
+      //     })
+      //     .catch((err) => {
+      //       notifyError("Question not submitted");
+      //     });
+      // } catch (error) {
+      //   notifyError("Question not submitted");
+      // } finally {
+      //   setPostButton(true);
+      // }
     }
   };
 
