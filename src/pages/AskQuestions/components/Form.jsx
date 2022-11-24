@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Editor } from "./Editor";
-// import { MyEditor } from "./DraftEditor";
 import useAxiosPrivate from "../../../components/hooks/useAxiosPrivate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { convert } from "./convert"
-import ReactQuill from "react-quill";
-
+import { convert } from "./convert";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -34,15 +31,11 @@ const Form = () => {
   };
 
   const handleFormBody = (html) => {
-    setFormBody(html)
+    setFormBody(html);
   };
 
   const handleSubmit = (event) => {
-    if (
-      formValue.title === "" ||
-      formBody === "" ||
-      formValue.tags === ""
-    ) {
+    if (formValue.title === "" || formBody === "" || formValue.tags === "") {
       notifyError("Fill all fields");
     } else {
       event.preventDefault();
@@ -53,24 +46,23 @@ const Form = () => {
         body: formBody,
         tags: convert(formValue.tags),
       };
-      
-      console.log(databaseFormValue)
-        try {
-          const res = axiosPrivate
-            .post(`questions`, databaseFormValue)
-            .then((response) => {
-              console.log(response);
-              navigate("/questions");
-            })
-            .catch((err) => {
-              notifyError("Question not submitted");
-            });
-        } catch (error) {
-          notifyError("Question not submitted");
-        } finally {
-          setPostButton(true);
-        }
-     
+
+      console.log(databaseFormValue);
+      try {
+        const res = axiosPrivate
+          .post(`questions`, databaseFormValue)
+          .then((response) => {
+            console.log(response);
+            navigate("/questions");
+          })
+          .catch((err) => {
+            notifyError("Question not submitted");
+          });
+      } catch (error) {
+        notifyError("Question not submitted");
+      } finally {
+        setPostButton(true);
+      }
     }
   };
 
@@ -95,31 +87,12 @@ const Form = () => {
             Include more details about your question to provide more context
             (can include code snippets)
           </p>
-          {/* <textarea
-            type="textarea"
-            rows="4"
-            className="askquestion-body"
-            placeholder="Enter more informaion about question..."
-            name="body"
-            value={formValue.body}
-            onChange={handleChange}
-            required
-          /> */}
-
-          {/* <MyEditor setFormBody={setFormBody}></MyEditor> */}
-
           <Editor
-            placeholder={"Write something..."}
-            // value={formBody}
+            placeholder={"Enter more informaion about question..."}
             value={formBody}
             handleFormBody={handleFormBody}
             name="body"
           />
-
-          {/* <ReactQuill
-          onChange={setFormBody} /> */}
-
-         
         </div>
 
         <div className="tags">

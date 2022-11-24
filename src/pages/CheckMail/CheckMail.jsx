@@ -16,6 +16,7 @@ export const CheckMail = () => {
       </section> 
         <section className="checkmail-wrapper">
             <CodeaskLogo></CodeaskLogo>
+            <h2 className='checkmail-header'>Link Sent</h2>
         <p className='checkmail-text'>Kindly check your mail for Confirmation Message</p>
         <CyclicDesign2/>
     </section>
