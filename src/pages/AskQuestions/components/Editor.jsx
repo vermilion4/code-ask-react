@@ -1,41 +1,28 @@
-import editor from 'editor';
-import React, { Component, useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import '../../../stylesheets/editor.css';
+import React, { Component } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "../../../stylesheets/editor.css";
 
 /*
  * Simple editor component that takes placeholder text as a prop
  */
 export class Editor extends Component {
-
   constructor(props) {
     super(props);
-    this.state = { editorHtml: '', theme: 'snow' };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.rteChange = this.rteChange.bind(this);
+    this.state = { editorHtml: "", theme: "snow" };
   }
-
-  // handleChange(html) {
-  //   this.setState({ editorHtml: html });
-  // }
-
-  
-  // rteChange = (content, delta, source, editor) => {
-	// 	console.log(editor.getHTML()); // rich text
-	// 	console.log(editor.getText()); // plain text
-	// }
 
   render() {
     return (
       <div>
         <ReactQuill
-          onChange={ (html) => {this.props.handleFormBody(html)}}
+          onChange={(html) => {
+            this.props.handleFormBody(html);
+          }}
           theme={this.state.theme}
-          // value={this.state.editorHtml}
           modules={Editor.modules}
           formats={Editor.formats}
-          placeholder={this.props.placeholder}    
+          placeholder={this.props.placeholder}
         />
       </div>
     );
@@ -48,17 +35,17 @@ export class Editor extends Component {
  */
 Editor.modules = {
   toolbar: [
-    ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-    ['blockquote', 'code-block'],
+    ["bold", "italic", "underline", "strike"], // toggled buttons
+    ["blockquote", "code-block"],
 
     [{ header: 1 }, { header: 2 }], // custom button values
-    [{ list: 'ordered' }, { list: 'bullet' }],
-    [{ script: 'sub' }, { script: 'super' }], // superscript/subscript
-    [{ indent: '-1' }, { indent: '+1' }], // outdent/indent
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ script: "sub" }, { script: "super" }], // superscript/subscript
+    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
 
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-    ['clean'],
+    ["clean"],
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
@@ -70,19 +57,19 @@ Editor.modules = {
  * See https://quilljs.com/docs/formats/
  */
 Editor.formats = [
-  'header',
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
-  'strike',
-  'blockquote',
-  'code-block',
-  'list',
-  'bullet',
-  'indent',
-  'link',
-  'image',
-  'video',
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "code-block",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+  "video",
 ];

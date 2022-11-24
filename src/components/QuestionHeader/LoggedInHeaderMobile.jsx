@@ -6,8 +6,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import UserAvatar from '../../assets/Ajiboye.png';
 import { useState } from 'react';
+import { useAuth } from "../../components/hooks/useAuth.js";
 
 const LoggedInHeaderMobile = () => {
+  const { user } = useAuth();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
 
   const handleShowMobileSearch = () => {
@@ -30,7 +32,7 @@ const LoggedInHeaderMobile = () => {
             />
             <FontAwesomeIcon icon={faBell} className='white' />
           </div>
-          <img src={UserAvatar} alt='' className='userAvatar' />
+          <img src={user.profile_image} alt='' className='userAvatar' />
         </div>
       </section>
       {showMobileSearch ? (

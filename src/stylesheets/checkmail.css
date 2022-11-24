@@ -7,20 +7,25 @@
     padding: 0;
 }
 
-
-
-
 .checkmail-wrapper{
     display: flex; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
 }
 
-
+.checkmail-header{
+    font-weight: 500;
+    font-size: 22px;
+    color: #002828;;
+    text-align: center; 
+    display: block;
+    margin-bottom: 20px;
+}
 
 .checkmail-text{
-    font-weight: 500;
+    font-weight: 300;
     font-size: 20px;
     color: var(--black);
     text-align: center; 
@@ -36,11 +41,16 @@
 
     .checkmail-wrapper{
         flex-direction: column;
-        gap: 20px;
+        gap: 2px;
+    }
+
+    .checkmail-header{
+        font-size: 20px; 
+        margin-bottom: 5px;
+        margin-top: 50px;
     }
 
     .checkmail-text{
-        font-weight: 400;
         font-size: 18px;
     }
     

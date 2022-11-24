@@ -279,7 +279,7 @@
     }
   
       .search-icon {
-       left: -25px;
+       /* left: -25px; */
        display: block;
       }
     
