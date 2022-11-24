@@ -12,33 +12,30 @@ export class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = { editorHtml: '', theme: 'snow' };
-    this.handleChange = this.handleChange.bind(this);
-    this.rteChange = this.rteChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.rteChange = this.rteChange.bind(this);
   }
 
-  handleChange(html) {
-    this.setState({ editorHtml: html });
-  }
+  // handleChange(html) {
+  //   this.setState({ editorHtml: html });
+  // }
 
   
-  rteChange = (content, delta, source, editor) => {
-		// console.log(editor.getHTML()); // rich text
-		// console.log(editor.getText()); // plain text
-	
-	}
+  // rteChange = (content, delta, source, editor) => {
+	// 	console.log(editor.getHTML()); // rich text
+	// 	console.log(editor.getText()); // plain text
+	// }
 
   render() {
     return (
       <div>
         <ReactQuill
+          onChange={ (html) => {this.props.handleFormBody(html)}}
           theme={this.state.theme}
-          value={this.state.editorHtml}
+          // value={this.state.editorHtml}
           modules={Editor.modules}
           formats={Editor.formats}
-          placeholder={this.props.placeholder}
-          
-          
-          
+          placeholder={this.props.placeholder}    
         />
       </div>
     );
