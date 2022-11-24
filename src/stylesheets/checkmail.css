@@ -1,0 +1,47 @@
+.checkmail-container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    margin: 0;
+    gap: 0;
+    padding: 0;
+}
+
+
+
+
+.checkmail-wrapper{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+
+.checkmail-text{
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--black);
+    text-align: center; 
+}
+
+@media screen and (max-width: 940px) {
+    .checkmail-container{
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .checkmail-wrapper{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .checkmail-text{
+        font-weight: 400;
+        font-size: 18px;
+    }
+    
+}

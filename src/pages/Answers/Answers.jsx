@@ -71,8 +71,8 @@ export const Answers = ({
           <main id="main"  style={hoverState ? closeContent : openContent} >
             <div className="answer-page" id="answersmainPage">
               <AnswersLeftWrap />
-            </div>
             <AnswersRightWrap />
+            </div>
           </main>
 
           <NavIcon onclick={mobileNav} />

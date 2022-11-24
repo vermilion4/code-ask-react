@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LoggedInHeader } from '../../components/QuestionHeader/LoggedInHeader';
 import { LoggedInMobile } from '../../components/Sidebar/LoggedInMobile';
 import NavIcon from '../../components/QuestionHeader/NavIcon';

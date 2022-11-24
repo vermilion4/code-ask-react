@@ -7,6 +7,7 @@ import { SignIn } from "./pages/SignIn/SignIn";
 import { Questions } from "./pages/Questions/Questions";
 import { AskQuestions } from "./pages/AskQuestions/AskQuestions";
 import { Discussion } from "./pages/Discussion/Discussion";
+import { CheckMail } from "./pages/CheckMail/CheckMail";
 import FAQ from "./pages/FAQ/FAQ";
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { ForgotPassword } from "./pages/ForgotPassword/ForgotPassword";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />}></Route>
 
         <Route path="/sign-in" element={<SignIn />}></Route>
+        <Route path="/check-mail" element={<CheckMail />}></Route>
 
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>

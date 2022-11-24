@@ -79,6 +79,16 @@
   transform: scale(1.1);
 }
 
+.askquestion-button:hover:disabled {
+  transform: scale(1.0);
+}
+
+.askquestion-button:disabled{
+  background:  #002828c0;
+  
+  cursor: no-drop;
+}
+
 .askquestion-main div input:focus {
   border: 1px solid #adb5bd;
   outline: none;
