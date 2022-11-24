@@ -27,7 +27,7 @@ export const LoggedInMobile = ({ onclick }) => {
             onClick={onclick}
           />
         </div>
-        {user.auth?
+        {user.username ?
         <div>
         <div className='sidebar-profile'>
           <img src={user.profile_image} alt='icon' />
