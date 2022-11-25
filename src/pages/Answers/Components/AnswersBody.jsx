@@ -33,8 +33,6 @@ export function AnswersBody() {
       setIsLoading(false);
     }
 
-    
-
     fetchQuestion();
   }, []);
 
@@ -81,31 +79,27 @@ export function AnswersBody() {
         <Spinner></Spinner>
       ) : (
         <>
-
-        {/* Questions */}
+          {/* Questions */}
           <h1>{question.title}</h1>
-          <ul>
-            {question.Tags.map((tag, index) => {
-              return <li key={index}>{tag.name}</li>;
-            })}
-          </ul>
-          <p style={{ textAlign: "right" }}>
-            asked {moment(question.createdAt).fromNow()} by @
-            <span
-              style={{
-                backgroundColor: "#e5e5e5",
-                padding: "4px",
-                marginLeft: "10px",
-                borderRadius: "5px",
-              }}
-            >
-              {question.User.username}
-            </span>
-          </p>
+          <div className="tags-row">
+          
+              {/* {question.Tags.map((tag, index) => {
+                    console.log(question.Tags)
+                return <li key={index}>{tag.name}</li>;
+              })} */}
+              
+            <p>
+              asked {moment(question.createdAt).fromNow()} by @
+              <span  className="usersname"    
+              >
+                {/* {question.User.username} */}
+              </span>
+            </p>
+          </div>
+      
           <br />
           <p>`${question.body}`</p>
-
-
+         
 
           <hr className="horizontal-line" />
           <div className="answer">
@@ -113,7 +107,7 @@ export function AnswersBody() {
               <img src={answerIcon} alt="" />
               <h3>Answer</h3>
             </div>
-            <h1>|</h1>
+            <h1 style={{ fontWeight: "lighter" }}>|</h1>
             <div classNames="share">
               <img src={shareIcon} alt="" />
               <span>Share</span>
@@ -121,69 +115,168 @@ export function AnswersBody() {
           </div>
           <hr className="horizontal-line" />
 
-
-
-
-                {/* Answers */}
-          <h1 className="suggestion">Answers</h1>
           <div>
-            <div>
-              <p>{answer.content}</p>
-            </div>
-            <div className="comment-details">
-                    <div className="rating">
+            <ul>
+              <li>
+                {/* Answers */}
 
-                    <div style={{display: "flex"}}><span> {answer.upvotes} <img src={arrowUp} alt="" /> </span></div>  
-                    <div style={{display: "flex"}}><span> {answer.downvotes}<img src={arrowDown} alt="" /></span></div>
-     
-                    </div>
+                <h1 className="suggestion">Answers</h1>
 
-                    <img src={star} alt="" />
-                    <div className="commentator">
-                      <p>answered {moment(answer.createdAt).fromNow()}</p>
-                      <div className="flex-row">
-                        <img src="" alt="image of commentator" />
-                        <span>@ajiboy</span>
+                {question.Answer.map((answer) => {
+                  const {
+                    content,
+                    upvotes,
+                    downvotes,
+                    createdAt,
+                    User: profile_image,
+                    User: username,
+                  } = answer;
+
+                  return (
+                    <div>
+                      <div>
+                        <p>{content}</p>
                       </div>
-                    </div>
-                    <hr />
-            </div>
-          </div>
-          <br />
+                      <div className="comment-details">
+                        <div className="rating">
+                          <div style={{ display: "flex" }}>
+                            <span>
+                              {" "}
+                              {upvotes} <img src={arrowUp} alt="" />{" "}
+                            </span>
+                          </div>
+                          <div style={{ display: "flex" }}>
+                            <span>
+                              {" "}
+                              {downvotes}
+                              <img src={arrowDown} alt="" />
+                            </span>
+                          </div>
+                        </div>
 
+                        <img src={star} alt="" />
+                        <div className="commentator">
+                          <p>answered {moment(createdAt).fromNow()}</p>
+                          <div className="flex-row">
+                            <img
+                              src={profile_image}
+                              alt="image of commentator"
+                            />
+                            <span>{username}</span>
+                          </div>
+                        </div>
+                        <hr />
+                      </div>
+                      <br />
+                    </div>
+                  );
+                })}
+                <ul>
+                  <li>
+                    <div>
+                      <p>Comment</p>
+                      {answer.comment.map((comment) => {
+                        const {
+                          content,
+                          upvotes,
+                          downvotes,
+                          id,
+                          createdAt,
+                          User: profile_image,
+                          User: username,
+                        } = comment;
+                        return (
+                          <div className="comment-section" key={id}>
+                            <h3>{content}</h3>
+
+                            <div className="comment-details">
+                              <div className="rating">
+                                <div style={{ display: "flex" }}>
+                                  <span>
+                                    {" "}
+                                    {upvotes} <img src={arrowUp} alt="" />{" "}
+                                  </span>
+                                </div>
+                                <div style={{ display: "flex" }}>
+                                  <span>
+                                    {" "}
+                                    {downvotes} <img src={arrowDown} alt="" />
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div className="commentator">
+                                <p>answered {moment(createdAt).fromNow()}</p>
+                                <div className="flex-row">
+                                  <img
+                                    src={profile_image}
+                                    alt="image of commentator"
+                                  />
+                                  <span>{username}</span>
+                                </div>
+                              </div>
+                              <hr />
+                            </div>
+
+                            <hr className="horizontal-line" />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
 
           {/* comment */}
           <div>
-            {question.Answers.map((answer) => {
-              const{content, upvotes, downvotes, id} = answer
+            <p>Comment</p>
+            {answer.map((comment) => {
+              const {
+                content,
+                upvotes,
+                downvotes,
+                id,
+                createdAt,
+                User: profile_image,
+                User: username,
+              } = comment;
               return (
-                <div className="comment-section" key={id} >
+                <div className="comment-section" key={id}>
                   <h3>{content}</h3>
 
                   <div className="comment-details">
                     <div className="rating">
-
-                    <div style={{display: "flex"}}><span> {upvotes} <img src={arrowUp} alt="" /> </span></div>  
-                    <div style={{display: "flex"}}><span> {downvotes} <img src={arrowDown} alt="" /></span></div>
-     
+                      <div style={{ display: "flex" }}>
+                        <span>
+                          {" "}
+                          {upvotes} <img src={arrowUp} alt="" />{" "}
+                        </span>
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        <span>
+                          {" "}
+                          {downvotes} <img src={arrowDown} alt="" />
+                        </span>
+                      </div>
                     </div>
 
-                    {/* <div className="commentator">
+                    <div className="commentator">
                       <p>answered {moment(createdAt).fromNow()}</p>
                       <div className="flex-row">
-                        <img src="" alt="image of commentator" />
-                        <span>@ajiboy</span>
+                        <img src={profile_image} alt="image of commentator" />
+                        <span>{username}</span>
                       </div>
-                    </div>  */}
+                    </div>
                     <hr />
                   </div>
 
-                   <hr className="horizontal-line" />
+                  <hr className="horizontal-line" />
                 </div>
-                
               );
             })}
-          </div> 
+          </div>
 
           <hr className="post-comment" />
           <br />
