@@ -47,6 +47,10 @@ color: rgb(22, 51, 22);
   .answer-page h1 {
     margin: 50px 0;
   }
+  .rating{
+    display: flex;
+    gap: 20px;
+  }
   
   .answer-page pre {
     background-color: #f6f6f6;
@@ -153,16 +157,19 @@ color: rgb(22, 51, 22);
   }
   
   .comment-section {
-    display: flex;
+    width: 100%;
+    display: block;
     justify-content: space-between;
     align-items: center;
   }
   
-  .comment-section .comment-details {
-    width: 300px;
+ .comment-details {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    text-align: right;
+    justify-content:flex-end;
+    gap: 10px;
   }
   
   .comment-section h3 {
