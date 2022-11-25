@@ -10,7 +10,7 @@ function signInformWrap(){
 
           <CodeaskLogo/>
           {/* signupIntro comes here */}
-        <SignUpIntro classname ={"signup-intro"} text={"Log Into Your Account"} paragraph={"Welcome Back! Please Enter Your Details"}/>
+        <SignUpIntro className ={"signup-intro"} text={"Log Into Your Account"} paragraph={"Welcome Back! Please Enter Your Details"}/>
          {/* form comes here */}
 
         <LogInForm/>

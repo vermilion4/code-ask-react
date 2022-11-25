@@ -5,7 +5,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { loggedInNavData } from '../../Data/loggedInNavData';
 import Logo from '../../assets/WhiteLogo.png';
 import Logout from '../../assets/logout.png';
-import Avatar from '../../assets/Avatar.png';
 import { useAuth } from "../../components/hooks/useAuth.js";
 import SigninIcon from "../../assets/question-modal-icons/bx_log-in.png";
 import SignupIcon from "../../assets/question-modal-icons/Vector.png";

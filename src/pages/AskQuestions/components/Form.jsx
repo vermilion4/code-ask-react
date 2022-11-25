@@ -47,23 +47,21 @@ const Form = () => {
         tags: convert(formValue.tags),
       };
 
-      console.log(formBody)
-      console.log(databaseFormValue);
-      // try {
-      //   axiosPrivate
-      //     .post(`questions`, databaseFormValue)
-      //     .then((response) => {
-      //       console.log(response);
-      //       navigate("/questions");
-      //     })
-      //     .catch((err) => {
-      //       notifyError("Question not submitted");
-      //     });
-      // } catch (error) {
-      //   notifyError("Question not submitted");
-      // } finally {
-      //   setPostButton(true);
-      // }
+      try {
+        axiosPrivate
+          .post(`questions`, databaseFormValue)
+          .then((response) => {
+            console.log(response);
+            navigate("/questions");
+          })
+          .catch((err) => {
+            notifyError("Question not submitted");
+          });
+      } catch (error) {
+        notifyError("Question not submitted");
+      } finally {
+        setPostButton(true);
+      }
     }
   };
 
@@ -110,7 +108,7 @@ const Form = () => {
         </div>
       </section>
       <button
-        class="askquestion-button"
+        className="askquestion-button"
         onClick={handleSubmit}
         disabled={postButton ? false : true}
       >

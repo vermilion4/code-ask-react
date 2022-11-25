@@ -4,7 +4,6 @@ import WhiteLogo from '../../assets/WhiteLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
-import UserAvatar from '../../assets/Ajiboye.png';
 import { useState } from 'react';
 import { useAuth } from "../../components/hooks/useAuth.js";
 

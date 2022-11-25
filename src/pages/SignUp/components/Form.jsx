@@ -9,7 +9,7 @@ import { CreateAccount2 } from "./CreateAccount2";
 function Form() {
 
   return (
-    <section class="signup-form">
+    <section className="signup-form">
       {/* <CreateAccount /> */}
       <CreateAccount2/>
       <hr class="hr" />
