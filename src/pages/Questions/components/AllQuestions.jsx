@@ -12,7 +12,7 @@ const AllQuestion = (props) => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const [searchData, setSearchData] = useState(datas);
-  const itemsPerPage = 5;
+  const itemsPerPage = 4;
 
 
   

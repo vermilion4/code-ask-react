@@ -86,7 +86,7 @@ export const Loggedin = () => {
           <>
             <form action="">
               {/* email */}
-              <div class="form-wrapper">
+              <div className="form-wrapper">
                 <label htmlFor="email">
                   Email Address<span className="asterik">*</span>
                 </label>
@@ -95,7 +95,7 @@ export const Loggedin = () => {
                   type="email"
                   id="email"
                   name="email"
-                  placeHolder="Enter your Email"
+                  placeholder="Enter your Email"
                   onChange={handleChange}
                   value={values.email}
                 />
@@ -105,7 +105,7 @@ export const Loggedin = () => {
               </div>
 
               {/* password */}
-              <div class="form-wrapper">
+              <div className="form-wrapper">
                 <label htmlFor="Password">
                   Password<span className="asterik">*</span>
                 </label>
@@ -114,7 +114,7 @@ export const Loggedin = () => {
                   type={showPassword ? "password" : "text"}
                   id="password"
                   name="password"
-                  placeHolder="Enter your Password"
+                  placeholder="Enter your Password"
                   onChange={handleChange}
                   value={values.password}
                 />
@@ -129,7 +129,7 @@ export const Loggedin = () => {
               <div className="login-options">
                 <div className="remember">
                   <input className="checkbox" type="checkbox" id="rememberMe" />
-                  <label className="remember-me" HTMLfor="rememberMe">
+                  <label className="remember-me" htmlFor="rememberMe">
                     Remember me
                   </label>
                 </div>
@@ -146,7 +146,7 @@ export const Loggedin = () => {
                 {isSubmitting ? "Loading" : "Log In"}
               </button>
 
-              <hr class="hr" />
+              <hr className="hr" />
             </form>
 
             <ToastContainer />

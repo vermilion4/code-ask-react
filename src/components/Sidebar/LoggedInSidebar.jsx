@@ -35,7 +35,7 @@ export const LoggedInSidebar = ({
         <div className='sidebar-links'>
           {loggedInNavData.map(({ id, icon, text, link }) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={id} >
                 <NavLink key={id} to={link}>
                   {icon}
                   <span className='icon-text'>{text}</span>
